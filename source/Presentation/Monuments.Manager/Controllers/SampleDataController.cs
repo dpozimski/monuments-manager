@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Monuments.Manager.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
