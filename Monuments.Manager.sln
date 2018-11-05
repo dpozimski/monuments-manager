@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager", "source
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{034E0A58-33C4-4337-ADF9-04072EE0236B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{876E9993-5EAE-450F-A3AD-2D2B49256BE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{49E63A8D-1B29-495F-BB3E-D1EF17391379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Domain", "source\Core\Monuments.Manager.Domain\Monuments.Manager.Domain.csproj", "{D2EF23B1-1F44-4175-A0E0-547DA904BCC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +23,17 @@ Global
 		{5AFB964E-B68E-47F8-84D6-261948E0456D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AFB964E-B68E-47F8-84D6-261948E0456D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AFB964E-B68E-47F8-84D6-261948E0456D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2EF23B1-1F44-4175-A0E0-547DA904BCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2EF23B1-1F44-4175-A0E0-547DA904BCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2EF23B1-1F44-4175-A0E0-547DA904BCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2EF23B1-1F44-4175-A0E0-547DA904BCC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5AFB964E-B68E-47F8-84D6-261948E0456D} = {034E0A58-33C4-4337-ADF9-04072EE0236B}
+		{D2EF23B1-1F44-4175-A0E0-547DA904BCC5} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7129A89-93B0-48C4-9A44-C756583B4A5D}

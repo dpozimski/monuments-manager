@@ -3,7 +3,7 @@
     "defaultVariables": null,
     "swaggerGenerator": {
         "aspNetCoreToSwagger": {
-            "project": "Northwind.WebUI.csproj",
+            "project": "Monuments.Manager.csproj",
             "msBuildProjectExtensionsPath": null,
             "configuration": null,
             "runtime": null,
@@ -13,7 +13,7 @@
             "workingDirectory": null,
             "defaultPropertyNameHandling": "CamelCase",
             "defaultReferenceTypeNullHandling": "Null",
-            "defaultEnumHandling": "Integer",
+            "defaultEnumHandling": "String",
             "flattenInheritanceHierarchy": false,
             "generateKnownTypes": true,
             "generateXmlObjects": false,
@@ -92,7 +92,7 @@
             "enumNameGeneratorType": null,
             "serviceHost": null,
             "serviceSchemes": null,
-            "output": "ClientApp/src/app/northwind-traders-api.ts"
+            "output": "ClientApp/src/app/monuments-manager-api.ts"
         }
     }
 }
