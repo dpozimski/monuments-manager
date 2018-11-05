@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/source/Presentation/Monuments.Manager/wwwroot/api/specification.json
+/source/Presentation/Monuments.Manager/ClientApp/src/app/monuments-manager-api.ts
