@@ -7,6 +7,7 @@ namespace Monuments.Manager.Domain.Entities
     public class MonumentEntity : BaseEntity
     {
         public int UserId { get; set; }
+        public UserEntity User { get; set; }
 
         public string Name { get; set; }
         public string FormOfProtection { get; set; }

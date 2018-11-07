@@ -7,6 +7,7 @@ namespace Monuments.Manager.Domain.Entities
     public class AddressEntity : BaseEntity
     {
         public int MonumentId { get; set; }
+        public MonumentEntity Monument { get; set; }
 
         public string Province { get; set; }
         public string District { get; set; }
