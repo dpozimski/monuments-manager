@@ -19,6 +19,7 @@ namespace Monuments.Manager
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                     new WebHostBuilder()
+                        .UseApplicationInsights()
                         .UseKestrel()
                         .UseContentRoot(Directory.GetCurrentDirectory())
                         .ConfigureAppConfiguration((hostingContext, config) =>
