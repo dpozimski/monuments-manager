@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Persistence
 {
-    public class MonumentDbContext : DbContext
+    public class MonumentsDbContext : DbContext
     {
         private readonly IConfigurationBuilder _configurationBuilder;
         private readonly IEntityChangedDateHook _entityChangedDateHook;
@@ -28,7 +28,7 @@ namespace Monuments.Manager.Persistence
         public DbSet<CityEntity> Cities { get; set; }
         public DbSet<StreetEntity> Streets { get; set; }
 
-        public MonumentDbContext(
+        public MonumentsDbContext(
             IConfigurationBuilder configurationBuilder,
             IEntityChangedDateHook entityChangedDateHook,
             DbContextOptions options) : base(options)

@@ -16,12 +16,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="5.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
     <PackageReference Include="NSwag.AspNetCore" Version="11.20.1" />
-    <PackageReference Include="NSwag.MSBuild" Version="11.18.6">
+    <PackageReference Include="NSwag.MSBuild" Version="11.20.1">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -35,6 +37,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\api\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

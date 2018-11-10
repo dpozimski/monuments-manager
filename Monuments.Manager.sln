@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Persistence.Tests", "source\Tests\Monuments.Manager.Persistence.Tests\Monuments.Manager.Persistence.Tests.csproj", "{2A4B122C-8C10-4770-8CBA-63C6510EA220}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Mager.Infrastructure", "Monuments.Mager.Infrastructure\Monuments.Mager.Infrastructure.csproj", "{39C1D70A-F629-45B4-8186-6085649A08EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C1D70A-F629-45B4-8186-6085649A08EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C1D70A-F629-45B4-8186-6085649A08EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C1D70A-F629-45B4-8186-6085649A08EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C1D70A-F629-45B4-8186-6085649A08EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{0E3DD3F8-E536-4F05-B5A0-BCD97AA9D492} = {39547B44-E23A-4042-9A3E-231B42FFB9C1}
 		{96BCA35F-4A86-48F8-B30C-4109E3F9C8AB} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
+		{39C1D70A-F629-45B4-8186-6085649A08EA} = {39547B44-E23A-4042-9A3E-231B42FFB9C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7129A89-93B0-48C4-9A44-C756583B4A5D}

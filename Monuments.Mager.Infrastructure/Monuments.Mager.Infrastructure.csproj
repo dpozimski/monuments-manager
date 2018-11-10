@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\Monuments.Manager.Persistence\Monuments.Manager.Persistence.csproj" />
+    <ProjectReference Include="..\source\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
   </ItemGroup>
 
 </Project>

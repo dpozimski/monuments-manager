@@ -1,11 +1,17 @@
+using MediatR;
+using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Monuments.Commands;
+using Monuments.Manager.Infrastructure;
+using Monuments.Manager.Models;
 using NSwag.AspNetCore;
+using System.Reflection;
 
 namespace Monuments.Manager
 {
@@ -21,19 +27,24 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ApplicationSecurity>(Configuration.GetSection("ApplicationSecurity"));
+            services.AddJwtAuthentication(Configuration);
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            // Customise default API behavour
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
-            // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            //MediatR
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformancePipelineBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthenticationPipelineBehavior<,>));
+            services.AddMediatR(typeof(CreateMonumentCommand).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,33 +62,32 @@ namespace Monuments.Manager
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseSpaStaticFiles();
-
-            app.UseSwaggerUi3(settings =>
-            {
-                settings.SwaggerUiRoute = "/api";
-                settings.SwaggerRoute = "/api/specification.json";
-            });
-
+            app.UseCors(s => s.AllowAnyHeader()
+                     .AllowAnyMethod()
+                     .AllowAnyOrigin()
+                     .AllowCredentials());
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             app.UseSpa(spa =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
                 spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+            });
+            app.UseSwaggerUi3(settings =>
+            {
+                settings.SwaggerUiRoute = "/api";
+                settings.SwaggerRoute = "/api/specification.json";
             });
         }
     }
