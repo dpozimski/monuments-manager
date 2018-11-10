@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Persistence", "source\Infrastructure\Monuments.Manager.Persistence\Monuments.Manager.Persistence.csproj", "{0E3DD3F8-E536-4F05-B5A0-BCD97AA9D492}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Application", "source\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj", "{96BCA35F-4A86-48F8-B30C-4109E3F9C8AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application", "source\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj", "{96BCA35F-4A86-48F8-B30C-4109E3F9C8AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Persistence.Tests", "source\Tests\Monuments.Manager.Persistence.Tests\Monuments.Manager.Persistence.Tests.csproj", "{2A4B122C-8C10-4770-8CBA-63C6510EA220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Persistence.Tests", "source\Tests\Monuments.Manager.Persistence.Tests\Monuments.Manager.Persistence.Tests.csproj", "{2A4B122C-8C10-4770-8CBA-63C6510EA220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
