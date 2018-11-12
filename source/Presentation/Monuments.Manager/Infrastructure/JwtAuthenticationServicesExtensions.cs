@@ -18,7 +18,7 @@ namespace Monuments.Manager.Infrastructure
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
 
-            var appSettings = configuration.GetSection("ApplicationSecurity").Get<ApplicationSecurity>();
+            var appSettings = configuration.GetSection("ApplicationSecurity").Get<ApplicationSecurityOptions>();
             var key = Encoding.ASCII.GetBytes(appSettings.JwtSecretKey);
             services.AddAuthentication(x =>
             {

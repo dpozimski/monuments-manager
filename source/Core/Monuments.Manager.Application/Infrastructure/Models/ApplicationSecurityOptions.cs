@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Infrastructure.Models
 {
-    public class ApplicationSecurity
+    public class ApplicationSecurityOptions
     {
         public string JwtSecretKey { get; set; }
         public string PasswordSalt { get; set; }

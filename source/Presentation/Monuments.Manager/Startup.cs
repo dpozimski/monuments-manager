@@ -28,7 +28,7 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<ApplicationSecurity>(Configuration.GetSection("ApplicationSecurity"));
+            services.Configure<ApplicationSecurityOptions>(Configuration.GetSection("ApplicationSecurity"));
             services.AddJwtAuthentication(Configuration);
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

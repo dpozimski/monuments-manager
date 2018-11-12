@@ -12,9 +12,9 @@ namespace Monuments.Manager.Application.Infrastructure
         private const int IterationCount = 10000;
         private const int NumBytes = 32;
 
-        private readonly IOptions<ApplicationSecurity> _applicationSecurityOptions;
+        private readonly IOptions<ApplicationSecurityOptions> _applicationSecurityOptions;
 
-        public Pbkdf2PasswordEncryptor(IOptions<ApplicationSecurity> applicationSecurityOptions)
+        public Pbkdf2PasswordEncryptor(IOptions<ApplicationSecurityOptions> applicationSecurityOptions)
         {
             _applicationSecurityOptions = applicationSecurityOptions;
         }
