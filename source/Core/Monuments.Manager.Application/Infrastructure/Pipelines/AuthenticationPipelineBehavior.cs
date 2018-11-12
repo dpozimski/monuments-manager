@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Monuments.Manager.Application.Context;
-using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Persistence;
 using System;
 using System.Security.Authentication;
@@ -13,10 +11,10 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
     public class AuthenticationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly ApplicationContext _context;
+        private readonly IApplicationContext _context;
 
         public AuthenticationPipelineBehavior(MonumentsDbContext dbContext,
-                                             ApplicationContext context)
+                                             IApplicationContext context)
         {
             _dbContext = dbContext;
             _context = context;

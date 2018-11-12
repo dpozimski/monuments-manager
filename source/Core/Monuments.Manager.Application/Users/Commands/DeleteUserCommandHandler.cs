@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using Monuments.Manager.Application.Context;
 using Monuments.Manager.Application.Exceptions;
+using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System;
@@ -14,10 +14,10 @@ namespace Monuments.Manager.Application.Users.Commands
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly ApplicationContext _context;
+        private readonly IApplicationContext _context;
 
         public DeleteUserCommandHandler(MonumentsDbContext dbContext,
-                                        ApplicationContext context)
+                                        IApplicationContext context)
         {
             _dbContext = dbContext;
             _context = context;

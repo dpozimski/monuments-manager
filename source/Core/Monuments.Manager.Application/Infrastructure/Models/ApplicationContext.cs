@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Monuments.Manager.Application.Context
+namespace Monuments.Manager.Application.Infrastructure.Models
 {
-    public class ApplicationContext
+    public class ApplicationContext : IApplicationContext
     {
         public int UserId { get; set; }
     }

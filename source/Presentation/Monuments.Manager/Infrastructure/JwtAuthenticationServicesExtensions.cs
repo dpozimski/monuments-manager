@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Monuments.Manager.Application.Context;
+using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Monuments.Manager.Infrastructure
     {
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
+
             var appSettings = configuration.GetSection("ApplicationSecurity").Get<ApplicationSecurity>();
             var key = Encoding.ASCII.GetBytes(appSettings.JwtSecretKey);
             services.AddAuthentication(x =>
@@ -29,7 +31,7 @@ namespace Monuments.Manager.Infrastructure
                 {
                     OnTokenValidated = context =>
                     {
-                        var monumentsContext = context.HttpContext.RequestServices.GetRequiredService<ApplicationContext>();
+                        var monumentsContext = context.HttpContext.RequestServices.GetRequiredService<IApplicationContext>();
                         monumentsContext.UserId = int.Parse(context.Principal.Identity.Name);
                         return Task.CompletedTask;
                     }
