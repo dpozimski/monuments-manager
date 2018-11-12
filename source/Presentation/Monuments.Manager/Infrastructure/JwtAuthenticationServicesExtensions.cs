@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Monuments.Manager.Application.Context;
-using Monuments.Manager.Models;
+using Monuments.Manager.Application.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

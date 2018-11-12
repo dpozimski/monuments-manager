@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Monuments.Manager.Application.Infrastructure
+namespace Monuments.Manager.Application.Infrastructure.Pipelines
 {
     public class PerformancePipelineBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

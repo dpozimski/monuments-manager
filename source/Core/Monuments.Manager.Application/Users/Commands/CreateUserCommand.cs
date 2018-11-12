@@ -1,14 +1,16 @@
-﻿using Monuments.Manager.Domain.Enumerations;
+﻿using MediatR;
+using Monuments.Manager.Application.Users.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Monuments.Manager.Application.Users.Models
+namespace Monuments.Manager.Application.Users.Commands
 {
-    public class UserDto
+    public class CreateUserCommand : IRequest<int>
     {
         public UserRoleDto Role { get; set; }
         public string Username { get; set; }
+        public string Password { get; set; }
         public string JobTitle { get; set; }
     }
 }

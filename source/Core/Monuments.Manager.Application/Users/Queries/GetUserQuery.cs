@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Monuments.Manager.Application.Users.Commands
+namespace Monuments.Manager.Application.Users.Queries
 {
     public class GetUserQuery : IRequest<UserDto>
     {

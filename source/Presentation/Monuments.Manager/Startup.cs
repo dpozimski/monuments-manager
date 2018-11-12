@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Infrastructure.Models;
+using Monuments.Manager.Application.Infrastructure.Pipelines;
 using Monuments.Manager.Application.Monuments.Commands;
 using Monuments.Manager.Infrastructure;
-using Monuments.Manager.Models;
 using NSwag.AspNetCore;
 using System.Reflection;
 

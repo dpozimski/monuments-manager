@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Monuments.Manager.Models
+namespace Monuments.Manager.Application.Infrastructure.Models
 {
     public class ApplicationSecurity
     {

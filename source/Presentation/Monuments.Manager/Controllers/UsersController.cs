@@ -1,5 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monuments.Manager.Application.Users.Commands;
+using Monuments.Manager.Application.Users.Models;
+using Monuments.Manager.Application.Users.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;

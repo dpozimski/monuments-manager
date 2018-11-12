@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Monuments.Manager.Application.Users.Commands
+namespace Monuments.Manager.Application.Users.Queries
 {
     public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
     {
@@ -24,6 +24,7 @@ namespace Monuments.Manager.Application.Users.Commands
             return new UserDto()
             {
                 Username = user.Username,
+                JobTitle = user.JobTitle,
                 Role = (UserRoleDto)Enum.Parse(typeof(UserRole), user.Role.ToString())
             };
         }
