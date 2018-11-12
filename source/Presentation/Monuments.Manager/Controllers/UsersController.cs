@@ -33,7 +33,7 @@ namespace Monuments.Manager.Controllers
         [HttpPost]
         public async Task UpdateAsync(UpdateUserCommand command)
         {
-            return await Mediator.Send(command);
+            await Mediator.Send(command);
         }
 
         [HttpDelete]
