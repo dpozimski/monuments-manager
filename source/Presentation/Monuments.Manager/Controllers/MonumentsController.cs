@@ -23,7 +23,7 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpDelete]
-        public async Task DeleteAsync(DeleteMonumentCommand command)
+        public async Task DeleteAsync([FromQuery]DeleteMonumentCommand command)
         {
             await Mediator.Send(command);
         }

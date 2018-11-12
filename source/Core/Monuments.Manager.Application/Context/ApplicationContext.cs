@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Context
 {
-    public class MonumentsManagerContext
+    public class ApplicationContext
     {
         public int UserId { get; set; }
     }

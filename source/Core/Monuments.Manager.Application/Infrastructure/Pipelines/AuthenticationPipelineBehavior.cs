@@ -13,10 +13,10 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
     public class AuthenticationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly MonumentsManagerContext _context;
+        private readonly ApplicationContext _context;
 
         public AuthenticationPipelineBehavior(MonumentsDbContext dbContext,
-                                             MonumentsManagerContext context)
+                                             ApplicationContext context)
         {
             _dbContext = dbContext;
             _context = context;

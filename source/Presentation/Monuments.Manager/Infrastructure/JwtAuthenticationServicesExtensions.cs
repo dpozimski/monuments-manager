@@ -29,7 +29,7 @@ namespace Monuments.Manager.Infrastructure
                 {
                     OnTokenValidated = context =>
                     {
-                        var monumentsContext = context.HttpContext.RequestServices.GetRequiredService<MonumentsManagerContext>();
+                        var monumentsContext = context.HttpContext.RequestServices.GetRequiredService<ApplicationContext>();
                         monumentsContext.UserId = int.Parse(context.Principal.Identity.Name);
                         return Task.CompletedTask;
                     }

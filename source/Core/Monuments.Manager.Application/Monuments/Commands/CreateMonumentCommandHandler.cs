@@ -14,10 +14,10 @@ namespace Monuments.Manager.Application.Monuments.Commands
     public class CreateMonumentCommandHandler : IRequestHandler<CreateMonumentCommand, int>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly MonumentsManagerContext _context;
+        private readonly ApplicationContext _context;
 
         public CreateMonumentCommandHandler(MonumentsDbContext dbContext,
-                                            MonumentsManagerContext context)
+                                            ApplicationContext context)
         {
             _dbContext = dbContext;
             _context = context;
