@@ -10,16 +10,16 @@ namespace Monuments.Manager.Application.Users.Commands
 {
     public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
     {
-        private readonly MonumentsDbContext _monumentDbContext;
+        private readonly MonumentsDbContext _dbContext;
 
-        public GetUserQueryHandler(MonumentsDbContext monumentDbContext)
+        public GetUserQueryHandler(MonumentsDbContext dbContext)
         {
-            _monumentDbContext = monumentDbContext;
+            _dbContext = dbContext;
         }
 
         public async Task<UserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await _monumentDbContext.Users.FindAsync(request.Id);
+            var user = await _dbContext.Users.FindAsync(request.Id);
 
             return new UserDto()
             {

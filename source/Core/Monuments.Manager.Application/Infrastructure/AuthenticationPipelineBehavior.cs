@@ -12,18 +12,18 @@ namespace Monuments.Manager.Application.Infrastructure
 {
     public class AuthenticationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
-        private readonly MonumentsDbContext _monumentDbContext;
+        private readonly MonumentsDbContext _dbContext;
         private readonly MonumentsManagerContext _context;
 
-        public AuthenticationPipelineBehavior(MonumentsDbContext monumentDbContext,
+        public AuthenticationPipelineBehavior(MonumentsDbContext dbContext,
                                              MonumentsManagerContext context)
         {
-            _monumentDbContext = monumentDbContext;
+            _dbContext = dbContext;
             _context = context;
         }
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var user = await _monumentDbContext.Users.FindAsync(_context.UserId);
+            var user = await _dbContext.Users.FindAsync(_context.UserId);
 
             if(user is null)
             {

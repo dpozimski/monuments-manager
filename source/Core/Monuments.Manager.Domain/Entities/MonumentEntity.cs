@@ -13,7 +13,7 @@ namespace Monuments.Manager.Domain.Entities
         public string FormOfProtection { get; set; }
         public DateTime ConstructionDate { get; set; }
         public AddressEntity Address { get; set; }
-        public ICollection<PictureEntity> Pictures { get; private set; }
+        public ICollection<PictureEntity> Pictures { get; set; }
 
         public MonumentEntity()
         {

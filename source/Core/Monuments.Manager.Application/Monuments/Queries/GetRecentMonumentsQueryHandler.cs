@@ -13,16 +13,16 @@ namespace Monuments.Manager.Application.Monuments.Queries
 {
     public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<RecentMonumentDto>>
     {
-        private readonly MonumentsDbContext _monumentDbContext;
+        private readonly MonumentsDbContext _dbContext;
 
-        public GetRecentMonumentsQueryHandler(MonumentsDbContext monumentDbContext)
+        public GetRecentMonumentsQueryHandler(MonumentsDbContext dbContext)
         {
-            _monumentDbContext = monumentDbContext;
+            _dbContext = dbContext;
         }
 
         public async Task<List<RecentMonumentDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
         {
-            var result = await _monumentDbContext.Monuments
+            var result = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
                 .Select(s => new RecentMonumentDto()

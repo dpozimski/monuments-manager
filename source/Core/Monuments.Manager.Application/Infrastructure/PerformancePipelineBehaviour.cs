@@ -33,7 +33,7 @@ namespace Monuments.Manager.Application.Infrastructure
             {
                 var name = typeof(TRequest).Name;
 
-                _logger.LogInformation($"Long Running Request: {name} ({_timer.ElapsedMilliseconds} milliseconds) {request}");
+                _logger.LogWarning($"Long Running Request: {name} ({_timer.ElapsedMilliseconds} milliseconds) {request}");
             }
 
             return response;
