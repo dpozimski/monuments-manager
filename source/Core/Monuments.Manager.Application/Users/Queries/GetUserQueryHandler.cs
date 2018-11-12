@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Domain.Enumerations;
 using Monuments.Manager.Persistence;
@@ -25,7 +26,7 @@ namespace Monuments.Manager.Application.Users.Queries
             {
                 Username = user.Username,
                 JobTitle = user.JobTitle,
-                Role = (UserRoleDto)Enum.Parse(typeof(UserRole), user.Role.ToString())
+                Role = user.Role.ConvertTo<UserRoleDto>()
             };
         }
     }

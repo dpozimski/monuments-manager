@@ -30,7 +30,7 @@ namespace Monuments.Manager.Application.Users.Commands
                 Password = _passwordEncryptor.Encrypt(request.Password),
                 Username = request.Username,
                 JobTitle = request.JobTitle,
-                Role = (UserRole)Enum.Parse(typeof(UserRole), request.Role.ToString()),
+                Role = request.Role.ConvertTo<UserRole>()
             };
 
             var result = await _dbContext.AddAsync(entity, cancellationToken);

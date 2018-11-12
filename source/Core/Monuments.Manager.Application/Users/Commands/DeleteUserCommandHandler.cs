@@ -25,11 +25,11 @@ namespace Monuments.Manager.Application.Users.Commands
 
         public async Task<Unit> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Users.FindAsync(new object[] { request.Id }, cancellationToken: cancellationToken);
+            var entity = await _dbContext.Users.FindAsync(request.Id);
 
             if (entity is null)
             {
-                throw new EntityNotFoundException<MonumentEntity>(request.Id);
+                throw new EntityNotFoundException<UserEntity>(request.Id);
             }
 
             if (_context.UserId == request.Id)

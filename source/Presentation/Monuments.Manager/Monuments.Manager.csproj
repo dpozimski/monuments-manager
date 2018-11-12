@@ -10,7 +10,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
-    <LangVersion>7.1</LangVersion>
+    <LangVersion>7.3</LangVersion>
     <ApplicationInsightsResourceId>/subscriptions/ba5c46e1-a3ee-4b66-8328-72398979b791/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Monuments.Manager</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/ba5c46e1-a3ee-4b66-8328-72398979b791/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Monuments.Manager</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>

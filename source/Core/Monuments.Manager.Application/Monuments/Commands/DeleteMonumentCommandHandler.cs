@@ -21,7 +21,7 @@ namespace Monuments.Manager.Application.Monuments.Commands
 
         public async Task<Unit> Handle(DeleteMonumentCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Monuments.FindAsync(request.Id, cancellationToken);
+            var entity = await _dbContext.Monuments.FindAsync(request.Id);
 
             if(entity is null)
             {
