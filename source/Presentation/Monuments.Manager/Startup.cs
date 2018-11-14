@@ -11,6 +11,7 @@ using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Infrastructure.Pipelines;
 using Monuments.Manager.Application.Monuments.Commands;
 using Monuments.Manager.Infrastructure;
+using Monuments.Manager.Persistence;
 using NSwag.AspNetCore;
 using System.Reflection;
 
@@ -28,7 +29,6 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<ApplicationSecurityOptions>(Configuration.GetSection("ApplicationSecurity"));
             services.AddJwtAuthentication(Configuration);
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -41,11 +41,8 @@ namespace Monuments.Manager
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            //MediatR
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformancePipelineBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthenticationPipelineBehavior<,>));
-            services.AddMediatR(typeof(CreateMonumentCommand).GetTypeInfo().Assembly);
+            services.AddApplication(Configuration);
+            services.AddDatabase(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Domain.Enumerations;
 using Monuments.Manager.Persistence;

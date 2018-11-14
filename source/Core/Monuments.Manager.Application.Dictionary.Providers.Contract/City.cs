@@ -5,11 +5,8 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Contract
     public class City
     {
         public string Name { get; set; }
-        public List<Street> Streets { get; private set; }
-
-        public City()
-        {
-            Streets = new List<Street>();
-        }
+        public string ProvinceName { get; set; }
+        public string DistrictName { get; set; }
+        public string CommuneName { get; set; }
     }
 }
