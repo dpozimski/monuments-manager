@@ -84,8 +84,8 @@ namespace Monuments.Manager
             });
             app.UseSwaggerUi3(settings =>
             {
-                settings.SwaggerUiRoute = "/api";
-                settings.SwaggerRoute = "/api/specification.json";
+                settings.SwaggerRoutes.Add(new SwaggerUi3Route("UI", "/api"));
+                //settings.SwaggerRoute = "/api/specification.json";
             });
         }
     }

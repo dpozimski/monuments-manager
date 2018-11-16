@@ -19,10 +19,10 @@
     <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
-    <PackageReference Include="NSwag.AspNetCore" Version="11.20.1" />
-    <PackageReference Include="NSwag.MSBuild" Version="11.20.1">
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0-preview3-35497" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.2.0-preview3-35497" />
+    <PackageReference Include="NSwag.AspNetCore" Version="12.0.0" />
+    <PackageReference Include="NSwag.MSBuild" Version="12.0.0">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
     </PackageReference>
