@@ -22,7 +22,7 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Mapping
             return response.PobierzListePowiatowResult.Select(s => new District()
             {
                 Name = s.NAZWA,
-                ProvinceName = s.WOJ
+                Province = s.WOJ
             });
         }
 
@@ -31,8 +31,8 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Mapping
             return response.PobierzListeGminResult.Select(s => new Commune()
             {
                 Name = s.NAZWA,
-                ProvinceName = s.WOJ,
-                DistrictName = s.POW
+                Province = s.WOJ,
+                District = s.POW
             });
         }
 
@@ -41,9 +41,9 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Mapping
             return response.PobierzListeMiejscowosciWGminieResult.Select(s => new City()
             {
                 Name = s.Nazwa,
-                ProvinceName = s.Wojewodztwo,
-                DistrictName = s.Powiat,
-                CommuneName = s.Gmina
+                Province = s.Wojewodztwo,
+                District = s.Powiat,
+                Commune = s.Gmina
             });
         }
 
@@ -52,10 +52,10 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Mapping
             return response.PobierzListeUlicDlaMiejscowosciResult.Select(s => new Street()
             {
                 Name = s.Nazwa1,
-                ProvinceName = s.Woj,
-                DistrictName = s.Pow,
-                CommuneName = s.Gmi,
-                CityName = s.IdentyfikatorMiejscowosci
+                Province = s.Woj,
+                District = s.Pow,
+                Commune = s.Gmi,
+                City = s.IdentyfikatorMiejscowosci
             });
         }
     }

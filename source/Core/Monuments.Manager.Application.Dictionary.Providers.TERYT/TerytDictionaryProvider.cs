@@ -24,7 +24,7 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt
         {
             using (var scope = _clientScopeFactory.CreateScope())
             {
-                var cities = await scope.Client.GetCitiesAsync(commune.ProvinceName, commune.DistrictName, commune.Name);
+                var cities = await scope.Client.GetCitiesAsync(commune.Province, commune.District, commune.Name);
 
                 return _contractMapper.Create(cities);
             }
@@ -34,7 +34,7 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt
         {
             using (var scope = _clientScopeFactory.CreateScope())
             {
-                var communes = await scope.Client.GetCommunesAsync(district.ProvinceName, district.Name);
+                var communes = await scope.Client.GetCommunesAsync(district.Province, district.Name);
 
                 return _contractMapper.Create(communes);
             }
@@ -64,7 +64,7 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt
         {
             using (var scope = _clientScopeFactory.CreateScope())
             {
-                var streets = await scope.Client.GetStreetsAsync(city.ProvinceName, city.DistrictName, city.CommuneName, city.Name);
+                var streets = await scope.Client.GetStreetsAsync(city.Province, city.District, city.Commune, city.Name);
 
                 return _contractMapper.Create(streets);
             }

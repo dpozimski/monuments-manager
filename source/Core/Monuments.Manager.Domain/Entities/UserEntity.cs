@@ -12,7 +12,7 @@ namespace Monuments.Manager.Domain.Entities
         public string Password { get; set; }
         public string JobTitle { get; set; }
 
-        public ICollection<MonumentEntity> Monuments { get; private set; }
+        public virtual ICollection<MonumentEntity> Monuments { get; private set; }
 
         public UserEntity()
         {

@@ -18,6 +18,8 @@ namespace Monuments.Manager.Application.Infrastructure
             services.Configure<ApplicationSecurityOptions>(configuration.GetSection("ApplicationSecurity"));
             services.Configure<DictionaryProvidersOptions>(configuration.GetSection("DictionaryProviders"));
 
+            services.AddScoped<IApplicationContext, ApplicationContext>();
+
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PerformancePipelineBehaviour<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(AuthenticationPipelineBehavior<,>));

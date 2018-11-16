@@ -8,7 +8,7 @@ namespace Monuments.Manager.Domain.Entities
     public class ProvinceEntity : BaseEntity
     {
         public string Name { get; set; }
-        public ICollection<DistrictEntity> Districts { get; private set; }
+        public virtual ICollection<DistrictEntity> Districts { get; private set; }
 
         public ProvinceEntity()
         {

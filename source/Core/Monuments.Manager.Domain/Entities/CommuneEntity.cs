@@ -5,10 +5,10 @@ namespace Monuments.Manager.Domain.Entities
     public class CommuneEntity : BaseEntity
     {
         public int DistrictId { get; set; }
-        public DistrictEntity District { get; set; }
+        public virtual DistrictEntity District { get; set; }
 
         public string Name { get; set; }
-        public ICollection<CityEntity> Cities { get; private set; }
+        public virtual ICollection<CityEntity> Cities { get; private set; }
 
         public CommuneEntity()
         {
