@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monuments.Manager.Application.Dictionary.Models;
 using Monuments.Manager.Application.Dictionary.Queries;
 
 namespace Monuments.Manager.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class DictionariesController : BaseController

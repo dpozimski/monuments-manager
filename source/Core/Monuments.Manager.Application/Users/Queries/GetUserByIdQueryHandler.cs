@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Users.Queries
 {
-    public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
+    public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserDto>
     {
         private readonly MonumentsDbContext _dbContext;
 
-        public GetUserQueryHandler(MonumentsDbContext dbContext)
+        public GetUserByIdQueryHandler(MonumentsDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<UserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
             var user = await _dbContext.Users.FindAsync(request.Id);
 

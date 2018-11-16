@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Users.Queries
 {
-    public class GetUserQuery : IRequest<UserDto>
+    public class GetUserByIdQuery : IRequest<UserDto>
     {
         public int Id { get; set; }
     }

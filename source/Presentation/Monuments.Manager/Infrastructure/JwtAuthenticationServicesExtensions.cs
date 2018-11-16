@@ -17,9 +17,9 @@ namespace Monuments.Manager.Infrastructure
     {
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IAuthenticationService, JwtAuthenticationService>();
 
             var appSettings = configuration.GetSection("ApplicationSecurity").Get<ApplicationSecurityOptions>();
-            var key = Encoding.ASCII.GetBytes(appSettings.JwtSecretKey);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -41,7 +41,7 @@ namespace Monuments.Manager.Infrastructure
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(appSettings.JwtSecretKey)),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
