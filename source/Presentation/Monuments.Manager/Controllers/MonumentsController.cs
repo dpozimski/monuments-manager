@@ -24,6 +24,12 @@ namespace Monuments.Manager.Controllers
             return await Mediator.Send(command);
         }
 
+        [HttpPost]
+        public async Task UpdateAsync(UpdateMonumentCommand command)
+        {
+            await Mediator.Send(command);
+        }
+
         [HttpDelete]
         public async Task DeleteAsync([FromQuery]DeleteMonumentCommand command)
         {
