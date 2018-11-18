@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Monuments.Manager.Application.Dictionary.Providers.Contract;
-using Monumets.Manager.Application.Dictionary.Providers.Teryt;
+using Monuments.Manager.Dictionary.Providers.Teryt.WebService;
 
 namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Mapping
 {

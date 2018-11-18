@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Monumets.Manager.Application.Dictionary.Providers.Teryt;
+using Monuments.Manager.Dictionary.Providers.Teryt.WebService;
 
 namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Client
 {

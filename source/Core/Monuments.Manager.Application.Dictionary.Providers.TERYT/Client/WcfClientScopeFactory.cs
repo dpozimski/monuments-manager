@@ -4,7 +4,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using Microsoft.Extensions.Options;
-using Monumets.Manager.Application.Dictionary.Providers.Teryt;
+using Monuments.Manager.Dictionary.Providers.Teryt.WebService;
 
 namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Client
 {
@@ -35,7 +35,12 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Client
 
             var channel = channelFactory.CreateChannel();
 
-            var wcfClient = new WcfClient(channel);
+            IWcfClient wcfClient = null;
+
+            if (configuration.IsBindingSupportedForNetCore)
+                wcfClient = new WcfClient(channel);
+            else
+                wcfClient = new FakeWcfClient(channel);
 
             return new WcfClientScope(wcfClient, () => ((IDisposable)channelFactory).Dispose());
         }
