@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Monuments.Manager.Common;
 using Monuments.Manager.Domain.Entities;
 
 namespace Monuments.Manager.Persistence

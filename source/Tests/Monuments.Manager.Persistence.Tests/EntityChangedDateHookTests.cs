@@ -4,6 +4,7 @@ using System.Text;
 using AutoFixture;
 using AutoFixture.AutoNSubstitute;
 using FluentAssertions;
+using Monuments.Manager.Common;
 using Monuments.Manager.Domain.Entities;
 using NSubstitute;
 using Xunit;

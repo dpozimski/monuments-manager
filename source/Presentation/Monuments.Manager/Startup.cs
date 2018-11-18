@@ -1,5 +1,3 @@
-using MediatR;
-using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +5,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Monuments.Manager.Application.Infrastructure;
-using Monuments.Manager.Application.Infrastructure.Models;
-using Monuments.Manager.Application.Infrastructure.Pipelines;
-using Monuments.Manager.Application.Monuments.Commands;
 using Monuments.Manager.Infrastructure;
 using Monuments.Manager.Persistence;
 using NSwag.AspNetCore;
-using System.Reflection;
 
 namespace Monuments.Manager
 {
@@ -29,7 +23,6 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddJwtAuthentication(Configuration);
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.Configure<ApiBehaviorOptions>(options =>
@@ -41,6 +34,7 @@ namespace Monuments.Manager
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddInfrastructureServices(Configuration);
             services.AddApplication(Configuration);
             services.AddDatabase(Configuration);
         }

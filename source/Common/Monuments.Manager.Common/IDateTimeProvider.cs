@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Monuments.Manager.Persistence
+namespace Monuments.Manager.Common
 {
     public interface IDateTimeProvider
     {

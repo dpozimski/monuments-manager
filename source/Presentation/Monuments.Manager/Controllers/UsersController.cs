@@ -4,11 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Application.Users.Queries;
-using Monuments.Manager.Infrastructure;
+using Monuments.Manager.Infrastructure.Security;
 using Monuments.Manager.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Monuments.Manager.Controllers
@@ -48,7 +45,7 @@ namespace Monuments.Manager.Controllers
         [HttpPost("authentication")]
         public async Task<string> AuthenticateAsync(AuthenticateUserViewModel viewModel)
         {
-            return await _authenticationService.AuthenticateAsync(viewModel);
+            return await _authenticationService.AuthenticateAsync(viewModel.Username, viewModel.Password);
         }
 
         [HttpDelete]

@@ -7,6 +7,6 @@ namespace Monuments.Manager.Application.Monuments.Commands
 {
     public class DeleteMonumentCommand : IRequest
     {
-        public int Id { get; set; }
+        public int MonumentId { get; set; }
     }
 }

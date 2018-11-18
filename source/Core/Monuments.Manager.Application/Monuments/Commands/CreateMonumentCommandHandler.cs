@@ -49,6 +49,8 @@ namespace Monuments.Manager.Application.Monuments.Commands
 
             var result = await _dbContext.Monuments.AddAsync(monumentEntity, cancellationToken);
 
+            await _dbContext.SaveChangesAsync();
+
             return result.Entity.Id;
         }
     }

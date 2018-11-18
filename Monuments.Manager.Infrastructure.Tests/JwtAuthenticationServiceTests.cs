@@ -1,0 +1,59 @@
+﻿using AutoFixture;
+using AutoFixture.AutoNSubstitute;
+using FluentAssertions;
+using MediatR;
+using Microsoft.Extensions.Options;
+using Monuments.Manager.Application.Exceptions;
+using Monuments.Manager.Application.Infrastructure.Models;
+using Monuments.Manager.Application.Users.Commands;
+using Monuments.Manager.Common;
+using Monuments.Manager.Infrastructure.Security;
+using NSubstitute;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Monuments.Manager.Infrastructure.Tests
+{
+    public class JwtAuthenticationServiceTests
+    {
+        [Fact]
+        public async Task AuthenticateAsync_ShouldReturnTokenIfAuthenticated()
+        {
+            //arrange
+            var fixture = CreateFixture(1);
+            var target = fixture.Create<JwtAuthenticationService>();
+            //act
+            var result = await target.AuthenticateAsync("TEST", "TEST");
+            //assert
+            result.Should().NotBeNullOrEmpty();
+        }
+
+        [Fact]
+        public void AuthenticateAsync_ShouldThrowAuthenticationExceptionIfNotAuthenticated()
+        {
+            //arrange
+            var fixture = CreateFixture(null);
+            var target = fixture.Create<JwtAuthenticationService>();
+            //act
+            Func<Task> actAction = async () => await target.AuthenticateAsync("TEST", "TEST");
+            //assert
+            actAction.Should().Throw<AuthenticationException>();
+        }
+
+        private IFixture CreateFixture(int? commandResult)
+        {
+            var fixture = new Fixture().Customize(new AutoNSubstituteCustomization());
+            var options = fixture.Freeze<IOptions<ApplicationSecurityOptions>>();
+            options.Value.Returns(new ApplicationSecurityOptions() { JwtSecretKey = "TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST" });
+            var dateTimeProvider = fixture.Freeze<IDateTimeProvider>();
+            dateTimeProvider.GetCurrent().Returns(new DateTime(2019, 11, 11));
+            var mediator = fixture.Freeze<IMediator>();
+            mediator.Send(Arg.Any<AuthenticateUserCommand>()).Returns(commandResult);
+
+            return fixture;
+        }
+    }
+}

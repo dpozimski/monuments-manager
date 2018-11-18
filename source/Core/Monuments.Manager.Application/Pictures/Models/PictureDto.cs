@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Monuments.Manager.Application.Monuments.Models
+namespace Monuments.Manager.Application.Pictures.Models
 {
     public class PictureDto
     {

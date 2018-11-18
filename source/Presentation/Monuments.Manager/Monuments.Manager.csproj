@@ -40,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Monuments.Manager.Infrastructure\Monuments.Manager.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

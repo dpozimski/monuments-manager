@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,14 +23,26 @@ namespace Monuments.Manager.Application.Monuments.Commands
 
         public async Task<Unit> Handle(DeleteMonumentCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Monuments.FindAsync(request.Id);
+            var entity = await _dbContext.Monuments.FindAsync(request.MonumentId);
 
             if(entity is null)
             {
-                throw new EntityNotFoundException<MonumentEntity>(request.Id);
+                throw new EntityNotFoundException<MonumentEntity>(request.MonumentId);
             }
 
             _dbContext.Monuments.Remove(entity);
+
+            var addressEntity = await _dbContext.Addresses
+                .FirstOrDefaultAsync(s => s.MonumentId == request.MonumentId);
+
+            _dbContext.Addresses.Remove(addressEntity);
+
+            var pictures = await _dbContext.Pictures.Where(s => s.MonumentId == request.MonumentId)
+                .ToListAsync();
+
+            _dbContext.Pictures.RemoveRange(pictures);
+
+            await _dbContext.SaveChangesAsync();
 
             return Unit.Value;
         }

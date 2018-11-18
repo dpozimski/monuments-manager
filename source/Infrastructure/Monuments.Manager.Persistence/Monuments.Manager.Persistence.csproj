@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Monuments.Manager.Common\Monuments.Manager.Common.csproj" />
     <ProjectReference Include="..\..\Core\Monuments.Manager.Domain\Monuments.Manager.Domain.csproj" />
   </ItemGroup>
 

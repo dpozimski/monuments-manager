@@ -1,43 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Users.Commands;
-using Monuments.Manager.Application.Users.Queries;
-using Monuments.Manager.ViewModels;
+using Monuments.Manager.Common;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Monuments.Manager.Infrastructure
+namespace Monuments.Manager.Infrastructure.Security
 {
     public class JwtAuthenticationService : IAuthenticationService
     {
         private readonly IMediator _mediator;
         private readonly IOptions<ApplicationSecurityOptions> _options;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
         public JwtAuthenticationService(IMediator mediator,
-                                        IOptions<ApplicationSecurityOptions> options)
+                                        IOptions<ApplicationSecurityOptions> options,
+                                        IDateTimeProvider dateTimeProvider)
         {
             _mediator = mediator;
             _options = options;
+            _dateTimeProvider = dateTimeProvider;
         }
 
-        public async Task<string> AuthenticateAsync(AuthenticateUserViewModel viewModel)
+        public async Task<string> AuthenticateAsync(string username, string password)
         {
             var authenticatedUserId = await _mediator.Send(new AuthenticateUserCommand()
             {
-                Username = viewModel.Username,
-                Password = viewModel.Password
+                Username = username,
+                Password = password
             });
 
             if (!authenticatedUserId.HasValue)
-                throw new AuthenticationException(viewModel.Username);
+                throw new AuthenticationException(username);
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_options.Value.JwtSecretKey);
@@ -47,7 +47,7 @@ namespace Monuments.Manager.Infrastructure
                 {
                     new Claim(ClaimTypes.Name, authenticatedUserId.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(15),
+                Expires = _dateTimeProvider.GetCurrent().AddMinutes(15),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

@@ -27,7 +27,6 @@ namespace Monuments.Manager.Persistence
                        .UseSqlServer(configuration.GetConnectionString("MonumentsDatabase")));
 
             services.AddScoped<IConfigurationBuilder, ConfigurationBuilder>();
-            services.AddScoped<IDateTimeProvider, SystemDateTimeProvider>();
             services.AddScoped<IEntityChangedDateHook, EntityChangedDateHook>();
 
             return services;

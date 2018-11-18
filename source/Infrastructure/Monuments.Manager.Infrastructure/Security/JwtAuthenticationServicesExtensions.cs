@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monuments.Manager.Infrastructure
+namespace Monuments.Manager.Infrastructure.Security
 {
     public static class JwtAuthenticationServicesExtensions
     {
