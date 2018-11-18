@@ -16,6 +16,7 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt
             services.AddScoped<IContractMapper, ContractMapper>();
             services.AddScoped<IWcfClient, WcfClient>();
             services.AddScoped<IWcfClientScopeFactory, WcfClientScopeFactory>();
+            services.AddScoped<TerytDictionaryProvider>();
 
             return services;
         }

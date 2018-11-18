@@ -24,14 +24,12 @@ namespace Monuments.Manager.Application.Dictionary.Factories
 
         public IDictionaryProvider Create()
         {
-            var dictionaryProviders = _serviceProvider.GetServices<IDictionaryProvider>();
-
             var currentProvider = _options.Value.CurrentProvider;
 
             switch(_options.Value.CurrentProvider)
             {
                 case DictionaryProviderCode.Teryt:
-                    return dictionaryProviders.First(s => s is TerytDictionaryProvider);
+                    return _serviceProvider.GetService<TerytDictionaryProvider>();
                 default:
                     throw new InvalidOperationException($"Cannot create dictionary provider for {currentProvider}");
             }

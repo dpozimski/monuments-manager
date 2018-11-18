@@ -5,8 +5,8 @@
     "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
   },
   "ExtendedData": {
-    "Uri": "https://uslugaterytws1test.stat.gov.pl/wsdl/terytws1.wsdl",
-    "Namespace": "Monumets.Manager.Application.Dictionary.Providers.Teryt",
+    "Uri": "https://uslugaterytws1.stat.gov.pl/TerytWs1.svc?singleWsdl",
+    "Namespace": "Monuments.Manager.Dictionary.Providers.Teryt.WebService",
     "SelectedAccessLevelForGeneratedClass": "Public",
     "GenerateMessageContract": true,
     "ReuseTypesinReferencedAssemblies": true,
@@ -21,7 +21,7 @@
     },
     "CheckedReferencedAssemblies": [],
     "InstanceId": null,
-    "Name": "Monumets.Manager.Application.Dictionary.Providers.Teryt",
+    "Name": "Monuments.Manager.Dictionary.Providers.Teryt.WebService",
     "Metadata": {}
   }
 }

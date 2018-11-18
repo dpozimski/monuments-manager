@@ -6,6 +6,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monuments.Manager.Application.Monuments.Commands;
+using Monuments.Manager.Application.Monuments.Models;
+using Monuments.Manager.Application.Monuments.Queries;
 
 namespace Monuments.Manager.Controllers
 {
@@ -22,6 +24,12 @@ namespace Monuments.Manager.Controllers
         public async Task<int> CreateAsync(CreateMonumentCommand command)
         {
             return await Mediator.Send(command);
+        }
+
+        [HttpGet]
+        public async Task<MonumentDto> GetAsync([FromQuery]GetMonumentQuery query)
+        {
+            return await Mediator.Send(query);
         }
 
         [HttpPost]

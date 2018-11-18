@@ -47,7 +47,7 @@ namespace Monuments.Manager.Infrastructure.Security
                 {
                     new Claim(ClaimTypes.Name, authenticatedUserId.ToString())
                 }),
-                Expires = _dateTimeProvider.GetCurrent().AddMinutes(15),
+                Expires = _dateTimeProvider.GetCurrent().AddDays(15),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

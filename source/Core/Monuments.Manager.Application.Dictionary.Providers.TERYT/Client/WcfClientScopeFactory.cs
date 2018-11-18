@@ -21,7 +21,11 @@ namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Client
         {
             var configuration = _terytConfigurationOptions.Value;
 
-            var binding = new BasicHttpsBinding();
+            var binding = new CustomBinding();
+            binding.Name = "terytBinding";
+            binding.Elements.Add(new TextMessageEncodingBindingElement(MessageVersion.None, Encoding.Default));
+            binding.Elements.Add(new HttpsTransportBindingElement() { RequireClientCertificate = false });
+            
             var endpointAddress = new EndpointAddress(configuration.WebServiceUrl);
 
             var channelFactory = new ChannelFactory<ITerytWs1>(binding, endpointAddress);

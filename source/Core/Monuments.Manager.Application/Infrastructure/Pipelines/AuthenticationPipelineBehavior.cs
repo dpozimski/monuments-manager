@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Persistence;
 using System;
 using System.Security.Authentication;
@@ -21,6 +22,11 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
         }
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
+            if(request is AuthenticateUserCommand)
+            {
+                return await next();
+            }
+
             var user = await _dbContext.Users.FindAsync(_context.UserId);
 
             if(user is null)

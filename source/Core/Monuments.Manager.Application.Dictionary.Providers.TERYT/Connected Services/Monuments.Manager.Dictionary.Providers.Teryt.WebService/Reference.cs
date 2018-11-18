@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
+namespace Monuments.Manager.Dictionary.Providers.Teryt.WebService
 {
     using System.Runtime.Serialization;
     
@@ -3235,235 +3235,235 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Monumets.Manager.Application.Dictionary.Providers.Teryt.ITerytWs1")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Monuments.Manager.Dictionary.Providers.Teryt.WebService.ITerytWs1")]
     public interface ITerytWs1
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/CzyZalogowany", ReplyAction="http://tempuri.org/ITerytWs1/CzyZalogowanyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CzyZalogowanyResponse> CzyZalogowanyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CzyZalogowanyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CzyZalogowanyResponse> CzyZalogowanyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CzyZalogowanyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/Zweryfikowany", ReplyAction="http://tempuri.org/ITerytWs1/ZweryfikowanyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyResponse> ZweryfikowanyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyResponse> ZweryfikowanyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatTerc", ReplyAction="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatTercResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatTercResponse> PobierzDateAktualnegoKatTercAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatTercRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatTercResponse> PobierzDateAktualnegoKatTercAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatTercRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatNTS", ReplyAction="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatNTSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatNTSResponse> PobierzDateAktualnegoKatNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatNTSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatNTSResponse> PobierzDateAktualnegoKatNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatNTSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatSimc", ReplyAction="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatSimcResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatSimcResponse> PobierzDateAktualnegoKatSimcAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatSimcRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatSimcResponse> PobierzDateAktualnegoKatSimcAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatSimcRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatUlic", ReplyAction="http://tempuri.org/ITerytWs1/PobierzDateAktualnegoKatUlicResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatUlicResponse> PobierzDateAktualnegoKatUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatUlicRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatUlicResponse> PobierzDateAktualnegoKatUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatUlicRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeWojewodztw", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeWojewodztwResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwResponse> PobierzListeWojewodztwAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwResponse> PobierzListeWojewodztwAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListePowiatow", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListePowiatowResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowResponse> PobierzListePowiatowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowResponse> PobierzListePowiatowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeGmin", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeGminResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminResponse> PobierzListeGminAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminResponse> PobierzListeGminAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzGminyiPowDlaWoj", ReplyAction="http://tempuri.org/ITerytWs1/PobierzGminyiPowDlaWojResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGminyiPowDlaWojResponse> PobierzGminyiPowDlaWojAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGminyiPowDlaWojRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGminyiPowDlaWojResponse> PobierzGminyiPowDlaWojAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGminyiPowDlaWojRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeRegionow", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeRegionowResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeRegionowResponse> PobierzListeRegionowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeRegionowRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeRegionowResponse> PobierzListeRegionowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeRegionowRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListePodregionow", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListePodregionowResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePodregionowResponse> PobierzListePodregionowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePodregionowRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePodregionowResponse> PobierzListePodregionowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePodregionowRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeWojewodztwWRegionie", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeWojewodztwWRegionieResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwWRegionieResponse> PobierzListeWojewodztwWRegionieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwWRegionieRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwWRegionieResponse> PobierzListeWojewodztwWRegionieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwWRegionieRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListePowiatowWPodregionie", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListePowiatowWPodregionieResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowWPodregionieResponse> PobierzListePowiatowWPodregionieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowWPodregionieRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowWPodregionieResponse> PobierzListePowiatowWPodregionieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowWPodregionieRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeGminPowiecie", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeGminPowiecieResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminPowiecieResponse> PobierzListeGminPowiecieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminPowiecieRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminPowiecieResponse> PobierzListeGminPowiecieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminPowiecieRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeUlicDlaMiejscowosci", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeUlicDlaMiejscowosciResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeUlicDlaMiejscowosciResponse> PobierzListeUlicDlaMiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeUlicDlaMiejscowosciRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeUlicDlaMiejscowosciResponse> PobierzListeUlicDlaMiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeUlicDlaMiejscowosciRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWGminie", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWGminieResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieResponse> PobierzListeMiejscowosciWGminieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieResponse> PobierzListeMiejscowosciWGminieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWGminieZSymbolem", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWGminieZSymbolemResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieZSymbolemResponse> PobierzListeMiejscowosciWGminieZSymbolemAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieZSymbolemRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieZSymbolemResponse> PobierzListeMiejscowosciWGminieZSymbolemAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieZSymbolemRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWRodzajuGminy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzListeMiejscowosciWRodzajuGminyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWRodzajuGminyResponse> PobierzListeMiejscowosciWRodzajuGminyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWRodzajuGminyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWRodzajuGminyResponse> PobierzListeMiejscowosciWRodzajuGminyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWRodzajuGminyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzSlownikRodzajowJednostek", ReplyAction="http://tempuri.org/ITerytWs1/PobierzSlownikRodzajowJednostekResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowJednostekResponse> PobierzSlownikRodzajowJednostekAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowJednostekRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowJednostekResponse> PobierzSlownikRodzajowJednostekAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowJednostekRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzSlownikRodzajowSIMC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzSlownikRodzajowSIMCResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowSIMCResponse> PobierzSlownikRodzajowSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowSIMCRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowSIMCResponse> PobierzSlownikRodzajowSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowSIMCRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzSlownikCechULIC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzSlownikCechULICResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikCechULICResponse> PobierzSlownikCechULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikCechULICRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikCechULICResponse> PobierzSlownikCechULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikCechULICRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogTERCAdr", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogTERCAdrResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCAdrResponse> PobierzKatalogTERCAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCAdrRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCAdrResponse> PobierzKatalogTERCAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCAdrRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogTERC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogTERCResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCResponse> PobierzKatalogTERCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCResponse> PobierzKatalogTERCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogNTS", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogNTSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogNTSResponse> PobierzKatalogNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogNTSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogNTSResponse> PobierzKatalogNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogNTSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogSIMCAdr", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogSIMCAdrResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCAdrResponse> PobierzKatalogSIMCAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCAdrRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCAdrResponse> PobierzKatalogSIMCAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCAdrRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogSIMC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogSIMCResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCResponse> PobierzKatalogSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCResponse> PobierzKatalogSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogSIMCStat", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogSIMCStatResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCStatResponse> PobierzKatalogSIMCStatAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCStatRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCStatResponse> PobierzKatalogSIMCStatAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCStatRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogULIC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogULICResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICResponse> PobierzKatalogULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICResponse> PobierzKatalogULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogULICAdr", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogULICAdrResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICAdrResponse> PobierzKatalogULICAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICAdrRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICAdrResponse> PobierzKatalogULICAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICAdrRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogULICBezDzielnic", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogULICBezDzielnicResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICBezDzielnicResponse> PobierzKatalogULICBezDzielnicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICBezDzielnicRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICBezDzielnicResponse> PobierzKatalogULICBezDzielnicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICBezDzielnicRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzStaryKatalogULIC", ReplyAction="http://tempuri.org/ITerytWs1/PobierzStaryKatalogULICResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzStaryKatalogULICResponse> PobierzStaryKatalogULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzStaryKatalogULICRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzStaryKatalogULICResponse> PobierzStaryKatalogULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzStaryKatalogULICRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzKatalogWMRODZ", ReplyAction="http://tempuri.org/ITerytWs1/PobierzKatalogWMRODZResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogWMRODZResponse> PobierzKatalogWMRODZAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogWMRODZRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogWMRODZResponse> PobierzKatalogWMRODZAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogWMRODZRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyTercUrzedowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyTercUrzedowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercUrzedowyResponse> PobierzZmianyTercUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercUrzedowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercUrzedowyResponse> PobierzZmianyTercUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercUrzedowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyTercAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyTercAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercAdresowyResponse> PobierzZmianyTercAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercAdresowyResponse> PobierzZmianyTercAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyNTS", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyNTSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyNTSResponse> PobierzZmianyNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyNTSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyNTSResponse> PobierzZmianyNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyNTSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianySimcUrzedowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianySimcUrzedowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcUrzedowyResponse> PobierzZmianySimcUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcUrzedowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcUrzedowyResponse> PobierzZmianySimcUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcUrzedowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianySimcAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianySimcAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcAdresowyResponse> PobierzZmianySimcAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcAdresowyResponse> PobierzZmianySimcAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianySimcStatystyczny", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianySimcStatystycznyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcStatystycznyResponse> PobierzZmianySimcStatystycznyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcStatystycznyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcStatystycznyResponse> PobierzZmianySimcStatystycznyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcStatystycznyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyUlicUrzedowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyUlicUrzedowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicUrzedowyResponse> PobierzZmianyUlicUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicUrzedowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicUrzedowyResponse> PobierzZmianyUlicUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicUrzedowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyUlicAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyUlicAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicAdresowyResponse> PobierzZmianyUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicAdresowyResponse> PobierzZmianyUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzZmianyUlicBezDzielnic", ReplyAction="http://tempuri.org/ITerytWs1/PobierzZmianyUlicBezDzielnicResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicBezDzielnicResponse> PobierzZmianyUlicBezDzielnicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicBezDzielnicRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicBezDzielnicResponse> PobierzZmianyUlicBezDzielnicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicBezDzielnicRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzGeoTerytPlikPelny", ReplyAction="http://tempuri.org/ITerytWs1/PobierzGeoTerytPlikPelnyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikPelnyResponse> PobierzGeoTerytPlikPelnyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikPelnyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikPelnyResponse> PobierzGeoTerytPlikPelnyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikPelnyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/PobierzGeoTerytPlikRoznicowy", ReplyAction="http://tempuri.org/ITerytWs1/PobierzGeoTerytPlikRoznicowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikRoznicowyResponse> PobierzGeoTerytPlikRoznicowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikRoznicowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikRoznicowyResponse> PobierzGeoTerytPlikRoznicowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikRoznicowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaMiejscowosci", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaMiejscowosciResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciResponse> WeryfikujAdresDlaMiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciResponse> WeryfikujAdresDlaMiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaMiejscowosciAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaMiejscowosciAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciAdresowyResponse> WeryfikujAdresDlaMiejscowosciAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciAdresowyResponse> WeryfikujAdresDlaMiejscowosciAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaUlic", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaUlicResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicResponse> WeryfikujAdresDlaUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicResponse> WeryfikujAdresDlaUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaUlicAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresDlaUlicAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicAdresowyResponse> WeryfikujAdresDlaUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicAdresowyResponse> WeryfikujAdresDlaUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresWmiejscowosci", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresWmiejscowosciResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciResponse> WeryfikujAdresWmiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciResponse> WeryfikujAdresWmiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujAdresWmiejscowosciAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujAdresWmiejscowosciAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciAdresowyResponse> WeryfikujAdresWmiejscowosciAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciAdresowyResponse> WeryfikujAdresWmiejscowosciAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujNazwaAdresUlic", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujNazwaAdresUlicResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicResponse> WeryfikujNazwaAdresUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicResponse> WeryfikujNazwaAdresUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WeryfikujNazwaAdresUlicAdresowy", ReplyAction="http://tempuri.org/ITerytWs1/WeryfikujNazwaAdresUlicAdresowyResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicAdresowyResponse> WeryfikujNazwaAdresUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicAdresowyRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicAdresowyResponse> WeryfikujNazwaAdresUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicAdresowyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajJPT", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajJPTResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJPTResponse> WyszukajJPTAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJPTRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJPTResponse> WyszukajJPTAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJPTRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowosc", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscResponse> WyszukajMiejscowoscAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscResponse> WyszukajMiejscowoscAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWJPT", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWJPTResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWJPTResponse> WyszukajMiejscowoscWJPTAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWJPTRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWJPTResponse> WyszukajMiejscowoscWJPTAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWJPTRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUlice", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceResponse> WyszukajUliceAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceResponse> WyszukajUliceAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrze", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeResponse> WyszukajJednostkeWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeResponse> WyszukajJednostkeWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLS", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSResponse> WyszukajJednostkeWRejestrzeWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSResponse> WyszukajJednostkeWRejestrzeWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLSCount", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLSCountResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSCountResponse> WyszukajJednostkeWRejestrzeWebLSCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSCountRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSCountResponse> WyszukajJednostkeWRejestrzeWebLSCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSCountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLSZSortowaniem", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse" +
             "")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse> WyszukajJednostkeWRejestrzeWebLSZSortowaniemAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse> WyszukajJednostkeWRejestrzeWebLSZSortowaniemAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWRejestrze", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWRejestrzeResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWRejestrzeResponse> WyszukajMiejscowoscWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWRejestrzeRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWRejestrzeResponse> WyszukajMiejscowoscWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWRejestrzeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUliceWRejestrze", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceWRejestrzeResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWRejestrzeResponse> WyszukajUliceWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWRejestrzeRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWRejestrzeResponse> WyszukajUliceWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWRejestrzeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWeb", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebResponse> WyszukajMiejscowoscWebAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebResponse> WyszukajMiejscowoscWebAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebLS", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebLSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebLSResponse> WyszukajMiejscowoscWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebLSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebLSResponse> WyszukajMiejscowoscWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebLSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebCount", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebCountResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountResponse> WyszukajMiejscowoscWebCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountResponse> WyszukajMiejscowoscWebCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebCountLS", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajMiejscowoscWebCountLSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountLSResponse> WyszukajMiejscowoscWebCountLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountLSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountLSResponse> WyszukajMiejscowoscWebCountLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountLSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUliceWeb", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceWebResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebResponse> WyszukajUliceWebAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebResponse> WyszukajUliceWebAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUliceWebCount", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceWebCountResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebCountResponse> WyszukajUliceWebCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebCountRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebCountResponse> WyszukajUliceWebCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebCountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUliceWebLS", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceWebLSResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSResponse> WyszukajUliceWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSResponse> WyszukajUliceWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/WyszukajUliceWebLSCount", ReplyAction="http://tempuri.org/ITerytWs1/WyszukajUliceWebLSCountResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSCountResponse> WyszukajUliceWebLSCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSCountRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSCountResponse> WyszukajUliceWebLSCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSCountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/TerytWLiczbach", ReplyAction="http://tempuri.org/ITerytWs1/TerytWLiczbachResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.TerytWLiczbachResponse> TerytWLiczbachAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.TerytWLiczbachRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.TerytWLiczbachResponse> TerytWLiczbachAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.TerytWLiczbachRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/CiekawostkiTERC", ReplyAction="http://tempuri.org/ITerytWs1/CiekawostkiTERCResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiTERCResponse> CiekawostkiTERCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiTERCRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiTERCResponse> CiekawostkiTERCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiTERCRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/CiekawostkiSIMC", ReplyAction="http://tempuri.org/ITerytWs1/CiekawostkiSIMCResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiSIMCResponse> CiekawostkiSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiSIMCRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiSIMCResponse> CiekawostkiSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiSIMCRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/CiekawostkiULIC", ReplyAction="http://tempuri.org/ITerytWs1/CiekawostkiULICResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiULICResponse> CiekawostkiULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiULICRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiULICResponse> CiekawostkiULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiULICRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITerytWs1/LicznoscJednostek", ReplyAction="http://tempuri.org/ITerytWs1/LicznoscJednostekResponse")]
-        System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.LicznoscJednostekResponse> LicznoscJednostekAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.LicznoscJednostekRequest request);
+        System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.LicznoscJednostekResponse> LicznoscJednostekAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.LicznoscJednostekRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3672,13 +3672,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListeWojewodztwResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListeWojewodztwResult;
         
         public PobierzListeWojewodztwResponse()
         {
         }
         
-        public PobierzListeWojewodztwResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListeWojewodztwResult)
+        public PobierzListeWojewodztwResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListeWojewodztwResult)
         {
             this.PobierzListeWojewodztwResult = PobierzListeWojewodztwResult;
         }
@@ -3714,13 +3714,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListePowiatowResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListePowiatowResult;
         
         public PobierzListePowiatowResponse()
         {
         }
         
-        public PobierzListePowiatowResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListePowiatowResult)
+        public PobierzListePowiatowResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListePowiatowResult)
         {
             this.PobierzListePowiatowResult = PobierzListePowiatowResult;
         }
@@ -3760,13 +3760,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListeGminResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListeGminResult;
         
         public PobierzListeGminResponse()
         {
         }
         
-        public PobierzListeGminResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzListeGminResult)
+        public PobierzListeGminResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzListeGminResult)
         {
             this.PobierzListeGminResult = PobierzListeGminResult;
         }
@@ -3802,13 +3802,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzGminyiPowDlaWojResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzGminyiPowDlaWojResult;
         
         public PobierzGminyiPowDlaWojResponse()
         {
         }
         
-        public PobierzGminyiPowDlaWojResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaTerytorialna> PobierzGminyiPowDlaWojResult)
+        public PobierzGminyiPowDlaWojResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaTerytorialna> PobierzGminyiPowDlaWojResult)
         {
             this.PobierzGminyiPowDlaWojResult = PobierzGminyiPowDlaWojResult;
         }
@@ -3840,13 +3840,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeRegionowResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeRegionowResult;
         
         public PobierzListeRegionowResponse()
         {
         }
         
-        public PobierzListeRegionowResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeRegionowResult)
+        public PobierzListeRegionowResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeRegionowResult)
         {
             this.PobierzListeRegionowResult = PobierzListeRegionowResult;
         }
@@ -3882,13 +3882,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListePodregionowResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListePodregionowResult;
         
         public PobierzListePodregionowResponse()
         {
         }
         
-        public PobierzListePodregionowResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListePodregionowResult)
+        public PobierzListePodregionowResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListePodregionowResult)
         {
             this.PobierzListePodregionowResult = PobierzListePodregionowResult;
         }
@@ -3924,13 +3924,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeWojewodztwWRegionieResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeWojewodztwWRegionieResult;
         
         public PobierzListeWojewodztwWRegionieResponse()
         {
         }
         
-        public PobierzListeWojewodztwWRegionieResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeWojewodztwWRegionieResult)
+        public PobierzListeWojewodztwWRegionieResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeWojewodztwWRegionieResult)
         {
             this.PobierzListeWojewodztwWRegionieResult = PobierzListeWojewodztwWRegionieResult;
         }
@@ -3966,13 +3966,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListePowiatowWPodregionieResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListePowiatowWPodregionieResult;
         
         public PobierzListePowiatowWPodregionieResponse()
         {
         }
         
-        public PobierzListePowiatowWPodregionieResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListePowiatowWPodregionieResult)
+        public PobierzListePowiatowWPodregionieResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListePowiatowWPodregionieResult)
         {
             this.PobierzListePowiatowWPodregionieResult = PobierzListePowiatowWPodregionieResult;
         }
@@ -4012,13 +4012,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeGminPowiecieResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeGminPowiecieResult;
         
         public PobierzListeGminPowiecieResponse()
         {
         }
         
-        public PobierzListeGminPowiecieResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaNomenklaturyNTS> PobierzListeGminPowiecieResult)
+        public PobierzListeGminPowiecieResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaNomenklaturyNTS> PobierzListeGminPowiecieResult)
         {
             this.PobierzListeGminPowiecieResult = PobierzListeGminPowiecieResult;
         }
@@ -4078,13 +4078,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.UlicaDrzewo> PobierzListeUlicDlaMiejscowosciResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.UlicaDrzewo> PobierzListeUlicDlaMiejscowosciResult;
         
         public PobierzListeUlicDlaMiejscowosciResponse()
         {
         }
         
-        public PobierzListeUlicDlaMiejscowosciResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.UlicaDrzewo> PobierzListeUlicDlaMiejscowosciResult)
+        public PobierzListeUlicDlaMiejscowosciResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.UlicaDrzewo> PobierzListeUlicDlaMiejscowosciResult)
         {
             this.PobierzListeUlicDlaMiejscowosciResult = PobierzListeUlicDlaMiejscowosciResult;
         }
@@ -4128,13 +4128,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> PobierzListeMiejscowosciWGminieResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> PobierzListeMiejscowosciWGminieResult;
         
         public PobierzListeMiejscowosciWGminieResponse()
         {
         }
         
-        public PobierzListeMiejscowosciWGminieResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> PobierzListeMiejscowosciWGminieResult)
+        public PobierzListeMiejscowosciWGminieResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> PobierzListeMiejscowosciWGminieResult)
         {
             this.PobierzListeMiejscowosciWGminieResult = PobierzListeMiejscowosciWGminieResult;
         }
@@ -4182,13 +4182,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.MiejscowoscPelna> PobierzListeMiejscowosciWGminieZSymbolemResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.MiejscowoscPelna> PobierzListeMiejscowosciWGminieZSymbolemResult;
         
         public PobierzListeMiejscowosciWGminieZSymbolemResponse()
         {
         }
         
-        public PobierzListeMiejscowosciWGminieZSymbolemResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.MiejscowoscPelna> PobierzListeMiejscowosciWGminieZSymbolemResult)
+        public PobierzListeMiejscowosciWGminieZSymbolemResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.MiejscowoscPelna> PobierzListeMiejscowosciWGminieZSymbolemResult)
         {
             this.PobierzListeMiejscowosciWGminieZSymbolemResult = PobierzListeMiejscowosciWGminieZSymbolemResult;
         }
@@ -4236,13 +4236,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> PobierzListeMiejscowosciWRodzajuGminyResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> PobierzListeMiejscowosciWRodzajuGminyResult;
         
         public PobierzListeMiejscowosciWRodzajuGminyResponse()
         {
         }
         
-        public PobierzListeMiejscowosciWRodzajuGminyResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> PobierzListeMiejscowosciWRodzajuGminyResult)
+        public PobierzListeMiejscowosciWRodzajuGminyResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> PobierzListeMiejscowosciWRodzajuGminyResult)
         {
             this.PobierzListeMiejscowosciWRodzajuGminyResult = PobierzListeMiejscowosciWRodzajuGminyResult;
         }
@@ -4304,13 +4304,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.RodzajMiejscowosci> PobierzSlownikRodzajowSIMCResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.RodzajMiejscowosci> PobierzSlownikRodzajowSIMCResult;
         
         public PobierzSlownikRodzajowSIMCResponse()
         {
         }
         
-        public PobierzSlownikRodzajowSIMCResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.RodzajMiejscowosci> PobierzSlownikRodzajowSIMCResult)
+        public PobierzSlownikRodzajowSIMCResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.RodzajMiejscowosci> PobierzSlownikRodzajowSIMCResult)
         {
             this.PobierzSlownikRodzajowSIMCResult = PobierzSlownikRodzajowSIMCResult;
         }
@@ -4372,13 +4372,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogTERCAdrResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogTERCAdrResult;
         
         public PobierzKatalogTERCAdrResponse()
         {
         }
         
-        public PobierzKatalogTERCAdrResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogTERCAdrResult)
+        public PobierzKatalogTERCAdrResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogTERCAdrResult)
         {
             this.PobierzKatalogTERCAdrResult = PobierzKatalogTERCAdrResult;
         }
@@ -4410,13 +4410,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogTERCResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogTERCResult;
         
         public PobierzKatalogTERCResponse()
         {
         }
         
-        public PobierzKatalogTERCResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogTERCResult)
+        public PobierzKatalogTERCResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogTERCResult)
         {
             this.PobierzKatalogTERCResult = PobierzKatalogTERCResult;
         }
@@ -4448,13 +4448,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogNTSResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogNTSResult;
         
         public PobierzKatalogNTSResponse()
         {
         }
         
-        public PobierzKatalogNTSResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogNTSResult)
+        public PobierzKatalogNTSResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogNTSResult)
         {
             this.PobierzKatalogNTSResult = PobierzKatalogNTSResult;
         }
@@ -4486,13 +4486,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCAdrResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCAdrResult;
         
         public PobierzKatalogSIMCAdrResponse()
         {
         }
         
-        public PobierzKatalogSIMCAdrResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCAdrResult)
+        public PobierzKatalogSIMCAdrResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCAdrResult)
         {
             this.PobierzKatalogSIMCAdrResult = PobierzKatalogSIMCAdrResult;
         }
@@ -4524,13 +4524,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCResult;
         
         public PobierzKatalogSIMCResponse()
         {
         }
         
-        public PobierzKatalogSIMCResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCResult)
+        public PobierzKatalogSIMCResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCResult)
         {
             this.PobierzKatalogSIMCResult = PobierzKatalogSIMCResult;
         }
@@ -4562,13 +4562,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCStatResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCStatResult;
         
         public PobierzKatalogSIMCStatResponse()
         {
         }
         
-        public PobierzKatalogSIMCStatResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogSIMCStatResult)
+        public PobierzKatalogSIMCStatResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogSIMCStatResult)
         {
             this.PobierzKatalogSIMCStatResult = PobierzKatalogSIMCStatResult;
         }
@@ -4600,13 +4600,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICResult;
         
         public PobierzKatalogULICResponse()
         {
         }
         
-        public PobierzKatalogULICResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICResult)
+        public PobierzKatalogULICResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICResult)
         {
             this.PobierzKatalogULICResult = PobierzKatalogULICResult;
         }
@@ -4638,13 +4638,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICAdrResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICAdrResult;
         
         public PobierzKatalogULICAdrResponse()
         {
         }
         
-        public PobierzKatalogULICAdrResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICAdrResult)
+        public PobierzKatalogULICAdrResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICAdrResult)
         {
             this.PobierzKatalogULICAdrResult = PobierzKatalogULICAdrResult;
         }
@@ -4676,13 +4676,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICBezDzielnicResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICBezDzielnicResult;
         
         public PobierzKatalogULICBezDzielnicResponse()
         {
         }
         
-        public PobierzKatalogULICBezDzielnicResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogULICBezDzielnicResult)
+        public PobierzKatalogULICBezDzielnicResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogULICBezDzielnicResult)
         {
             this.PobierzKatalogULICBezDzielnicResult = PobierzKatalogULICBezDzielnicResult;
         }
@@ -4714,13 +4714,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzStaryKatalogULICResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzStaryKatalogULICResult;
         
         public PobierzStaryKatalogULICResponse()
         {
         }
         
-        public PobierzStaryKatalogULICResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzStaryKatalogULICResult)
+        public PobierzStaryKatalogULICResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzStaryKatalogULICResult)
         {
             this.PobierzStaryKatalogULICResult = PobierzStaryKatalogULICResult;
         }
@@ -4752,13 +4752,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogWMRODZResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogWMRODZResult;
         
         public PobierzKatalogWMRODZResponse()
         {
         }
         
-        public PobierzKatalogWMRODZResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikKatalog PobierzKatalogWMRODZResult)
+        public PobierzKatalogWMRODZResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikKatalog PobierzKatalogWMRODZResult)
         {
             this.PobierzKatalogWMRODZResult = PobierzKatalogWMRODZResult;
         }
@@ -4794,13 +4794,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyTercUrzedowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyTercUrzedowyResult;
         
         public PobierzZmianyTercUrzedowyResponse()
         {
         }
         
-        public PobierzZmianyTercUrzedowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyTercUrzedowyResult)
+        public PobierzZmianyTercUrzedowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyTercUrzedowyResult)
         {
             this.PobierzZmianyTercUrzedowyResult = PobierzZmianyTercUrzedowyResult;
         }
@@ -4836,13 +4836,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyTercAdresowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyTercAdresowyResult;
         
         public PobierzZmianyTercAdresowyResponse()
         {
         }
         
-        public PobierzZmianyTercAdresowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyTercAdresowyResult)
+        public PobierzZmianyTercAdresowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyTercAdresowyResult)
         {
             this.PobierzZmianyTercAdresowyResult = PobierzZmianyTercAdresowyResult;
         }
@@ -4878,13 +4878,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyNTSResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyNTSResult;
         
         public PobierzZmianyNTSResponse()
         {
         }
         
-        public PobierzZmianyNTSResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyNTSResult)
+        public PobierzZmianyNTSResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyNTSResult)
         {
             this.PobierzZmianyNTSResult = PobierzZmianyNTSResult;
         }
@@ -4920,13 +4920,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcUrzedowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcUrzedowyResult;
         
         public PobierzZmianySimcUrzedowyResponse()
         {
         }
         
-        public PobierzZmianySimcUrzedowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcUrzedowyResult)
+        public PobierzZmianySimcUrzedowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcUrzedowyResult)
         {
             this.PobierzZmianySimcUrzedowyResult = PobierzZmianySimcUrzedowyResult;
         }
@@ -4962,13 +4962,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcAdresowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcAdresowyResult;
         
         public PobierzZmianySimcAdresowyResponse()
         {
         }
         
-        public PobierzZmianySimcAdresowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcAdresowyResult)
+        public PobierzZmianySimcAdresowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcAdresowyResult)
         {
             this.PobierzZmianySimcAdresowyResult = PobierzZmianySimcAdresowyResult;
         }
@@ -5004,13 +5004,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcStatystycznyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcStatystycznyResult;
         
         public PobierzZmianySimcStatystycznyResponse()
         {
         }
         
-        public PobierzZmianySimcStatystycznyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianySimcStatystycznyResult)
+        public PobierzZmianySimcStatystycznyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianySimcStatystycznyResult)
         {
             this.PobierzZmianySimcStatystycznyResult = PobierzZmianySimcStatystycznyResult;
         }
@@ -5046,13 +5046,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicUrzedowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicUrzedowyResult;
         
         public PobierzZmianyUlicUrzedowyResponse()
         {
         }
         
-        public PobierzZmianyUlicUrzedowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicUrzedowyResult)
+        public PobierzZmianyUlicUrzedowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicUrzedowyResult)
         {
             this.PobierzZmianyUlicUrzedowyResult = PobierzZmianyUlicUrzedowyResult;
         }
@@ -5088,13 +5088,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicAdresowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicAdresowyResult;
         
         public PobierzZmianyUlicAdresowyResponse()
         {
         }
         
-        public PobierzZmianyUlicAdresowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicAdresowyResult)
+        public PobierzZmianyUlicAdresowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicAdresowyResult)
         {
             this.PobierzZmianyUlicAdresowyResult = PobierzZmianyUlicAdresowyResult;
         }
@@ -5130,13 +5130,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicBezDzielnicResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicBezDzielnicResult;
         
         public PobierzZmianyUlicBezDzielnicResponse()
         {
         }
         
-        public PobierzZmianyUlicBezDzielnicResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.PlikZmiany PobierzZmianyUlicBezDzielnicResult)
+        public PobierzZmianyUlicBezDzielnicResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PlikZmiany PobierzZmianyUlicBezDzielnicResult)
         {
             this.PobierzZmianyUlicBezDzielnicResult = PobierzZmianyUlicBezDzielnicResult;
         }
@@ -5176,13 +5176,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.GeoTeryt PobierzGeoTerytPlikPelnyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.GeoTeryt PobierzGeoTerytPlikPelnyResult;
         
         public PobierzGeoTerytPlikPelnyResponse()
         {
         }
         
-        public PobierzGeoTerytPlikPelnyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.GeoTeryt PobierzGeoTerytPlikPelnyResult)
+        public PobierzGeoTerytPlikPelnyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.GeoTeryt PobierzGeoTerytPlikPelnyResult)
         {
             this.PobierzGeoTerytPlikPelnyResult = PobierzGeoTerytPlikPelnyResult;
         }
@@ -5222,13 +5222,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.GeoTeryt PobierzGeoTerytPlikRoznicowyResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.GeoTeryt PobierzGeoTerytPlikRoznicowyResult;
         
         public PobierzGeoTerytPlikRoznicowyResponse()
         {
         }
         
-        public PobierzGeoTerytPlikRoznicowyResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.GeoTeryt PobierzGeoTerytPlikRoznicowyResult)
+        public PobierzGeoTerytPlikRoznicowyResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.GeoTeryt PobierzGeoTerytPlikRoznicowyResult)
         {
             this.PobierzGeoTerytPlikRoznicowyResult = PobierzGeoTerytPlikRoznicowyResult;
         }
@@ -5260,13 +5260,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciResult;
         
         public WeryfikujAdresDlaMiejscowosciResponse()
         {
         }
         
-        public WeryfikujAdresDlaMiejscowosciResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciResult)
+        public WeryfikujAdresDlaMiejscowosciResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciResult)
         {
             this.WeryfikujAdresDlaMiejscowosciResult = WeryfikujAdresDlaMiejscowosciResult;
         }
@@ -5298,13 +5298,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciAdresowyResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciAdresowyResult;
         
         public WeryfikujAdresDlaMiejscowosciAdresowyResponse()
         {
         }
         
-        public WeryfikujAdresDlaMiejscowosciAdresowyResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciAdresowyResult)
+        public WeryfikujAdresDlaMiejscowosciAdresowyResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresDlaMiejscowosciAdresowyResult)
         {
             this.WeryfikujAdresDlaMiejscowosciAdresowyResult = WeryfikujAdresDlaMiejscowosciAdresowyResult;
         }
@@ -5340,13 +5340,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujAdresDlaUlicResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujAdresDlaUlicResult;
         
         public WeryfikujAdresDlaUlicResponse()
         {
         }
         
-        public WeryfikujAdresDlaUlicResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujAdresDlaUlicResult)
+        public WeryfikujAdresDlaUlicResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujAdresDlaUlicResult)
         {
             this.WeryfikujAdresDlaUlicResult = WeryfikujAdresDlaUlicResult;
         }
@@ -5382,13 +5382,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujAdresDlaUlicAdresowyResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujAdresDlaUlicAdresowyResult;
         
         public WeryfikujAdresDlaUlicAdresowyResponse()
         {
         }
         
-        public WeryfikujAdresDlaUlicAdresowyResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujAdresDlaUlicAdresowyResult)
+        public WeryfikujAdresDlaUlicAdresowyResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujAdresDlaUlicAdresowyResult)
         {
             this.WeryfikujAdresDlaUlicAdresowyResult = WeryfikujAdresDlaUlicAdresowyResult;
         }
@@ -5436,13 +5436,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciResult;
         
         public WeryfikujAdresWmiejscowosciResponse()
         {
         }
         
-        public WeryfikujAdresWmiejscowosciResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciResult)
+        public WeryfikujAdresWmiejscowosciResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciResult)
         {
             this.WeryfikujAdresWmiejscowosciResult = WeryfikujAdresWmiejscowosciResult;
         }
@@ -5490,13 +5490,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciAdresowyResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciAdresowyResult;
         
         public WeryfikujAdresWmiejscowosciAdresowyResponse()
         {
         }
         
-        public WeryfikujAdresWmiejscowosciAdresowyResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciAdresowyResult)
+        public WeryfikujAdresWmiejscowosciAdresowyResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdresBezUlic> WeryfikujAdresWmiejscowosciAdresowyResult)
         {
             this.WeryfikujAdresWmiejscowosciAdresowyResult = WeryfikujAdresWmiejscowosciAdresowyResult;
         }
@@ -5548,13 +5548,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicResult;
         
         public WeryfikujNazwaAdresUlicResponse()
         {
         }
         
-        public WeryfikujNazwaAdresUlicResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicResult)
+        public WeryfikujNazwaAdresUlicResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicResult)
         {
             this.WeryfikujNazwaAdresUlicResult = WeryfikujNazwaAdresUlicResult;
         }
@@ -5606,13 +5606,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicAdresowyResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicAdresowyResult;
         
         public WeryfikujNazwaAdresUlicAdresowyResponse()
         {
         }
         
-        public WeryfikujNazwaAdresUlicAdresowyResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicAdresowyResult)
+        public WeryfikujNazwaAdresUlicAdresowyResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyAdres> WeryfikujNazwaAdresUlicAdresowyResult)
         {
             this.WeryfikujNazwaAdresUlicAdresowyResult = WeryfikujNazwaAdresUlicAdresowyResult;
         }
@@ -5644,13 +5644,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJPTResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJPTResult;
         
         public WyszukajJPTResponse()
         {
         }
         
-        public WyszukajJPTResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJPTResult)
+        public WyszukajJPTResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJPTResult)
         {
             this.WyszukajJPTResult = WyszukajJPTResult;
         }
@@ -5686,13 +5686,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> WyszukajMiejscowoscResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> WyszukajMiejscowoscResult;
         
         public WyszukajMiejscowoscResponse()
         {
         }
         
-        public WyszukajMiejscowoscResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> WyszukajMiejscowoscResult)
+        public WyszukajMiejscowoscResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> WyszukajMiejscowoscResult)
         {
             this.WyszukajMiejscowoscResult = WyszukajMiejscowoscResult;
         }
@@ -5740,13 +5740,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> WyszukajMiejscowoscWJPTResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> WyszukajMiejscowoscWJPTResult;
         
         public WyszukajMiejscowoscWJPTResponse()
         {
         }
         
-        public WyszukajMiejscowoscWJPTResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Miejscowosc> WyszukajMiejscowoscWJPTResult)
+        public WyszukajMiejscowoscWJPTResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Miejscowosc> WyszukajMiejscowoscWJPTResult)
         {
             this.WyszukajMiejscowoscWJPTResult = WyszukajMiejscowoscWJPTResult;
         }
@@ -5786,13 +5786,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Ulica> WyszukajUliceResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Ulica> WyszukajUliceResult;
         
         public WyszukajUliceResponse()
         {
         }
         
-        public WyszukajUliceResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.Ulica> WyszukajUliceResult)
+        public WyszukajUliceResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.Ulica> WyszukajUliceResult)
         {
             this.WyszukajUliceResult = WyszukajUliceResult;
         }
@@ -5808,7 +5808,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string nazwa;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string kategoria;
@@ -5820,7 +5820,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajJednostkeWRejestrzeRequest(string nazwa, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, string kategoria, System.DateTime DataStanu)
+        public WyszukajJednostkeWRejestrzeRequest(string nazwa, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, string kategoria, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.identyfiks = identyfiks;
@@ -5836,13 +5836,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeResult;
         
         public WyszukajJednostkeWRejestrzeResponse()
         {
         }
         
-        public WyszukajJednostkeWRejestrzeResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeResult)
+        public WyszukajJednostkeWRejestrzeResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeResult)
         {
             this.WyszukajJednostkeWRejestrzeResult = WyszukajJednostkeWRejestrzeResult;
         }
@@ -5858,7 +5858,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string nazwa;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string kategoria;
@@ -5879,7 +5879,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajJednostkeWRejestrzeWebLSRequest(string nazwa, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, string kategoria, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajJednostkeWRejestrzeWebLSRequest(string nazwa, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, string kategoria, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.identyfiks = identyfiks;
@@ -5898,13 +5898,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeWebLSResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeWebLSResult;
         
         public WyszukajJednostkeWRejestrzeWebLSResponse()
         {
         }
         
-        public WyszukajJednostkeWRejestrzeWebLSResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeWebLSResult)
+        public WyszukajJednostkeWRejestrzeWebLSResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnego> WyszukajJednostkeWRejestrzeWebLSResult)
         {
             this.WyszukajJednostkeWRejestrzeWebLSResult = WyszukajJednostkeWRejestrzeWebLSResult;
         }
@@ -5920,7 +5920,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string nazwa;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string kategoria;
@@ -5932,7 +5932,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajJednostkeWRejestrzeWebLSCountRequest(string nazwa, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, string kategoria, System.DateTime DataStanu)
+        public WyszukajJednostkeWRejestrzeWebLSCountRequest(string nazwa, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, string kategoria, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.identyfiks = identyfiks;
@@ -5970,7 +5970,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string nazwa;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string kategoria;
@@ -5991,7 +5991,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest(string nazwa, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, string kategoria, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest(string nazwa, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, string kategoria, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.identyfiks = identyfiks;
@@ -6010,13 +6010,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnegoDoSortowania> WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnegoDoSortowania> WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult;
         
         public WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse()
         {
         }
         
-        public WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.JednostkaPodzialuTerytorialnegoDoSortowania> WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult)
+        public WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.JednostkaPodzialuTerytorialnegoDoSortowania> WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult)
         {
             this.WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult = WyszukajJednostkeWRejestrzeWebLSZSortowaniemResult;
         }
@@ -6038,7 +6038,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string symbol;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public System.DateTime DataStanu;
@@ -6047,7 +6047,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajMiejscowoscWRejestrzeRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, System.DateTime DataStanu)
+        public WyszukajMiejscowoscWRejestrzeRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.rodzajMiejscowosci = rodzajMiejscowosci;
@@ -6064,13 +6064,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowosc> WyszukajMiejscowoscWRejestrzeResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowosc> WyszukajMiejscowoscWRejestrzeResult;
         
         public WyszukajMiejscowoscWRejestrzeResponse()
         {
         }
         
-        public WyszukajMiejscowoscWRejestrzeResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowosc> WyszukajMiejscowoscWRejestrzeResult)
+        public WyszukajMiejscowoscWRejestrzeResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowosc> WyszukajMiejscowoscWRejestrzeResult)
         {
             this.WyszukajMiejscowoscWRejestrzeResult = WyszukajMiejscowoscWRejestrzeResult;
         }
@@ -6092,7 +6092,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string identyfikator;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public System.DateTime DataStanu;
@@ -6101,7 +6101,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajUliceWRejestrzeRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, System.DateTime DataStanu)
+        public WyszukajUliceWRejestrzeRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.cecha = cecha;
@@ -6118,13 +6118,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlica> WyszukajUliceWRejestrzeResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlica> WyszukajUliceWRejestrzeResult;
         
         public WyszukajUliceWRejestrzeResponse()
         {
         }
         
-        public WyszukajUliceWRejestrzeResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlica> WyszukajUliceWRejestrzeResult)
+        public WyszukajUliceWRejestrzeResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlica> WyszukajUliceWRejestrzeResult)
         {
             this.WyszukajUliceWRejestrzeResult = WyszukajUliceWRejestrzeResult;
         }
@@ -6146,7 +6146,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string symbol;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6161,7 +6161,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajMiejscowoscWebRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajMiejscowoscWebRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.rodzajMiejscowosci = rodzajMiejscowosci;
@@ -6180,13 +6180,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowosc> WyszukajMiejscowoscWebResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowosc> WyszukajMiejscowoscWebResult;
         
         public WyszukajMiejscowoscWebResponse()
         {
         }
         
-        public WyszukajMiejscowoscWebResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowosc> WyszukajMiejscowoscWebResult)
+        public WyszukajMiejscowoscWebResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowosc> WyszukajMiejscowoscWebResult)
         {
             this.WyszukajMiejscowoscWebResult = WyszukajMiejscowoscWebResult;
         }
@@ -6208,7 +6208,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string symbol;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> idents;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> idents;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6232,7 +6232,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajMiejscowoscWebLSRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> idents, bool czyPelnaNazwa, bool czyFragmentNazwy, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajMiejscowoscWebLSRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> idents, bool czyPelnaNazwa, bool czyFragmentNazwy, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.rodzajMiejscowosci = rodzajMiejscowosci;
@@ -6254,13 +6254,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowoscZPodstawowa> WyszukajMiejscowoscWebLSResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowoscZPodstawowa> WyszukajMiejscowoscWebLSResult;
         
         public WyszukajMiejscowoscWebLSResponse()
         {
         }
         
-        public WyszukajMiejscowoscWebLSResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaMiejscowoscZPodstawowa> WyszukajMiejscowoscWebLSResult)
+        public WyszukajMiejscowoscWebLSResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaMiejscowoscZPodstawowa> WyszukajMiejscowoscWebLSResult)
         {
             this.WyszukajMiejscowoscWebLSResult = WyszukajMiejscowoscWebLSResult;
         }
@@ -6282,7 +6282,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string symbol;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6294,7 +6294,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajMiejscowoscWebCountRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, System.DateTime DataStanu)
+        public WyszukajMiejscowoscWebCountRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.rodzajMiejscowosci = rodzajMiejscowosci;
@@ -6340,7 +6340,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string symbol;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6355,7 +6355,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajMiejscowoscWebCountLSRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, System.DateTime DataStanu)
+        public WyszukajMiejscowoscWebCountLSRequest(string nazwa, string rodzajMiejscowosci, string symbol, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.rodzajMiejscowosci = rodzajMiejscowosci;
@@ -6402,7 +6402,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string identyfikator;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6417,7 +6417,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajUliceWebRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajUliceWebRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.cecha = cecha;
@@ -6436,13 +6436,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlica> WyszukajUliceWebResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlica> WyszukajUliceWebResult;
         
         public WyszukajUliceWebResponse()
         {
         }
         
-        public WyszukajUliceWebResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlica> WyszukajUliceWebResult)
+        public WyszukajUliceWebResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlica> WyszukajUliceWebResult)
         {
             this.WyszukajUliceWebResult = WyszukajUliceWebResult;
         }
@@ -6464,7 +6464,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string identyfikator;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6476,7 +6476,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajUliceWebCountRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, System.DateTime DataStanu)
+        public WyszukajUliceWebCountRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.cecha = cecha;
@@ -6522,7 +6522,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string identyfikator;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6546,7 +6546,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajUliceWebLSRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
+        public WyszukajUliceWebLSRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, bool zawezenieRekordow, int odKtoregoRekordu, int iloscRekordow, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.cecha = cecha;
@@ -6568,13 +6568,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlicaZPodstawowa> WyszukajUliceWebLSResult;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlicaZPodstawowa> WyszukajUliceWebLSResult;
         
         public WyszukajUliceWebLSResponse()
         {
         }
         
-        public WyszukajUliceWebLSResponse(System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukanaUlicaZPodstawowa> WyszukajUliceWebLSResult)
+        public WyszukajUliceWebLSResponse(System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukanaUlicaZPodstawowa> WyszukajUliceWebLSResult)
         {
             this.WyszukajUliceWebLSResult = WyszukajUliceWebLSResult;
         }
@@ -6596,7 +6596,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         public string identyfikator;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks;
+        public System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public bool czyPelnaNazwa;
@@ -6611,7 +6611,7 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public WyszukajUliceWebLSCountRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monumets.Manager.Application.Dictionary.Providers.Teryt.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, System.DateTime DataStanu)
+        public WyszukajUliceWebLSCountRequest(string nazwa, string cecha, string identyfikator, System.Collections.Generic.List<Monuments.Manager.Dictionary.Providers.Teryt.WebService.identyfikatory> identyfiks, bool czyPelnaNazwa, bool czyFragmentNazwy, System.DateTime DataStanu)
         {
             this.nazwa = nazwa;
             this.cecha = cecha;
@@ -6668,13 +6668,13 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.Statystki TerytWLiczbachResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.Statystki TerytWLiczbachResult;
         
         public TerytWLiczbachResponse()
         {
         }
         
-        public TerytWLiczbachResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.Statystki TerytWLiczbachResult)
+        public TerytWLiczbachResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.Statystki TerytWLiczbachResult)
         {
             this.TerytWLiczbachResult = TerytWLiczbachResult;
         }
@@ -6788,26 +6788,26 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Monumets.Manager.Application.Dictionary.Providers.Teryt.Licznosc LicznoscJednostekResult;
+        public Monuments.Manager.Dictionary.Providers.Teryt.WebService.Licznosc LicznoscJednostekResult;
         
         public LicznoscJednostekResponse()
         {
         }
         
-        public LicznoscJednostekResponse(Monumets.Manager.Application.Dictionary.Providers.Teryt.Licznosc LicznoscJednostekResult)
+        public LicznoscJednostekResponse(Monuments.Manager.Dictionary.Providers.Teryt.WebService.Licznosc LicznoscJednostekResult)
         {
             this.LicznoscJednostekResult = LicznoscJednostekResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public interface ITerytWs1Channel : Monumets.Manager.Application.Dictionary.Providers.Teryt.ITerytWs1, System.ServiceModel.IClientChannel
+    public interface ITerytWs1Channel : Monuments.Manager.Dictionary.Providers.Teryt.WebService.ITerytWs1, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public partial class TerytWs1Client : System.ServiceModel.ClientBase<Monumets.Manager.Application.Dictionary.Providers.Teryt.ITerytWs1>, Monumets.Manager.Application.Dictionary.Providers.Teryt.ITerytWs1
+    public partial class TerytWs1Client : System.ServiceModel.ClientBase<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ITerytWs1>, Monuments.Manager.Dictionary.Providers.Teryt.WebService.ITerytWs1
     {
         
         public TerytWs1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
@@ -6815,377 +6815,377 @@ namespace Monumets.Manager.Application.Dictionary.Providers.Teryt
         {
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CzyZalogowanyResponse> CzyZalogowanyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CzyZalogowanyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CzyZalogowanyResponse> CzyZalogowanyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CzyZalogowanyRequest request)
         {
             return base.Channel.CzyZalogowanyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyResponse> ZweryfikowanyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.ZweryfikowanyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyResponse> ZweryfikowanyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.ZweryfikowanyRequest request)
         {
             return base.Channel.ZweryfikowanyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatTercResponse> PobierzDateAktualnegoKatTercAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatTercRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatTercResponse> PobierzDateAktualnegoKatTercAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatTercRequest request)
         {
             return base.Channel.PobierzDateAktualnegoKatTercAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatNTSResponse> PobierzDateAktualnegoKatNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatNTSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatNTSResponse> PobierzDateAktualnegoKatNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatNTSRequest request)
         {
             return base.Channel.PobierzDateAktualnegoKatNTSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatSimcResponse> PobierzDateAktualnegoKatSimcAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatSimcRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatSimcResponse> PobierzDateAktualnegoKatSimcAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatSimcRequest request)
         {
             return base.Channel.PobierzDateAktualnegoKatSimcAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatUlicResponse> PobierzDateAktualnegoKatUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzDateAktualnegoKatUlicRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatUlicResponse> PobierzDateAktualnegoKatUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzDateAktualnegoKatUlicRequest request)
         {
             return base.Channel.PobierzDateAktualnegoKatUlicAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwResponse> PobierzListeWojewodztwAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwResponse> PobierzListeWojewodztwAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwRequest request)
         {
             return base.Channel.PobierzListeWojewodztwAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowResponse> PobierzListePowiatowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowResponse> PobierzListePowiatowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowRequest request)
         {
             return base.Channel.PobierzListePowiatowAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminResponse> PobierzListeGminAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminResponse> PobierzListeGminAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminRequest request)
         {
             return base.Channel.PobierzListeGminAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGminyiPowDlaWojResponse> PobierzGminyiPowDlaWojAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGminyiPowDlaWojRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGminyiPowDlaWojResponse> PobierzGminyiPowDlaWojAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGminyiPowDlaWojRequest request)
         {
             return base.Channel.PobierzGminyiPowDlaWojAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeRegionowResponse> PobierzListeRegionowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeRegionowRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeRegionowResponse> PobierzListeRegionowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeRegionowRequest request)
         {
             return base.Channel.PobierzListeRegionowAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePodregionowResponse> PobierzListePodregionowAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePodregionowRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePodregionowResponse> PobierzListePodregionowAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePodregionowRequest request)
         {
             return base.Channel.PobierzListePodregionowAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwWRegionieResponse> PobierzListeWojewodztwWRegionieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeWojewodztwWRegionieRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwWRegionieResponse> PobierzListeWojewodztwWRegionieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeWojewodztwWRegionieRequest request)
         {
             return base.Channel.PobierzListeWojewodztwWRegionieAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowWPodregionieResponse> PobierzListePowiatowWPodregionieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListePowiatowWPodregionieRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowWPodregionieResponse> PobierzListePowiatowWPodregionieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListePowiatowWPodregionieRequest request)
         {
             return base.Channel.PobierzListePowiatowWPodregionieAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminPowiecieResponse> PobierzListeGminPowiecieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeGminPowiecieRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminPowiecieResponse> PobierzListeGminPowiecieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeGminPowiecieRequest request)
         {
             return base.Channel.PobierzListeGminPowiecieAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeUlicDlaMiejscowosciResponse> PobierzListeUlicDlaMiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeUlicDlaMiejscowosciRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeUlicDlaMiejscowosciResponse> PobierzListeUlicDlaMiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeUlicDlaMiejscowosciRequest request)
         {
             return base.Channel.PobierzListeUlicDlaMiejscowosciAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieResponse> PobierzListeMiejscowosciWGminieAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieResponse> PobierzListeMiejscowosciWGminieAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieRequest request)
         {
             return base.Channel.PobierzListeMiejscowosciWGminieAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieZSymbolemResponse> PobierzListeMiejscowosciWGminieZSymbolemAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWGminieZSymbolemRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieZSymbolemResponse> PobierzListeMiejscowosciWGminieZSymbolemAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWGminieZSymbolemRequest request)
         {
             return base.Channel.PobierzListeMiejscowosciWGminieZSymbolemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWRodzajuGminyResponse> PobierzListeMiejscowosciWRodzajuGminyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzListeMiejscowosciWRodzajuGminyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWRodzajuGminyResponse> PobierzListeMiejscowosciWRodzajuGminyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzListeMiejscowosciWRodzajuGminyRequest request)
         {
             return base.Channel.PobierzListeMiejscowosciWRodzajuGminyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowJednostekResponse> PobierzSlownikRodzajowJednostekAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowJednostekRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowJednostekResponse> PobierzSlownikRodzajowJednostekAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowJednostekRequest request)
         {
             return base.Channel.PobierzSlownikRodzajowJednostekAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowSIMCResponse> PobierzSlownikRodzajowSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikRodzajowSIMCRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowSIMCResponse> PobierzSlownikRodzajowSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikRodzajowSIMCRequest request)
         {
             return base.Channel.PobierzSlownikRodzajowSIMCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikCechULICResponse> PobierzSlownikCechULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzSlownikCechULICRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikCechULICResponse> PobierzSlownikCechULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzSlownikCechULICRequest request)
         {
             return base.Channel.PobierzSlownikCechULICAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCAdrResponse> PobierzKatalogTERCAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCAdrRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCAdrResponse> PobierzKatalogTERCAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCAdrRequest request)
         {
             return base.Channel.PobierzKatalogTERCAdrAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCResponse> PobierzKatalogTERCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogTERCRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCResponse> PobierzKatalogTERCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogTERCRequest request)
         {
             return base.Channel.PobierzKatalogTERCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogNTSResponse> PobierzKatalogNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogNTSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogNTSResponse> PobierzKatalogNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogNTSRequest request)
         {
             return base.Channel.PobierzKatalogNTSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCAdrResponse> PobierzKatalogSIMCAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCAdrRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCAdrResponse> PobierzKatalogSIMCAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCAdrRequest request)
         {
             return base.Channel.PobierzKatalogSIMCAdrAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCResponse> PobierzKatalogSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCResponse> PobierzKatalogSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCRequest request)
         {
             return base.Channel.PobierzKatalogSIMCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCStatResponse> PobierzKatalogSIMCStatAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogSIMCStatRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCStatResponse> PobierzKatalogSIMCStatAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogSIMCStatRequest request)
         {
             return base.Channel.PobierzKatalogSIMCStatAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICResponse> PobierzKatalogULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICResponse> PobierzKatalogULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICRequest request)
         {
             return base.Channel.PobierzKatalogULICAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICAdrResponse> PobierzKatalogULICAdrAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICAdrRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICAdrResponse> PobierzKatalogULICAdrAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICAdrRequest request)
         {
             return base.Channel.PobierzKatalogULICAdrAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICBezDzielnicResponse> PobierzKatalogULICBezDzielnicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogULICBezDzielnicRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICBezDzielnicResponse> PobierzKatalogULICBezDzielnicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogULICBezDzielnicRequest request)
         {
             return base.Channel.PobierzKatalogULICBezDzielnicAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzStaryKatalogULICResponse> PobierzStaryKatalogULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzStaryKatalogULICRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzStaryKatalogULICResponse> PobierzStaryKatalogULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzStaryKatalogULICRequest request)
         {
             return base.Channel.PobierzStaryKatalogULICAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogWMRODZResponse> PobierzKatalogWMRODZAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzKatalogWMRODZRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogWMRODZResponse> PobierzKatalogWMRODZAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzKatalogWMRODZRequest request)
         {
             return base.Channel.PobierzKatalogWMRODZAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercUrzedowyResponse> PobierzZmianyTercUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercUrzedowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercUrzedowyResponse> PobierzZmianyTercUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercUrzedowyRequest request)
         {
             return base.Channel.PobierzZmianyTercUrzedowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercAdresowyResponse> PobierzZmianyTercAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyTercAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercAdresowyResponse> PobierzZmianyTercAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyTercAdresowyRequest request)
         {
             return base.Channel.PobierzZmianyTercAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyNTSResponse> PobierzZmianyNTSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyNTSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyNTSResponse> PobierzZmianyNTSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyNTSRequest request)
         {
             return base.Channel.PobierzZmianyNTSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcUrzedowyResponse> PobierzZmianySimcUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcUrzedowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcUrzedowyResponse> PobierzZmianySimcUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcUrzedowyRequest request)
         {
             return base.Channel.PobierzZmianySimcUrzedowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcAdresowyResponse> PobierzZmianySimcAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcAdresowyResponse> PobierzZmianySimcAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcAdresowyRequest request)
         {
             return base.Channel.PobierzZmianySimcAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcStatystycznyResponse> PobierzZmianySimcStatystycznyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianySimcStatystycznyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcStatystycznyResponse> PobierzZmianySimcStatystycznyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianySimcStatystycznyRequest request)
         {
             return base.Channel.PobierzZmianySimcStatystycznyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicUrzedowyResponse> PobierzZmianyUlicUrzedowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicUrzedowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicUrzedowyResponse> PobierzZmianyUlicUrzedowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicUrzedowyRequest request)
         {
             return base.Channel.PobierzZmianyUlicUrzedowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicAdresowyResponse> PobierzZmianyUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicAdresowyResponse> PobierzZmianyUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicAdresowyRequest request)
         {
             return base.Channel.PobierzZmianyUlicAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicBezDzielnicResponse> PobierzZmianyUlicBezDzielnicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzZmianyUlicBezDzielnicRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicBezDzielnicResponse> PobierzZmianyUlicBezDzielnicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzZmianyUlicBezDzielnicRequest request)
         {
             return base.Channel.PobierzZmianyUlicBezDzielnicAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikPelnyResponse> PobierzGeoTerytPlikPelnyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikPelnyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikPelnyResponse> PobierzGeoTerytPlikPelnyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikPelnyRequest request)
         {
             return base.Channel.PobierzGeoTerytPlikPelnyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikRoznicowyResponse> PobierzGeoTerytPlikRoznicowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.PobierzGeoTerytPlikRoznicowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikRoznicowyResponse> PobierzGeoTerytPlikRoznicowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.PobierzGeoTerytPlikRoznicowyRequest request)
         {
             return base.Channel.PobierzGeoTerytPlikRoznicowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciResponse> WeryfikujAdresDlaMiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciResponse> WeryfikujAdresDlaMiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciRequest request)
         {
             return base.Channel.WeryfikujAdresDlaMiejscowosciAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciAdresowyResponse> WeryfikujAdresDlaMiejscowosciAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaMiejscowosciAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciAdresowyResponse> WeryfikujAdresDlaMiejscowosciAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaMiejscowosciAdresowyRequest request)
         {
             return base.Channel.WeryfikujAdresDlaMiejscowosciAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicResponse> WeryfikujAdresDlaUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicResponse> WeryfikujAdresDlaUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicRequest request)
         {
             return base.Channel.WeryfikujAdresDlaUlicAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicAdresowyResponse> WeryfikujAdresDlaUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresDlaUlicAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicAdresowyResponse> WeryfikujAdresDlaUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresDlaUlicAdresowyRequest request)
         {
             return base.Channel.WeryfikujAdresDlaUlicAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciResponse> WeryfikujAdresWmiejscowosciAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciResponse> WeryfikujAdresWmiejscowosciAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciRequest request)
         {
             return base.Channel.WeryfikujAdresWmiejscowosciAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciAdresowyResponse> WeryfikujAdresWmiejscowosciAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujAdresWmiejscowosciAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciAdresowyResponse> WeryfikujAdresWmiejscowosciAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujAdresWmiejscowosciAdresowyRequest request)
         {
             return base.Channel.WeryfikujAdresWmiejscowosciAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicResponse> WeryfikujNazwaAdresUlicAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicResponse> WeryfikujNazwaAdresUlicAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicRequest request)
         {
             return base.Channel.WeryfikujNazwaAdresUlicAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicAdresowyResponse> WeryfikujNazwaAdresUlicAdresowyAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WeryfikujNazwaAdresUlicAdresowyRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicAdresowyResponse> WeryfikujNazwaAdresUlicAdresowyAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WeryfikujNazwaAdresUlicAdresowyRequest request)
         {
             return base.Channel.WeryfikujNazwaAdresUlicAdresowyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJPTResponse> WyszukajJPTAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJPTRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJPTResponse> WyszukajJPTAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJPTRequest request)
         {
             return base.Channel.WyszukajJPTAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscResponse> WyszukajMiejscowoscAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscResponse> WyszukajMiejscowoscAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscRequest request)
         {
             return base.Channel.WyszukajMiejscowoscAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWJPTResponse> WyszukajMiejscowoscWJPTAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWJPTRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWJPTResponse> WyszukajMiejscowoscWJPTAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWJPTRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWJPTAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceResponse> WyszukajUliceAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceResponse> WyszukajUliceAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceRequest request)
         {
             return base.Channel.WyszukajUliceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeResponse> WyszukajJednostkeWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeResponse> WyszukajJednostkeWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeRequest request)
         {
             return base.Channel.WyszukajJednostkeWRejestrzeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSResponse> WyszukajJednostkeWRejestrzeWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSResponse> WyszukajJednostkeWRejestrzeWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSRequest request)
         {
             return base.Channel.WyszukajJednostkeWRejestrzeWebLSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSCountResponse> WyszukajJednostkeWRejestrzeWebLSCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSCountRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSCountResponse> WyszukajJednostkeWRejestrzeWebLSCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSCountRequest request)
         {
             return base.Channel.WyszukajJednostkeWRejestrzeWebLSCountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse> WyszukajJednostkeWRejestrzeWebLSZSortowaniemAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSZSortowaniemResponse> WyszukajJednostkeWRejestrzeWebLSZSortowaniemAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajJednostkeWRejestrzeWebLSZSortowaniemRequest request)
         {
             return base.Channel.WyszukajJednostkeWRejestrzeWebLSZSortowaniemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWRejestrzeResponse> WyszukajMiejscowoscWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWRejestrzeRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWRejestrzeResponse> WyszukajMiejscowoscWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWRejestrzeRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWRejestrzeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWRejestrzeResponse> WyszukajUliceWRejestrzeAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWRejestrzeRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWRejestrzeResponse> WyszukajUliceWRejestrzeAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWRejestrzeRequest request)
         {
             return base.Channel.WyszukajUliceWRejestrzeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebResponse> WyszukajMiejscowoscWebAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebResponse> WyszukajMiejscowoscWebAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWebAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebLSResponse> WyszukajMiejscowoscWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebLSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebLSResponse> WyszukajMiejscowoscWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebLSRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWebLSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountResponse> WyszukajMiejscowoscWebCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountResponse> WyszukajMiejscowoscWebCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWebCountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountLSResponse> WyszukajMiejscowoscWebCountLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajMiejscowoscWebCountLSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountLSResponse> WyszukajMiejscowoscWebCountLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajMiejscowoscWebCountLSRequest request)
         {
             return base.Channel.WyszukajMiejscowoscWebCountLSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebResponse> WyszukajUliceWebAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebResponse> WyszukajUliceWebAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebRequest request)
         {
             return base.Channel.WyszukajUliceWebAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebCountResponse> WyszukajUliceWebCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebCountRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebCountResponse> WyszukajUliceWebCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebCountRequest request)
         {
             return base.Channel.WyszukajUliceWebCountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSResponse> WyszukajUliceWebLSAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSResponse> WyszukajUliceWebLSAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSRequest request)
         {
             return base.Channel.WyszukajUliceWebLSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSCountResponse> WyszukajUliceWebLSCountAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.WyszukajUliceWebLSCountRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSCountResponse> WyszukajUliceWebLSCountAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.WyszukajUliceWebLSCountRequest request)
         {
             return base.Channel.WyszukajUliceWebLSCountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.TerytWLiczbachResponse> TerytWLiczbachAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.TerytWLiczbachRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.TerytWLiczbachResponse> TerytWLiczbachAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.TerytWLiczbachRequest request)
         {
             return base.Channel.TerytWLiczbachAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiTERCResponse> CiekawostkiTERCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiTERCRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiTERCResponse> CiekawostkiTERCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiTERCRequest request)
         {
             return base.Channel.CiekawostkiTERCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiSIMCResponse> CiekawostkiSIMCAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiSIMCRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiSIMCResponse> CiekawostkiSIMCAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiSIMCRequest request)
         {
             return base.Channel.CiekawostkiSIMCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiULICResponse> CiekawostkiULICAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.CiekawostkiULICRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiULICResponse> CiekawostkiULICAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.CiekawostkiULICRequest request)
         {
             return base.Channel.CiekawostkiULICAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Monumets.Manager.Application.Dictionary.Providers.Teryt.LicznoscJednostekResponse> LicznoscJednostekAsync(Monumets.Manager.Application.Dictionary.Providers.Teryt.LicznoscJednostekRequest request)
+        public System.Threading.Tasks.Task<Monuments.Manager.Dictionary.Providers.Teryt.WebService.LicznoscJednostekResponse> LicznoscJednostekAsync(Monuments.Manager.Dictionary.Providers.Teryt.WebService.LicznoscJednostekRequest request)
         {
             return base.Channel.LicznoscJednostekAsync(request);
         }

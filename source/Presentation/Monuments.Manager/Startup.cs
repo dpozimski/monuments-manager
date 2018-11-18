@@ -53,7 +53,6 @@ namespace Monuments.Manager
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseCors(s => s.AllowAnyHeader()
                      .AllowAnyMethod()
                      .AllowAnyOrigin()
