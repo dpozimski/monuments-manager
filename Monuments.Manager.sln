@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{713362
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Common", "source\Common\Monuments.Manager.Common\Monuments.Manager.Common.csproj", "{E73FC852-CB8C-468B-9B7B-F8474B904F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Infrastructure.Tests", "Monuments.Manager.Infrastructure.Tests\Monuments.Manager.Infrastructure.Tests.csproj", "{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Infrastructure.Tests", "source\Tests\Monuments.Manager.Infrastructure.Tests\Monuments.Manager.Infrastructure.Tests.csproj", "{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

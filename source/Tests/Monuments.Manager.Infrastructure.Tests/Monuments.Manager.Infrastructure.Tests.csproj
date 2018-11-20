@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\source\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
-    <ProjectReference Include="..\source\Infrastructure\Monuments.Manager.Infrastructure\Monuments.Manager.Infrastructure.csproj" />
+    <ProjectReference Include=".\..\..\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
+    <ProjectReference Include=".\..\..\Infrastructure\Monuments.Manager.Infrastructure\Monuments.Manager.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
