@@ -8,6 +8,6 @@ namespace Monuments.Manager.Application.Monuments.Queries
 {
     public class GetRecentMonumentsQuery : IRequest<List<MonumentPreviewDto>>
     {
-        
+        public int RecentMonumentsCount { get; set; }
     }
 }

@@ -25,6 +25,8 @@ namespace Monuments.Manager.Application.Monuments.Queries
             var result = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
+                .OrderByDescending(s => s.ModifiedDate)
+                .Take(request.RecentMonumentsCount)
                 .Select(s => new MonumentPreviewDto()
                 {
                     Id = s.Id,
