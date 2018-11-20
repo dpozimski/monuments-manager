@@ -9,7 +9,7 @@ namespace Monuments.Manager.Infrastructure.Tests
     public class SystemDateTimeProviderTests
     {
         [Fact]
-        public void GetCurrent_ShouldBeLessThanAssertionValue()
+        public void GetCurrent_ShouldBAssertionValue()
         {
             //arrange
             var systemDateTimeProvider = new SystemDateTimeProvider();
