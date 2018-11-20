@@ -11,20 +11,24 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentPreviewDto>>
+    public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, GetMonumentdQueryResult>
     {
         private readonly MonumentsDbContext _dbContext;
 
-        public GetRecentMonumentsQueryHandler(MonumentsDbContext dbContext)
+        public GetMonumentsQueryHandler(MonumentsDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<List<MonumentPreviewDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<GetMonumentdQueryResult> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
         {
-            var result = await _dbContext.Monuments
+            var count = await _dbContext.Monuments.CountAsync();
+
+            var monuments = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
+                .Skip(request.StartIndex)
+                .Take(request.EndIndex)
                 .Select(s => new MonumentPreviewDto()
                 {
                     Id = s.Id,
@@ -35,7 +39,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null
                 }).ToListAsync(cancellationToken);
 
-            return result;
+            var leftCount = count - request.EndIndex;
+
+            return new GetMonumentdQueryResult()
+            {
+                LeftCount = leftCount,
+                Monuments = monuments
+            };
         }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monuments.Manager.Application.Monuments.Commands;
 using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Application.Monuments.Queries;
+using Monuments.Manager.ViewModels;
 
 namespace Monuments.Manager.Controllers
 {
@@ -30,6 +31,22 @@ namespace Monuments.Manager.Controllers
         public async Task<MonumentDto> GetAsync([FromQuery]GetMonumentQuery query)
         {
             return await Mediator.Send(query);
+        }
+
+        [HttpGet]
+        public async Task<MonumentsPreviewViewModel> GetAsync([FromQuery]GetMonumentsViewModel viewModel)
+        {
+            var result = await Mediator.Send(new GetMonumentsQuery()
+            {
+                StartIndex = viewModel.StartIndex,
+                EndIndex = viewModel.EndIndex
+            });
+
+            return new MonumentsPreviewViewModel()
+            {
+                Monuments = result.Monuments,
+                PagesCount = (result.LeftCount - viewModel.EndIndex) / (viewModel.EndIndex - viewModel.StartIndex)
+            };
         }
 
         [HttpPost]

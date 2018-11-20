@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Models
 {
-    public class RecentMonumentDto
+    public class MonumentPreviewDto
     {
         public int Id { get; set; }
 

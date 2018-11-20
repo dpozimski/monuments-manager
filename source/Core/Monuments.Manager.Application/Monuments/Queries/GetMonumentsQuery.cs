@@ -6,8 +6,9 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetRecentMonumentsQuery : IRequest<List<MonumentPreviewDto>>
+    public class GetMonumentsQuery : IRequest<GetMonumentdQueryResult>
     {
-        
+        public int StartIndex { get; set; }
+        public int EndIndex { get; set; }
     }
 }
