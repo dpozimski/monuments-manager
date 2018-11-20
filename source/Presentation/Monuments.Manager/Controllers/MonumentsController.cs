@@ -33,7 +33,7 @@ namespace Monuments.Manager.Controllers
             return await Mediator.Send(query);
         }
 
-        [HttpGet]
+        [HttpGet("monuments")]
         public async Task<MonumentsPreviewViewModel> GetAsync([FromQuery]GetMonumentsViewModel viewModel)
         {
             var result = await Mediator.Send(new GetMonumentsQuery()
