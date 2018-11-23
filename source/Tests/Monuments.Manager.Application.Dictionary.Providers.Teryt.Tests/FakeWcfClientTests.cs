@@ -2,7 +2,7 @@
 
 namespace Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests
 {
-    public class WcfClientTests : WcfClientTestsBase<WcfClient>
+    public class FakeWcfClientTests : WcfClientTestsBase<FakeWcfClient>
     {
         
     }
