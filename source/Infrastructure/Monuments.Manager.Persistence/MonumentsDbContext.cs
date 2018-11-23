@@ -37,7 +37,7 @@ namespace Monuments.Manager.Persistence
             _entityChangedDateHook = entityChangedDateHook;
         }
 
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
         {
             var addedEntities = ChangeTracker.Entries()
                 .Where(s => s.State == EntityState.Added)
