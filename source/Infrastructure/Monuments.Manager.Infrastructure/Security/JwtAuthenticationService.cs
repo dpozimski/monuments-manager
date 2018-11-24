@@ -5,7 +5,6 @@ using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Common;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -28,15 +27,15 @@ namespace Monuments.Manager.Infrastructure.Security
             _dateTimeProvider = dateTimeProvider;
         }
 
-        public async Task<string> AuthenticateAsync(string username, string password)
+        public async Task<UserToken> AuthenticateAsync(string username, string password)
         {
-            var authenticatedUserId = await _mediator.Send(new AuthenticateUserCommand()
+            var authenticatedUser = await _mediator.Send(new AuthenticateUserCommand()
             {
                 Username = username,
                 Password = password
             });
 
-            if (!authenticatedUserId.HasValue)
+            if (authenticatedUser is null)
                 throw new AuthenticationException(username);
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -45,13 +44,18 @@ namespace Monuments.Manager.Infrastructure.Security
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, authenticatedUserId.ToString())
+                    new Claim(ClaimTypes.Name, authenticatedUser.ToString())
                 }),
                 Expires = _dateTimeProvider.GetCurrent().AddDays(15),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            return new UserToken()
+            {
+                User = authenticatedUser,
+                Token = tokenHandler.WriteToken(token)
+            };
         }
     }
 }

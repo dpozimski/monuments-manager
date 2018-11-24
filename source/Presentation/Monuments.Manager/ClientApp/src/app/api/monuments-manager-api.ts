@@ -721,7 +721,7 @@ export interface IUsersClient {
     get(id: number): Observable<UserDto | null>;
     update(command: UpdateUserCommand): Observable<void>;
     delete(command: DeleteUserCommand): Observable<void>;
-    authenticate(viewModel: AuthenticateUserViewModel): Observable<string | null>;
+    authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null>;
 }
 
 @Injectable()
@@ -935,7 +935,7 @@ export class UsersClient implements IUsersClient {
         return _observableOf<void>(<any>null);
     }
 
-    authenticate(viewModel: AuthenticateUserViewModel): Observable<string | null> {
+    authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null> {
         let url_ = this.baseUrl + "/api/Users/authentication";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -958,14 +958,14 @@ export class UsersClient implements IUsersClient {
                 try {
                     return this.processAuthenticate(<any>response_);
                 } catch (e) {
-                    return <Observable<string | null>><any>_observableThrow(e);
+                    return <Observable<AuthenticateUserResultViewModel | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<string | null>><any>_observableThrow(response_);
+                return <Observable<AuthenticateUserResultViewModel | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processAuthenticate(response: HttpResponseBase): Observable<string | null> {
+    protected processAuthenticate(response: HttpResponseBase): Observable<AuthenticateUserResultViewModel | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -976,7 +976,7 @@ export class UsersClient implements IUsersClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            result200 = resultData200 ? AuthenticateUserResultViewModel.fromJS(resultData200) : <any>null;
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -984,7 +984,7 @@ export class UsersClient implements IUsersClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<string | null>(<any>null);
+        return _observableOf<AuthenticateUserResultViewModel | null>(<any>null);
     }
 }
 
@@ -1526,6 +1526,7 @@ export enum UserRoleDto {
 }
 
 export class UserDto implements IUserDto {
+    id?: number;
     role?: UserRoleDto;
     username?: string | undefined;
     jobTitle?: string | undefined;
@@ -1541,6 +1542,7 @@ export class UserDto implements IUserDto {
 
     init(data?: any) {
         if (data) {
+            this.id = data["id"];
             this.role = data["role"];
             this.username = data["username"];
             this.jobTitle = data["jobTitle"];
@@ -1556,6 +1558,7 @@ export class UserDto implements IUserDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
         data["role"] = this.role;
         data["username"] = this.username;
         data["jobTitle"] = this.jobTitle;
@@ -1564,6 +1567,7 @@ export class UserDto implements IUserDto {
 }
 
 export interface IUserDto {
+    id?: number;
     role?: UserRoleDto;
     username?: string | undefined;
     jobTitle?: string | undefined;
@@ -1615,6 +1619,46 @@ export interface IUpdateUserCommand {
     password?: string | undefined;
     role?: UserRoleDto;
     jobTitle?: string | undefined;
+}
+
+export class AuthenticateUserResultViewModel implements IAuthenticateUserResultViewModel {
+    user?: UserDto | undefined;
+    token?: string | undefined;
+
+    constructor(data?: IAuthenticateUserResultViewModel) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.user = data["user"] ? UserDto.fromJS(data["user"]) : <any>undefined;
+            this.token = data["token"];
+        }
+    }
+
+    static fromJS(data: any): AuthenticateUserResultViewModel {
+        data = typeof data === 'object' ? data : {};
+        let result = new AuthenticateUserResultViewModel();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["user"] = this.user ? this.user.toJSON() : <any>undefined;
+        data["token"] = this.token;
+        return data; 
+    }
+}
+
+export interface IAuthenticateUserResultViewModel {
+    user?: UserDto | undefined;
+    token?: string | undefined;
 }
 
 export class AuthenticateUserViewModel implements IAuthenticateUserViewModel {

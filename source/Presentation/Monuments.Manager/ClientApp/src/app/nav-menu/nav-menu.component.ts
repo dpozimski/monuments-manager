@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user.service';
+import { AuthenticationService } from '../api/authentication.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,16 +7,13 @@ import { UserService } from '../user.service';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  private userService: UserService;
-
   isExpanded = false;
 
-  constructor(userService: UserService) {
-    this.userService = userService;
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   isUserLoggedIn(): Boolean {
-    return this.userService.isLoggedIn;
+    return this.authenticationService.getAuthenticationData() != null;
   }
 
   collapse() {

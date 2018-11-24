@@ -4,6 +4,6 @@ namespace Monuments.Manager.Infrastructure.Security
 {
     public interface IAuthenticationService
     {
-        Task<string> AuthenticateAsync(string username, string password);
+        Task<UserToken> AuthenticateAsync(string username, string password);
     }
 }

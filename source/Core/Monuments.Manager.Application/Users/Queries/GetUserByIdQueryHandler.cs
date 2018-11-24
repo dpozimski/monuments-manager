@@ -24,6 +24,7 @@ namespace Monuments.Manager.Application.Users.Queries
 
             return new UserDto()
             {
+                Id = user.Id,
                 Username = user.Username,
                 JobTitle = user.JobTitle,
                 Role = user.Role.ConvertTo<UserRoleDto>()
