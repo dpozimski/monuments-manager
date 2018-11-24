@@ -11,7 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './security/auth.guard';
+import { AuthGuard } from './api/security/auth.guard';
 import { ApiModule } from './api/api.module';
 
 @NgModule({

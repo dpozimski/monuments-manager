@@ -7,8 +7,8 @@ import { UsersClient } from './monuments-manager-api';
 import { DictionariesClient } from './monuments-manager-api';
 import { MonumentsClient } from './monuments-manager-api';
 import { PicturesClient } from './monuments-manager-api';
-import { JwtInterceptor } from '../security/jwt.interceptor';
-import { ErrorInterceptor } from '../security/error.interceptor';
+import { JwtInterceptor } from './security/jwt.interceptor';
+import { ErrorInterceptor } from './security/error.interceptor';
 
 @NgModule({
     imports: [],
