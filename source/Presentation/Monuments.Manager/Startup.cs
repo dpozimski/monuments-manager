@@ -42,16 +42,10 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseExceptionHandler(new ExceptionHandlerOptions
             {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
+                ExceptionHandler = app.ApplicationServices.GetService<ExceptionHandlingMiddleware>().Invoke
+            });
 
             app.UseCors(s => s.AllowAnyHeader()
                      .AllowAnyMethod()

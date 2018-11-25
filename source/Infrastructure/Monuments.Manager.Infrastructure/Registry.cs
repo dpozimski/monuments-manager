@@ -14,6 +14,7 @@ namespace Monuments.Manager.Infrastructure
         {
             services.AddJwtAuthentication(configuration);
             services.AddScoped<IDateTimeProvider, SystemDateTimeProvider>();
+            services.AddScoped<ExceptionHandlingMiddleware>();
 
             return services;
         }

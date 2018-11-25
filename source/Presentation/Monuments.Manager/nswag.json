@@ -98,7 +98,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "ClientApp/src/app/services/monuments-manager-api.ts"
+      "output": "ClientApp/src/app/api/monuments-manager-api.ts"
     }
   }
 }
