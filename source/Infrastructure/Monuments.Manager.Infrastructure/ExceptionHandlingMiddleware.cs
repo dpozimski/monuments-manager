@@ -49,7 +49,7 @@ namespace Monuments.Manager.Infrastructure
         {
             if (ex is AuthenticationException)
             {
-                return (int)HttpStatusCode.Unauthorized;
+                return (int)HttpStatusCode.Forbidden;
             }
 
             return (int)HttpStatusCode.InternalServerError;
