@@ -13,24 +13,28 @@ export class LoginComponent {
   model: AuthenticateUserViewModel = new AuthenticateUserViewModel();
 
   submitted: boolean;
+  severRejectedCredentials: boolean;
 
   constructor(private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router) {
   }
 
-  onSubmit() {
+  login() {
     this.submitted = true;
+    this.severRejectedCredentials = false;
 
     this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(result => this.handleLoginResult(result));
+      .subscribe(result => this.handleSuccessResult(result),
+                 error => this.handleFailResult(error));
   }
 
-  private handleLoginResult(result: Boolean) {
-    console.log(result);
+  private handleFailResult(error: any) {
+    this.submitted = false;
+    this.severRejectedCredentials = true;
+  }
 
-    return;
-
+  private handleSuccessResult(result: Boolean) {
     if (result) {
       var returnUrl = this.route.snapshot.queryParams["returnUrl"];
 
