@@ -8,7 +8,8 @@ import { AuthenticateUserViewModel } from '../api/monuments-manager-api';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  private returnUrl: string;
 
   model: AuthenticateUserViewModel = new AuthenticateUserViewModel();
 
@@ -18,6 +19,13 @@ export class LoginComponent {
   constructor(private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router) {
+  }
+
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        this.returnUrl = params["returnUrl"] || "/home";
+      });
   }
 
   login() {
@@ -35,16 +43,6 @@ export class LoginComponent {
   }
 
   private handleSuccessResult(result: Boolean) {
-    if (result) {
-      var returnUrl = this.route.snapshot.queryParams["returnUrl"];
-
-      if (returnUrl) {
-        this.router.navigate(['/home']);
-      } else {
-        this.router.navigate([returnUrl]);
-      }
-    } else {
-      this.submitted = false;
-    }
+    this.router.navigate([this.returnUrl]);
   }
 }
