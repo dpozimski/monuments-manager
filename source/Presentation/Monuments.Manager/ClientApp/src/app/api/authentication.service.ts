@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserDto, AuthenticateUserViewModel, AuthenticateUserResultViewModel, UsersClient } from './monuments-manager-api';
 import { map } from 'rxjs/operators';
+import { AuthenticateUserViewModelFactory } from './security/authenticateuserviewmodel.factory';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthenticationService {
 
   currentUser: Observable<UserDto>;
 
-  constructor(private usersClient: UsersClient) {
+  constructor(private usersClient: UsersClient,
+              private authUserViewModelFactory: AuthenticateUserViewModelFactory) {
     var authData = localStorage.getItem(this.authDataKey);
     this.authDataSubject = new BehaviorSubject<AuthenticateUserResultViewModel>(JSON.parse(authData));
     this.currentUser = this.authDataSubject.asObservable().pipe(map(result => result.user));
@@ -24,10 +26,8 @@ export class AuthenticationService {
     return authDataValue;
   }
 
-  login(username: string, password: string) {
-    var viewModel = new AuthenticateUserViewModel();
-    viewModel.username = username;
-    viewModel.password = password;
+  login(username: string, password: string): Observable<Boolean> {
+    var viewModel = this.authUserViewModelFactory.create(username, password);
     
     return this.usersClient.authenticate(viewModel)
       .pipe(map(result => {
@@ -36,12 +36,11 @@ export class AuthenticationService {
           this.authDataSubject.next(result);
         }
 
-        return result;
+        return result != null;
       }));
   }
 
   logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem(this.authDataKey);
     this.authDataSubject.next(null);
   }

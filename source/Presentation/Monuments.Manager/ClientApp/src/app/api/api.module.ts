@@ -3,7 +3,7 @@ import { Configuration } from './configuration';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
-import { UsersClient } from './monuments-manager-api';
+import { UsersClient, API_BASE_URL } from './monuments-manager-api';
 import { DictionariesClient } from './monuments-manager-api';
 import { MonumentsClient } from './monuments-manager-api';
 import { PicturesClient } from './monuments-manager-api';
@@ -20,7 +20,8 @@ import { ErrorInterceptor } from './security/error.interceptor';
         MonumentsClient,
         PicturesClient,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }    
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        { provide: API_BASE_URL, useValue: "https://linsey.pl" }
     ]
 })
 export class ApiModule {
