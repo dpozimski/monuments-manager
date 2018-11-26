@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -13,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
 import { ApiModule } from './api/api.module';
+import { LogoutComponent } from './logout/logout.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +25,23 @@ import { ApiModule } from './api/api.module';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'counter', component: CounterComponent, canActivate: [AuthGuard] },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthGuard] },
+      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+      { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
     ])
