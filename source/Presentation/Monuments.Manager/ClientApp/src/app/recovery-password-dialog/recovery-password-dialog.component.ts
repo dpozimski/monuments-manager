@@ -7,6 +7,7 @@ import { DialogComponent, DialogService } from 'ng2-bootstrap-modal';
   styleUrls: ['./recovery-password-dialog.component.css']
 })
 export class RecoveryPasswordDialogComponent extends DialogComponent<any, boolean> {
+  recoveryEmail: string;
 
   constructor(dialogService: DialogService) {
     super(dialogService);
