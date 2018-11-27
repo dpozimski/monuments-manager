@@ -716,14 +716,125 @@ export class PicturesClient implements IPicturesClient {
     }
 }
 
+export interface IRecoveryClient {
+    changePasswordByRecoveryKey(viewModel: ChangePasswordByRecoveryKeyCommand): Observable<void>;
+    sendRecoveryKey(viewModel: SendRecoveryKeyCommand): Observable<void>;
+}
+
+@Injectable()
+export class RecoveryClient implements IRecoveryClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    changePasswordByRecoveryKey(viewModel: ChangePasswordByRecoveryKeyCommand): Observable<void> {
+        let url_ = this.baseUrl + "/api/Recovery/reset-password";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(viewModel);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processChangePasswordByRecoveryKey(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processChangePasswordByRecoveryKey(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processChangePasswordByRecoveryKey(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
+    }
+
+    sendRecoveryKey(viewModel: SendRecoveryKeyCommand): Observable<void> {
+        let url_ = this.baseUrl + "/api/Recovery/send-recovery-key";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(viewModel);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processSendRecoveryKey(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processSendRecoveryKey(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processSendRecoveryKey(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
+    }
+}
+
 export interface IUsersClient {
     create(command: CreateUserCommand): Observable<number>;
     get(id: number): Observable<UserDto | null>;
     update(command: UpdateUserCommand): Observable<void>;
     delete(command: DeleteUserCommand): Observable<void>;
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null>;
-    changePasswordByRecoveryKey(viewModel: ChangePasswordByRecoveryKeyCommand): Observable<void>;
-    sendRecoveryKey(viewModel: SendRecoveryKeyCommand): Observable<void>;
 }
 
 @Injectable()
@@ -987,102 +1098,6 @@ export class UsersClient implements IUsersClient {
             }));
         }
         return _observableOf<AuthenticateUserResultViewModel | null>(<any>null);
-    }
-
-    changePasswordByRecoveryKey(viewModel: ChangePasswordByRecoveryKeyCommand): Observable<void> {
-        let url_ = this.baseUrl + "/api/Users/reset-password";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(viewModel);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processChangePasswordByRecoveryKey(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processChangePasswordByRecoveryKey(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processChangePasswordByRecoveryKey(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
-    }
-
-    sendRecoveryKey(viewModel: SendRecoveryKeyCommand): Observable<void> {
-        let url_ = this.baseUrl + "/api/Users/recovery";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(viewModel);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processSendRecoveryKey(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processSendRecoveryKey(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processSendRecoveryKey(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
     }
 }
 
@@ -1570,6 +1585,82 @@ export interface IDeletePictureCommand {
     pictureId?: number;
 }
 
+export class ChangePasswordByRecoveryKeyCommand implements IChangePasswordByRecoveryKeyCommand {
+    recoveryKey?: string | undefined;
+    password?: string | undefined;
+
+    constructor(data?: IChangePasswordByRecoveryKeyCommand) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.recoveryKey = data["recoveryKey"];
+            this.password = data["password"];
+        }
+    }
+
+    static fromJS(data: any): ChangePasswordByRecoveryKeyCommand {
+        data = typeof data === 'object' ? data : {};
+        let result = new ChangePasswordByRecoveryKeyCommand();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["recoveryKey"] = this.recoveryKey;
+        data["password"] = this.password;
+        return data; 
+    }
+}
+
+export interface IChangePasswordByRecoveryKeyCommand {
+    recoveryKey?: string | undefined;
+    password?: string | undefined;
+}
+
+export class SendRecoveryKeyCommand implements ISendRecoveryKeyCommand {
+    username?: string | undefined;
+
+    constructor(data?: ISendRecoveryKeyCommand) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.username = data["username"];
+        }
+    }
+
+    static fromJS(data: any): SendRecoveryKeyCommand {
+        data = typeof data === 'object' ? data : {};
+        let result = new SendRecoveryKeyCommand();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["username"] = this.username;
+        return data; 
+    }
+}
+
+export interface ISendRecoveryKeyCommand {
+    username?: string | undefined;
+}
+
 export class CreateUserCommand implements ICreateUserCommand {
     role?: UserRoleDto;
     username?: string | undefined;
@@ -1797,82 +1888,6 @@ export class AuthenticateUserViewModel implements IAuthenticateUserViewModel {
 export interface IAuthenticateUserViewModel {
     username?: string | undefined;
     password?: string | undefined;
-}
-
-export class ChangePasswordByRecoveryKeyCommand implements IChangePasswordByRecoveryKeyCommand {
-    recoveryKey?: string | undefined;
-    password?: string | undefined;
-
-    constructor(data?: IChangePasswordByRecoveryKeyCommand) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.recoveryKey = data["recoveryKey"];
-            this.password = data["password"];
-        }
-    }
-
-    static fromJS(data: any): ChangePasswordByRecoveryKeyCommand {
-        data = typeof data === 'object' ? data : {};
-        let result = new ChangePasswordByRecoveryKeyCommand();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["recoveryKey"] = this.recoveryKey;
-        data["password"] = this.password;
-        return data; 
-    }
-}
-
-export interface IChangePasswordByRecoveryKeyCommand {
-    recoveryKey?: string | undefined;
-    password?: string | undefined;
-}
-
-export class SendRecoveryKeyCommand implements ISendRecoveryKeyCommand {
-    username?: string | undefined;
-
-    constructor(data?: ISendRecoveryKeyCommand) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.username = data["username"];
-        }
-    }
-
-    static fromJS(data: any): SendRecoveryKeyCommand {
-        data = typeof data === 'object' ? data : {};
-        let result = new SendRecoveryKeyCommand();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["username"] = this.username;
-        return data; 
-    }
-}
-
-export interface ISendRecoveryKeyCommand {
-    username?: string | undefined;
 }
 
 export class DeleteUserCommand implements IDeleteUserCommand {

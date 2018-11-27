@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Monuments.Manager.Application.Users.Models
+namespace Monuments.Manager.Application.Recovery.Models
 {
     public class EncryptedUserDto
     {

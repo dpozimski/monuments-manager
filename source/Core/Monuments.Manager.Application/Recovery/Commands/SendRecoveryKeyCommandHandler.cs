@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Email;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Encryption;
+using Monuments.Manager.Application.Recovery.Models;
 using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
@@ -10,7 +11,7 @@ using Newtonsoft.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Monuments.Manager.Application.Users.Commands
+namespace Monuments.Manager.Application.Recovery.Commands
 {
     public class SendRecoveryKeyCommandHandler : IRequestHandler<SendRecoveryKeyCommand>
     {

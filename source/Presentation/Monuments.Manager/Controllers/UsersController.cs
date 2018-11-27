@@ -54,20 +54,6 @@ namespace Monuments.Manager.Controllers
             };
         }
 
-        [AllowAnonymous]
-        [HttpPost("reset-password")]
-        public async Task ChangePasswordByRecoveryKeyAsync(ChangePasswordByRecoveryKeyCommand viewModel)
-        {
-            await Mediator.Send(viewModel);
-        }
-
-        [AllowAnonymous]
-        [HttpPost("recovery")]
-        public async Task SendRecoveryKeyAsync(SendRecoveryKeyCommand viewModel)
-        {
-            await Mediator.Send(viewModel);
-        }
-
         [HttpDelete]
         public async Task DeleteAsync(DeleteUserCommand command)
         {
