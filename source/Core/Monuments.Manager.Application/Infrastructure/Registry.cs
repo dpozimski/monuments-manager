@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Monuments.Manager.Application.Dictionary.Factories;
 using Monuments.Manager.Application.Dictionary.Providers.Teryt;
+using Monuments.Manager.Application.Email;
 using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Infrastructure.Pipelines;
@@ -31,6 +32,9 @@ namespace Monuments.Manager.Application.Infrastructure
             services.AddScoped(s => s.GetService<IDictionaryProviderFactory>().Create());
 
             services.AddScoped<IPasswordEncryptor, Pbkdf2PasswordEncryptor>();
+            services.AddScoped<IStringEncoder, PKCS7StringEncoder>();
+
+            services.AddEmail(configuration);
 
             return services;
         }

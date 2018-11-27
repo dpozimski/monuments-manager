@@ -9,12 +9,14 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Monuments.Manager.Persistence\Monuments.Manager.Persistence.csproj" />
     <ProjectReference Include="..\Monuments.Manager.Application.Dictionary.Providers.Contract\Monuments.Manager.Application.Dictionary.Providers.Contract.csproj" />
     <ProjectReference Include="..\Monuments.Manager.Application.Dictionary.Providers.TERYT\Monuments.Manager.Application.Dictionary.Providers.Teryt.csproj" />
+    <ProjectReference Include="..\Monuments.Manager.Application.Email\Monuments.Manager.Application.Email.csproj" />
   </ItemGroup>
 
 </Project>

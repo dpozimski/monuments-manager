@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Common", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Infrastructure.Tests", "source\Tests\Monuments.Manager.Infrastructure.Tests\Monuments.Manager.Infrastructure.Tests.csproj", "{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests", "source\Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests.csproj", "{369DC3D3-76E1-41FA-85BE-2A92648911E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests", "source\Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests.csproj", "{369DC3D3-76E1-41FA-85BE-2A92648911E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Application.Email", "source\Core\Monuments.Manager.Application.Email\Monuments.Manager.Application.Email.csproj", "{79F32B94-677F-4361-B9D4-14BE17AAF1E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{E73FC852-CB8C-468B-9B7B-F8474B904F50} = {71336204-703D-498A-B5E2-9B0A3712C7CC}
 		{65F3B264-BB4E-4A32-9622-399FF0A3F4BF} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
 		{369DC3D3-76E1-41FA-85BE-2A92648911E7} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
+		{79F32B94-677F-4361-B9D4-14BE17AAF1E0} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7129A89-93B0-48C4-9A44-C756583B4A5D}

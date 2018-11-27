@@ -9,7 +9,10 @@ namespace Monuments.Manager.Application.Exceptions
     {
         public EntityNotFoundException(int entityId) 
             : base($"Entity of type {typeof(TEntity).Name} with id {entityId} does not exists")
-        {
-        }
+        { }
+
+        public EntityNotFoundException(string entityFilter)
+            : base($"Entity of type {typeof(TEntity).Name} does not exists with given criteria {entityFilter}")
+        { }
     }
 }
