@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../api/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticateUserViewModel } from '../api/monuments-manager-api';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/recovery-password-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +19,9 @@ export class LoginComponent implements OnInit {
   severRejectedCredentials: boolean;
 
   constructor(private authenticationService: AuthenticationService,
-    private route: ActivatedRoute,
-    private router: Router) {
+              private route: ActivatedRoute,
+              private router: Router,
+              private dialogService: DialogService) {
   }
 
   ngOnInit() {
@@ -33,16 +36,20 @@ export class LoginComponent implements OnInit {
     this.severRejectedCredentials = false;
 
     this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(result => this.handleSuccessResult(result),
-                 error => this.handleFailResult(error));
+      .subscribe(_ => this.handleSuccessResult(),
+                 _ => this.handleFailResult());
   }
 
-  private handleFailResult(error: any) {
+  recoveryPassword() {
+    this.dialogService.addDialog(RecoveryPasswordDialogComponent).subscribe();
+  }
+
+  private handleFailResult() {
     this.submitted = false;
     this.severRejectedCredentials = true;
   }
 
-  private handleSuccessResult(result: Boolean) {
+  private handleSuccessResult() {
     this.router.navigate([this.returnUrl]);
   }
 }

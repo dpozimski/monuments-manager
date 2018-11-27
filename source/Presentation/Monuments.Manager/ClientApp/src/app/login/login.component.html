@@ -32,7 +32,7 @@
 
     <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="login();" type="button" [disabled]="!loginForm.form.valid || submitted">Signin</button>
   </form>
-  <a href="#" class="forgot-password">
+  <a (click)='recoveryPassword()' class="forgot-password">
     Forgot the password?
   </a>
 </div>

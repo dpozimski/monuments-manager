@@ -16,6 +16,7 @@ import { AuthGuard } from './api/security/auth.guard';
 import { ApiModule } from './api/api.module';
 import { SettingsComponent } from './settings/settings.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/recovery-password-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    LogoutDialogComponent
+    LogoutDialogComponent,
+    RecoveryPasswordDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,7 +47,10 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
       { path: 'register', component: RegisterComponent },
     ])
   ],
-  entryComponents: [LogoutDialogComponent],
+  entryComponents: [
+    LogoutDialogComponent,
+    RecoveryPasswordDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
