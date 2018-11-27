@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -16,6 +16,7 @@ import { AuthGuard } from './api/security/auth.guard';
 import { ApiModule } from './api/api.module';
 import { LogoutComponent } from './logout/logout.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,15 @@ import { SettingsComponent } from './settings/settings.component';
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    SettingsComponent
+    SettingsComponent,
+    LogoutDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiModule,
-    NgbModule,
+    BootstrapModalModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -46,7 +48,7 @@ import { SettingsComponent } from './settings/settings.component';
       { path: 'register', component: RegisterComponent },
     ])
   ],
-  providers: [],
+  entryComponents: [LogoutDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
