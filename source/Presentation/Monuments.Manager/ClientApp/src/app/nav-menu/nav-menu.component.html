@@ -31,8 +31,8 @@
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
                     </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/logout"]' (click)='collapse()'>
+                <li>
+                    <a class="link.active" (click)='logout();collapse()'>
                         <span class='glyphicon glyphicon-log-out'></span> Logout
                     </a>
                 </li>

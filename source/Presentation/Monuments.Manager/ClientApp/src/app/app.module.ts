@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
 import { ApiModule } from './api/api.module';
-import { LogoutComponent } from './logout/logout.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 
@@ -27,7 +26,6 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
     FetchDataComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,
     SettingsComponent,
     LogoutDialogComponent
   ],
@@ -43,7 +41,6 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
       { path: 'counter', component: CounterComponent, canActivate: [AuthGuard] },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-      { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
     ])
