@@ -13,12 +13,15 @@ namespace Monuments.Manager.Application.Recovery.Commands
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IStringEncoder _stringEncoder;
+        private readonly IPasswordEncryptor _passwordEncryptor;
 
         public ChangePasswordByRecoveryKeyCommandHandler(MonumentsDbContext dbContext,
-                                                         IStringEncoder stringEncoder)
+                                                         IStringEncoder stringEncoder,
+                                                         IPasswordEncryptor passwordEncryptor)
         {
             _dbContext = dbContext;
             _stringEncoder = stringEncoder;
+            _passwordEncryptor = passwordEncryptor;
         }
 
         public async Task<Unit> Handle(ChangePasswordByRecoveryKeyCommand request, CancellationToken cancellationToken)
@@ -32,7 +35,7 @@ namespace Monuments.Manager.Application.Recovery.Commands
                 throw new RecoveryKeyValidationException(encrytedUserDto.Id);
             }
 
-            userEntity.Password = request.Password;
+            userEntity.Password = _passwordEncryptor.Encrypt(request.Password);
             await _dbContext.SaveChangesAsync();
 
             return Unit.Value;
