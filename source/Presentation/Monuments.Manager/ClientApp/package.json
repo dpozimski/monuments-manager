@@ -14,7 +14,7 @@
   "private": true,
   "extractCss": true,
   "dependencies": {
-    "@angular/animations": "7.0.2",
+    "@angular/animations": "^7.0.2",
     "@angular/common": "7.0.2",
     "@angular/compiler": "7.0.2",
     "@angular/core": "7.0.2",
@@ -30,6 +30,7 @@
     "core-js": "^2.4.1",
     "crypto-js": "^3.1.9-1",
     "ng2-bootstrap-modal": "https://github.com/Sky4CE/ng2-bootstrap-modal/tarball/v.1.0.2",
+    "ngx-toastr": "^9.1.1",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "zone.js": "^0.8.26"
