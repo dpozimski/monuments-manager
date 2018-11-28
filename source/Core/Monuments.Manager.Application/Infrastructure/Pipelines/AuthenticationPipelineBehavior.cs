@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Persistence;
 using System;
+using System.Linq;
 using System.Security.Authentication;
 using System.Security.Principal;
 using System.Threading;
@@ -22,7 +24,11 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
         }
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            if(request is AuthenticateUserCommand)
+            var allowAnonymous = request.GetType()
+                .GetCustomAttributes(typeof(AllowAnonymousAttribute), true)
+                .Any();
+
+            if (allowAnonymous)
             {
                 return await next();
             }
