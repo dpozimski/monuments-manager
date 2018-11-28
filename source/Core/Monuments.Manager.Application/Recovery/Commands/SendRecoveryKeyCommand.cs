@@ -7,6 +7,6 @@ namespace Monuments.Manager.Application.Recovery.Commands
 {
     public class SendRecoveryKeyCommand : IRequest
     {
-        public string Username { get; set; }
+        public string Email { get; set; }
     }
 }

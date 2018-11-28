@@ -27,16 +27,16 @@ namespace Monuments.Manager.Infrastructure.Security
             _dateTimeProvider = dateTimeProvider;
         }
 
-        public async Task<UserToken> AuthenticateAsync(string username, string password)
+        public async Task<UserToken> AuthenticateAsync(string email, string password)
         {
             var authenticatedUser = await _mediator.Send(new AuthenticateUserCommand()
             {
-                Username = username,
+                Email = email,
                 Password = password
             });
 
             if (authenticatedUser is null)
-                throw new AuthenticationException(username);
+                throw new AuthenticationException(email);
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_options.Value.JwtSecretKey);

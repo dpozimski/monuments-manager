@@ -30,16 +30,16 @@ namespace Monuments.Manager.Application.Recovery.Commands
 
         public async Task<Unit> Handle(SendRecoveryKeyCommand request, CancellationToken cancellationToken)
         {
-            var userEntity = await _dbContext.Users.FirstOrDefaultAsync(s => s.Username == request.Username);
+            var userEntity = await _dbContext.Users.FirstOrDefaultAsync(s => s.Email == request.Email);
 
             if(userEntity is null)
             {
-                throw new EntityNotFoundException<UserEntity>(userEntity.Username);
+                throw new EntityNotFoundException<UserEntity>(userEntity.Email);
             }
 
             var recoveryKey = GenerateRecoveryKey(userEntity);
 
-            await _emailSender.SendRecoveryPasswordMailAsync(userEntity.Username, recoveryKey);
+            await _emailSender.SendRecoveryPasswordMailAsync(userEntity.Email, recoveryKey);
 
             return Unit.Value;
         }

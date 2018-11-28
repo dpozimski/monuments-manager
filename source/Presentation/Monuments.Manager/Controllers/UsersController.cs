@@ -45,7 +45,7 @@ namespace Monuments.Manager.Controllers
         [HttpPost("authentication")]
         public async Task<AuthenticateUserResultViewModel> AuthenticateAsync(AuthenticateUserViewModel viewModel)
         {
-            var result = await _authenticationService.AuthenticateAsync(viewModel.Username, viewModel.Password);
+            var result = await _authenticationService.AuthenticateAsync(viewModel.Email, viewModel.Password);
 
             return new AuthenticateUserResultViewModel()
             {

@@ -33,7 +33,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     ConstructionDate = s.ConstructionDate,
                     Name = s.Name,
                     OwnerId = s.UserId,
-                    OwnerName = s.User.Username,
+                    OwnerName = s.User.Email,
                     Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null
                 }).ToListAsync(cancellationToken);
 

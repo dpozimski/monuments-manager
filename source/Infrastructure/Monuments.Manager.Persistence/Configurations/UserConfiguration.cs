@@ -13,9 +13,9 @@ namespace Monuments.Manager.Persistence.Configurations
         {
             builder.HasKey(s => s.Id);
 
-            builder.Property(s => s.Username)
+            builder.Property(s => s.Email)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(100);
 
             builder.Property(s => s.Password)
                 .IsRequired()

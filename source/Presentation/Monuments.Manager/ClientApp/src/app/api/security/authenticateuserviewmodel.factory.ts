@@ -6,9 +6,9 @@ import { AuthenticateUserViewModel } from '../monuments-manager-api';
   providedIn: 'root'
 })
 export class AuthenticateUserViewModelFactory {
-  create(username: string, password: String): AuthenticateUserViewModel {
+  create(email: string, password: String): AuthenticateUserViewModel {
     var auhtUserViewModel = new AuthenticateUserViewModel();
-    auhtUserViewModel.username = username;
+    auhtUserViewModel.email = email;
     auhtUserViewModel.password = CryptoJS.SHA512(password).toString(CryptoJS.enc.Base64);
 
     return auhtUserViewModel;

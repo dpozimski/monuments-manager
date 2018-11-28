@@ -1626,7 +1626,7 @@ export interface IChangePasswordByRecoveryKeyCommand {
 }
 
 export class SendRecoveryKeyCommand implements ISendRecoveryKeyCommand {
-    username?: string | undefined;
+    email?: string | undefined;
 
     constructor(data?: ISendRecoveryKeyCommand) {
         if (data) {
@@ -1639,7 +1639,7 @@ export class SendRecoveryKeyCommand implements ISendRecoveryKeyCommand {
 
     init(data?: any) {
         if (data) {
-            this.username = data["username"];
+            this.email = data["email"];
         }
     }
 
@@ -1652,18 +1652,18 @@ export class SendRecoveryKeyCommand implements ISendRecoveryKeyCommand {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["username"] = this.username;
+        data["email"] = this.email;
         return data; 
     }
 }
 
 export interface ISendRecoveryKeyCommand {
-    username?: string | undefined;
+    email?: string | undefined;
 }
 
 export class CreateUserCommand implements ICreateUserCommand {
     role?: UserRoleDto;
-    username?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
     jobTitle?: string | undefined;
 
@@ -1679,7 +1679,7 @@ export class CreateUserCommand implements ICreateUserCommand {
     init(data?: any) {
         if (data) {
             this.role = data["role"];
-            this.username = data["username"];
+            this.email = data["email"];
             this.password = data["password"];
             this.jobTitle = data["jobTitle"];
         }
@@ -1695,7 +1695,7 @@ export class CreateUserCommand implements ICreateUserCommand {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["role"] = this.role;
-        data["username"] = this.username;
+        data["email"] = this.email;
         data["password"] = this.password;
         data["jobTitle"] = this.jobTitle;
         return data; 
@@ -1704,7 +1704,7 @@ export class CreateUserCommand implements ICreateUserCommand {
 
 export interface ICreateUserCommand {
     role?: UserRoleDto;
-    username?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
     jobTitle?: string | undefined;
 }
@@ -1717,7 +1717,7 @@ export enum UserRoleDto {
 export class UserDto implements IUserDto {
     id?: number;
     role?: UserRoleDto;
-    username?: string | undefined;
+    email?: string | undefined;
     jobTitle?: string | undefined;
 
     constructor(data?: IUserDto) {
@@ -1733,7 +1733,7 @@ export class UserDto implements IUserDto {
         if (data) {
             this.id = data["id"];
             this.role = data["role"];
-            this.username = data["username"];
+            this.email = data["email"];
             this.jobTitle = data["jobTitle"];
         }
     }
@@ -1749,7 +1749,7 @@ export class UserDto implements IUserDto {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["role"] = this.role;
-        data["username"] = this.username;
+        data["email"] = this.email;
         data["jobTitle"] = this.jobTitle;
         return data; 
     }
@@ -1758,7 +1758,7 @@ export class UserDto implements IUserDto {
 export interface IUserDto {
     id?: number;
     role?: UserRoleDto;
-    username?: string | undefined;
+    email?: string | undefined;
     jobTitle?: string | undefined;
 }
 
@@ -1851,7 +1851,7 @@ export interface IAuthenticateUserResultViewModel {
 }
 
 export class AuthenticateUserViewModel implements IAuthenticateUserViewModel {
-    username?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
 
     constructor(data?: IAuthenticateUserViewModel) {
@@ -1865,7 +1865,7 @@ export class AuthenticateUserViewModel implements IAuthenticateUserViewModel {
 
     init(data?: any) {
         if (data) {
-            this.username = data["username"];
+            this.email = data["email"];
             this.password = data["password"];
         }
     }
@@ -1879,14 +1879,14 @@ export class AuthenticateUserViewModel implements IAuthenticateUserViewModel {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["username"] = this.username;
+        data["email"] = this.email;
         data["password"] = this.password;
         return data; 
     }
 }
 
 export interface IAuthenticateUserViewModel {
-    username?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
 }
 

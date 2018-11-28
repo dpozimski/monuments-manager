@@ -29,7 +29,7 @@ namespace Monuments.Manager.Application.Users.Commands
             var entity = new UserEntity()
             {
                 Password = _passwordEncryptor.Encrypt(request.Password),
-                Username = request.Username,
+                Email = request.Email,
                 JobTitle = request.JobTitle,
                 Role = request.Role.ConvertTo<UserRole>()
             };

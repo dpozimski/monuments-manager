@@ -34,7 +34,7 @@ namespace Monuments.Manager.Application.Users.Commands
 
             if (_context.UserId == request.Id)
             {
-                throw new CannotDeleteCurrentUserException(entity.Id, entity.Username);
+                throw new CannotDeleteCurrentUserException(entity.Id, entity.Email);
             }
 
             _dbContext.Users.Remove(entity);

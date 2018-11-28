@@ -26,7 +26,7 @@ namespace Monuments.Manager.Application.Users.Commands
             var encryptedPassword = _passwordEncryptor.Encrypt(request.Password);
 
             var user = await _dbContext.Users
-                .FirstOrDefaultAsync(s => s.Username == request.Username && s.Password == encryptedPassword);
+                .FirstOrDefaultAsync(s => s.Email == request.Email && s.Password == encryptedPassword);
 
             if (user is null)
                 return null;
@@ -36,7 +36,7 @@ namespace Monuments.Manager.Application.Users.Commands
                 Id = user.Id,
                 JobTitle = user.JobTitle,
                 Role = user.Role.ConvertTo<UserRoleDto>(),
-                Username = user.Username
+                Email = user.Email
             };
         }
     }

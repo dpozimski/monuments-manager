@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.severRejectedCredentials = false;
 
-    this.authenticationService.login(this.model.username, this.model.password)
+    this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(_ => this.handleSuccessResult(),
                  _ => this.handleFailResult());
   }

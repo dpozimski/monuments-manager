@@ -5,9 +5,9 @@
 
     <div class="form-group">
       <input id="email" type="email" name="email" #email="ngModel" class="form-control" placeholder="Email address"
-        [(ngModel)]="model.username" required autofocus>
+        [(ngModel)]="model.email" required autofocus email>
       <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        Email is required
+        Please enter a valid e-mail
       </div>
     </div>
 

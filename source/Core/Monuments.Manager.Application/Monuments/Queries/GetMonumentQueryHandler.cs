@@ -42,7 +42,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 ConstructionDate = monumentEntity.ConstructionDate,
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
-                OwnerName = monumentEntity.User.Username,
+                OwnerName = monumentEntity.User.Email,
                 Picture = pictureEntity.Data,
                 Address = new AddressDto()
                 {
