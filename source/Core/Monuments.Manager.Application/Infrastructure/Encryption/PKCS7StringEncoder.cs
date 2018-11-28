@@ -11,91 +11,51 @@ namespace Monuments.Manager.Application.Infrastructure.Encryption
 {
     public class PKCS7StringEncoder : IStringEncoder
     {
-        private const int Keysize = 256;
-        private const int DerivationIterations = 1000;
+        private const string InitVector = "h7g3e4m3t5st5zjw";
+        private const int KeySize = 256;
 
-        private readonly IOptions<ApplicationSecurityOptions> _appSecurityOptions;
+        private readonly ApplicationSecurityOptions _appSecurityOptions;
 
         public PKCS7StringEncoder(IOptions<ApplicationSecurityOptions> appSecurityOptions)
         {
-            _appSecurityOptions = appSecurityOptions;
+            _appSecurityOptions = appSecurityOptions.Value;
         }
 
-        public string Encrypt(string content)
+        public string Encrypt(string plainText)
         {
-            var saltStringBytes = Generate256BitsOfRandomEntropy();
-            var ivStringBytes = Generate256BitsOfRandomEntropy();
-            var plainTextBytes = Encoding.UTF8.GetBytes(content);
-            using (var password = new Rfc2898DeriveBytes(_appSecurityOptions.Value.PasswordSalt, saltStringBytes, DerivationIterations))
-            {
-                var keyBytes = password.GetBytes(Keysize / 8);
-                using (var symmetricKey = new RijndaelManaged())
-                {
-                    symmetricKey.BlockSize = 256;
-                    symmetricKey.Mode = CipherMode.CBC;
-                    symmetricKey.Padding = PaddingMode.PKCS7;
-                    using (var encryptor = symmetricKey.CreateEncryptor(keyBytes, ivStringBytes))
-                    {
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                            {
-                                cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                                cryptoStream.FlushFinalBlock();
-                                var cipherTextBytes = saltStringBytes;
-                                cipherTextBytes = cipherTextBytes.Concat(ivStringBytes).ToArray();
-                                cipherTextBytes = cipherTextBytes.Concat(memoryStream.ToArray()).ToArray();
-                                memoryStream.Close();
-                                cryptoStream.Close();
-                                return Convert.ToBase64String(cipherTextBytes);
-                            }
-                        }
-                    }
-                }
-            }
+            var initVectorBytes = Encoding.UTF8.GetBytes(InitVector);
+            var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            var password = new PasswordDeriveBytes(_appSecurityOptions.PasswordSalt, null);
+            var keyBytes = password.GetBytes(KeySize / 8);
+            var symmetricKey = new RijndaelManaged();
+            symmetricKey.Mode = CipherMode.CBC;
+            var encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
+            var memoryStream = new MemoryStream();
+            var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
+            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+            cryptoStream.FlushFinalBlock();
+            var cipherTextBytes = memoryStream.ToArray();
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Convert.ToBase64String(cipherTextBytes);
         }
 
-        public string Decrypt(string encryptedContent)
+        public string Decrypt(string cipherText)
         {
-            var cipherTextBytesWithSaltAndIv = Convert.FromBase64String(encryptedContent);
-            var saltStringBytes = cipherTextBytesWithSaltAndIv.Take(Keysize / 8).ToArray();
-            var ivStringBytes = cipherTextBytesWithSaltAndIv.Skip(Keysize / 8).Take(Keysize / 8).ToArray();
-            var cipherTextBytes = cipherTextBytesWithSaltAndIv.Skip((Keysize / 8) * 2).Take(cipherTextBytesWithSaltAndIv.Length - ((Keysize / 8) * 2)).ToArray();
-
-            using (var password = new Rfc2898DeriveBytes(_appSecurityOptions.Value.PasswordSalt, saltStringBytes, DerivationIterations))
-            {
-                var keyBytes = password.GetBytes(Keysize / 8);
-                using (var symmetricKey = new RijndaelManaged())
-                {
-                    symmetricKey.BlockSize = 256;
-                    symmetricKey.Mode = CipherMode.CBC;
-                    symmetricKey.Padding = PaddingMode.PKCS7;
-                    using (var decryptor = symmetricKey.CreateDecryptor(keyBytes, ivStringBytes))
-                    {
-                        using (var memoryStream = new MemoryStream(cipherTextBytes))
-                        {
-                            using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                            {
-                                var plainTextBytes = new byte[cipherTextBytes.Length];
-                                var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-                                memoryStream.Close();
-                                cryptoStream.Close();
-                                return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private byte[] Generate256BitsOfRandomEntropy()
-        {
-            var randomBytes = new byte[32];
-            using (var rngCsp = new RNGCryptoServiceProvider())
-            {
-                rngCsp.GetBytes(randomBytes);
-            }
-            return randomBytes;
+            var initVectorBytes = Encoding.ASCII.GetBytes(InitVector);
+            var cipherTextBytes = Convert.FromBase64String(cipherText);
+            var password = new PasswordDeriveBytes(_appSecurityOptions.PasswordSalt, null);
+            var keyBytes = password.GetBytes(KeySize / 8);
+            var symmetricKey = new RijndaelManaged();
+            symmetricKey.Mode = CipherMode.CBC;
+            var decryptor = symmetricKey.CreateDecryptor(keyBytes, initVectorBytes);
+            var memoryStream = new MemoryStream(cipherTextBytes);
+            var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            var plainTextBytes = new byte[cipherTextBytes.Length];
+            int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
         }
     }
 }

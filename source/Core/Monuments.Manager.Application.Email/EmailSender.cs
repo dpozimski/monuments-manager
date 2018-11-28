@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Monuments.Manager.Application.Email
 {
@@ -20,9 +21,11 @@ namespace Monuments.Manager.Application.Email
         {
             var emailOptions = _emailConfigurationOptions.Value;
             var template = GetTemplate("RecoveryPasswordTemplate");
-            var mailContent = template.Replace("#LINK#", $"{emailOptions.RecoveryKeyUrl}{recoveryKey}");
 
+            var encodedRecoveryKey = HttpUtility.UrlEncode(recoveryKey);
+            var mailContent = template.Replace("#LINK#", $"{emailOptions.RecoveryKeyUrl}{encodedRecoveryKey}");
             var mailMessage = new MailMessage(emailOptions.Email, email, "Password recovery", mailContent);
+            mailMessage.IsBodyHtml = true;
 
             var client = new SmtpClient();
             client.Host = emailOptions.Host;
