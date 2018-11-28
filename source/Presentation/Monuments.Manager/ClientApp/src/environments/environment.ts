@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appInsightsConfig: {
+    instrumentationKey: "7cdf7c26-6836-400f-bca9-754e43cc5574"
+  }
 };

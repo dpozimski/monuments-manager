@@ -8,7 +8,10 @@ import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/rec
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: [
+    './login.component.css',
+    './../styles/forms.css'
+  ]
 })
 export class LoginComponent implements OnInit {
   private returnUrl: string;

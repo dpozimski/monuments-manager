@@ -5,9 +5,13 @@ import { RecoveryClient, SendRecoveryKeyCommand } from '../api/monuments-manager
 @Component({
   selector: 'app-recovery-password-dialog',
   templateUrl: './recovery-password-dialog.component.html',
-  styleUrls: ['./recovery-password-dialog.component.css']
+  styleUrls: [
+    './recovery-password-dialog.component.css',
+    './../styles/forms.css'
+  ]
 })
 export class RecoveryPasswordDialogComponent extends DialogComponent<any, boolean> {
+  serverError: boolean;
   recoveryEmail: string;
   submitted: boolean;
 
@@ -24,14 +28,15 @@ export class RecoveryPasswordDialogComponent extends DialogComponent<any, boolea
 
     this.recoveryClient.sendRecoveryKey(request)
       .subscribe(_ => this.handleSuccessResult(),
-                 error => this.handleErrorResult(error));
+                 _ => this.handleErrorResult());
   }
 
-  handleErrorResult(error: any) {
-    throw new Error("Method not implemented.");
+  handleErrorResult() {
+    this.submitted = false;
+    this.serverError = true;
   }
   
   handleSuccessResult() {
-    throw new Error("Method not implemented.");
+    this.close();
   }
 }

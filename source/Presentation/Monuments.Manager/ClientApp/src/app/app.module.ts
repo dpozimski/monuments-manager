@@ -17,6 +17,7 @@ import { ApiModule } from './api/api.module';
 import { SettingsComponent } from './settings/settings.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/recovery-password-dialog.component';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/reco
     RegisterComponent,
     SettingsComponent,
     LogoutDialogComponent,
-    RecoveryPasswordDialogComponent
+    RecoveryPasswordDialogComponent,
+    RecoveryPasswordComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,6 +45,7 @@ import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/reco
       { path: 'counter', component: CounterComponent, canActivate: [AuthGuard] },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+      { path: 'recovery-password', component: RecoveryPasswordComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
     ])
