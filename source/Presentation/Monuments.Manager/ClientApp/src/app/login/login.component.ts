@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticateUserViewModel } from '../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/recovery-password-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,15 @@ export class LoginComponent implements OnInit {
 
   model: AuthenticateUserViewModel = new AuthenticateUserViewModel();
 
+  readonly errorMessage = 'Invalid email or password';
   submitted: boolean;
   severRejectedCredentials: boolean;
 
   constructor(private authenticationService: AuthenticationService,
               private route: ActivatedRoute,
               private router: Router,
-              private dialogService: DialogService) {
+              private dialogService: DialogService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -50,6 +53,8 @@ export class LoginComponent implements OnInit {
   private handleFailResult() {
     this.submitted = false;
     this.severRejectedCredentials = true;
+
+    this.toastr.error(this.errorMessage, 'Login');
   }
 
   private handleSuccessResult() {
