@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ChangePasswordByRecoveryKeyCommand, RecoveryClient } from '../api/monuments-manager-api';
 import { AuthenticationService } from '../api/authentication.service';
 import { ChangePasswordByRecoveryKeyFactory } from '../api/security/changepasswordbyrecoverykeycommand.factory';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-recovery-password',
@@ -13,6 +14,8 @@ import { ChangePasswordByRecoveryKeyFactory } from '../api/security/changepasswo
   ]
 })
 export class RecoveryPasswordComponent implements OnInit {
+  private readonly toastTitle = 'Recovery password';
+
   submitted: boolean;
   severRejectedCommand: boolean;
 
@@ -22,7 +25,8 @@ export class RecoveryPasswordComponent implements OnInit {
               private router: Router,
               private recoveryClient: RecoveryClient,
               private authenticationService: AuthenticationService,
-              private changePasswordByRecoveryKeyFactory: ChangePasswordByRecoveryKeyFactory) { }
+              private changePasswordByRecoveryKeyFactory: ChangePasswordByRecoveryKeyFactory,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     this.authenticationService.logout();
@@ -49,10 +53,11 @@ export class RecoveryPasswordComponent implements OnInit {
   private handleFailResult() {
     this.submitted = false;
     this.severRejectedCommand = true;
+    this.toastr.error('Password has not been resetted', this.toastTitle);
   }
 
   private handleSuccessResult() {
-    //todo: toast service
     this.router.navigate(['/login']);
+    this.toastr.success('Password has been resetted', this.toastTitle);
   }
 }
