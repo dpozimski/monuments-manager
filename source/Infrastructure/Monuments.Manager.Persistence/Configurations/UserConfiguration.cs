@@ -13,6 +13,8 @@ namespace Monuments.Manager.Persistence.Configurations
         {
             builder.HasKey(s => s.Id);
 
+            builder.HasIndex(s => s.Email).HasName("IX_User_Email");
+
             builder.Property(s => s.Email)
                 .IsRequired()
                 .HasMaxLength(100);
