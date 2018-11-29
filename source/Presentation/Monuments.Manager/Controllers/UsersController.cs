@@ -23,6 +23,7 @@ namespace Monuments.Manager.Controllers
             _authenticationService = authenticationService;
         }
 
+        [AllowAnonymous]
         [HttpPut]
         public async Task<int> CreateAsync(CreateUserCommand command)
         {
