@@ -20,9 +20,8 @@ export class LoginComponent implements OnInit {
 
   model: AuthenticateUserViewModel = new AuthenticateUserViewModel();
 
-  readonly errorMessage = 'Invalid email or password';
+  errorMessage: string;
   submitted: boolean;
-  severRejectedCredentials: boolean;
 
   constructor(private authenticationService: AuthenticationService,
               private cryptoService: CryptoService,
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.submitted = true;
-    this.severRejectedCredentials = false;
+    this.errorMessage = undefined;
 
     var viewModel = new AuthenticateUserViewModel();
     viewModel.password = this.cryptoService.encrypt(this.model.password);
@@ -58,7 +57,7 @@ export class LoginComponent implements OnInit {
 
   private handleFailResult() {
     this.submitted = false;
-    this.severRejectedCredentials = true;
+    this.errorMessage = 'Invalid email or password';
 
     this.toastr.error(this.errorMessage, 'Login');
   }

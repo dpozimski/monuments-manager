@@ -14,11 +14,8 @@ import { CryptoService } from '../api/security/crypto.service';
   ]
 })
 export class RegisterComponent {
-  readonly errorMessage: string = 'Cannot create account. The e-mail can be invalid or currently in use.';
-
-  cannotCreateAccount: boolean;
+  errorMessage: string;
   submitted: boolean;
-
   model: CreateUserCommand = new CreateUserCommand();
 
   constructor(private toastr: ToastrService,
@@ -28,7 +25,7 @@ export class RegisterComponent {
 
   register() {
     this.submitted = true;
-    this.cannotCreateAccount = false;
+    this.errorMessage = undefined;
 
     var command = new CreateUserCommand();
     command.password = this.cryptoService.encrypt(this.model.password);
@@ -42,7 +39,7 @@ export class RegisterComponent {
 
   private handleFailResult() {
     this.submitted = false;
-    this.cannotCreateAccount = true;
+    this.errorMessage = 'Cannot create account. The e-mail can be invalid or currently in use.';
 
     this.toastr.error(this.errorMessage, 'Login');
   }
