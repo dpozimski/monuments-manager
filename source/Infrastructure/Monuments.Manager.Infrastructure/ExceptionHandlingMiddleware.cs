@@ -27,6 +27,11 @@ namespace Monuments.Manager.Infrastructure
             if (ex == null)
                 return;
 
+            await WriteExceptionResult(context, ex);
+        }
+
+        private async Task WriteExceptionResult(HttpContext context, Exception ex)
+        {
             context.Response.StatusCode = GetStatusCode(ex);
 
             var error = new ErrorTypeViewModel()
