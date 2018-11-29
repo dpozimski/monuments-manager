@@ -51,16 +51,20 @@ namespace Monuments.Manager.Application.Email
 
         private async Task SendMailAsync(string to, string subject, string content)
         {
-            var message = new MailMessage(_emailOptions.Email, to, subject, content);
-            message.IsBodyHtml = true;
+            var message = new MailMessage(_emailOptions.Email, to, subject, content)
+            {
+                IsBodyHtml = true
+            };
 
-            var client = new SmtpClient();
-            client.Host = _emailOptions.Host;
-            client.Port = 587;
-            client.UseDefaultCredentials = false;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.EnableSsl = true;
-            client.Credentials = new NetworkCredential(_emailOptions.Email, _emailOptions.Password);
+            var client = new SmtpClient
+            {
+                Host = _emailOptions.Host,
+                Port = 587,
+                UseDefaultCredentials = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                EnableSsl = true,
+                Credentials = new NetworkCredential(_emailOptions.Email, _emailOptions.Password)
+            };
 
             await client.SendMailAsync(message);
         }
