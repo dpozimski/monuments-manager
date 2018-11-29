@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChangePasswordByRecoveryKeyCommand, RecoveryClient } from '../api/monuments-manager-api';
 import { AuthenticationService } from '../api/authentication.service';
-import { ChangePasswordByRecoveryKeyFactory } from '../api/security/changepasswordbyrecoverykeycommand.factory';
 import { ToastrService } from 'ngx-toastr';
+import { CryptoService } from '../api/security/crypto.service';
 
 @Component({
   selector: 'app-recovery-password',
@@ -25,7 +25,7 @@ export class RecoveryPasswordComponent implements OnInit {
               private router: Router,
               private recoveryClient: RecoveryClient,
               private authenticationService: AuthenticationService,
-              private changePasswordByRecoveryKeyFactory: ChangePasswordByRecoveryKeyFactory,
+              private cryptoService: CryptoService,
               private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -44,7 +44,10 @@ export class RecoveryPasswordComponent implements OnInit {
     this.submitted = false;
     this.severRejectedCommand = false;
 
-    var command = this.changePasswordByRecoveryKeyFactory.create(this.model.recoveryKey, this.model.password);
+    var command = new ChangePasswordByRecoveryKeyCommand();
+    command.password = this.cryptoService.encrypt(this.model.password);
+    command.recoveryKey = this.model.recoveryKey;
+
     this.recoveryClient.changePasswordByRecoveryKey(command)
       .subscribe(_ => this.handleSuccessResult(),
                  _ => this.handleFailResult());

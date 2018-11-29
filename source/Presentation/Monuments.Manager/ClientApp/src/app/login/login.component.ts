@@ -5,6 +5,7 @@ import { AuthenticateUserViewModel } from '../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/recovery-password-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { CryptoService } from '../api/security/crypto.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
   severRejectedCredentials: boolean;
 
   constructor(private authenticationService: AuthenticationService,
+              private cryptoService: CryptoService,
               private route: ActivatedRoute,
               private router: Router,
               private dialogService: DialogService,
@@ -41,7 +43,11 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.severRejectedCredentials = false;
 
-    this.authenticationService.login(this.model.email, this.model.password)
+    var viewModel = new AuthenticateUserViewModel();
+    viewModel.password = this.cryptoService.encrypt(this.model.password);
+    viewModel.email= this.model.email;
+
+    this.authenticationService.login(viewModel)
       .subscribe(_ => this.handleSuccessResult(),
                  _ => this.handleFailResult());
   }
