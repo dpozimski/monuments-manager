@@ -1,13 +1,10 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Email;
-using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Domain.Entities;
-using Monuments.Manager.Domain.Enumerations;
 using Monuments.Manager.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,6 +28,11 @@ namespace Monuments.Manager.Application.Users.Commands
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             await _emailSender.SendWelcomeMailAsync(request.Email);
+
+            if(await _dbContext.Users.AnyAsync(s => s.Email == request.Email))
+            {
+                throw new UserAlreadyExistsException(request.Email);
+            }
 
             var entity = new UserEntity()
             {

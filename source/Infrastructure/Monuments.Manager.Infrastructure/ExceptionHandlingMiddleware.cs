@@ -3,12 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Monuments.Manager.Application.Exceptions;
+using Monuments.Manager.Infrastructure.ViewModels;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Monuments.Manager.Infrastructure
@@ -30,9 +29,10 @@ namespace Monuments.Manager.Infrastructure
 
             context.Response.StatusCode = GetStatusCode(ex);
 
-            var error = new
+            var error = new ErrorTypeViewModel()
             {
-                message = ex.Message
+                Message = ex.Message,
+                ErrorType = ex.GetType().Name
             };
 
             context.Response.ContentType = "application/json";
@@ -50,6 +50,11 @@ namespace Monuments.Manager.Infrastructure
             if (ex is AuthenticationException)
             {
                 return (int)HttpStatusCode.Forbidden;
+            }
+
+            if(ex is MonumentsManagerAppException)
+            {
+                return (int)HttpStatusCode.BadRequest;
             }
 
             return (int)HttpStatusCode.InternalServerError;

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Exceptions
 {
-    public class DictionaryParentValueNotFoundException : Exception
+    public class DictionaryParentValueNotFoundException : MonumentsManagerAppException
     {
         public DictionaryParentValueNotFoundException(IRequest<ICollection<DictionaryValueDto>> query)
             : base($"Parent value for {query.GetType().Name} not exists. Details: {query}")
