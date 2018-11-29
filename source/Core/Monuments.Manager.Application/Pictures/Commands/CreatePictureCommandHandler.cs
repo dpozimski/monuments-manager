@@ -28,7 +28,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
 
             if(monumentEntity is null)
             {
-                throw new EntityNotFoundException<MonumentEntity>(request.MonumentId);
+                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
             var pictureEntity = new PictureEntity() { Data = request.Data };

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -11,17 +13,32 @@ namespace Monuments.Manager.Application.Email
     public class EmailSender : IEmailSender
     {
         private readonly EmailConfigurationOptions _emailOptions;
+        private readonly ILogger<EmailSender> _logger;
 
-        public EmailSender(IOptions<EmailConfigurationOptions> emailOptions)
+        public EmailSender(IOptions<EmailConfigurationOptions> emailOptions,
+                           ILogger<EmailSender> logger)
         {
             _emailOptions = emailOptions.Value;
+            _logger = logger;
         }
 
-        public async Task SendWelcomeMailAsync(string email)
+        public async Task<bool> TrySendWelcomeMailAsync(string email)
         {
             var template = GetTemplate("WelcomeMessageTemplate");
             var mailContent = template.Replace("#EMAIL#", email);
-            await SendMailAsync(email, "Welcome!", mailContent);
+
+            try
+            {
+                await SendMailAsync(email, "Welcome!", mailContent);
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogInformation(ex, "Cannot send email");
+
+                return false;
+            }
         }
 
         public async Task SendRecoveryPasswordMailAsync(string email, string recoveryKey)

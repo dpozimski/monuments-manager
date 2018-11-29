@@ -27,7 +27,7 @@ namespace Monuments.Manager.Application.Monuments.Commands
 
             if(entity is null)
             {
-                throw new EntityNotFoundException<MonumentEntity>(request.MonumentId);
+                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
             _dbContext.Monuments.Remove(entity);

@@ -36,7 +36,7 @@ namespace Monuments.Manager.Infrastructure.Security
             });
 
             if (authenticatedUser is null)
-                throw new AuthenticationException(email);
+                throw new MonumentsManagerAppException(ExceptionType.AuthenticationFail, $"User with id {email} is not authenticated to execute current operation");
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_options.Value.JwtSecretKey);

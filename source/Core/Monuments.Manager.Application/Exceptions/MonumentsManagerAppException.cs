@@ -6,8 +6,11 @@ namespace Monuments.Manager.Application.Exceptions
 {
     public class MonumentsManagerAppException : Exception
     {
-        public MonumentsManagerAppException(string message) : base(message)
+        public ExceptionType Type { get; }
+
+        public MonumentsManagerAppException(ExceptionType type, string message) : base(message)
         {
+            Type = type;
         }
     }
 }

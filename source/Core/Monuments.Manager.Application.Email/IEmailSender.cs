@@ -8,6 +8,6 @@ namespace Monuments.Manager.Application.Email
     public interface IEmailSender
     {
         Task SendRecoveryPasswordMailAsync(string email, string recoveryKey);
-        Task SendWelcomeMailAsync(string email);
+        Task<bool> TrySendWelcomeMailAsync(string email);
     }
 }

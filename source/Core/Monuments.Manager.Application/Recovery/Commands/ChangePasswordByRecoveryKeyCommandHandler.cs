@@ -32,7 +32,7 @@ namespace Monuments.Manager.Application.Recovery.Commands
             var userEntity = await _dbContext.Users.FindAsync(encrytedUserDto.Id);
             if (userEntity is null || userEntity.Password != encrytedUserDto.Password)
             {
-                throw new RecoveryKeyValidationException(encrytedUserDto.Id);
+                throw new MonumentsManagerAppException(ExceptionType.RecoveryKeyValidationFailed, $"Recovery key is invalid for user with id {userEntity.Id}");
             }
 
             userEntity.Password = _passwordEncryptor.Encrypt(request.Password);

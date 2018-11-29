@@ -27,11 +27,14 @@ namespace Monuments.Manager.Application.Users.Commands
 
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            await _emailSender.SendWelcomeMailAsync(request.Email);
-
             if(await _dbContext.Users.AnyAsync(s => s.Email == request.Email))
             {
-                throw new UserAlreadyExistsException(request.Email);
+                throw new MonumentsManagerAppException(ExceptionType.UserAlreadyExists, $"User with email {request.Email} already exists");
+            }
+
+            if (!await _emailSender.TrySendWelcomeMailAsync(request.Email))
+            {
+                throw new MonumentsManagerAppException(ExceptionType.CannotSendEmail, $"Cannot send welcome mail to {request.Email}");
             }
 
             var entity = new UserEntity()

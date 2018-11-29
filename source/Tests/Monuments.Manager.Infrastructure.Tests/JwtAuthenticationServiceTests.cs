@@ -43,7 +43,7 @@ namespace Monuments.Manager.Infrastructure.Tests
             //act
             Func<Task> actAction = async () => await target.AuthenticateAsync("TEST", "TEST");
             //assert
-            actAction.Should().Throw<AuthenticationException>();
+            actAction.Should().Throw<MonumentsManagerAppException>();
         }
 
         private IFixture CreateFixture(UserDto userDto)

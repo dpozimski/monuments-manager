@@ -25,7 +25,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
 
             if (pictureEntity is null)
             {
-                throw new EntityNotFoundException<PictureEntity>(request.PictureId);
+                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type PictureEntity with id {request.PictureId} does not exists");
             }
 
             _dbContext.Pictures.Remove(pictureEntity);

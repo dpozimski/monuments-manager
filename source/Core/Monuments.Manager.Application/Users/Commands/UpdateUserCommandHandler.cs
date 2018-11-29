@@ -31,7 +31,7 @@ namespace Monuments.Manager.Application.Users.Commands
 
             if (entity is null)
             {
-                throw new EntityNotFoundException<UserEntity>(request.Id);
+                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type UserEntity with id {request.Id} does not exists");
             }
 
             entity.Password = _passwordEncryptor.Encrypt(request.Password);

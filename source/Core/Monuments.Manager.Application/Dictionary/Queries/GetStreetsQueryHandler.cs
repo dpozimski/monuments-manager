@@ -65,7 +65,7 @@ namespace Monuments.Manager.Application.Dictionary.Queries
 
             if(cityEntity is null)
             {
-                throw new DictionaryParentValueNotFoundException(request);
+                throw new MonumentsManagerAppException(ExceptionType.DictionaryParentValueNotFound, $"Parent value for DictionaryValueDto not exists. Details: {request}");
             }
 
             foreach(var providerValue in providerValues.Where(s => !cityEntity.Streets.Any(d => d.Name == s.Name)))

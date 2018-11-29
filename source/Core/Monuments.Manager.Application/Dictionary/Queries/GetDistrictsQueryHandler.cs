@@ -50,7 +50,7 @@ namespace Monuments.Manager.Application.Dictionary.Queries
 
             if(provinceEntity is null)
             {
-                throw new DictionaryParentValueNotFoundException(request);
+                throw new MonumentsManagerAppException(ExceptionType.DictionaryParentValueNotFound, $"Parent value for GetDistrictsQuery not exists. Details: {request}");
             }
 
             foreach(var providerValue in providerValues.Where(s => !provinceEntity.Districts.Any(d => d.Name == s.Name)))

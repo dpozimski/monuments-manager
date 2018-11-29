@@ -34,7 +34,7 @@ namespace Monuments.Manager.Application.Recovery.Commands
 
             if(userEntity is null)
             {
-                throw new EntityNotFoundException<UserEntity>(userEntity.Email);
+                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type UserEntity with id {userEntity.Email} does not exists");
             }
 
             var recoveryKey = GenerateRecoveryKey(userEntity);

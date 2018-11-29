@@ -32,10 +32,8 @@ namespace Monuments.Manager.Infrastructure
             var error = new ErrorTypeViewModel()
             {
                 Message = ex.Message,
-                ErrorType = ex.GetType().Name
+                ErrorType = GetErrorType(ex)
             };
-
-            context.Response.ContentType = "application/json";
 
             using (var writer = new StreamWriter(context.Response.Body))
             {
@@ -45,19 +43,29 @@ namespace Monuments.Manager.Infrastructure
             }
         }
 
+        private string GetErrorType(Exception ex)
+        {
+            switch (ex)
+            {
+                case MonumentsManagerAppException appEx:
+                    return appEx.Type.ToString();
+                default:
+                    return "Unknown";
+            }
+        }
+
         private int GetStatusCode(Exception ex)
         {
-            if (ex is AuthenticationException)
+            switch(ex)
             {
-                return (int)HttpStatusCode.Forbidden;
-            }
+                case MonumentsManagerAppException authEx when authEx.Type == ExceptionType.AuthenticationFail:
+                    return (int)HttpStatusCode.Forbidden;
+                case MonumentsManagerAppException appEx:
+                    return (int)HttpStatusCode.BadRequest;
+                default:
+                    return (int)HttpStatusCode.InternalServerError;
 
-            if(ex is MonumentsManagerAppException)
-            {
-                return (int)HttpStatusCode.BadRequest;
             }
-
-            return (int)HttpStatusCode.InternalServerError;
         }
     }
 }
