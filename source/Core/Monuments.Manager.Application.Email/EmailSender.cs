@@ -10,32 +10,42 @@ namespace Monuments.Manager.Application.Email
 {
     public class EmailSender : IEmailSender
     {
-        private readonly IOptions<EmailConfigurationOptions> _emailConfigurationOptions;
+        private readonly EmailConfigurationOptions _emailOptions;
 
-        public EmailSender(IOptions<EmailConfigurationOptions> emailConfigurationOptions)
+        public EmailSender(IOptions<EmailConfigurationOptions> emailOptions)
         {
-            _emailConfigurationOptions = emailConfigurationOptions;
+            _emailOptions = emailOptions.Value;
+        }
+
+        public async Task SendWelcomeMailAsync(string email)
+        {
+            var template = GetTemplate("WelcomeMessageTemplate");
+            var mailContent = template.Replace("#EMAIL#", email);
+            await SendMailAsync(email, "Welcome!", mailContent);
         }
 
         public async Task SendRecoveryPasswordMailAsync(string email, string recoveryKey)
         {
-            var emailOptions = _emailConfigurationOptions.Value;
             var template = GetTemplate("RecoveryPasswordTemplate");
-
             var encodedRecoveryKey = HttpUtility.UrlEncode(recoveryKey);
-            var mailContent = template.Replace("#LINK#", $"{emailOptions.RecoveryKeyUrl}{encodedRecoveryKey}");
-            var mailMessage = new MailMessage(emailOptions.Email, email, "Password recovery", mailContent);
-            mailMessage.IsBodyHtml = true;
+            var mailContent = template.Replace("#LINK#", $"{_emailOptions.RecoveryKeyUrl}{encodedRecoveryKey}");
+            await SendMailAsync(email, "Password recovery", mailContent);
+        }
+
+        private async Task SendMailAsync(string to, string subject, string content)
+        {
+            var message = new MailMessage(_emailOptions.Email, to, subject, content);
+            message.IsBodyHtml = true;
 
             var client = new SmtpClient();
-            client.Host = emailOptions.Host;
+            client.Host = _emailOptions.Host;
             client.Port = 587;
             client.UseDefaultCredentials = false;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
-            client.Credentials = new NetworkCredential(emailOptions.Email, emailOptions.Password);
+            client.Credentials = new NetworkCredential(_emailOptions.Email, _emailOptions.Password);
 
-            await client.SendMailAsync(mailMessage);
+            await client.SendMailAsync(message);
         }
 
         private string GetTemplate(string templateName)

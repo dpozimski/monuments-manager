@@ -1662,7 +1662,6 @@ export interface ISendRecoveryKeyCommand {
 }
 
 export class CreateUserCommand implements ICreateUserCommand {
-    role?: UserRoleDto;
     email?: string | undefined;
     password?: string | undefined;
     jobTitle?: string | undefined;
@@ -1678,7 +1677,6 @@ export class CreateUserCommand implements ICreateUserCommand {
 
     init(data?: any) {
         if (data) {
-            this.role = data["role"];
             this.email = data["email"];
             this.password = data["password"];
             this.jobTitle = data["jobTitle"];
@@ -1694,7 +1692,6 @@ export class CreateUserCommand implements ICreateUserCommand {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["role"] = this.role;
         data["email"] = this.email;
         data["password"] = this.password;
         data["jobTitle"] = this.jobTitle;
@@ -1703,15 +1700,9 @@ export class CreateUserCommand implements ICreateUserCommand {
 }
 
 export interface ICreateUserCommand {
-    role?: UserRoleDto;
     email?: string | undefined;
     password?: string | undefined;
     jobTitle?: string | undefined;
-}
-
-export enum UserRoleDto {
-    User = "User", 
-    Administrator = "Administrator", 
 }
 
 export class UserDto implements IUserDto {
@@ -1760,6 +1751,11 @@ export interface IUserDto {
     role?: UserRoleDto;
     email?: string | undefined;
     jobTitle?: string | undefined;
+}
+
+export enum UserRoleDto {
+    User = "User", 
+    Administrator = "Administrator", 
 }
 
 export class UpdateUserCommand implements IUpdateUserCommand {

@@ -6,9 +6,11 @@
 
   <ItemGroup>
     <None Remove="Templates\RecoveryPasswordTemplate.html" />
+    <None Remove="Templates\WelcomeMessageTemplate.html" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Templates\WelcomeMessageTemplate.html" />
     <EmbeddedResource Include="Templates\RecoveryPasswordTemplate.html" />
   </ItemGroup>
 
