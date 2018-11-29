@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../api/authentication.service';
+import { ToastrService } from 'ngx-toastr';
+import { CreateUserCommand } from '../api/monuments-manager-api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: [
+    './register.component.css',
+    './../styles/forms.css'
+  ]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  cannotCreateAccount: boolean;
+  errorMessage: string;
+  submitted: boolean;
 
-  constructor() { }
+  model: CreateUserCommand = new CreateUserCommand();
 
-  ngOnInit() {
+  constructor(private authenticationService: AuthenticationService,
+              private toastr: ToastrService) { }
+
+  register() {
+    this.submitted = true;
   }
-
 }

@@ -1,3 +1,36 @@
-<p>
-  register works!
-</p>
+<div class="card card-container">
+  <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+  <p class="profile-name-card"></p>
+  <form class="form-container" #registerForm="ngForm">
+
+    <div class="form-group">
+      <input id="email" type="email" name="email" #email="ngModel" class="form-control" placeholder="Email address"
+        [(ngModel)]="model.email" required autofocus email>
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        Please enter a valid e-mail
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input id="password" type="password" name="password" #password="ngModel" class="form-control" placeholder="Password"
+        [(ngModel)]="model.password" required>
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        Password is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input id="jobTitle" type="text" name="jobTitle" #jobTitle="ngModel" class="form-control" placeholder="Job title"
+        [(ngModel)]="model.jobTitle" required>
+      <div [hidden]="jobTitle.valid || jobTitle.pristine" class="alert alert-danger">
+        Job title is required
+      </div>
+    </div>
+
+    <div [hidden]="!cannotCreateAccount" class="alert alert-danger">
+      {{errorMessage}}
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block btn-submit" (click)="register()" type="button" [disabled]="!registerForm.form.valid || submitted">Register</button>
+  </form>
+</div>

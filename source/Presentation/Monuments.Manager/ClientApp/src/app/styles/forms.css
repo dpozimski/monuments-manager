@@ -43,7 +43,7 @@
     min-height: 1em;
 }
 
-.form-container #email, .form-container #password {
+.form-container .form-control {
     direction: ltr;
     height: 44px;
     font-size: 16px;
