@@ -5,3 +5,7 @@
 .forgot-password:hover, .forgot-password:active, .forgot-password:focus {
     color: rgb(12, 97, 33);
 }
+
+.remember-me-label {
+    color: white;
+}

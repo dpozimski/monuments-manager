@@ -12,7 +12,8 @@ import { CryptoService } from '../api/security/crypto.service';
   templateUrl: './login.component.html',
   styleUrls: [
     './login.component.css',
-    './../styles/forms.css'
+    './../styles/forms.css',
+    './../styles/cards.css'
   ]
 })
 export class LoginComponent implements OnInit {

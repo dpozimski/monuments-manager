@@ -10,7 +10,8 @@ import { CryptoService } from '../api/security/crypto.service';
   templateUrl: './register.component.html',
   styleUrls: [
     './register.component.css',
-    './../styles/forms.css'
+    './../styles/forms.css',
+    './../styles/cards.css'
   ]
 })
 export class RegisterComponent {
