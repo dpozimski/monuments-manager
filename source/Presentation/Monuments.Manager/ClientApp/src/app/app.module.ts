@@ -21,6 +21,8 @@ import { RecoveryPasswordComponent } from './recovery-password/recovery-password
 import { MonumentsComponent } from './monuments/monuments.component';
 import { DictionariesComponent } from './dictionaries/dictionaries.component';
 import { UsersComponent } from './users/users.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UsersComponent } from './users/users.component';
     RecoveryPasswordComponent,
     MonumentsComponent,
     DictionariesComponent,
-    UsersComponent
+    UsersComponent,
+    UsersListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

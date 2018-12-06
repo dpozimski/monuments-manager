@@ -1,0 +1,37 @@
+.component-container {
+    padding-right: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.header-component {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.header-container {
+    height: 10vh;
+    position: relative;
+}
+
+.list-container {
+    margin-top: 3vh;
+    height: 82vh;
+    position: relative;
+}
+
+.actions-container {
+    margin-top: 3vh;
+    height: 9.2vh;
+    position: relative;
+}
+
+.detail-container {
+    margin-top: 2vh;
+    height: 70.8vh;
+    position: relative;
+}
