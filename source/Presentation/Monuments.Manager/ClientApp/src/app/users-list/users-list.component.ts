@@ -13,8 +13,8 @@ export class UsersListComponent implements OnInit {
     'lastName', 
     'email', 
     'jobTitle',
-    'Edit',
-    'Delete'
+    'edit',
+    'delete'
   ];
   dataSource: MatTableDataSource<UserDto>;
 
