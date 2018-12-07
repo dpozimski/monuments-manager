@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { UserDto, UsersClient } from '../api/monuments-manager-api';
 
 @Component({
   selector: 'app-users-list',
@@ -6,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
+  displayedColumns: string[] = [
+    'firstName', 
+    'lastName', 
+    'email', 
+    'jobTitle',
+    'Edit',
+    'Delete'
+  ];
+  dataSource: MatTableDataSource<UserDto>;
 
-  constructor() { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngOnInit() {
+  constructor(private usersClient: UsersClient) {
+    
   }
 
+  ngOnInit() {
+    this.fillUsers();
+  }
+
+  private fillUsers() {
+    this.usersClient.getAll()
+        .subscribe(s => {
+          this.dataSource = new MatTableDataSource<UserDto>(s);
+          this.dataSource.paginator = this.paginator;
+        });
+  }
 }

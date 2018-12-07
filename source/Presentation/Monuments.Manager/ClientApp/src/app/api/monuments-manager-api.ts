@@ -834,7 +834,7 @@ export interface IUsersClient {
     get(id: number): Observable<UserDto | null>;
     update(command: UpdateUserCommand): Observable<void>;
     delete(command: DeleteUserCommand): Observable<void>;
-    getAll(query: GetUsersQuery): Observable<UserDto[] | null>;
+    getAll(): Observable<UserDto[] | null>;
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null>;
 }
 
@@ -1049,18 +1049,14 @@ export class UsersClient implements IUsersClient {
         return _observableOf<void>(<any>null);
     }
 
-    getAll(query: GetUsersQuery): Observable<UserDto[] | null> {
+    getAll(): Observable<UserDto[] | null> {
         let url_ = this.baseUrl + "/api/Users/all";
         url_ = url_.replace(/[?&]$/, "");
 
-        const content_ = JSON.stringify(query);
-
         let options_ : any = {
-            body: content_,
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
                 "Accept": "application/json"
             })
         };
@@ -1821,38 +1817,6 @@ export interface IUserDto {
 export enum UserRoleDto {
     User = "User", 
     Administrator = "Administrator", 
-}
-
-export class GetUsersQuery implements IGetUsersQuery {
-
-    constructor(data?: IGetUsersQuery) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-        }
-    }
-
-    static fromJS(data: any): GetUsersQuery {
-        data = typeof data === 'object' ? data : {};
-        let result = new GetUsersQuery();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        return data; 
-    }
-}
-
-export interface IGetUsersQuery {
 }
 
 export class UpdateUserCommand implements IUpdateUserCommand {

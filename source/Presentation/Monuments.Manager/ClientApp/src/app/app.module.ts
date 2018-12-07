@@ -7,6 +7,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiModule } from './api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule, MatPaginatorModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -48,6 +49,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     ApiModule,
     BootstrapModalModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },

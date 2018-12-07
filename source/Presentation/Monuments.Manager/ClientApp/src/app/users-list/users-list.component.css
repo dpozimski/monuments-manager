@@ -1,31 +1,4 @@
 table {
     width: 100%;
-    table-layout: fixed;
-}
-
-thead, tbody, tr, td, th {
-    display: block;
-    white-space: normal !important;
-    word-wrap: break-word;
-}
-
-tr:after {
-    content: ' ';
-    display: block;
-    visibility: hidden;
-    clear: both;
-}
-
-thead th {
-    height: 30px;
-}
-
-tbody {
-    height: 81vh;
-    overflow-y: auto;
-}
-
-tbody td, thead th {
-    width: 14.27%;
-    float: left;
-}
+  }
+  
