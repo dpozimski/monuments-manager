@@ -12,6 +12,8 @@ namespace Monuments.Manager.Application.Exceptions
         EntityNotFound,
         RecoveryKeyValidationFailed,
         UserAlreadyExists,
-        CannotSendEmail
+        CannotSendEmail,
+        CannotPromoteYourself,
+        UserAlreadyPromoted
     }
 }

@@ -55,6 +55,12 @@ namespace Monuments.Manager.Controllers
             await Mediator.Send(command);
         }
 
+        [HttpPost("promote")]
+        public async Task PromoteAsync(PromoteUserCommand command)
+        {
+            await Mediator.Send(command);
+        }
+
         [AllowAnonymous]
         [HttpPost("authentication")]
         public async Task<AuthenticateUserResultViewModel> AuthenticateAsync(AuthenticateUserViewModel viewModel)

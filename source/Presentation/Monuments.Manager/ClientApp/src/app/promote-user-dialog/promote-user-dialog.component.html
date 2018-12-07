@@ -1,0 +1,29 @@
+`<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()">&times;</button>
+      <h4 class="modal-title">Promote user</h4>
+    </div>
+    <div class="modal-body">
+      <p>Please select an user with will be promoted to administrator role</p>
+
+      <form class="form-container" #containerForm="ngForm">
+        <div class="form-group">
+          <input id="email" type="email" name="email" class="form-control" placeholder="Email address" [(ngModel)]="model.email"
+            required autofocus email>
+        </div>
+        <div [hidden]="containerForm.form.valid || containerForm.form.pristine" class="alert alert-danger">
+          Please enter a valid e-mail
+        </div>
+        <div [hidden]="!serverError" class="alert alert-danger">
+          The e-mail is not assigned with any account or user is already promoted
+        </div>
+      </form>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" [disabled]="!containerForm.form.valid || submitted" (click)="promote()">OK</button>
+      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+    </div>
+  </div>
+</div>

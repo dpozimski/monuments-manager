@@ -1,11 +1,11 @@
 <mat-grid-list cols="2" rowHeight="75px">
   <mat-grid-tile>
-    <button class="btn btn-success btn-action" type="submit">
-      <span class="glyphicon glyphicon-edit"></span> New user
+    <button class="btn btn-success btn-action" type="submit" (click)="refreshPage()">
+      <span class="glyphicon glyphicon-edit"></span> Refresh
     </button>
   </mat-grid-tile>
   <mat-grid-tile>
-    <button class="btn btn-warning" type="submit">
+    <button class="btn btn-warning" type="submit" (click)="showPromoteDialog()">
       <span class="glyphicon glyphicon-edit"></span> Promote
     </button>
   </mat-grid-tile>

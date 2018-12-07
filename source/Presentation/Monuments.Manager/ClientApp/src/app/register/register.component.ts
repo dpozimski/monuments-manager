@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../api/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { CreateUserCommand, UsersClient, UserRoleDto } from '../api/monuments-manager-api';
 import { Router } from '@angular/router';
 import { CryptoService } from '../api/security/crypto.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -47,7 +48,6 @@ export class RegisterComponent {
 
   private handleSuccessResult() {
     this.toastr.success('Account has been succesfully created!', 'Login');
-
     this.router.navigate(['/login']);
   }
 }
