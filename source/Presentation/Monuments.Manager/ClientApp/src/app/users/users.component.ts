@@ -20,6 +20,6 @@ export class UsersComponent implements OnInit {
   }
 
   private fillUsersCollection() {
-    this.usersClient.get
+    this.usersClient.get()
   }
 }

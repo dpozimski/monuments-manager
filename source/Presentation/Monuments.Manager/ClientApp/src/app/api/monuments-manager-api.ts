@@ -834,6 +834,7 @@ export interface IUsersClient {
     get(id: number): Observable<UserDto | null>;
     update(command: UpdateUserCommand): Observable<void>;
     delete(command: DeleteUserCommand): Observable<void>;
+    getAll(query: GetUsersQuery): Observable<UserDto[] | null>;
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null>;
 }
 
@@ -1046,6 +1047,62 @@ export class UsersClient implements IUsersClient {
             }));
         }
         return _observableOf<void>(<any>null);
+    }
+
+    getAll(query: GetUsersQuery): Observable<UserDto[] | null> {
+        let url_ = this.baseUrl + "/api/Users/all";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(query);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(<any>response_);
+                } catch (e) {
+                    return <Observable<UserDto[] | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<UserDto[] | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<UserDto[] | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (resultData200 && resultData200.constructor === Array) {
+                result200 = [];
+                for (let item of resultData200)
+                    result200.push(UserDto.fromJS(item));
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<UserDto[] | null>(<any>null);
     }
 
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null> {
@@ -1756,6 +1813,38 @@ export interface IUserDto {
 export enum UserRoleDto {
     User = "User", 
     Administrator = "Administrator", 
+}
+
+export class GetUsersQuery implements IGetUsersQuery {
+
+    constructor(data?: IGetUsersQuery) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+        }
+    }
+
+    static fromJS(data: any): GetUsersQuery {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetUsersQuery();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        return data; 
+    }
+}
+
+export interface IGetUsersQuery {
 }
 
 export class UpdateUserCommand implements IUpdateUserCommand {
