@@ -4,6 +4,7 @@ using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Persistence;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,6 +31,9 @@ namespace Monuments.Manager.Application.Users.Commands
 
             if (user is null)
                 return null;
+
+            user.LastLoggedIn = DateTime.UtcNow;
+            await _dbContext.SaveChangesAsync();
 
             return new UserDto()
             {

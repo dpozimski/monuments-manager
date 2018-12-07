@@ -14,6 +14,7 @@ namespace Monuments.Manager.Persistence
     {
         private readonly IConfigurationBuilder _configurationBuilder;
         private readonly IEntityChangedDateHook _entityChangedDateHook;
+        private readonly IEntityChangedUserContextHook _entityChangedUserContextHook;
 
         public DbSet<UserEntity> Users { get; set; }
 
@@ -31,10 +32,12 @@ namespace Monuments.Manager.Persistence
         public MonumentsDbContext(
             IConfigurationBuilder configurationBuilder,
             IEntityChangedDateHook entityChangedDateHook,
+            IEntityChangedUserContextHook entityChangedUserContextHook,
             DbContextOptions options) : base(options)
         {
             _configurationBuilder = configurationBuilder;
             _entityChangedDateHook = entityChangedDateHook;
+            _entityChangedUserContextHook = entityChangedUserContextHook;
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
@@ -46,6 +49,7 @@ namespace Monuments.Manager.Persistence
                 .ToList();
 
             _entityChangedDateHook.FillCreateDate(addedEntities);
+            _entityChangedUserContextHook.FillCreatedByUserContext(addedEntities);
 
             var changedEntities = ChangeTracker.Entries()
                 .Where(s => s.State == EntityState.Added)
@@ -54,6 +58,7 @@ namespace Monuments.Manager.Persistence
                 .ToList();
 
             _entityChangedDateHook.FillModifiedDate(changedEntities);
+            _entityChangedUserContextHook.FillModifiedByUserContext(changedEntities);
 
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }

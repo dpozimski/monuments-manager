@@ -12,6 +12,19 @@ namespace Monuments.Manager.Persistence.Configurations
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasKey(s => s.Id);
+
+            builder
+                .HasIndex(s => s.CreatedBy)
+                .HasName($"IX_{typeof(TEntity).Name}_CreatedBy");
+
+            builder
+                .HasIndex(s => s.ModifiedBy)
+                .HasName($"IX_{typeof(TEntity).Name}_ModifiedBy");
+
+            builder.Property(s => s.CreatedBy)
+                .HasMaxLength(200);
+            builder.Property(s => s.ModifiedBy)
+                .HasMaxLength(200);
         }
     }
 }

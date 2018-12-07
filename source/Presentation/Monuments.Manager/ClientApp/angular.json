@@ -21,7 +21,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/app/styles/angular-material-theme.css",
               "src/styles.css",
               "src/styles-app-loading.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -75,7 +75,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/app/styles/angular-material-theme.css",
               "src/styles.css",
               "src/styles-app-loading.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",

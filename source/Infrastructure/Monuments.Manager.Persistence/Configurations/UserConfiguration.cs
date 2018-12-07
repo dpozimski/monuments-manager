@@ -1,16 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Monuments.Manager.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Monuments.Manager.Persistence.Configurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
+    public class UserConfiguration : BaseConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<UserEntity> builder)
+        public override void Configure(EntityTypeBuilder<UserEntity> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(s => s.Id);
 
             builder.HasIndex(s => s.Email).HasName("IX_User_Email");
@@ -31,6 +30,9 @@ namespace Monuments.Manager.Persistence.Configurations
 
             builder.Property(s => s.LastName)
                 .HasMaxLength(100);
+
+            builder.Property(s => s.LastLoggedIn)
+                .IsRequired();
         }
     }
 }

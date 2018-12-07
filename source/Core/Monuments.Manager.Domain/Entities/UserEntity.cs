@@ -13,6 +13,7 @@ namespace Monuments.Manager.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string JobTitle { get; set; }
+        public DateTime LastLoggedIn { get; set; }
 
         public virtual ICollection<MonumentEntity> Monuments { get; private set; }
 

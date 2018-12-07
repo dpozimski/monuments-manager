@@ -1,3 +1,32 @@
-<p>
-  user-detail works!
-</p>
+<div class="user-details-container">
+
+  <h2 class="header-component">User statistics</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last authenticated</mat-label>
+    <input matInput placeholder="Last authenticated" readonly>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Last succesful authentication through login form</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Created monuments</mat-label>
+    <input matInput placeholder="Created monuments" readonly>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>How many monuments was created by the user</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Last modified monument</mat-label>
+      <input matInput placeholder="Last modified monument" readonly>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>What was the last modified monument</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <input matInput placeholder="Role" readonly>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Possible roles: User, Administrator</mat-hint>
+  </mat-form-field>
+</div>

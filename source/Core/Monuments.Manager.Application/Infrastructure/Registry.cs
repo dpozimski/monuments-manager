@@ -9,6 +9,7 @@ using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Infrastructure.Pipelines;
 using Monuments.Manager.Application.Monuments.Commands;
+using Monuments.Manager.Common;
 using System.Reflection;
 
 namespace Monuments.Manager.Application.Infrastructure

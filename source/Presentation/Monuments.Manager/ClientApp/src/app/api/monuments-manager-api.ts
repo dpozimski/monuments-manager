@@ -835,6 +835,7 @@ export interface IUsersClient {
     update(command: UpdateUserCommand): Observable<void>;
     delete(command: DeleteUserCommand): Observable<void>;
     getAll(): Observable<UserDto[] | null>;
+    getUserStatistics(userId: number): Observable<UserStatisticsResult | null>;
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null>;
 }
 
@@ -1099,6 +1100,58 @@ export class UsersClient implements IUsersClient {
             }));
         }
         return _observableOf<UserDto[] | null>(<any>null);
+    }
+
+    getUserStatistics(userId: number): Observable<UserStatisticsResult | null> {
+        let url_ = this.baseUrl + "/api/Users/statistics?";
+        if (userId === undefined || userId === null)
+            throw new Error("The parameter 'userId' must be defined and cannot be null.");
+        else
+            url_ += "UserId=" + encodeURIComponent("" + userId) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetUserStatistics(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetUserStatistics(<any>response_);
+                } catch (e) {
+                    return <Observable<UserStatisticsResult | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<UserStatisticsResult | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetUserStatistics(response: HttpResponseBase): Observable<UserStatisticsResult | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? UserStatisticsResult.fromJS(resultData200) : <any>null;
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<UserStatisticsResult | null>(<any>null);
     }
 
     authenticate(viewModel: AuthenticateUserViewModel): Observable<AuthenticateUserResultViewModel | null> {
@@ -1817,6 +1870,54 @@ export interface IUserDto {
 export enum UserRoleDto {
     User = "User", 
     Administrator = "Administrator", 
+}
+
+export class UserStatisticsResult implements IUserStatisticsResult {
+    lastLoggedIn?: Date;
+    createdMonuments?: number;
+    lastModifiedMonument?: string | undefined;
+    role?: UserRoleDto;
+
+    constructor(data?: IUserStatisticsResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.lastLoggedIn = data["lastLoggedIn"] ? new Date(data["lastLoggedIn"].toString()) : <any>undefined;
+            this.createdMonuments = data["createdMonuments"];
+            this.lastModifiedMonument = data["lastModifiedMonument"];
+            this.role = data["role"];
+        }
+    }
+
+    static fromJS(data: any): UserStatisticsResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new UserStatisticsResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["lastLoggedIn"] = this.lastLoggedIn ? this.lastLoggedIn.toISOString() : <any>undefined;
+        data["createdMonuments"] = this.createdMonuments;
+        data["lastModifiedMonument"] = this.lastModifiedMonument;
+        data["role"] = this.role;
+        return data; 
+    }
+}
+
+export interface IUserStatisticsResult {
+    lastLoggedIn?: Date;
+    createdMonuments?: number;
+    lastModifiedMonument?: string | undefined;
+    role?: UserRoleDto;
 }
 
 export class UpdateUserCommand implements IUpdateUserCommand {

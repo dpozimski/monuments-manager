@@ -5,6 +5,7 @@ using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Encryption;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -41,7 +42,8 @@ namespace Monuments.Manager.Application.Users.Commands
             {
                 Password = _passwordEncryptor.Encrypt(request.Password),
                 Email = request.Email,
-                JobTitle = request.JobTitle
+                JobTitle = request.JobTitle,
+                LastLoggedIn = DateTime.UtcNow
             };
 
             var result = await _dbContext.AddAsync(entity, cancellationToken);

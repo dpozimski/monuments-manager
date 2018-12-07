@@ -43,6 +43,12 @@ namespace Monuments.Manager.Controllers
             return await Mediator.Send(new GetUsersQuery());
         }
 
+        [HttpGet("statistics")]
+        public async Task<UserStatisticsResult> GetUserStatisticsAsync([FromQuery]GetUserStatisticsQuery query)
+        {
+            return await Mediator.Send(query);
+        }
+
         [HttpPost]
         public async Task UpdateAsync(UpdateUserCommand command)
         {

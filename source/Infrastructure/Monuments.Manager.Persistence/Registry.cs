@@ -28,6 +28,7 @@ namespace Monuments.Manager.Persistence
 
             services.AddScoped<IConfigurationBuilder, ConfigurationBuilder>();
             services.AddScoped<IEntityChangedDateHook, EntityChangedDateHook>();
+            services.AddScoped<IEntityChangedUserContextHook, EntityChangedUserContextHook>();
 
             return services;
         }

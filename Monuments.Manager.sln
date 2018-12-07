@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests", "source\Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests.csproj", "{369DC3D3-76E1-41FA-85BE-2A92648911E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monuments.Manager.Application.Email", "source\Core\Monuments.Manager.Application.Email\Monuments.Manager.Application.Email.csproj", "{79F32B94-677F-4361-B9D4-14BE17AAF1E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Email", "source\Core\Monuments.Manager.Application.Email\Monuments.Manager.Application.Email.csproj", "{79F32B94-677F-4361-B9D4-14BE17AAF1E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
