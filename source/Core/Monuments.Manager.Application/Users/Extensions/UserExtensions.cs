@@ -14,6 +14,8 @@ namespace Monuments.Manager.Application.Users.Extensions
             return new UserDto()
             {
                 Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 Email = user.Email,
                 JobTitle = user.JobTitle,
                 Role = user.Role.ConvertTo<UserRoleDto>()

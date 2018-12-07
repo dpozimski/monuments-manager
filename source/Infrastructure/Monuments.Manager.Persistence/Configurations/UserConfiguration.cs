@@ -25,6 +25,12 @@ namespace Monuments.Manager.Persistence.Configurations
 
             builder.Property(s => s.JobTitle)
                 .HasMaxLength(50);
+
+            builder.Property(s => s.FirstName)
+                .HasMaxLength(100);
+
+            builder.Property(s => s.LastName)
+                .HasMaxLength(100);
         }
     }
 }

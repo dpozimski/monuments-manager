@@ -1764,6 +1764,8 @@ export interface ICreateUserCommand {
 
 export class UserDto implements IUserDto {
     id?: number;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
     role?: UserRoleDto;
     email?: string | undefined;
     jobTitle?: string | undefined;
@@ -1780,6 +1782,8 @@ export class UserDto implements IUserDto {
     init(data?: any) {
         if (data) {
             this.id = data["id"];
+            this.firstName = data["firstName"];
+            this.lastName = data["lastName"];
             this.role = data["role"];
             this.email = data["email"];
             this.jobTitle = data["jobTitle"];
@@ -1796,6 +1800,8 @@ export class UserDto implements IUserDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["firstName"] = this.firstName;
+        data["lastName"] = this.lastName;
         data["role"] = this.role;
         data["email"] = this.email;
         data["jobTitle"] = this.jobTitle;
@@ -1805,6 +1811,8 @@ export class UserDto implements IUserDto {
 
 export interface IUserDto {
     id?: number;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
     role?: UserRoleDto;
     email?: string | undefined;
     jobTitle?: string | undefined;

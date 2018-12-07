@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monuments.Manager.Persistence;
 
 namespace Monuments.Manager.Persistence.Migrations
 {
     [DbContext(typeof(MonumentsDbContext))]
-    partial class MonumentsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181207165726_UserFirstLastNameMigration")]
+    partial class UserFirstLastNameMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
