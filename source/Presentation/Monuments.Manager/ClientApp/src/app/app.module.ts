@@ -7,7 +7,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiModule } from './api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatGridListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -24,6 +24,7 @@ import { DictionariesComponent } from './dictionaries/dictionaries.component';
 import { UsersComponent } from './users/users.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UsersActionsComponent } from './users-actions/users-actions.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     DictionariesComponent,
     UsersComponent,
     UsersListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UsersActionsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,6 +53,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatGridListModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
