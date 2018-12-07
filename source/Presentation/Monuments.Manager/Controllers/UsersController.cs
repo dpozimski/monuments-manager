@@ -38,9 +38,9 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<ICollection<UserDto>> GetAllAsync(GetUsersQuery query)
+        public async Task<ICollection<UserDto>> GetAllAsync()
         {
-            return await Mediator.Send(query);
+            return await Mediator.Send(new GetUsersQuery());
         }
 
         [HttpPost]
