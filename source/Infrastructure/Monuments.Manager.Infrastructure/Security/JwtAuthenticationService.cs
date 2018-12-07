@@ -44,7 +44,7 @@ namespace Monuments.Manager.Infrastructure.Security
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, authenticatedUser.ToString())
+                    new Claim(ClaimTypes.Name, authenticatedUser.Id.ToString())
                 }),
                 Expires = _dateTimeProvider.GetCurrent().AddDays(15),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
