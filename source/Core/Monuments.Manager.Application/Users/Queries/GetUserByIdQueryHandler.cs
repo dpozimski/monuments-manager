@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Users.Extensions;
 using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Domain.Enumerations;
 using Monuments.Manager.Persistence;
@@ -22,13 +23,7 @@ namespace Monuments.Manager.Application.Users.Queries
         {
             var user = await _dbContext.Users.FindAsync(request.Id);
 
-            return new UserDto()
-            {
-                Id = user.Id,
-                Email = user.Email,
-                JobTitle = user.JobTitle,
-                Role = user.Role.ConvertTo<UserRoleDto>()
-            };
+            return user.ToDto();
         }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersClient, UserDto } from '../api/monuments-manager-api';
 
 @Component({
   selector: 'app-users',
@@ -10,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  users: UserDto[];
+
+  constructor(private usersClient: UsersClient) { }
 
   ngOnInit() {
+
   }
 
+  private fillUsersCollection() {
+    this.usersClient.get
+  }
 }

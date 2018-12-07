@@ -6,6 +6,7 @@ using Monuments.Manager.Application.Users.Models;
 using Monuments.Manager.Application.Users.Queries;
 using Monuments.Manager.Infrastructure.Security;
 using Monuments.Manager.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Monuments.Manager.Controllers
@@ -32,6 +33,12 @@ namespace Monuments.Manager.Controllers
 
         [HttpGet]
         public async Task<UserDto> GetAsync([FromQuery]GetUserByIdQuery query)
+        {
+            return await Mediator.Send(query);
+        }
+
+        [HttpGet]
+        public async Task<ICollection<UserDto>> GetAsync(GetUsersQuery query)
         {
             return await Mediator.Send(query);
         }
