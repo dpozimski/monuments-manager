@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserStatisticsResult } from '../api/monuments-manager-api';
+import { UserStatisticsResult } from '../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-user-detail',

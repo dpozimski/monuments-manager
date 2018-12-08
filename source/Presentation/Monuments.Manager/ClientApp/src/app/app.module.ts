@@ -57,10 +57,10 @@ import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/reco
 import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 import { MonumentsComponent } from './monuments/monuments.component';
 import { DictionariesComponent } from './dictionaries/dictionaries.component';
-import { UsersComponent } from './users/users.component';
-import { UsersListComponent } from './users-list/users-list.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UsersActionsComponent } from './users-actions/users-actions.component';
+import { UsersComponent } from './users/master/users.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UsersActionsComponent } from './users/users-actions/users-actions.component';
 import { PromoteUserDialogComponent } from './promote-user-dialog/promote-user-dialog.component';
 
 @NgModule({

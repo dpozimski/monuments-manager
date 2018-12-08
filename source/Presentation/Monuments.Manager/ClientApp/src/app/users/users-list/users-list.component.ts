@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
-import { UserDto, UsersClient } from '../api/monuments-manager-api';
+import { UserDto, UsersClient } from '../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-users-list',
