@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogComponent, DialogService } from 'ng2-bootstrap-modal';
-import { PromoteUserCommand, UsersClient } from '../api/monuments-manager-api';
+import { PromoteUserCommand, UsersClient } from '../../api/monuments-manager-api';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -8,8 +8,8 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './promote-user-dialog.component.html',
   styleUrls: [
     './promote-user-dialog.component.css',
-    './../styles/forms.css',
-    './../styles/cards.css'
+    './../../styles/forms.css',
+    './../../styles/cards.css'
   ]
 })
 export class PromoteUserDialogComponent extends DialogComponent<any, boolean> {

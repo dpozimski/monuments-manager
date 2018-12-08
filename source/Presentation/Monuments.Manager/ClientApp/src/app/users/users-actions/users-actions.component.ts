@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { PromoteUserDialogComponent } from '../../promote-user-dialog/promote-user-dialog.component';
+import { PromoteUserDialogComponent } from '../promote-user-dialog/promote-user-dialog.component';
 import { Router } from '@angular/router';
 
 @Component({

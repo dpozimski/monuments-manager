@@ -15,7 +15,7 @@
         <div [hidden]="containerForm.form.valid || containerForm.form.pristine" class="alert alert-danger">
           Please enter a valid e-mail
         </div>
-        <div [hidden]="!serverError" class="alert alert-danger">
+        <div [hidden]="!severRejectedCommand" class="alert alert-danger">
           The e-mail is not assigned with any account or user is already promoted
         </div>
       </form>
