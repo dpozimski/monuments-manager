@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Email
 {
@@ -9,5 +6,6 @@ namespace Monuments.Manager.Application.Email
     {
         Task SendRecoveryPasswordMailAsync(string email, string recoveryKey);
         Task<bool> TrySendWelcomeMailAsync(string email);
+        Task SendPasswordHasBeenChangedByAdministrator(string changedUserEmail, string adminEmail);
     }
 }

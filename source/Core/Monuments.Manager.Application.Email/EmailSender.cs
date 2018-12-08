@@ -49,6 +49,13 @@ namespace Monuments.Manager.Application.Email
             await SendMailAsync(email, "Password recovery", mailContent);
         }
 
+        public async Task SendPasswordHasBeenChangedByAdministrator(string changedUserEmail, string adminEmail)
+        {
+            var template = GetTemplate("PasswordHasBeenChangedByAdministrator");
+            var mailContent = template.Replace("#ADMINISTRATOREMAIL#", adminEmail);
+            await SendMailAsync(changedUserEmail, "Your password has been changed", mailContent);
+        }
+
         private async Task SendMailAsync(string to, string subject, string content)
         {
             var message = new MailMessage(_emailOptions.Email, to, subject, content)
