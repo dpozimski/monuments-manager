@@ -26,7 +26,7 @@ export class PromoteUserDialogComponent extends DialogComponent<any, boolean> {
   }
 
   promote() {
-    this.submitted = false;
+    this.submitted = true;
     this.severRejectedCommand = false;
 
     this.usersClient.promote(this.model)
