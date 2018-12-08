@@ -50,8 +50,10 @@ export class UsersListComponent implements OnInit {
           var command = new DeleteUserCommand();
           command.id = element.id;
           this.usersClient.delete(command)
-              .subscribe(_ => this.toastr.success('User has been removed'),
-                         _ => this.toastr.error('User cannot be removed'));
+              .subscribe(_ => { 
+                this.toastr.success('User has been removed');
+                this.fillUsers();
+              }, _ => this.toastr.error('User cannot be removed'));
         })
   }
 
