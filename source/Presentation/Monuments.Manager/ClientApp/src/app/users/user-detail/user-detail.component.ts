@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  userContext: UserDto;
+  userContext: UserDto = new UserDto();
   userStatistics: UserStatisticsResult = new UserStatisticsResult();
 
   constructor(private usersService: UsersService,

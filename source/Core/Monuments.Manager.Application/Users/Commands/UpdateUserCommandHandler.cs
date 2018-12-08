@@ -36,7 +36,8 @@ namespace Monuments.Manager.Application.Users.Commands
 
             entity.Password = _passwordEncryptor.Encrypt(request.Password);
             entity.JobTitle = request.JobTitle;
-            entity.Role = request.Role.ConvertTo<UserRole>();
+            entity.FirstName = request.FirstName;
+            entity.LastName = request.LastName;
 
             _dbContext.Users.Update(entity);
             await _dbContext.SaveChangesAsync();

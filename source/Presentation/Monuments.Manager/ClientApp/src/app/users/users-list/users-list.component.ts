@@ -5,6 +5,8 @@ import { UsersService } from '../users.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { UserConfirmationDialogComponent } from './../../user-confirmation-dialog/user-confirmation-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
+import { EditUserParameters } from './../edit-user-dialog/edit-user-parameters';
 
 @Component({
   selector: 'app-users-list',
@@ -58,7 +60,10 @@ export class UsersListComponent implements OnInit {
   }
 
   edit(element: UserDto) {
-
+    this.dialogService.addDialog(
+        EditUserDialogComponent,
+        { user: element }
+        ).subscribe(s => this.fillUsers());
   }
 
   showStats(element: UserDto) {

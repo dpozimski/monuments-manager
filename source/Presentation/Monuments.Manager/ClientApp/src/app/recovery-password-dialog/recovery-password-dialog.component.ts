@@ -7,7 +7,8 @@ import { RecoveryClient, SendRecoveryKeyCommand } from '../api/monuments-manager
   templateUrl: './recovery-password-dialog.component.html',
   styleUrls: [
     './recovery-password-dialog.component.css',
-    './../styles/forms.css'
+    './../styles/forms.css',
+    './../styles/cards.css'
   ]
 })
 export class RecoveryPasswordDialogComponent extends DialogComponent<any, boolean> {

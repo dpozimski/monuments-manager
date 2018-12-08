@@ -1972,8 +1972,9 @@ export interface IUserStatisticsResult {
 export class UpdateUserCommand implements IUpdateUserCommand {
     id?: number;
     password?: string | undefined;
-    role?: UserRoleDto;
     jobTitle?: string | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
 
     constructor(data?: IUpdateUserCommand) {
         if (data) {
@@ -1988,8 +1989,9 @@ export class UpdateUserCommand implements IUpdateUserCommand {
         if (data) {
             this.id = data["id"];
             this.password = data["password"];
-            this.role = data["role"];
             this.jobTitle = data["jobTitle"];
+            this.firstName = data["firstName"];
+            this.lastName = data["lastName"];
         }
     }
 
@@ -2004,8 +2006,9 @@ export class UpdateUserCommand implements IUpdateUserCommand {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["password"] = this.password;
-        data["role"] = this.role;
         data["jobTitle"] = this.jobTitle;
+        data["firstName"] = this.firstName;
+        data["lastName"] = this.lastName;
         return data; 
     }
 }
@@ -2013,8 +2016,9 @@ export class UpdateUserCommand implements IUpdateUserCommand {
 export interface IUpdateUserCommand {
     id?: number;
     password?: string | undefined;
-    role?: UserRoleDto;
     jobTitle?: string | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
 }
 
 export class PromoteUserCommand implements IPromoteUserCommand {

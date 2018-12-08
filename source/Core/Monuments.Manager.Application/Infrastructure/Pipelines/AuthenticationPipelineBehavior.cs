@@ -1,12 +1,10 @@
 ﻿using MediatR;
+using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure.Models;
 using Monuments.Manager.Application.Users.Commands;
 using Monuments.Manager.Common;
+using Monuments.Manager.Domain.Enumerations;
 using Monuments.Manager.Persistence;
-using System;
-using System.Linq;
-using System.Security.Authentication;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,11 +23,7 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
         }
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var allowAnonymous = request.GetType()
-                .GetCustomAttributes(typeof(AllowAnonymousAttribute), true)
-                .Any();
-
-            if (allowAnonymous)
+            if (request.HasAttribute<AllowAnonymousAttribute>())
             {
                 return await next();
             }
@@ -38,7 +32,12 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
 
             if(user is null)
             {
-                throw new AuthenticationException();
+                throw new MonumentsManagerAppException(ExceptionType.AuthenticationFail, "You cannot execute this operation anonymously");
+            }
+
+            if(user.HasAttribute<AdministratorRoleRequirementAttribute>() && user.Role != UserRole.Administrator)
+            {
+                throw new MonumentsManagerAppException(ExceptionType.AuthenticationFail, "You need to be administrator to execute this operation");
             }
 
             return await next();
