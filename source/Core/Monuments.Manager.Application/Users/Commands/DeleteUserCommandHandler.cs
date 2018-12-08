@@ -39,6 +39,7 @@ namespace Monuments.Manager.Application.Users.Commands
             }
 
             _dbContext.Users.Remove(entity);
+            await _dbContext.SaveChangesAsync();
 
             return Unit.Value;
         }

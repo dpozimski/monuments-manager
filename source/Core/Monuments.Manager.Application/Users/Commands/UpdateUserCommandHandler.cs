@@ -39,6 +39,7 @@ namespace Monuments.Manager.Application.Users.Commands
             entity.Role = request.Role.ConvertTo<UserRole>();
 
             _dbContext.Users.Update(entity);
+            await _dbContext.SaveChangesAsync();
 
             return Unit.Value;
         }
