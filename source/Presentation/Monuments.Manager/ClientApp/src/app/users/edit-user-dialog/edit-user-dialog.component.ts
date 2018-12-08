@@ -15,6 +15,8 @@ import { CryptoService } from './../../api/security/crypto.service';
   ]
 })
 export class EditUserDialogComponent extends DialogComponent<EditUserParameters, boolean> implements EditUserParameters {
+  readonly dialogTitle = 'Edit user';
+  submitted: boolean;
   serverError: string;
   user: UserDto;
   newPassword: string;
@@ -23,11 +25,13 @@ export class EditUserDialogComponent extends DialogComponent<EditUserParameters,
               private toastr: ToastrService,
               private usersClient: UsersClient,
               private cryptoService: CryptoService) {
-    //'User has been not updated. Please verify your changes.'
     super(dialogService);
   }
 
   confirm() {
+    this.submitted = true;
+    this.serverError = null;
+
     var command = new UpdateUserCommand();
     command.id = this.user.id;
     command.jobTitle = this.user.jobTitle;
@@ -37,5 +41,21 @@ export class EditUserDialogComponent extends DialogComponent<EditUserParameters,
     if(this.newPassword) {
       command.password = this.cryptoService.encrypt(this.newPassword);
     }
+
+    this.usersClient.update(command)
+        .subscribe(_ => this.handleSuccessResult(), 
+                   _ => this.handleErrorResult());
+  }
+
+  private handleErrorResult() {
+    this.serverError = 'User has been not updated. Please verify your changes.';
+    this.toastr.error(this.serverError, this.dialogTitle);
+    this.submitted = false;
+  }
+
+  private handleSuccessResult() {
+    this.toastr.success('User has been updated', this.dialogTitle);
+    this.result = true;
+    this.close();
   }
 }

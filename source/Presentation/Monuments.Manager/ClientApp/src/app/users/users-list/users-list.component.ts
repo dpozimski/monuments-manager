@@ -63,7 +63,11 @@ export class UsersListComponent implements OnInit {
     this.dialogService.addDialog(
         EditUserDialogComponent,
         { user: element }
-        ).subscribe(s => this.fillUsers());
+        ).subscribe(result => {
+          if(result) {
+            this.fillUsers();
+          }
+        });
   }
 
   showStats(element: UserDto) {
