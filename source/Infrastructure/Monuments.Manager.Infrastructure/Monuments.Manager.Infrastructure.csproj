@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.Internal" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="2.1.1" />
   </ItemGroup>
 
