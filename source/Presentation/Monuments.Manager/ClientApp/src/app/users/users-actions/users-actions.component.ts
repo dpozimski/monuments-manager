@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { PromoteUserDialogComponent } from '../promote-user-dialog/promote-user-dialog.component';
 import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-users-actions',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class UsersActionsComponent implements OnInit {
 
   constructor(private dialogService: DialogService,
-              private router: Router) { }
+              private usersService: UsersService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,6 @@ export class UsersActionsComponent implements OnInit {
   }
 
   refreshPage() {
-    this.router.navigate(['/users']);
+    this.usersService.refreshUsers();
   }
 }

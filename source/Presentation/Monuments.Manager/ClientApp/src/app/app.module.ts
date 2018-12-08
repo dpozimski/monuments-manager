@@ -139,7 +139,7 @@ import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-
       { path: 'recovery-password', component: RecoveryPasswordComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-    ])
+    ], {onSameUrlNavigation: 'reload'})
   ],
   entryComponents: [
     LogoutDialogComponent,

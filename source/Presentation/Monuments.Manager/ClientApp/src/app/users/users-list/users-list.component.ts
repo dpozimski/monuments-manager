@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UserDto, UsersClient } from '../../api/monuments-manager-api';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-users-list',
@@ -21,12 +22,15 @@ export class UsersListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usersClient: UsersClient) {
+  constructor(private usersClient: UsersClient,
+              private usersService: UsersService) {
     
   }
 
   ngOnInit() {
     this.fillUsers();
+    this.usersService.refreshUsersChange
+        .subscribe(_ => this.fillUsers());
   }
 
   private fillUsers() {
