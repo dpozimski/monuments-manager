@@ -62,7 +62,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UsersActionsComponent } from './users/users-actions/users-actions.component';
 import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-user-dialog.component';
-import { UserConfirmationDialogComponent } from './user-confirmation-dialog/user-confirmation-dialog.component';
+import { UserConfirmationDialogComponent } from "./user-confirmation-dialog/user-confirmation-dialog.component";
 
 @NgModule({
   declarations: [

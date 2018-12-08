@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UserDto, UsersClient } from '../../api/monuments-manager-api';
 import { UsersService } from '../users.service';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { UserConfirmationDialogComponent } from './../../user-confirmation-dialog/user-confirmation-dialog.component';
 
 @Component({
   selector: 'app-users-list',
@@ -23,7 +25,8 @@ export class UsersListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private usersClient: UsersClient,
-              private usersService: UsersService) {
+              private usersService: UsersService,
+              private dialogService: DialogService) {
     
   }
 
@@ -31,6 +34,21 @@ export class UsersListComponent implements OnInit {
     this.fillUsers();
     this.usersService.refreshUsersChange
         .subscribe(_ => this.fillUsers());
+  }
+
+  delete(element: UserDto) {
+    this.dialogService.addDialog(
+          UserConfirmationDialogComponent, 
+          {title: "dupa", message: "dupa1", isDanger: true})
+        .subscribe(s => {
+          console.log(s);
+          console.log(element);
+        })
+
+  }
+
+  edit(element: UserDto) {
+
   }
 
   private fillUsers() {

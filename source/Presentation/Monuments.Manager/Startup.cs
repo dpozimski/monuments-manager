@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Infrastructure;
 using Monuments.Manager.Persistence;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using NSwag.AspNetCore;
 
 namespace Monuments.Manager
@@ -24,7 +26,12 @@ namespace Monuments.Manager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                });
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -72,7 +79,6 @@ namespace Monuments.Manager
             app.UseSwaggerUi3(settings =>
             {
                 settings.SwaggerRoutes.Add(new SwaggerUi3Route("UI", "/api"));
-                //settings.SwaggerRoute = "/api/specification.json";
             });
         }
     }
