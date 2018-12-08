@@ -21,6 +21,15 @@
       <td mat-cell *matCellDef="let element"> {{element.jobTitle}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="stats">
+      <th mat-header-cell *matHeaderCellDef> Stats </th>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-primary" type="submit">
+          <span class="glyphicon glyphicon-stats"></span>
+        </button>
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Edit </th>
       <td mat-cell *matCellDef="let element">

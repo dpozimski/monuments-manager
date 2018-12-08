@@ -13,6 +13,7 @@ export class UsersListComponent implements OnInit {
     'lastName', 
     'email', 
     'jobTitle',
+    'stats',
     'edit',
     'delete'
   ];
