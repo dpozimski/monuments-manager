@@ -9,7 +9,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  userStatistics: UserStatisticsResult;
+  userContext: UserDto;
+  userStatistics: UserStatisticsResult = new UserStatisticsResult();
 
   constructor(private usersService: UsersService,
               private usersClient: UsersClient,
@@ -20,10 +21,13 @@ export class UserDetailComponent implements OnInit {
     this.usersService.userStatsContextChanged
         .subscribe({
           next: (user: UserDto) => {
-              var userId = user.id;
-              this.usersClient.getUserStatistics(userId)
-                  .subscribe(s => this.userStatistics = s,
-                             _ => this.toastr.error('Cannot get user statistics'));
+              this.userContext = new UserDto();
+              this.userStatistics = new UserStatisticsResult();
+              this.usersClient.getUserStatistics(user.id)
+                  .subscribe(s => {
+                    this.userContext = user;
+                    this.userStatistics = s;
+                  },_ => this.toastr.error('Cannot get user statistics')); 
           }
       })
   }

@@ -76,5 +76,9 @@ export class UsersListComponent implements OnInit {
   private setDataSource(users: UserDto[]) {
     this.dataSource = new MatTableDataSource<UserDto>(users);
     this.dataSource.paginator = this.paginator;
+
+    if(users.length > 0) {
+      this.usersService.userStatsContextCommand(users[0]);
+    }
   }
 }
