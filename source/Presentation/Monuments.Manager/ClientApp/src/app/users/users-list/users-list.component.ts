@@ -34,10 +34,15 @@ export class UsersListComponent implements OnInit {
   }
 
   private fillUsers() {
+    var users = new UserDto[0];
+    this.setDataSource(users);
+
     this.usersClient.getAll()
-        .subscribe(s => {
-          this.dataSource = new MatTableDataSource<UserDto>(s);
-          this.dataSource.paginator = this.paginator;
-        });
+        .subscribe(s => this.setDataSource(s));
+  }
+
+  private setDataSource(users: UserDto) {
+    this.dataSource = new MatTableDataSource<UserDto>(users);
+    this.dataSource.paginator = this.paginator;
   }
 }
