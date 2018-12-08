@@ -1,13 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Monuments.Manager.Application\Monuments.Manager.Application.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Cryptography.Internal" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
