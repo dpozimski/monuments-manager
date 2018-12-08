@@ -35,7 +35,7 @@ namespace Monuments.Manager.Application.Infrastructure.Pipelines
                 throw new MonumentsManagerAppException(ExceptionType.AuthenticationFail, "You cannot execute this operation anonymously");
             }
 
-            if(user.HasAttribute<AdministratorRoleRequirementAttribute>() && user.Role != UserRole.Administrator)
+            if(request.HasAttribute<AdministratorRoleRequirementAttribute>() && user.Role != UserRole.Administrator)
             {
                 throw new MonumentsManagerAppException(ExceptionType.AuthenticationFail, "You need to be administrator to execute this operation");
             }
