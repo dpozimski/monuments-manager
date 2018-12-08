@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
-import { UserDto, UsersClient } from '../../api/monuments-manager-api';
+import { UserDto, UsersClient, DeleteUserCommand } from '../../api/monuments-manager-api';
 import { UsersService } from '../users.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { UserConfirmationDialogComponent } from './../../user-confirmation-dialog/user-confirmation-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users-list',
@@ -26,29 +27,40 @@ export class UsersListComponent implements OnInit {
 
   constructor(private usersClient: UsersClient,
               private usersService: UsersService,
-              private dialogService: DialogService) {
+              private dialogService: DialogService,
+              private toastr: ToastrService) {
     
   }
 
   ngOnInit() {
     this.fillUsers();
-    this.usersService.refreshUsersChange
+    this.usersService.refreshUsersChanged
         .subscribe(_ => this.fillUsers());
   }
 
   delete(element: UserDto) {
     this.dialogService.addDialog(
-          UserConfirmationDialogComponent, 
-          {title: "dupa", message: "dupa1", isDanger: true})
-        .subscribe(s => {
-          console.log(s);
-          console.log(element);
+        UserConfirmationDialogComponent, 
+        { 
+          title: "Delete user", 
+          message: "Are you sure to delete user with e-mail: " + element.email, 
+          isDanger: true
         })
-
+        .subscribe(s => {
+          var command = new DeleteUserCommand();
+          command.id = element.id;
+          this.usersClient.delete(command)
+              .subscribe(_ => this.toastr.success('User has been removed'),
+                         _ => this.toastr.error('User cannot be removed'));
+        })
   }
 
   edit(element: UserDto) {
 
+  }
+
+  showStats(element: UserDto) {
+    this.usersService.userStatsContextCommand(element);
   }
 
   private fillUsers() {

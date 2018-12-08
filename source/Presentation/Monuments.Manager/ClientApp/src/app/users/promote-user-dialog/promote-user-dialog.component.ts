@@ -44,6 +44,6 @@ export class PromoteUserDialogComponent extends DialogComponent<any, boolean> {
 
   private handleSuccessResult() {
     this.toastr.success('User has been promoted', this.toastTitle);
-    this.usersService.refreshUsers();
+    this.usersService.refreshUsersCommand();
   }
 }

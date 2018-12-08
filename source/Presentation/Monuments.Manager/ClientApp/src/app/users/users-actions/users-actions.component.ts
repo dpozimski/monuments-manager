@@ -22,6 +22,6 @@ export class UsersActionsComponent implements OnInit {
   }
 
   refreshPage() {
-    this.usersService.refreshUsers();
+    this.usersService.refreshUsersCommand();
   }
 }
