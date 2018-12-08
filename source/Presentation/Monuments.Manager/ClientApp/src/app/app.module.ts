@@ -62,6 +62,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UsersActionsComponent } from './users/users-actions/users-actions.component';
 import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-user-dialog.component';
+import { UserConfirmationDialogComponent } from './user-confirmation-dialog/user-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-
     UsersListComponent,
     UserDetailComponent,
     UsersActionsComponent,
-    PromoteUserDialogComponent
+    PromoteUserDialogComponent,
+    UserConfirmationDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -144,7 +146,8 @@ import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-
   entryComponents: [
     LogoutDialogComponent,
     RecoveryPasswordDialogComponent,
-    PromoteUserDialogComponent
+    PromoteUserDialogComponent,
+    UserConfirmationDialogComponent
   ],
   bootstrap: [AppComponent]
 })

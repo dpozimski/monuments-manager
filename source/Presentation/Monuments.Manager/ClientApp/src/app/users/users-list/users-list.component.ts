@@ -34,14 +34,14 @@ export class UsersListComponent implements OnInit {
   }
 
   private fillUsers() {
-    var users = new UserDto[0];
+    var users: UserDto[] = [];
     this.setDataSource(users);
 
     this.usersClient.getAll()
         .subscribe(s => this.setDataSource(s));
   }
 
-  private setDataSource(users: UserDto) {
+  private setDataSource(users: UserDto[]) {
     this.dataSource = new MatTableDataSource<UserDto>(users);
     this.dataSource.paginator = this.paginator;
   }

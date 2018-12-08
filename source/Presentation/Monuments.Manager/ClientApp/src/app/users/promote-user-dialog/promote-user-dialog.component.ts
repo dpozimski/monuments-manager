@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogComponent, DialogService } from 'ng2-bootstrap-modal';
 import { PromoteUserCommand, UsersClient } from '../../api/monuments-manager-api';
 import { ToastrService } from 'ngx-toastr';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-promote-user-dialog',
@@ -21,7 +22,8 @@ export class PromoteUserDialogComponent extends DialogComponent<any, boolean> {
 
   constructor(dialogService: DialogService,
               private toastr: ToastrService,
-              private usersClient: UsersClient){
+              private usersClient: UsersClient,
+              private usersService: UsersService){
     super(dialogService);
   }
 
@@ -42,5 +44,6 @@ export class PromoteUserDialogComponent extends DialogComponent<any, boolean> {
 
   private handleSuccessResult() {
     this.toastr.success('User has been promoted', this.toastTitle);
+    this.usersService.refreshUsers();
   }
 }
