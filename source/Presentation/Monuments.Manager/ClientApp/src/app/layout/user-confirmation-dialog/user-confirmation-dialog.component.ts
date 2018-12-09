@@ -7,8 +7,8 @@ import { UserConfirmationParameters } from './user-confirmation-parameters';
   templateUrl: './user-confirmation-dialog.component.html',
   styleUrls: [
     './user-confirmation-dialog.component.css',
-    './../styles/forms.css',
-    './../styles/cards.css'
+    './../../styles/forms.css',
+    './../../styles/cards.css'
   ]
 })
 export class UserConfirmationDialogComponent extends DialogComponent<UserConfirmationParameters, boolean> implements UserConfirmationParameters {

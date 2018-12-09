@@ -3,7 +3,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UserDto, UsersClient, DeleteUserCommand } from '../../api/monuments-manager-api';
 import { UsersService } from '../users.service';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { UserConfirmationDialogComponent } from './../../user-confirmation-dialog/user-confirmation-dialog.component';
+import { UserConfirmationDialogComponent } from './../../layout/user-confirmation-dialog/user-confirmation-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { EditUserParameters } from './../edit-user-dialog/edit-user-parameters';

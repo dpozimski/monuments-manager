@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../api/authentication.service';
+import { AuthenticationService } from '../../api/authentication.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { Router } from '@angular/router';
-import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { LogoutDialogComponent } from '../../logout-dialog/logout-dialog.component';
 
 @Component({
   selector: 'app-nav-menu',

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChangePasswordByRecoveryKeyCommand, RecoveryClient } from '../api/monuments-manager-api';
-import { AuthenticationService } from '../api/authentication.service';
+import { ChangePasswordByRecoveryKeyCommand, RecoveryClient } from '../../api/monuments-manager-api';
+import { AuthenticationService } from '../../api/authentication.service';
 import { ToastrService } from 'ngx-toastr';
-import { CryptoService } from '../api/security/crypto.service';
+import { CryptoService } from '../../api/security/crypto.service';
 
 @Component({
   selector: 'app-recovery-password',
   templateUrl: './recovery-password.component.html',
   styleUrls: [
     './recovery-password.component.css',
-    './../styles/forms.css'
+    './../../styles/forms.css'
   ]
 })
 export class RecoveryPasswordComponent implements OnInit {

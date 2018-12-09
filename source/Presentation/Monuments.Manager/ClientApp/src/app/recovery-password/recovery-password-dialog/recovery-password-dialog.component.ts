@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogComponent, DialogService } from 'ng2-bootstrap-modal';
-import { RecoveryClient, SendRecoveryKeyCommand } from '../api/monuments-manager-api';
+import { RecoveryClient, SendRecoveryKeyCommand } from '../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-recovery-password-dialog',
   templateUrl: './recovery-password-dialog.component.html',
   styleUrls: [
     './recovery-password-dialog.component.css',
-    './../styles/forms.css',
-    './../styles/cards.css'
+    './../../styles/forms.css',
+    './../../styles/cards.css'
   ]
 })
 export class RecoveryPasswordDialogComponent extends DialogComponent<any, boolean> {

@@ -3,7 +3,7 @@ import { AuthenticationService } from '../api/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticateUserViewModel } from '../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/recovery-password-dialog.component';
+import { RecoveryPasswordDialogComponent } from '../recovery-password/recovery-password-dialog/recovery-password-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { CryptoService } from '../api/security/crypto.service';
 

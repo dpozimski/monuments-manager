@@ -46,15 +46,15 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
 import { SettingsComponent } from './settings/settings.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
-import { RecoveryPasswordDialogComponent } from './recovery-password-dialog/recovery-password-dialog.component';
-import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
+import { RecoveryPasswordDialogComponent } from './recovery-password/recovery-password-dialog/recovery-password-dialog.component';
+import { RecoveryPasswordComponent } from './recovery-password/master/recovery-password.component';
 import { MonumentsComponent } from './monuments/monuments.component';
 import { DictionariesComponent } from './dictionaries/master/dictionaries.component';
 import { UsersComponent } from './users/master/users.component';
@@ -62,7 +62,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UsersActionsComponent } from './users/users-actions/users-actions.component';
 import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-user-dialog.component';
-import { UserConfirmationDialogComponent } from "./user-confirmation-dialog/user-confirmation-dialog.component";
+import { UserConfirmationDialogComponent } from "./layout/user-confirmation-dialog/user-confirmation-dialog.component";
 import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dialog.component';
 import { DictionaryListComponent } from './dictionaries/dictionary-list/dictionary-list.component';
 
