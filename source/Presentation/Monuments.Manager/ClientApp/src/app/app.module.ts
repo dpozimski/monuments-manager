@@ -54,7 +54,7 @@ import { AuthGuard } from './api/security/auth.guard';
 import { SettingsComponent } from './settings/settings.component';
 import { RecoveryPasswordDialogComponent } from './recovery-password/recovery-password-dialog/recovery-password-dialog.component';
 import { RecoveryPasswordComponent } from './recovery-password/master/recovery-password.component';
-import { MonumentsComponent } from './monuments/monuments.component';
+import { MonumentsComponent } from './monuments/master/monuments.component';
 import { UsersComponent } from './users/master/users.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
@@ -62,6 +62,7 @@ import { UsersActionsComponent } from './users/users-actions/users-actions.compo
 import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-user-dialog.component';
 import { UserConfirmationDialogComponent } from "./layout/user-confirmation-dialog/user-confirmation-dialog.component";
 import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dialog.component';
+import { MonumentsListComponent } from './monuments-list/monuments-list.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dial
     UsersActionsComponent,
     PromoteUserDialogComponent,
     UserConfirmationDialogComponent,
-    EditUserDialogComponent
+    EditUserDialogComponent,
+    MonumentsListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
