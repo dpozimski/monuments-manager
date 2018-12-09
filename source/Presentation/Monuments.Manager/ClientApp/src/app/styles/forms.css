@@ -61,6 +61,10 @@
     color: white;
 }
 
+.modal-body > p {
+    color: white;
+}
+
 .close {
     color: white;
 }

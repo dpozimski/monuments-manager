@@ -4,7 +4,10 @@ import { DialogComponent, DialogService } from 'ng2-bootstrap-modal';
 @Component({
   selector: 'app-logout-dialog',
   templateUrl: './logout-dialog.component.html',
-  styleUrls: ['./logout-dialog.component.css']
+  styleUrls: [
+    './logout-dialog.component.css',
+    './../styles/forms.css'
+  ]
 })
 export class LogoutDialogComponent extends DialogComponent<any, boolean> {
 

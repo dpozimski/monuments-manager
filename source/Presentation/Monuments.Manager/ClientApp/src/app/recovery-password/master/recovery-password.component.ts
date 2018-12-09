@@ -10,7 +10,8 @@ import { CryptoService } from '../../api/security/crypto.service';
   templateUrl: './recovery-password.component.html',
   styleUrls: [
     './recovery-password.component.css',
-    './../../styles/forms.css'
+    './../../styles/forms.css',
+    './../../styles/cards.css'
   ]
 })
 export class RecoveryPasswordComponent implements OnInit {
