@@ -69,6 +69,10 @@
     width: 100%;
 }
 
+.mat-form-field input {
+    color:white;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
