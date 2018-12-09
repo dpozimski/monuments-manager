@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+    overflow-x: scroll;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.mat-cell, .mat-header-cell {
+    overflow: hidden;
+    word-wrap: break-word;
+    padding-right: 5px;
+}

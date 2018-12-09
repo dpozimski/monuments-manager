@@ -11,7 +11,10 @@ import { EditUserParameters } from './../edit-user-dialog/edit-user-parameters';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
+  styleUrls: [
+    './users-list.component.css',
+    './../../styles/tables.css'
+  ]
 })
 export class UsersListComponent implements OnInit {
   displayedColumns: string[] = [
