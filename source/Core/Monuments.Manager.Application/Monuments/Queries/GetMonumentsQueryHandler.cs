@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, GetMonumentdQueryResult>
+    public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, GetMonumentsQueryResult>
     {
         private readonly MonumentsDbContext _dbContext;
 
@@ -20,15 +20,18 @@ namespace Monuments.Manager.Application.Monuments.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<GetMonumentdQueryResult> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<GetMonumentsQueryResult> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
         {
             var count = await _dbContext.Monuments.CountAsync();
+
+            var monumentsCount = await _dbContext.Monuments.CountAsync();
+            var pages = monumentsCount / request.PageSize;
 
             var monuments = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
-                .Skip(request.StartIndex)
-                .Take(request.EndIndex)
+                .Skip(request.PageSize * request.PageNumber)
+                .Take(request.PageSize)
                 .Select(s => new MonumentPreviewDto()
                 {
                     Id = s.Id,
@@ -39,11 +42,9 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null
                 }).ToListAsync(cancellationToken);
 
-            var leftCount = count - request.EndIndex;
-
-            return new GetMonumentdQueryResult()
+            return new GetMonumentsQueryResult()
             {
-                LeftCount = leftCount,
+                PagesCount = pages,
                 Monuments = monuments
             };
         }

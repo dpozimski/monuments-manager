@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Models
 {
-    public class GetMonumentdQueryResult
+    public class GetMonumentsQueryResult
     {
         public ICollection<MonumentPreviewDto> Monuments { get; set; }
-        public int LeftCount { get; set; }
+        public int PagesCount { get; set; }
     }
 }

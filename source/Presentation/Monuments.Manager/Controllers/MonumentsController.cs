@@ -34,19 +34,9 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpGet("monuments")]
-        public async Task<MonumentsPreviewViewModel> GetAsync([FromQuery]GetMonumentsViewModel viewModel)
+        public async Task<GetMonumentsQueryResult> GetAsync([FromQuery]GetMonumentsQuery query)
         {
-            var result = await Mediator.Send(new GetMonumentsQuery()
-            {
-                StartIndex = viewModel.StartIndex,
-                EndIndex = viewModel.EndIndex
-            });
-
-            return new MonumentsPreviewViewModel()
-            {
-                Monuments = result.Monuments,
-                PagesCount = (result.LeftCount - viewModel.EndIndex) / (viewModel.EndIndex - viewModel.StartIndex)
-            };
+            return await Mediator.Send(query);
         }
 
         [HttpPost]

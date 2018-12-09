@@ -6,9 +6,11 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetMonumentsQuery : IRequest<GetMonumentdQueryResult>
+    public class GetMonumentsQuery : IRequest<GetMonumentsQueryResult>
     {
-        public int StartIndex { get; set; }
-        public int EndIndex { get; set; }
+        public bool DescSortOrder { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public string Filter { get; set; }
     }
 }

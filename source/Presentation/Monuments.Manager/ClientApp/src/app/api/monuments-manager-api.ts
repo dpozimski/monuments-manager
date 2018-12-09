@@ -328,7 +328,7 @@ export interface IMonumentsClient {
     get(monumentId: number): Observable<MonumentDto | null>;
     update(command: UpdateMonumentCommand): Observable<void>;
     delete(monumentId: number): Observable<void>;
-    get2(startIndex: number, endIndex: number): Observable<MonumentsPreviewViewModel | null>;
+    get2(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<GetMonumentsQueryResult | null>;
 }
 
 @Injectable()
@@ -542,16 +542,24 @@ export class MonumentsClient implements IMonumentsClient {
         return _observableOf<void>(<any>null);
     }
 
-    get2(startIndex: number, endIndex: number): Observable<MonumentsPreviewViewModel | null> {
+    get2(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<GetMonumentsQueryResult | null> {
         let url_ = this.baseUrl + "/api/Monuments/monuments?";
-        if (startIndex === undefined || startIndex === null)
-            throw new Error("The parameter 'startIndex' must be defined and cannot be null.");
+        if (descSortOrder === undefined || descSortOrder === null)
+            throw new Error("The parameter 'descSortOrder' must be defined and cannot be null.");
         else
-            url_ += "StartIndex=" + encodeURIComponent("" + startIndex) + "&"; 
-        if (endIndex === undefined || endIndex === null)
-            throw new Error("The parameter 'endIndex' must be defined and cannot be null.");
+            url_ += "DescSortOrder=" + encodeURIComponent("" + descSortOrder) + "&"; 
+        if (pageNumber === undefined || pageNumber === null)
+            throw new Error("The parameter 'pageNumber' must be defined and cannot be null.");
         else
-            url_ += "EndIndex=" + encodeURIComponent("" + endIndex) + "&"; 
+            url_ += "PageNumber=" + encodeURIComponent("" + pageNumber) + "&"; 
+        if (pageSize === undefined || pageSize === null)
+            throw new Error("The parameter 'pageSize' must be defined and cannot be null.");
+        else
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&"; 
+        if (filter === undefined)
+            throw new Error("The parameter 'filter' must be defined.");
+        else
+            url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -569,14 +577,14 @@ export class MonumentsClient implements IMonumentsClient {
                 try {
                     return this.processGet2(<any>response_);
                 } catch (e) {
-                    return <Observable<MonumentsPreviewViewModel | null>><any>_observableThrow(e);
+                    return <Observable<GetMonumentsQueryResult | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<MonumentsPreviewViewModel | null>><any>_observableThrow(response_);
+                return <Observable<GetMonumentsQueryResult | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processGet2(response: HttpResponseBase): Observable<MonumentsPreviewViewModel | null> {
+    protected processGet2(response: HttpResponseBase): Observable<GetMonumentsQueryResult | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -587,7 +595,7 @@ export class MonumentsClient implements IMonumentsClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 ? MonumentsPreviewViewModel.fromJS(resultData200) : <any>null;
+            result200 = resultData200 ? GetMonumentsQueryResult.fromJS(resultData200) : <any>null;
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -595,7 +603,7 @@ export class MonumentsClient implements IMonumentsClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<MonumentsPreviewViewModel | null>(<any>null);
+        return _observableOf<GetMonumentsQueryResult | null>(<any>null);
     }
 }
 
@@ -1508,11 +1516,11 @@ export interface IMonumentDto {
     picture?: string | undefined;
 }
 
-export class MonumentsPreviewViewModel implements IMonumentsPreviewViewModel {
+export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
     monuments?: MonumentPreviewDto[] | undefined;
     pagesCount?: number;
 
-    constructor(data?: IMonumentsPreviewViewModel) {
+    constructor(data?: IGetMonumentsQueryResult) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -1532,9 +1540,9 @@ export class MonumentsPreviewViewModel implements IMonumentsPreviewViewModel {
         }
     }
 
-    static fromJS(data: any): MonumentsPreviewViewModel {
+    static fromJS(data: any): GetMonumentsQueryResult {
         data = typeof data === 'object' ? data : {};
-        let result = new MonumentsPreviewViewModel();
+        let result = new GetMonumentsQueryResult();
         result.init(data);
         return result;
     }
@@ -1551,7 +1559,7 @@ export class MonumentsPreviewViewModel implements IMonumentsPreviewViewModel {
     }
 }
 
-export interface IMonumentsPreviewViewModel {
+export interface IGetMonumentsQueryResult {
     monuments?: MonumentPreviewDto[] | undefined;
     pagesCount?: number;
 }
