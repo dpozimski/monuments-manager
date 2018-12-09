@@ -48,14 +48,16 @@ export class UsersListComponent implements OnInit {
           message: "Are you sure to delete user with e-mail: " + element.email, 
           isDanger: true
         })
-        .subscribe(s => {
-          var command = new DeleteUserCommand();
-          command.id = element.id;
-          this.usersClient.delete(command)
-              .subscribe(_ => { 
-                this.toastr.success('User has been removed');
-                this.fillUsers();
-              }, _ => this.toastr.error('User cannot be removed'));
+        .subscribe(accepted => {
+          if(accepted) {
+            var command = new DeleteUserCommand();
+            command.id = element.id;
+            this.usersClient.delete(command)
+                .subscribe(_ => { 
+                  this.toastr.success('User has been removed');
+                  this.fillUsers();
+                }, _ => this.toastr.error('User cannot be removed'));
+          }
         })
   }
 
