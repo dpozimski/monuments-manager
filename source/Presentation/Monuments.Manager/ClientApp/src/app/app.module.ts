@@ -52,7 +52,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
 import { SettingsComponent } from './settings/settings.component';
-import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import { RecoveryPasswordDialogComponent } from './recovery-password/recovery-password-dialog/recovery-password-dialog.component';
 import { RecoveryPasswordComponent } from './recovery-password/master/recovery-password.component';
 import { MonumentsComponent } from './monuments/monuments.component';
@@ -74,7 +73,6 @@ import { DictionaryListComponent } from './dictionaries/dictionary-list/dictiona
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    LogoutDialogComponent,
     RecoveryPasswordDialogComponent,
     RecoveryPasswordComponent,
     MonumentsComponent,
@@ -148,7 +146,6 @@ import { DictionaryListComponent } from './dictionaries/dictionary-list/dictiona
     ], {onSameUrlNavigation: 'reload'})
   ],
   entryComponents: [
-    LogoutDialogComponent,
     RecoveryPasswordDialogComponent,
     PromoteUserDialogComponent,
     UserConfirmationDialogComponent,

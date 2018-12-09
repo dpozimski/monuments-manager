@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from '../../api/authentication.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { Router } from '@angular/router';
-import { LogoutDialogComponent } from '../../logout-dialog/logout-dialog.component';
+import { UserConfirmationDialogComponent } from '../user-confirmation-dialog/user-confirmation-dialog.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -30,7 +30,10 @@ export class NavMenuComponent {
   }
 
   logout() {
-    this.dialogService.addDialog(LogoutDialogComponent)
+    this.dialogService.addDialog(
+        UserConfirmationDialogComponent,
+        {title: 'Logout confirmation', message: 'Are you sure to sign out from the application?'
+      })
       .subscribe((isConfirmed) => {
         if (isConfirmed) {
           this.authenticationService.logout();
