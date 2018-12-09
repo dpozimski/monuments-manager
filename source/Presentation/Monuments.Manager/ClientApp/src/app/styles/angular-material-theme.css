@@ -1337,7 +1337,7 @@ textarea.cdk-textarea-autosize-measuring {
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-    background-color: #ffd740
+    background-color: transparent
 }
 
 .mat-checkbox-checked.mat-warn .mat-checkbox-background, .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background {

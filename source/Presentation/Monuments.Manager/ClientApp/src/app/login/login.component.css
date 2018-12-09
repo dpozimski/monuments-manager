@@ -4,4 +4,10 @@
 
 .forgot-password:hover, .forgot-password:active, .forgot-password:focus {
     color: rgb(12, 97, 33);
+    cursor: pointer;
+}
+
+.remember-me {
+    color: white;
+    font-weight:normal
 }
