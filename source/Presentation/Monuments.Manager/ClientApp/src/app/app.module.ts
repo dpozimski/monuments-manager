@@ -55,7 +55,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { RecoveryPasswordDialogComponent } from './recovery-password/recovery-password-dialog/recovery-password-dialog.component';
 import { RecoveryPasswordComponent } from './recovery-password/master/recovery-password.component';
 import { MonumentsComponent } from './monuments/monuments.component';
-import { DictionariesComponent } from './dictionaries/master/dictionaries.component';
 import { UsersComponent } from './users/master/users.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
@@ -63,7 +62,6 @@ import { UsersActionsComponent } from './users/users-actions/users-actions.compo
 import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-user-dialog.component';
 import { UserConfirmationDialogComponent } from "./layout/user-confirmation-dialog/user-confirmation-dialog.component";
 import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dialog.component';
-import { DictionaryListComponent } from './dictionaries/dictionary-list/dictionary-list.component';
 
 @NgModule({
   declarations: [
@@ -76,15 +74,13 @@ import { DictionaryListComponent } from './dictionaries/dictionary-list/dictiona
     RecoveryPasswordDialogComponent,
     RecoveryPasswordComponent,
     MonumentsComponent,
-    DictionariesComponent,
     UsersComponent,
     UsersListComponent,
     UserDetailComponent,
     UsersActionsComponent,
     PromoteUserDialogComponent,
     UserConfirmationDialogComponent,
-    EditUserDialogComponent,
-    DictionaryListComponent
+    EditUserDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -137,7 +133,6 @@ import { DictionaryListComponent } from './dictionaries/dictionary-list/dictiona
       { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'monuments', component: MonumentsComponent, canActivate: [AuthGuard] },
-      { path: 'dictionaries', component: DictionariesComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'recovery-password', component: RecoveryPasswordComponent },
