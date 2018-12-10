@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Monuments.Models;
+using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System;
 using System.Collections.Generic;
@@ -27,12 +28,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
             var monumentsCount = await _dbContext.Monuments.CountAsync();
             var pages = monumentsCount / request.PageSize;
 
-            var monuments = await _dbContext.Monuments
+            IEnumerable<MonumentPreviewDto> monuments = _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
-                .Where(s => request.Filter is null || EF.Functions.Like($"%{request.Filter}%"))
+                .Where(s => request.Filter == null || EF.Functions.Like(s.Name, $"%{request.Filter}%"))
                 .Skip(request.PageSize * request.PageNumber)
                 .Take(request.PageSize)
+                .OrderBy(s => s.Name)
                 .Select(s => new MonumentPreviewDto()
                 {
                     Id = s.Id,
@@ -41,12 +43,17 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
                     Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null
-                }).ToListAsync(cancellationToken);
+                });
+
+            if (request.DescSortOrder)
+            {
+                monuments = monuments.OrderByDescending(s => s.Name);
+            }
 
             return new GetMonumentsQueryResult()
             {
                 PagesCount = pages,
-                Monuments = monuments
+                Monuments = monuments.ToList()
             };
         }
     }
