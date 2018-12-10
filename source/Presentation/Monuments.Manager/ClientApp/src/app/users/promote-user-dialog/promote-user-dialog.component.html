@@ -10,11 +10,11 @@
       <form class="form-container" #containerForm="ngForm">
         <mat-form-field appearance="outline">
           <mat-label>Email address</mat-label>
-          <input id="email" type="email" name="email" placeholder="Email address" [(ngModel)]="recoveryEmail" required
+          <input id="email" type="email" name="email" placeholder="Email address" [(ngModel)]="model.email" required
             matInput autofocus email>
           <mat-error *ngIf="containerForm.form.invalid || containerForm.form.pristine">Please enter a valid e-mail</mat-error>
         </mat-form-field>
-        <div [hidden]="!serverError" class="alert alert-danger">
+        <div [hidden]="!severRejectedCommand" class="alert alert-danger">
           The e-mail is not assigned with any account
         </div>
       </form>

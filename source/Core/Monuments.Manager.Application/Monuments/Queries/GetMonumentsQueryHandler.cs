@@ -30,6 +30,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
             var monuments = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
+                .Where(s => request.Filter is null || EF.Functions.Like($"%{request.Filter}%"))
                 .Skip(request.PageSize * request.PageNumber)
                 .Take(request.PageSize)
                 .Select(s => new MonumentPreviewDto()
