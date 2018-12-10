@@ -31,7 +31,16 @@ namespace Monuments.Manager.Application.Monuments.Queries
             IEnumerable<MonumentPreviewDto> monuments = _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
-                .Where(s => request.Filter == null || EF.Functions.Like(s.Name, $"%{request.Filter}%"))
+                .Include(s => s.Address)
+                .Where(s => request.Filter == null || 
+                            EF.Functions.Like(s.Name, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.Area, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.City, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.Commune, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.District, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.Province, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.Address.Street, $"{request.Filter}%") ||
+                            EF.Functions.Like(s.FormOfProtection, $"{request.Filter}%"))
                 .Skip(request.PageSize * request.PageNumber)
                 .Take(request.PageSize)
                 .OrderBy(s => s.Name)
