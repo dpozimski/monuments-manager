@@ -14,7 +14,7 @@ export class MonumentsListComponent implements OnInit {
   displayedColumns: string[] = [
     'picture',
     'name', 
-    'constuctionDate',
+    'constructionDate',
     'ownerName',
     'modifiedDate',
     'modifiedBy',

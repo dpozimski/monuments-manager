@@ -23,6 +23,12 @@ namespace Monuments.Manager.Persistence.Configurations
                 .HasForeignKey<AddressEntity>()
                 .HasConstraintName("FK_Monument_Address");
 
+            builder.HasIndex(s => s.FormOfProtection)
+                .HasName("IX_MonumentEntity_FormOfProtection");
+
+            builder.HasIndex(s => s.Name)
+                .HasName("IX_MonumentEntity_Name");
+
             builder.Property(s => s.Name)
                 .IsRequired()
                 .HasMaxLength(100);
