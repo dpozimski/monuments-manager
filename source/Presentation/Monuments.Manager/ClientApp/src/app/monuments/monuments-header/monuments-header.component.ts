@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MonumentsService } from '../monuments.service';
 
 @Component({
   selector: 'app-monuments-header',
@@ -9,11 +10,22 @@ import { Component, OnInit } from '@angular/core';
     './../../styles/cards.css'
   ]
 })
-export class MonumentsHeaderComponent implements OnInit {
+export class MonumentsHeaderComponent {
+  private interval;
 
-  constructor() { }
+  filterPhrase: string;
 
-  ngOnInit() {
+  constructor(private monumentsService: MonumentsService) { }
+
+  filterPhraseChanged() {
+    clearInterval(this.interval);
+    this.interval = setInterval(() => this.notifyFilterChanged(), 1000);
   }
 
+  private notifyFilterChanged() {
+    clearInterval(this.interval);
+    var listFilterParameters = this.monumentsService.listFilterParameters;
+    listFilterParameters.filter = this.filterPhrase;
+    this.monumentsService.listFilterParametersChangedCommand();
+  }
 }

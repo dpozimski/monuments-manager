@@ -5,7 +5,7 @@
   <div class="fill"></div>
   <mat-form-field class='search-bar' appearance="fill">
     <mat-label>Search monuments</mat-label>
-    <input matInput placeholder="Filter...">
+    <input matInput placeholder="Filter..." [(ngModel)]="filterPhrase" (input)="filterPhraseChanged()">
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
