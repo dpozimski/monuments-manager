@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { MonumentsListFilterParameters } from './models/monuments-list-filter-parameters';
+import { MonumentsListFilterParameters } from '../models/monuments-list-filter-parameters';
 
 @Injectable({
   providedIn: 'root'

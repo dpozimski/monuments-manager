@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MonumentsClient, MonumentDto, GetMonumentsQueryResult } from './../../api/monuments-manager-api';
-import { MonumentsService } from '../monuments.service';
-import { MonumentsListFilterParameters } from '../models/monuments-list-filter-parameters';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MonumentsService } from '../services/monuments.service';
+import { MonumentsDataSource } from '../services/monuments-datasource';
+import { MatPaginator, MatSort } from '@angular/material';
+import { merge } from "rxjs/observable/merge";
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-monuments-list',
@@ -12,8 +13,8 @@ import { ToastrService } from 'ngx-toastr';
     './../../styles/tables.css'
   ]
 })
-export class MonumentsListComponent implements OnInit {
-  displayedColumns: string[] = [
+export class MonumentsListComponent implements OnInit, AfterViewInit {
+  readonly displayedColumns: string[] = [
     'picture',
     'name', 
     'constructionDate',
@@ -21,33 +22,32 @@ export class MonumentsListComponent implements OnInit {
     'modifiedDate',
     'modifiedBy',
   ];
-  pagesCount: number = 1;
-  datasource: MonumentDto[];
 
-  constructor(private monumentsClient: MonumentsClient,
-              private monumentsService: MonumentsService,
-              private toastr: ToastrService) {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
+
+  constructor(public monumentsDataSource: MonumentsDataSource,
+              private monumentsService: MonumentsService) {
   }
 
   ngOnInit() {
+    var filter = this.monumentsService.listFilterParameters;
+    this.monumentsDataSource.loadMonuments(filter)
+  }
+
+  ngAfterViewInit() {
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
     this.monumentsService.listFilterParametersChanged
-        .subscribe(s => this.callForData(s));
-  }
+        .subscribe(filter => this.monumentsDataSource.loadMonuments(filter));
 
-  callForData(parameters: MonumentsListFilterParameters) {
-    this.monumentsClient.get2(
-      parameters.descSortOrder,
-      parameters.pageNumber,
-      parameters.pageSize,
-      parameters.filter)
-        .subscribe(result => this.fillDataSet(result),
-                   _ => this.toastr.error('Cannot retrieve monuments', 'Monuments manager'));
-  }
-
-  fillDataSet(result: GetMonumentsQueryResult): void {
-    this.pagesCount = result.pagesCount;
-
-    
+    merge(this.sort.sortChange, this.paginator.page)
+        .subscribe(_ => {
+          var descOrder = this.sort.direction == 'desc';
+          var filter = this.monumentsService.listFilterParameters;
+          filter.descSortOrder = descOrder;
+          filter.pageNumber = this.paginator.pageIndex;
+          this.monumentsService.listFilterParametersChangedCommand();
+        });
   }
 }

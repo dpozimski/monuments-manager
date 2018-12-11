@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MonumentsService } from '../monuments.service';
+import { MonumentsService } from '../services/monuments.service';
 
 @Component({
   selector: 'app-monuments-header',
