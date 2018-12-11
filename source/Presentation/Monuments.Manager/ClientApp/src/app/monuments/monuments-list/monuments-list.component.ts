@@ -5,10 +5,20 @@ import { MonumentsService } from '../monuments.service';
 @Component({
   selector: 'app-monuments-list',
   templateUrl: './monuments-list.component.html',
-  styleUrls: ['./monuments-list.component.css']
+  styleUrls: [
+    './monuments-list.component.css',
+    './../../styles/tables.css'
+  ]
 })
 export class MonumentsListComponent implements OnInit {
-  source: MonumentDto[];
+  displayedColumns: string[] = [
+    'image',
+    'name', 
+    'formOfProtection',
+    'modifiedDate',
+    'modifiedBy',
+  ];
+  datasource: MonumentDto[];
 
   constructor(private monumentsClient: MonumentsClient,
               private monumentsService: MonumentsService) {

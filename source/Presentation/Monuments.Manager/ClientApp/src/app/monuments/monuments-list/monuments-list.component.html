@@ -1,7 +1,13 @@
 <!-- <p>
   features:
-  search bar
   expandable row table
   optionally show row details as dialog
   new item in header component
 </p> -->
+<table mat-table [dataSource]="dataSource">
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>

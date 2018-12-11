@@ -1,13 +1,10 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Exceptions;
-using Monuments.Manager.Application.Monuments.Models;
-using Monuments.Manager.Domain.Entities;
+using Monuments.Manager.Application.Monuments.Extensions;
+using Monuments.Manager.Application.Monuments.Models;\
 using Monuments.Manager.Persistence;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -44,16 +41,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
                 Picture = pictureEntity.Data,
-                Address = new AddressDto()
-                {
-                    Area = monumentEntity.Address.Area,
-                    City = monumentEntity.Address.City,
-                    Commune = monumentEntity.Address.Commune,
-                    District = monumentEntity.Address.District,
-                    Province = monumentEntity.Address.Province,
-                    Street = monumentEntity.Address.Street,
-                    StreetNumber = monumentEntity.Address.StreetNumber
-                }
+                Address = monumentEntity.Address.ToDto()
             };
         }
     }

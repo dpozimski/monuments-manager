@@ -1,12 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Monuments.Extensions;
 using Monuments.Manager.Application.Monuments.Models;
-using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,10 +14,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, GetMonumentsQueryResult>
     {
         private readonly MonumentsDbContext _dbContext;
+        private readonly IThumbnailImageFactory _thumbnailImageFactory;
 
-        public GetMonumentsQueryHandler(MonumentsDbContext dbContext)
+        public GetMonumentsQueryHandler(MonumentsDbContext dbContext,
+                                        IThumbnailImageFactory thumbnailImageFactory)
         {
             _dbContext = dbContext;
+            _thumbnailImageFactory = thumbnailImageFactory;
         }
 
         public async Task<GetMonumentsQueryResult> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
@@ -51,17 +53,8 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     Name = s.Name,
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null,
-                    Address = new AddressDto()
-                    {
-                        Area = s.Address.Area,
-                        City = s.Address.City,
-                        Commune = s.Address.Commune,
-                        District = s.Address.District,
-                        Province = s.Address.Province,
-                        Street = s.Address.Street,
-                        StreetNumber = s.Address.StreetNumber
-                    }
+                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.Create(s.Pictures.FirstOrDefault().Data) : null,
+                    Address = s.Address.ToDto()
                 });
 
             if (request.DescSortOrder)
