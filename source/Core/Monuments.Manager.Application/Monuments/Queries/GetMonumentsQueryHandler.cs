@@ -28,11 +28,11 @@ namespace Monuments.Manager.Application.Monuments.Queries
             var monumentsCount = await _dbContext.Monuments.CountAsync();
             var pages = monumentsCount / request.PageSize;
 
-            IEnumerable<MonumentPreviewDto> monuments = _dbContext.Monuments
+            IEnumerable<MonumentDto> monuments = _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
                 .Include(s => s.Address)
-                .Where(s => request.Filter == null || 
+                .Where(s => request.Filter == null ||
                             EF.Functions.Like(s.Name, $"{request.Filter}%") ||
                             EF.Functions.Like(s.Address.Area, $"{request.Filter}%") ||
                             EF.Functions.Like(s.Address.City, $"{request.Filter}%") ||
@@ -44,14 +44,24 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Skip(request.PageSize * request.PageNumber)
                 .Take(request.PageSize)
                 .OrderBy(s => s.Name)
-                .Select(s => new MonumentPreviewDto()
+                .Select(s => new MonumentDto()
                 {
                     Id = s.Id,
                     ConstructionDate = s.ConstructionDate,
                     Name = s.Name,
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null
+                    Picture = s.Pictures.Count > 0 ? s.Pictures.FirstOrDefault().Data : null,
+                    Address = new AddressDto()
+                    {
+                        Area = s.Address.Area,
+                        City = s.Address.City,
+                        Commune = s.Address.Commune,
+                        District = s.Address.District,
+                        Province = s.Address.Province,
+                        Street = s.Address.Street,
+                        StreetNumber = s.Address.StreetNumber
+                    }
                 });
 
             if (request.DescSortOrder)

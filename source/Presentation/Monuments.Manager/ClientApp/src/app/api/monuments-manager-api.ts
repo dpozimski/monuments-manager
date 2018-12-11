@@ -1517,7 +1517,7 @@ export interface IMonumentDto {
 }
 
 export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
-    monuments?: MonumentPreviewDto[] | undefined;
+    monuments?: MonumentDto[] | undefined;
     pagesCount?: number;
 
     constructor(data?: IGetMonumentsQueryResult) {
@@ -1534,7 +1534,7 @@ export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
             if (data["monuments"] && data["monuments"].constructor === Array) {
                 this.monuments = [];
                 for (let item of data["monuments"])
-                    this.monuments.push(MonumentPreviewDto.fromJS(item));
+                    this.monuments.push(MonumentDto.fromJS(item));
             }
             this.pagesCount = data["pagesCount"];
         }
@@ -1560,64 +1560,8 @@ export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
 }
 
 export interface IGetMonumentsQueryResult {
-    monuments?: MonumentPreviewDto[] | undefined;
+    monuments?: MonumentDto[] | undefined;
     pagesCount?: number;
-}
-
-export class MonumentPreviewDto implements IMonumentPreviewDto {
-    id?: number;
-    ownerId?: number;
-    ownerName?: string | undefined;
-    name?: string | undefined;
-    constructionDate?: Date;
-    picture?: string | undefined;
-
-    constructor(data?: IMonumentPreviewDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.id = data["id"];
-            this.ownerId = data["ownerId"];
-            this.ownerName = data["ownerName"];
-            this.name = data["name"];
-            this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
-            this.picture = data["picture"];
-        }
-    }
-
-    static fromJS(data: any): MonumentPreviewDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new MonumentPreviewDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["ownerId"] = this.ownerId;
-        data["ownerName"] = this.ownerName;
-        data["name"] = this.name;
-        data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
-        data["picture"] = this.picture;
-        return data; 
-    }
-}
-
-export interface IMonumentPreviewDto {
-    id?: number;
-    ownerId?: number;
-    ownerName?: string | undefined;
-    name?: string | undefined;
-    constructionDate?: Date;
-    picture?: string | undefined;
 }
 
 export class UpdateMonumentCommand implements IUpdateMonumentCommand {

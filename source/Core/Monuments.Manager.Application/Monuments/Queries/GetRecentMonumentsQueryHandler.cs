@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentPreviewDto>>
+    public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentDto>>
     {
         private readonly MonumentsDbContext _dbContext;
 
@@ -20,14 +20,14 @@ namespace Monuments.Manager.Application.Monuments.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<List<MonumentPreviewDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<List<MonumentDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
         {
             var result = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => new MonumentPreviewDto()
+                .Select(s => new MonumentDto()
                 {
                     Id = s.Id,
                     ConstructionDate = s.ConstructionDate,
