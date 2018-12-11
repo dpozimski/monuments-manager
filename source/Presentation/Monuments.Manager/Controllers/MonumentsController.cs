@@ -27,6 +27,12 @@ namespace Monuments.Manager.Controllers
             return await Mediator.Send(command);
         }
 
+        [HttpGet("stats")]
+        public async Task<GetMonumentsStatsQueryResult> GetMonumentsStatsAsync()
+        {
+            return await Mediator.Send(new GetMonumentsStatsQuery());
+        }
+
         [HttpGet]
         public async Task<MonumentDto> GetAsync([FromQuery]GetMonumentQuery query)
         {
