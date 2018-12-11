@@ -47,6 +47,7 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
           var filter = this.monumentsService.listFilterParameters;
           filter.descSortOrder = descOrder;
           filter.pageNumber = this.paginator.pageIndex;
+          filter.pageSize = this.paginator.pageSize;
           this.monumentsService.listFilterParametersChangedCommand();
         });
   }

@@ -12,14 +12,14 @@ import { catchError, finalize } from 'rxjs/operators';
 export class MonumentsDataSource implements DataSource<MonumentDto> {
   private monumentsSubject = new BehaviorSubject<MonumentDto[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
-  private monumentsLengthSubject = new BehaviorSubject<number>(1);
+  private monumentsCountSubject = new BehaviorSubject<number>(1);
 
   loading = this.loadingSubject.asObservable();
-  monumentsLength = this.monumentsLengthSubject.asObservable();
+  monumentsCount = this.monumentsCountSubject.asObservable();
 
   constructor(private monumentsClient: MonumentsClient) {
     this.monumentsClient.getMonumentsStats()
-        .subscribe(result => this.monumentsLengthSubject.next(result.monumentsCount));
+        .subscribe(result => this.monumentsCountSubject.next(result.monumentsCount));
   }
 
   loadMonuments(parameters: MonumentsListFilterParameters) {

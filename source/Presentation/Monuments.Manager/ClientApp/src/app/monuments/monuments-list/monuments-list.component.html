@@ -4,7 +4,7 @@
   optionally show row details as dialog
   new item in header component
 </p> -->
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear>
 
   <ng-container matColumnDef="picture">
     <th mat-header-cell *matHeaderCellDef> Picture </th>
@@ -40,4 +40,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[10, 20, 30]" [length]="monumentsDataSource.monumentsCount" [pageSize]="10" showFirstLastButtons></mat-paginator>
