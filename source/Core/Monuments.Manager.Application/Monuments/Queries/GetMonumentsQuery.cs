@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetMonumentsQuery : IRequest<GetMonumentsQueryResult>
+    public class GetMonumentsQuery : IRequest<ICollection<MonumentDto>>
     {
         public bool DescSortOrder { get; set; }
         public int PageNumber { get; set; }

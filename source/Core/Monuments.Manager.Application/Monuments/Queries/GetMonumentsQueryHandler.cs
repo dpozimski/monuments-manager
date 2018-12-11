@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, GetMonumentsQueryResult>
+    public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, ICollection<MonumentDto>>
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IThumbnailImageFactory _thumbnailImageFactory;
@@ -23,7 +23,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
             _thumbnailImageFactory = thumbnailImageFactory;
         }
 
-        public async Task<GetMonumentsQueryResult> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<MonumentDto>> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
         {
             var count = await _dbContext.Monuments.CountAsync();
 
@@ -64,11 +64,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 monuments = monuments.OrderByDescending(s => s.Name);
             }
 
-            return new GetMonumentsQueryResult()
-            {
-                PagesCount = pages,
-                Monuments = monuments.ToList()
-            };
+            return monuments.ToList();
         }
     }
 }

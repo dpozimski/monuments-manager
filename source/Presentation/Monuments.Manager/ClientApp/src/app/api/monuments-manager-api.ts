@@ -329,7 +329,7 @@ export interface IMonumentsClient {
     update(command: UpdateMonumentCommand): Observable<void>;
     delete(monumentId: number): Observable<void>;
     getMonumentsStats(): Observable<GetMonumentsStatsQueryResult | null>;
-    get2(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<GetMonumentsQueryResult | null>;
+    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentDto[] | null>;
 }
 
 @Injectable()
@@ -591,7 +591,7 @@ export class MonumentsClient implements IMonumentsClient {
         return _observableOf<GetMonumentsStatsQueryResult | null>(<any>null);
     }
 
-    get2(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<GetMonumentsQueryResult | null> {
+    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentDto[] | null> {
         let url_ = this.baseUrl + "/api/Monuments/monuments?";
         if (descSortOrder === undefined || descSortOrder === null)
             throw new Error("The parameter 'descSortOrder' must be defined and cannot be null.");
@@ -620,20 +620,20 @@ export class MonumentsClient implements IMonumentsClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGet2(response_);
+            return this.processGetAll(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGet2(<any>response_);
+                    return this.processGetAll(<any>response_);
                 } catch (e) {
-                    return <Observable<GetMonumentsQueryResult | null>><any>_observableThrow(e);
+                    return <Observable<MonumentDto[] | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<GetMonumentsQueryResult | null>><any>_observableThrow(response_);
+                return <Observable<MonumentDto[] | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processGet2(response: HttpResponseBase): Observable<GetMonumentsQueryResult | null> {
+    protected processGetAll(response: HttpResponseBase): Observable<MonumentDto[] | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -644,7 +644,11 @@ export class MonumentsClient implements IMonumentsClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 ? GetMonumentsQueryResult.fromJS(resultData200) : <any>null;
+            if (resultData200 && resultData200.constructor === Array) {
+                result200 = [];
+                for (let item of resultData200)
+                    result200.push(MonumentDto.fromJS(item));
+            }
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -652,7 +656,7 @@ export class MonumentsClient implements IMonumentsClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<GetMonumentsQueryResult | null>(<any>null);
+        return _observableOf<MonumentDto[] | null>(<any>null);
     }
 }
 
@@ -1607,54 +1611,6 @@ export interface IMonumentDto {
     picture?: string | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
-}
-
-export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
-    monuments?: MonumentDto[] | undefined;
-    pagesCount?: number;
-
-    constructor(data?: IGetMonumentsQueryResult) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            if (data["monuments"] && data["monuments"].constructor === Array) {
-                this.monuments = [];
-                for (let item of data["monuments"])
-                    this.monuments.push(MonumentDto.fromJS(item));
-            }
-            this.pagesCount = data["pagesCount"];
-        }
-    }
-
-    static fromJS(data: any): GetMonumentsQueryResult {
-        data = typeof data === 'object' ? data : {};
-        let result = new GetMonumentsQueryResult();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        if (this.monuments && this.monuments.constructor === Array) {
-            data["monuments"] = [];
-            for (let item of this.monuments)
-                data["monuments"].push(item.toJSON());
-        }
-        data["pagesCount"] = this.pagesCount;
-        return data; 
-    }
-}
-
-export interface IGetMonumentsQueryResult {
-    monuments?: MonumentDto[] | undefined;
-    pagesCount?: number;
 }
 
 export class UpdateMonumentCommand implements IUpdateMonumentCommand {
