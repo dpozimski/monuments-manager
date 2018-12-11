@@ -1464,6 +1464,8 @@ export class MonumentDto implements IMonumentDto {
     constructionDate?: Date;
     address?: AddressDto | undefined;
     picture?: string | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
 
     constructor(data?: IMonumentDto) {
         if (data) {
@@ -1483,6 +1485,8 @@ export class MonumentDto implements IMonumentDto {
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
             this.picture = data["picture"];
+            this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
+            this.modifiedBy = data["modifiedBy"];
         }
     }
 
@@ -1502,6 +1506,8 @@ export class MonumentDto implements IMonumentDto {
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
         data["picture"] = this.picture;
+        data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
+        data["modifiedBy"] = this.modifiedBy;
         return data; 
     }
 }
@@ -1514,6 +1520,8 @@ export interface IMonumentDto {
     constructionDate?: Date;
     address?: AddressDto | undefined;
     picture?: string | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
 }
 
 export class GetMonumentsQueryResult implements IGetMonumentsQueryResult {
