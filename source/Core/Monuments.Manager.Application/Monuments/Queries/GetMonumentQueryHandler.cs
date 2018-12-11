@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Monuments.Extensions;
-using Monuments.Manager.Application.Monuments.Models;\
+using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Persistence;
 using System.Linq;
 using System.Threading;

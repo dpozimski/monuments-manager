@@ -12,9 +12,10 @@ import { MonumentsService } from '../monuments.service';
 })
 export class MonumentsListComponent implements OnInit {
   displayedColumns: string[] = [
-    'image',
+    'picture',
     'name', 
-    'formOfProtection',
+    'constuctionDate',
+    'ownerName',
     'modifiedDate',
     'modifiedBy',
   ];

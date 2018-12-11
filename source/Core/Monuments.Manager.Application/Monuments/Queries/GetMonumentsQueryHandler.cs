@@ -54,7 +54,9 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
                     Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.Create(s.Pictures.FirstOrDefault().Data) : null,
-                    Address = s.Address.ToDto()
+                    Address = s.Address.ToDto(),
+                    ModifiedBy = s.ModifiedBy,
+                    ModifiedDate = s.ModifiedDate
                 });
 
             if (request.DescSortOrder)
