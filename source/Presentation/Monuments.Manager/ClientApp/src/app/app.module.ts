@@ -63,6 +63,7 @@ import { PromoteUserDialogComponent } from './users/promote-user-dialog/promote-
 import { UserConfirmationDialogComponent } from "./layout/user-confirmation-dialog/user-confirmation-dialog.component";
 import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dialog.component';
 import { MonumentsListComponent } from './monuments/monuments-list/monuments-list.component';
+import { MonumentsHeaderComponent } from './monuments/monuments-header/monuments-header.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { MonumentsListComponent } from './monuments/monuments-list/monuments-lis
     PromoteUserDialogComponent,
     UserConfirmationDialogComponent,
     EditUserDialogComponent,
-    MonumentsListComponent
+    MonumentsListComponent,
+    MonumentsHeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

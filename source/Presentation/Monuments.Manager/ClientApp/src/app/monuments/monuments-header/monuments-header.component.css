@@ -1,0 +1,25 @@
+.header-component {
+    display: flex;
+    position: relative;
+    top: 25px;
+}
+
+.fill {
+    flex: 1;
+}
+
+.monuments-title {
+    font-size: 20px;
+    color: white;
+    padding-left: 25px;
+}
+
+.search-bar {
+    padding-right: 25px;
+    bottom: 15px;
+    max-width: 400px;
+}
+
+mat-form-field {
+    color: white;
+}

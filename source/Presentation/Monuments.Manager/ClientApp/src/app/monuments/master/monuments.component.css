@@ -4,13 +4,6 @@
     position: relative;
 }
 
-.header-component {
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    padding-left: 15px;
-}
-
 .header-container {
     height: 10vh;
     position: relative;
@@ -20,22 +13,4 @@
     margin-top: 3vh;
     height: 82vh;
     position: relative;
-}
-
-.actions-container {
-    margin-top: 3vh;
-    height: 9.2vh;
-    position: relative;
-}
-
-.detail-container {
-    margin-top: 2vh;
-    height: 70.8vh;
-    position: relative;
-}
-
-.monuments-title {
-    font-size: 20px;
-    padding-left: 10px;
-    color: white;
 }

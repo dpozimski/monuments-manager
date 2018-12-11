@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MonumentsClient, MonumentPreviewDto } from './../../api/monuments-manager-api';
+import { MonumentsClient, MonumentDto } from './../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-monuments-list',
@@ -7,7 +7,7 @@ import { MonumentsClient, MonumentPreviewDto } from './../../api/monuments-manag
   styleUrls: ['./monuments-list.component.css']
 })
 export class MonumentsListComponent implements OnInit {
-  source: MonumentPreviewDto[];
+  source: MonumentDto[];
 
   constructor(private monumentsClient: MonumentsClient) { }
 
