@@ -28,7 +28,7 @@ export class MonumentsDataSource implements DataSource<MonumentDto> {
       parameters.descSortOrder,
       parameters.pageNumber,
       parameters.pageSize,
-      parameters.filter).pipe(
+      parameters.filter || "").pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
