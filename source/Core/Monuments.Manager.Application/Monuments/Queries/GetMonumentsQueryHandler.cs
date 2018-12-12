@@ -25,12 +25,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
 
         public async Task<ICollection<MonumentDto>> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
         {
-            var count = await _dbContext.Monuments.CountAsync();
-
-            var monumentsCount = await _dbContext.Monuments.CountAsync();
-            var pages = monumentsCount / request.PageSize;
-
-            IEnumerable<MonumentDto> monuments = _dbContext.Monuments
+            var monuments = _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
                 .Include(s => s.Address)
@@ -43,7 +38,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                             EF.Functions.Like(s.Address.Province, $"{request.Filter}%") ||
                             EF.Functions.Like(s.Address.Street, $"{request.Filter}%") ||
                             EF.Functions.Like(s.FormOfProtection, $"{request.Filter}%"))
-                .Skip(request.PageSize * request.PageNumber)
+                .Skip(request.PageSize * (request.PageNumber - 1))
                 .Take(request.PageSize)
                 .OrderBy(s => s.Name)
                 .Select(s => new MonumentDto()
