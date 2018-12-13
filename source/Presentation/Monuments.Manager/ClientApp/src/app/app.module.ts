@@ -7,6 +7,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiModule } from './api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxGalleryModule } from 'ngx-gallery';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -65,6 +66,7 @@ import { EditUserDialogComponent } from './users/edit-user-dialog/edit-user-dial
 import { MonumentsListComponent } from './monuments/monuments-list/monuments-list.component';
 import { MonumentsHeaderComponent } from './monuments/monuments-header/monuments-header.component';
 import { MonumentsListDetailComponent } from './monuments/monuments-list-detail/monuments-list-detail.component';
+import { MonumentsPicturesGalleryComponent } from './monuments/monuments-pictures-gallery/monuments-pictures-gallery.component';
 
 @NgModule({
   declarations: [
@@ -86,13 +88,15 @@ import { MonumentsListDetailComponent } from './monuments/monuments-list-detail/
     EditUserDialogComponent,
     MonumentsListComponent,
     MonumentsHeaderComponent,
-    MonumentsListDetailComponent
+    MonumentsListDetailComponent,
+    MonumentsPicturesGalleryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiModule,
+    NgxGalleryModule,
     BootstrapModalModule,
     BrowserAnimationsModule,
     MatTableModule,
