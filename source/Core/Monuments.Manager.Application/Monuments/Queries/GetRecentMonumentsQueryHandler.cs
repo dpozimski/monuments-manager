@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Monuments.Extensions;
 using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Persistence;
 using System.Collections.Generic;
@@ -29,15 +30,8 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Include(s => s.Pictures)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => new MonumentDto()
-                {
-                    Id = s.Id,
-                    ConstructionDate = s.ConstructionDate,
-                    Name = s.Name,
-                    OwnerId = s.UserId,
-                    OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.CreateThumbnail(s.Pictures.FirstOrDefault().Data) : null
-                }).ToListAsync(cancellationToken);
+                .Select(s => s.ToDto(_thumbnailImageFactory))
+                .ToListAsync(cancellationToken);
 
             return result;
         }

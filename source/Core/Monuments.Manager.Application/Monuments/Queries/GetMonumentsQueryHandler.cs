@@ -41,18 +41,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Skip(request.PageSize * (request.PageNumber - 1))
                 .Take(request.PageSize)
                 .OrderBy(s => s.Name)
-                .Select(s => new MonumentDto()
-                {
-                    Id = s.Id,
-                    ConstructionDate = s.ConstructionDate,
-                    Name = s.Name,
-                    OwnerId = s.UserId,
-                    OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.CreateThumbnail(s.Pictures.FirstOrDefault().Data) : null,
-                    Address = s.Address.ToDto(),
-                    ModifiedBy = s.ModifiedBy,
-                    ModifiedDate = s.ModifiedDate
-                });
+                .Select(s => s.ToDto(_thumbnailImageFactory));
 
             if (request.DescSortOrder)
             {

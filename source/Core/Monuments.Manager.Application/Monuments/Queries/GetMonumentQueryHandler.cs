@@ -37,16 +37,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
 
             var pictureEntity = monumentEntity.Pictures.FirstOrDefault();
 
-            return new MonumentDto()
-            {
-                Id = monumentEntity.Id,
-                ConstructionDate = monumentEntity.ConstructionDate,
-                Name = monumentEntity.Name,
-                OwnerId = monumentEntity.UserId,
-                OwnerName = monumentEntity.User.Email,
-                Picture = _imageFactory.Encode(pictureEntity.Data),
-                Address = monumentEntity.Address.ToDto()
-            };
+            return monumentEntity.ToDto(_imageFactory);
         }
     }
 }

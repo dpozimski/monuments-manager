@@ -1,7 +1,9 @@
-﻿using Monuments.Manager.Application.Monuments.Models;
+﻿using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Extensions
@@ -19,6 +21,20 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Province = addressEntity.Province,
                 Street = addressEntity.Street,
                 StreetNumber = addressEntity.StreetNumber
+            };
+        }
+
+        public static MonumentDto ToDto(this MonumentEntity monumentEntity, IImageFactory imageFactory)
+        {
+            return new MonumentDto()
+            {
+                Id = monumentEntity.Id,
+                ConstructionDate = monumentEntity.ConstructionDate,
+                Name = monumentEntity.Name,
+                OwnerId = monumentEntity.UserId,
+                OwnerName = monumentEntity.User.Email,
+                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.Encode(monumentEntity.Pictures.FirstOrDefault().Data) : null,
+                Address = monumentEntity.Address.ToDto()
             };
         }
     }
