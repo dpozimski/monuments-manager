@@ -3,7 +3,8 @@ import { MonumentsService } from '../services/monuments.service';
 import { MonumentsDataSource } from '../services/monuments-datasource';
 import { MatPaginator, MatSort } from '@angular/material';
 import { merge } from "rxjs/observable/merge";
-import { tap } from 'rxjs/operators';
+import { transition, state, trigger, style, animate } from '@angular/animations';
+import { MonumentDto } from './../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-monuments-list',
@@ -11,6 +12,14 @@ import { tap } from 'rxjs/operators';
   styleUrls: [
     './monuments-list.component.css',
     './../../styles/tables.css'
+  ],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed, void', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ]),
   ]
 })
 export class MonumentsListComponent implements OnInit, AfterViewInit {
@@ -22,6 +31,8 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
     'modifiedDate',
     'modifiedBy',
   ];
+
+  expandedElement: MonumentDto | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
