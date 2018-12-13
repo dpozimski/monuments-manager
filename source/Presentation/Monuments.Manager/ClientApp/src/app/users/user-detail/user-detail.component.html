@@ -4,7 +4,7 @@
   <div class="input-container">
     <mat-form-field appearance="outline">
       <mat-label>Last authenticated</mat-label>
-      <input [value]="userStatistics.lastLoggedIn | date:'medium'" matInput placeholder="Last authenticated" readonly>
+      <input [value]="userStatistics.lastLoggedIn | date:'yyyy-MM-dd HH:mm:ss'" matInput placeholder="Last authenticated" readonly>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Last succesful authentication through login form</mat-hint>
     </mat-form-field>

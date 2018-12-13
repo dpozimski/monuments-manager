@@ -2,7 +2,6 @@ table {
     width: 100%;
     overflow-x: scroll;
     table-layout: fixed;
-    height: 90%;
 }
 
 .mat-cell, .mat-header-cell {

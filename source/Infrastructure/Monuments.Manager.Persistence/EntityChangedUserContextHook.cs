@@ -20,6 +20,7 @@ namespace Monuments.Manager.Persistence
             foreach(var entity in entities)
             {
                 entity.CreatedBy = _applicationContext.UserId.ToString();
+                entity.ModifiedBy = entity.CreatedBy;
             }
         }
 
@@ -27,7 +28,7 @@ namespace Monuments.Manager.Persistence
         {
             foreach (var entity in entities)
             {
-                entity.CreatedBy = _applicationContext.UserId.ToString();
+                entity.ModifiedBy = _applicationContext.UserId.ToString();
             }
         }
     }

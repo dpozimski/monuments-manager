@@ -20,6 +20,7 @@ namespace Monuments.Manager.Persistence
             foreach(var entity in entities)
             {
                 entity.CreatedDate = _dateTimeProvider.GetCurrent();
+                entity.ModifiedDate = entity.CreatedDate;
             }
         }
 
