@@ -39,7 +39,7 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
 
 
   constructor(public monumentsDataSource: MonumentsDataSource,
-              private monumentsService: MonumentsService) {
+              public monumentsService: MonumentsService) {
   }
 
   ngOnInit() {
@@ -61,5 +61,9 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
           filter.pageSize = this.paginator.pageSize;
           this.monumentsService.listFilterParametersChangedCommand();
         });
+  }
+
+  onRowClick(element: MonumentDto) {
+    this.monumentsService.monumentDetailChangedCommand(element);
   }
 }
