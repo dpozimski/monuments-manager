@@ -1,49 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+﻿using SkiaSharp;
+using System;
 using System.IO;
-using System.Text;
 
 namespace Monuments.Manager.Application.Infrastructure
 {
     public class ImageFactory : IImageFactory
     {
-        private const int MaxHeight = 150;
-        private const int MaxWidth = 150;
+        private const int Size = 100;
+        private const int Quality = 75;
 
-        public string CreateThumbnail(byte[] image)
+        public string CreateThumbnail(byte[] data)
         {
-            var inputStream = new MemoryStream(image);
-            var current = Image.FromStream(inputStream);
-
-            int width, height;
-
-            if (current.Width > current.Height)
+            var input = new MemoryStream(data);
+            var inputStream = new SKManagedStream(input);
+            var output = new MemoryStream();
+            using (var original = SKBitmap.Decode(inputStream))
             {
-                width = MaxWidth;
-                height = Convert.ToInt32(current.Height * MaxHeight / (double)current.Width);
+                int width, height;
+                if (original.Width > original.Height)
+                {
+                    width = Size;
+                    height = original.Height * Size / original.Width;
+                }
+                else
+                {
+                    width = original.Width * Size / original.Height;
+                    height = Size;
+                }
+
+                using (var resized = original.Resize(new SKImageInfo(width, height), SKFilterQuality.Medium))
+                {
+                    using (var image = SKImage.FromBitmap(resized))
+                    {
+                        image.Encode(SKEncodedImageFormat.Png, Quality)
+                             .SaveTo(output);
+
+                        return Encode(output.ToArray());
+                    }
+                }
             }
-            else
-            {
-                width = Convert.ToInt32(current.Width * MaxWidth / (double)current.Height);
-                height = MaxHeight;
-            }
-
-            var canvas = new Bitmap(width, height);
-
-            using (var graphics = Graphics.FromImage(canvas))
-            {
-                graphics.CompositingQuality = CompositingQuality.HighSpeed;
-                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                graphics.CompositingMode = CompositingMode.SourceCopy;
-                graphics.DrawImage(current, 0, 0, width, height);
-            }
-
-            var rawImage = GetRawImage(canvas);
-
-            return Encode(rawImage);
         }
 
         public byte[] Decode(string image)
@@ -54,17 +49,6 @@ namespace Monuments.Manager.Application.Infrastructure
         public string Encode(byte[] image)
         {
             return Convert.ToBase64String(image);
-        }
-
-        private byte[] GetRawImage(Bitmap canvas)
-        {
-            var outputStream = new MemoryStream();
-            canvas.Save(outputStream, ImageFormat.Jpeg);
-
-            var result = new byte[outputStream.Length];
-            outputStream.Read(result, 0, (int)outputStream.Length);
-
-            return result;
         }
     }
 }
