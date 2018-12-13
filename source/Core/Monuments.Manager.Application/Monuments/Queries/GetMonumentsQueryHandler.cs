@@ -14,10 +14,10 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, ICollection<MonumentDto>>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IThumbnailImageFactory _thumbnailImageFactory;
+        private readonly IImageFactory _thumbnailImageFactory;
 
         public GetMonumentsQueryHandler(MonumentsDbContext dbContext,
-                                        IThumbnailImageFactory thumbnailImageFactory)
+                                        IImageFactory thumbnailImageFactory)
         {
             _dbContext = dbContext;
             _thumbnailImageFactory = thumbnailImageFactory;
@@ -48,7 +48,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     Name = s.Name,
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.Create(s.Pictures.FirstOrDefault().Data) : null,
+                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.CreateThumbnail(s.Pictures.FirstOrDefault().Data) : null,
                     Address = s.Address.ToDto(),
                     ModifiedBy = s.ModifiedBy,
                     ModifiedDate = s.ModifiedDate

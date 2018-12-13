@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Exceptions;
+using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Monuments.Extensions;
 using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Persistence;
@@ -13,10 +14,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetMonumentQueryHandler : IRequestHandler<GetMonumentQuery, MonumentDto>
     {
         private readonly MonumentsDbContext _dbContext;
+        private readonly IImageFactory _imageFactory;
 
-        public GetMonumentQueryHandler(MonumentsDbContext dbContext)
+        public GetMonumentQueryHandler(MonumentsDbContext dbContext,
+                                       IImageFactory imageFactory)
         {
             _dbContext = dbContext;
+            _imageFactory = imageFactory;
         }
 
         public async Task<MonumentDto> Handle(GetMonumentQuery request, CancellationToken cancellationToken)
@@ -40,7 +44,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Picture = pictureEntity.Data,
+                Picture = _imageFactory.Encode(pictureEntity.Data),
                 Address = monumentEntity.Address.ToDto()
             };
         }

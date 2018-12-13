@@ -34,7 +34,7 @@ namespace Monuments.Manager.Application.Infrastructure
 
             services.AddScoped<IPasswordEncryptor, Pbkdf2PasswordEncryptor>();
             services.AddScoped<IStringEncoder, PKCS7StringEncoder>();
-            services.AddScoped<IThumbnailImageFactory, ThumbnailImageFactory>();
+            services.AddScoped<IImageFactory, ImageFactory>();
 
             services.AddEmail(configuration);
 

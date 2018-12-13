@@ -6,6 +6,6 @@ namespace Monuments.Manager.Application.Pictures.Models
 {
     public class PictureDto
     {
-        public byte[] Data { get; set; }
+        public string Data { get; set; }
     }
 }

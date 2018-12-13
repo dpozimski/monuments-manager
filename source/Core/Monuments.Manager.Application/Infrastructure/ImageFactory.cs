@@ -8,12 +8,12 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Infrastructure
 {
-    public class ThumbnailImageFactory : IThumbnailImageFactory
+    public class ImageFactory : IImageFactory
     {
         private const int MaxHeight = 150;
         private const int MaxWidth = 150;
 
-        public byte[] Create(byte[] image)
+        public string CreateThumbnail(byte[] image)
         {
             var inputStream = new MemoryStream(image);
             var current = Image.FromStream(inputStream);
@@ -41,7 +41,19 @@ namespace Monuments.Manager.Application.Infrastructure
                 graphics.DrawImage(current, 0, 0, width, height);
             }
 
-            return GetRawImage(canvas);
+            var rawImage = GetRawImage(canvas);
+
+            return Encode(rawImage);
+        }
+
+        public byte[] Decode(string image)
+        {
+            return Convert.FromBase64String(image);
+        }
+
+        public string Encode(byte[] image)
+        {
+            return Convert.ToBase64String(image);
         }
 
         private byte[] GetRawImage(Bitmap canvas)

@@ -20,7 +20,7 @@ namespace Monuments.Manager.Persistence.Configurations
 
             builder.Property(s => s.Data)
                 .IsRequired()
-                .HasColumnType("image");
+                .HasMaxLength(int.MaxValue);
         }
     }
 }

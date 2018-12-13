@@ -13,10 +13,10 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentDto>>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IThumbnailImageFactory _thumbnailImageFactory;
+        private readonly IImageFactory _thumbnailImageFactory;
 
         public GetRecentMonumentsQueryHandler(MonumentsDbContext dbContext,
-                                              IThumbnailImageFactory thumbnailImageFactory)
+                                              IImageFactory thumbnailImageFactory)
         {
             _dbContext = dbContext;
             _thumbnailImageFactory = thumbnailImageFactory;
@@ -36,7 +36,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                     Name = s.Name,
                     OwnerId = s.UserId,
                     OwnerName = s.User.Email,
-                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.Create(s.Pictures.FirstOrDefault().Data) : null
+                    Picture = s.Pictures.Count > 0 ? _thumbnailImageFactory.CreateThumbnail(s.Pictures.FirstOrDefault().Data) : null
                 }).ToListAsync(cancellationToken);
 
             return result;

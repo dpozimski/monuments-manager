@@ -16,12 +16,15 @@ namespace Monuments.Manager.Application.Monuments.Commands
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IApplicationContext _context;
+        private readonly IImageFactory _imageFactory;
 
         public CreateMonumentCommandHandler(MonumentsDbContext dbContext,
-                                            IApplicationContext context)
+                                            IApplicationContext context,
+                                            IImageFactory imageFactory)
         {
             _dbContext = dbContext;
             _context = context;
+            _imageFactory = imageFactory;
         }
 
         public async Task<int> Handle(CreateMonumentCommand request, CancellationToken cancellationToken)
@@ -34,7 +37,7 @@ namespace Monuments.Manager.Application.Monuments.Commands
                 Name = request.Name,
                 Pictures = request.Pictures.Select(s => new PictureEntity()
                 {
-                    Data = s.Data
+                    Data = _imageFactory.Decode(s.Data)
                 }).ToList(),
                 Address = new AddressEntity()
                 {

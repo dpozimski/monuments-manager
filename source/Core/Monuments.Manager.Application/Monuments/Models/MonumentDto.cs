@@ -15,7 +15,7 @@ namespace Monuments.Manager.Application.Monuments.Models
         public DateTime ConstructionDate { get; set; }
         public AddressDto Address { get; set; }
 
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
