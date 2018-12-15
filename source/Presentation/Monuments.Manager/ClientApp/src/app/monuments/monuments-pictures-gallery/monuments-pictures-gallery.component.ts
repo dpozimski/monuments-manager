@@ -33,7 +33,8 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                             previewZoom: true,
                             previewRotate: true,
                             previewDownload: true,
-                            downloadIcon: './../../../assets/no-photo-small.png'
+                            previewDescription: true,
+                            thumbnailsArrows: true
                         }
                     ] : 
                     [
@@ -53,6 +54,7 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                             small: "data:image/png;base64," + s,
                             medium: "data:image/png;base64," + s,
                             big: "data:image/png;base64," + s,
+                            description: 'dupa',
                         });
                         return ngxGalleryImage;
                     }) : [{

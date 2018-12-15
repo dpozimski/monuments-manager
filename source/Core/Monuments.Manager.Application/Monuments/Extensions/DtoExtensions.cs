@@ -1,10 +1,8 @@
 ﻿using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Monuments.Models;
+using Monuments.Manager.Application.Pictures.Models;
 using Monuments.Manager.Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Extensions
 {
@@ -33,7 +31,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.CreateThumbnail(monumentEntity.Pictures.FirstOrDefault().Data) : null,
+                Picture = monumentEntity.Pictures.Count > 0 ? monumentEntity.Pictures.FirstOrDefault().ToDto(imageFactory, true) : null,
                 Address = monumentEntity.Address.ToDto()
             };
         }
@@ -47,8 +45,17 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Pictures = monumentEntity.Pictures.AsParallel().Select(s => imageFactory.Encode(s.Data)).ToList(),
+                Pictures = monumentEntity.Pictures.AsParallel().Select(s => s.ToDto(imageFactory, false)).ToList(),
                 Address = monumentEntity.Address.ToDto()
+            };
+        }
+
+        public static PictureDto ToDto(this PictureEntity pictureEntity, IImageFactory imageFactory, bool thumbnail)
+        {
+            return new PictureDto()
+            {
+                Data = thumbnail ? imageFactory.CreateThumbnail(pictureEntity.Data) : imageFactory.Encode(pictureEntity.Data),
+                Description = pictureEntity.Description,
             };
         }
     }

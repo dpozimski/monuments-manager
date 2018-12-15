@@ -21,6 +21,9 @@ namespace Monuments.Manager.Persistence.Configurations
             builder.Property(s => s.Data)
                 .IsRequired()
                 .HasMaxLength(int.MaxValue);
+
+            builder.Property(s => s.Description)
+                .HasMaxLength(1000);
         }
     }
 }

@@ -10,5 +10,6 @@ namespace Monuments.Manager.Domain.Entities
         public virtual MonumentEntity Monument { get; set; }
 
         public byte[] Data { get; set; }
+        public string Description { get; set; }
     }
 }

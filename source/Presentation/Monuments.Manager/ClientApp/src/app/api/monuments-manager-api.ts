@@ -1475,6 +1475,7 @@ export interface IAddressDto {
 
 export class PictureDto implements IPictureDto {
     data?: string | undefined;
+    description?: string | undefined;
 
     constructor(data?: IPictureDto) {
         if (data) {
@@ -1488,6 +1489,7 @@ export class PictureDto implements IPictureDto {
     init(data?: any) {
         if (data) {
             this.data = data["data"];
+            this.description = data["description"];
         }
     }
 
@@ -1501,12 +1503,14 @@ export class PictureDto implements IPictureDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["data"] = this.data;
+        data["description"] = this.description;
         return data; 
     }
 }
 
 export interface IPictureDto {
     data?: string | undefined;
+    description?: string | undefined;
 }
 
 export class GetMonumentsStatsQueryResult implements IGetMonumentsStatsQueryResult {
@@ -1552,7 +1556,7 @@ export class MonumentDto implements IMonumentDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    pictures?: string[] | undefined;
+    pictures?: PictureDto[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 
@@ -1576,7 +1580,7 @@ export class MonumentDto implements IMonumentDto {
             if (data["pictures"] && data["pictures"].constructor === Array) {
                 this.pictures = [];
                 for (let item of data["pictures"])
-                    this.pictures.push(item);
+                    this.pictures.push(PictureDto.fromJS(item));
             }
             this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
             this.modifiedBy = data["modifiedBy"];
@@ -1601,7 +1605,7 @@ export class MonumentDto implements IMonumentDto {
         if (this.pictures && this.pictures.constructor === Array) {
             data["pictures"] = [];
             for (let item of this.pictures)
-                data["pictures"].push(item);
+                data["pictures"].push(item.toJSON());
         }
         data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
         data["modifiedBy"] = this.modifiedBy;
@@ -1616,7 +1620,7 @@ export interface IMonumentDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    pictures?: string[] | undefined;
+    pictures?: PictureDto[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 }
@@ -1628,7 +1632,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    picture?: string | undefined;
+    picture?: PictureDto | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 
@@ -1649,7 +1653,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
             this.name = data["name"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
-            this.picture = data["picture"];
+            this.picture = data["picture"] ? PictureDto.fromJS(data["picture"]) : <any>undefined;
             this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
             this.modifiedBy = data["modifiedBy"];
         }
@@ -1670,7 +1674,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
         data["name"] = this.name;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
-        data["picture"] = this.picture;
+        data["picture"] = this.picture ? this.picture.toJSON() : <any>undefined;
         data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
         data["modifiedBy"] = this.modifiedBy;
         return data; 
@@ -1684,7 +1688,7 @@ export interface IMonumentPreviewDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    picture?: string | undefined;
+    picture?: PictureDto | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 }
@@ -1744,6 +1748,7 @@ export interface IUpdateMonumentCommand {
 export class CreatePictureCommand implements ICreatePictureCommand {
     monumentId?: number;
     data?: string | undefined;
+    description?: string | undefined;
 
     constructor(data?: ICreatePictureCommand) {
         if (data) {
@@ -1758,6 +1763,7 @@ export class CreatePictureCommand implements ICreatePictureCommand {
         if (data) {
             this.monumentId = data["monumentId"];
             this.data = data["data"];
+            this.description = data["description"];
         }
     }
 
@@ -1772,6 +1778,7 @@ export class CreatePictureCommand implements ICreatePictureCommand {
         data = typeof data === 'object' ? data : {};
         data["monumentId"] = this.monumentId;
         data["data"] = this.data;
+        data["description"] = this.description;
         return data; 
     }
 }
@@ -1779,6 +1786,7 @@ export class CreatePictureCommand implements ICreatePictureCommand {
 export interface ICreatePictureCommand {
     monumentId?: number;
     data?: string | undefined;
+    description?: string | undefined;
 }
 
 export class DeletePictureCommand implements IDeletePictureCommand {

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Monuments.Manager.Application.Pictures.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Models
 {
@@ -15,7 +15,7 @@ namespace Monuments.Manager.Application.Monuments.Models
         public DateTime ConstructionDate { get; set; }
         public AddressDto Address { get; set; }
 
-        public ICollection<string> Pictures { get; set; }
+        public ICollection<PictureDto> Pictures { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
