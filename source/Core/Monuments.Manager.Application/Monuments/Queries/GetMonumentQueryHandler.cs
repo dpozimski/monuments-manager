@@ -14,13 +14,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetMonumentQueryHandler : IRequestHandler<GetMonumentQuery, MonumentDto>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IImageFactory _imageFactory;
+        private readonly IPictureDtoFactory _pictureDtoFactory;
 
         public GetMonumentQueryHandler(MonumentsDbContext dbContext,
-                                       IImageFactory imageFactory)
+                                       IPictureDtoFactory pictureDtoFactory)
         {
             _dbContext = dbContext;
-            _imageFactory = imageFactory;
+            _pictureDtoFactory = pictureDtoFactory;
         }
 
         public async Task<MonumentDto> Handle(GetMonumentQuery request, CancellationToken cancellationToken)
@@ -35,7 +35,11 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
-            return monumentEntity.ToDto(_imageFactory);
+            var pictures = monumentEntity.Pictures
+                .Select(s => _pictureDtoFactory.Convert(s, true))
+                .ToList();
+
+            return monumentEntity.ToDto(pictures);
         }
     }
 }

@@ -14,13 +14,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetMonumentsQueryHandler : IRequestHandler<GetMonumentsQuery, ICollection<MonumentPreviewDto>>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IImageFactory _thumbnailImageFactory;
+        private readonly IPictureDtoFactory _pictureDtoFactory;
 
         public GetMonumentsQueryHandler(MonumentsDbContext dbContext,
-                                        IImageFactory thumbnailImageFactory)
+                                        IPictureDtoFactory thumbnailImageFactory)
         {
             _dbContext = dbContext;
-            _thumbnailImageFactory = thumbnailImageFactory;
+            _pictureDtoFactory = thumbnailImageFactory;
         }
 
         public Task<ICollection<MonumentPreviewDto>> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
@@ -41,7 +41,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Skip(request.PageSize * (request.PageNumber - 1))
                 .Take(request.PageSize)
                 .OrderBy(s => s.Name)
-                .Select(s => s.ToPreviewDto(_thumbnailImageFactory));
+                .Select(s => s.ToPreviewDto(_pictureDtoFactory.Convert(s.Pictures.FirstOrDefault(), false)));
 
             if (request.DescSortOrder)
             {

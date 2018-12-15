@@ -2,6 +2,7 @@
 using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Application.Pictures.Models;
 using Monuments.Manager.Domain.Entities;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Monuments.Manager.Application.Monuments.Extensions
@@ -22,7 +23,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
             };
         }
 
-        public static MonumentPreviewDto ToPreviewDto(this MonumentEntity monumentEntity, IImageFactory imageFactory)
+        public static MonumentPreviewDto ToPreviewDto(this MonumentEntity monumentEntity, PictureDto pictureDto)
         {
             return new MonumentPreviewDto()
             {
@@ -31,12 +32,12 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Picture = monumentEntity.Pictures.Count > 0 ? monumentEntity.Pictures.FirstOrDefault().ToDto(imageFactory, true) : null,
+                Picture = pictureDto,
                 Address = monumentEntity.Address.ToDto()
             };
         }
 
-        public static MonumentDto ToDto(this MonumentEntity monumentEntity, IImageFactory imageFactory)
+        public static MonumentDto ToDto(this MonumentEntity monumentEntity, ICollection<PictureDto> pictureDtos)
         {
             return new MonumentDto()
             {
@@ -45,7 +46,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Pictures = monumentEntity.Pictures.AsParallel().Select(s => s.ToDto(imageFactory, false)).ToList(),
+                Pictures = pictureDtos,
                 Address = monumentEntity.Address.ToDto()
             };
         }

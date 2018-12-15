@@ -1358,7 +1358,6 @@ export class CreateMonumentCommand implements ICreateMonumentCommand {
     formOfProtection?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    pictures?: PictureDto[] | undefined;
 
     constructor(data?: ICreateMonumentCommand) {
         if (data) {
@@ -1375,11 +1374,6 @@ export class CreateMonumentCommand implements ICreateMonumentCommand {
             this.formOfProtection = data["formOfProtection"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
-            if (data["pictures"] && data["pictures"].constructor === Array) {
-                this.pictures = [];
-                for (let item of data["pictures"])
-                    this.pictures.push(PictureDto.fromJS(item));
-            }
         }
     }
 
@@ -1396,11 +1390,6 @@ export class CreateMonumentCommand implements ICreateMonumentCommand {
         data["formOfProtection"] = this.formOfProtection;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
-        if (this.pictures && this.pictures.constructor === Array) {
-            data["pictures"] = [];
-            for (let item of this.pictures)
-                data["pictures"].push(item.toJSON());
-        }
         return data; 
     }
 }
@@ -1410,7 +1399,6 @@ export interface ICreateMonumentCommand {
     formOfProtection?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    pictures?: PictureDto[] | undefined;
 }
 
 export class AddressDto implements IAddressDto {
@@ -1471,50 +1459,6 @@ export interface IAddressDto {
     street?: string | undefined;
     streetNumber?: string | undefined;
     area?: string | undefined;
-}
-
-export class PictureDto implements IPictureDto {
-    id?: number;
-    data?: string | undefined;
-    description?: string | undefined;
-
-    constructor(data?: IPictureDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.id = data["id"];
-            this.data = data["data"];
-            this.description = data["description"];
-        }
-    }
-
-    static fromJS(data: any): PictureDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new PictureDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["data"] = this.data;
-        data["description"] = this.description;
-        return data; 
-    }
-}
-
-export interface IPictureDto {
-    id?: number;
-    data?: string | undefined;
-    description?: string | undefined;
 }
 
 export class GetMonumentsStatsQueryResult implements IGetMonumentsStatsQueryResult {
@@ -1627,6 +1571,58 @@ export interface IMonumentDto {
     pictures?: PictureDto[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
+}
+
+export class PictureDto implements IPictureDto {
+    id?: number;
+    small?: string | undefined;
+    medium?: string | undefined;
+    original?: string | undefined;
+    description?: string | undefined;
+
+    constructor(data?: IPictureDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.id = data["id"];
+            this.small = data["small"];
+            this.medium = data["medium"];
+            this.original = data["original"];
+            this.description = data["description"];
+        }
+    }
+
+    static fromJS(data: any): PictureDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PictureDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["small"] = this.small;
+        data["medium"] = this.medium;
+        data["original"] = this.original;
+        data["description"] = this.description;
+        return data; 
+    }
+}
+
+export interface IPictureDto {
+    id?: number;
+    small?: string | undefined;
+    medium?: string | undefined;
+    original?: string | undefined;
+    description?: string | undefined;
 }
 
 export class MonumentPreviewDto implements IMonumentPreviewDto {
