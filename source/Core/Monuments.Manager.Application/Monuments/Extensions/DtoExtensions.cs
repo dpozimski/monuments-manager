@@ -47,7 +47,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Pictures = monumentEntity.Pictures.Select(s => imageFactory.CreateThumbnail(s.Data)).ToList(),
+                Pictures = monumentEntity.Pictures.Select(s => imageFactory.Encode(s.Data)).ToList(),
                 Address = monumentEntity.Address.ToDto()
             };
         }

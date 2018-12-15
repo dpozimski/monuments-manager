@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { MonumentsService } from '../services/monuments.service';
+import { MonumentDto } from '../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-monuments-pictures-gallery',
@@ -10,6 +12,10 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
+  constructor(private monumentsService: MonumentsService){
+
+  }
+
   ngOnInit() {
 
       this.galleryOptions = [
@@ -19,7 +25,6 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
               thumbnailsColumns: 4,
               imageAnimation: NgxGalleryAnimation.Slide
           },
-          // max-width 800
           {
               breakpoint: 800,
               width: '100%',
@@ -29,29 +34,22 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
               thumbnailsMargin: 20,
               thumbnailMargin: 20
           },
-          // max-width 400
           {
               breakpoint: 400,
-              preview: false
+              preview: true
           }
       ];
 
-      this.galleryImages = [
-          {
-              small: './../../assets/favicon.ico',
-              medium: './../../assets/favicon.ico',
-              big: './../../assets/favicon.ico'
-          },
-          {
-              small: './../../assets/favicon.ico',
-              medium: './../../assets/favicon.ico',
-              big: './../../assets/favicon.ico'
-          },
-          {
-              small: './../../assets/favicon.ico',
-              medium: './../../assets/favicon.ico',
-              big: './../../assets/favicon.ico'
-          }
-      ];
+      this.monumentsService.selectedMonumentChanged
+          .subscribe(_ => {
+            this.galleryImages = this.monumentsService.selectedMonument.pictures.map(s => {
+                var ngxGalleryImage = new NgxGalleryImage({
+                    small: "data:image/png;base64," + s,
+                    medium: "data:image/png;base64," + s,
+                    big: "data:image/png;base64," + s,
+                });
+                return ngxGalleryImage;
+            });
+          });
   }
 }
