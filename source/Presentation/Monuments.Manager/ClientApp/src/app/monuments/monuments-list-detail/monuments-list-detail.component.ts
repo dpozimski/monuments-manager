@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
-import { MonumentDto, MonumentsClient } from './../../../app/api/monuments-manager-api';
+import { MonumentsClient } from './../../../app/api/monuments-manager-api';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
