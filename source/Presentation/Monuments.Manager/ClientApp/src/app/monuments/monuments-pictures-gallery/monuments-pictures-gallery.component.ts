@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MonumentsPicturesGalleryComponent implements OnInit {
     private readonly defaultGalleryOptions: INgxGalleryOptions[] = [
-        { thumbnails: false, width: '600px', height: '400px', imageArrowsAutoHide: true, preview: false }
+        { thumbnails: false, imageArrowsAutoHide: true, preview: false }
     ];
     private selectedIndex: number = 0;
 
@@ -52,8 +52,6 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
     private setGalleryWithPhotosConfiguration(pictures: PictureDto[]) {
         this.galleryOptions = [
             {
-                width: '600px',
-                height: '400px',
                 thumbnailsColumns: 3,
                 imageAnimation: NgxGalleryAnimation.Slide,
                 previewCloseOnClick: true,
