@@ -23,7 +23,9 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
               width: '600px',
               height: '400px',
               thumbnailsColumns: 4,
-              imageAnimation: NgxGalleryAnimation.Slide
+              imageAnimation: NgxGalleryAnimation.Slide,
+              previewCloseOnClick: true,
+              previewCloseOnEsc: true
           },
           {
               breakpoint: 800,
@@ -36,7 +38,7 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
           },
           {
               breakpoint: 400,
-              preview: true
+              preview: true,
           }
       ];
 
