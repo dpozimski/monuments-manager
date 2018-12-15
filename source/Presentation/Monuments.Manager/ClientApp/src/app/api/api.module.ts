@@ -22,7 +22,7 @@ import { ErrorInterceptor } from './security/error.interceptor';
         RecoveryClient,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-        { provide: API_BASE_URL, useValue: "https://linsey.pl" }
+        { provide: API_BASE_URL, useValue: "https://localhost:5001" }
     ]
 })
 export class ApiModule {

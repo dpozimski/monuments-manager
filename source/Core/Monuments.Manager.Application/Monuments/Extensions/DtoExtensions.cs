@@ -33,7 +33,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.Encode(monumentEntity.Pictures.FirstOrDefault().Data) : null,
+                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.CreateThumbnail(monumentEntity.Pictures.FirstOrDefault().Data) : null,
                 Address = monumentEntity.Address.ToDto()
             };
         }
