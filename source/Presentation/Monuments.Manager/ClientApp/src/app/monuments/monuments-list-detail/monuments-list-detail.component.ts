@@ -23,7 +23,7 @@ export class MonumentsListDetailComponent implements OnInit {
           } else {
             this.monumentsClient.get(selected.id)
                 .subscribe(result => this.selectedMonument = result,
-                       _ => this.toastr.error('Cannot retrieve detail of monument ' + s.name));
+                       _ => this.toastr.error('Cannot retrieve detail of monument ' + selected.name));
           }
         })
   }
