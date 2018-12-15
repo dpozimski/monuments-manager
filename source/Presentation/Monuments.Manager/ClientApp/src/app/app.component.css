@@ -9,6 +9,7 @@
   opacity: 0.3;
   background:url('./../assets/watermark.png') no-repeat bottom right;
   background-size:100%;
+  z-index: -1;
 }
 
 @media (max-width: 767px) {
