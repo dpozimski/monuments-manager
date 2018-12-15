@@ -1474,6 +1474,7 @@ export interface IAddressDto {
 }
 
 export class PictureDto implements IPictureDto {
+    id?: number;
     data?: string | undefined;
     description?: string | undefined;
 
@@ -1488,6 +1489,7 @@ export class PictureDto implements IPictureDto {
 
     init(data?: any) {
         if (data) {
+            this.id = data["id"];
             this.data = data["data"];
             this.description = data["description"];
         }
@@ -1502,6 +1504,7 @@ export class PictureDto implements IPictureDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
         data["data"] = this.data;
         data["description"] = this.description;
         return data; 
@@ -1509,6 +1512,7 @@ export class PictureDto implements IPictureDto {
 }
 
 export interface IPictureDto {
+    id?: number;
     data?: string | undefined;
     description?: string | undefined;
 }

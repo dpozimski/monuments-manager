@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, INgxGalleryOptions } from 'ngx-gallery';
 import { MonumentsService } from '../services/monuments.service';
-import { PicturesClient, DeletePictureCommand } from '../../api/monuments-manager-api';
+import { PicturesClient, DeletePictureCommand, PictureDto } from '../../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { UserConfirmationDialogComponent } from './../../../app/layout/user-confirmation-dialog/user-confirmation-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-monuments-pictures-gallery',
@@ -21,7 +22,8 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
 
     constructor(private monumentsService: MonumentsService,
                 private dialogService: DialogService,
-                private picturesClient: PicturesClient) {
+                private picturesClient: PicturesClient,
+                private toastr: ToastrService) {
 
     }
 
@@ -32,7 +34,7 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                     this.monumentsService.selectedMonument.pictures.length == 0) {
                     this.setNoPhotoConfiguration();
                 } else {
-                    this.setGalleryWithPhotosConfiguration();
+                    this.setGalleryWithPhotosConfiguration(this.monumentsService.selectedMonument.pictures);
                 }
             });
     }
@@ -47,7 +49,7 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
         }];
     }
 
-    private setGalleryWithPhotosConfiguration() {
+    private setGalleryWithPhotosConfiguration(pictures: PictureDto[]) {
         this.galleryOptions = [
             {
                 width: '600px',
@@ -67,12 +69,12 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                 imageActions: [
                     {
                         icon: 'fa fa-times',
-                        onClick: this.onDeleteAction
+                        onClick: (_: Event) => this.onDeleteAction(pictures)
                     }
                 ]
             }
         ];
-        this.galleryImages = this.monumentsService.selectedMonument.pictures.map(image => {
+        this.galleryImages = pictures.map(image => {
             var ngxGalleryImage = new NgxGalleryImage({
                 small: "data:image/png;base64," + image.data,
                 medium: "data:image/png;base64," + image.data,
@@ -83,18 +85,27 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
         });
     }
 
-    private onDeleteAction(event: MouseEvent) {
-        var pictureToDelete = this.monumentsService.selectedMonument.pictures[this.selectedIndex];
+    private onDeleteAction(pictures: PictureDto[]) {
+        var pictureToDelete = pictures[this.selectedIndex];
 
         this.dialogService.addDialog(UserConfirmationDialogComponent,
             { title: 'Delete picture', message: 'Do you want to delete picture?'})
             .subscribe(result => {
-                if(result)
+                if(!result)
                     return;
                 
                 var command = new DeletePictureCommand();
-                command.pictureId = pictureToDelete.;
-                this.picturesClient.deletePicture()
+                command.pictureId = pictureToDelete.id;
+                this.picturesClient.deletePicture(command)
+                    .subscribe(_ => { 
+                        this.toastr.success('Picture has been deleted', 'Delete picture');
+                        var newPicturesList = pictures.filter(s => s.id != pictureToDelete.id);
+                        if(newPicturesList.length == 0) {
+                            this.setNoPhotoConfiguration();
+                        } else {
+                            this.setGalleryWithPhotosConfiguration(newPicturesList);
+                        }
+                    }, _ => this.toastr.error('Cannot delete picture', 'Delete picture'))
             });
     }
 
