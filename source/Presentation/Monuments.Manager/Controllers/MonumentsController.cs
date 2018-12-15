@@ -40,7 +40,7 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpGet("monuments")]
-        public async Task<ICollection<MonumentDto>> GetAsync([FromQuery]GetMonumentsQuery query)
+        public async Task<ICollection<MonumentPreviewDto>> GetAsync([FromQuery]GetMonumentsQuery query)
         {
             return await Mediator.Send(query);
         }

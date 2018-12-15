@@ -35,8 +35,6 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
-            var pictureEntity = monumentEntity.Pictures.FirstOrDefault();
-
             return monumentEntity.ToDto(_imageFactory);
         }
     }

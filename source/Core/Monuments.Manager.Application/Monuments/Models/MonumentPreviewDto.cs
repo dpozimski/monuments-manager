@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Models
 {
-    public class MonumentDto
+    public class MonumentPreviewDto
     {
         public int Id { get; set; }
 
@@ -15,7 +15,7 @@ namespace Monuments.Manager.Application.Monuments.Models
         public DateTime ConstructionDate { get; set; }
         public AddressDto Address { get; set; }
 
-        public ICollection<string> Pictures { get; set; }
+        public string Picture { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }

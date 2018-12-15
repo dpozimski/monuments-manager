@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
-import { MonumentsDataSource } from '../services/monuments-datasource';
+import { MonumentsPreviewDataSource } from '../services/monuments-preview-datasource';
 import { MatPaginator, MatSort } from '@angular/material';
 import { merge } from "rxjs/observable/merge";
 import { transition, state, trigger, style, animate } from '@angular/animations';
-import { MonumentDto } from './../../api/monuments-manager-api';
+import { MonumentPreviewDto } from './../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-monuments-list',
@@ -32,13 +32,13 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
     'modifiedBy',
   ];
 
-  expandedElement: MonumentDto | null;
+  expandedElement: MonumentPreviewDto | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(public monumentsDataSource: MonumentsDataSource,
+  constructor(public monumentsDataSource: MonumentsPreviewDataSource,
               public monumentsService: MonumentsService) {
   }
 
@@ -63,7 +63,7 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
         });
   }
 
-  onRowClick(element: MonumentDto) {
+  onRowClick(element: MonumentPreviewDto) {
     this.monumentsService.monumentDetailChangedCommand(element);
   }
 }

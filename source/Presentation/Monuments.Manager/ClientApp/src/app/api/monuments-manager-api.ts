@@ -329,7 +329,7 @@ export interface IMonumentsClient {
     update(command: UpdateMonumentCommand): Observable<void>;
     delete(monumentId: number): Observable<void>;
     getMonumentsStats(): Observable<GetMonumentsStatsQueryResult | null>;
-    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentDto[] | null>;
+    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentPreviewDto[] | null>;
 }
 
 @Injectable()
@@ -591,7 +591,7 @@ export class MonumentsClient implements IMonumentsClient {
         return _observableOf<GetMonumentsStatsQueryResult | null>(<any>null);
     }
 
-    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentDto[] | null> {
+    getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentPreviewDto[] | null> {
         let url_ = this.baseUrl + "/api/Monuments/monuments?";
         if (descSortOrder === undefined || descSortOrder === null)
             throw new Error("The parameter 'descSortOrder' must be defined and cannot be null.");
@@ -626,14 +626,14 @@ export class MonumentsClient implements IMonumentsClient {
                 try {
                     return this.processGetAll(<any>response_);
                 } catch (e) {
-                    return <Observable<MonumentDto[] | null>><any>_observableThrow(e);
+                    return <Observable<MonumentPreviewDto[] | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<MonumentDto[] | null>><any>_observableThrow(response_);
+                return <Observable<MonumentPreviewDto[] | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processGetAll(response: HttpResponseBase): Observable<MonumentDto[] | null> {
+    protected processGetAll(response: HttpResponseBase): Observable<MonumentPreviewDto[] | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -647,7 +647,7 @@ export class MonumentsClient implements IMonumentsClient {
             if (resultData200 && resultData200.constructor === Array) {
                 result200 = [];
                 for (let item of resultData200)
-                    result200.push(MonumentDto.fromJS(item));
+                    result200.push(MonumentPreviewDto.fromJS(item));
             }
             return _observableOf(result200);
             }));
@@ -656,7 +656,7 @@ export class MonumentsClient implements IMonumentsClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<MonumentDto[] | null>(<any>null);
+        return _observableOf<MonumentPreviewDto[] | null>(<any>null);
     }
 }
 
@@ -1552,11 +1552,87 @@ export class MonumentDto implements IMonumentDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
-    picture?: string | undefined;
+    pictures?: string[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 
     constructor(data?: IMonumentDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.id = data["id"];
+            this.ownerId = data["ownerId"];
+            this.ownerName = data["ownerName"];
+            this.name = data["name"];
+            this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
+            this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
+            if (data["pictures"] && data["pictures"].constructor === Array) {
+                this.pictures = [];
+                for (let item of data["pictures"])
+                    this.pictures.push(item);
+            }
+            this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
+            this.modifiedBy = data["modifiedBy"];
+        }
+    }
+
+    static fromJS(data: any): MonumentDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new MonumentDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["ownerId"] = this.ownerId;
+        data["ownerName"] = this.ownerName;
+        data["name"] = this.name;
+        data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
+        data["address"] = this.address ? this.address.toJSON() : <any>undefined;
+        if (this.pictures && this.pictures.constructor === Array) {
+            data["pictures"] = [];
+            for (let item of this.pictures)
+                data["pictures"].push(item);
+        }
+        data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
+        data["modifiedBy"] = this.modifiedBy;
+        return data; 
+    }
+}
+
+export interface IMonumentDto {
+    id?: number;
+    ownerId?: number;
+    ownerName?: string | undefined;
+    name?: string | undefined;
+    constructionDate?: Date;
+    address?: AddressDto | undefined;
+    pictures?: string[] | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
+}
+
+export class MonumentPreviewDto implements IMonumentPreviewDto {
+    id?: number;
+    ownerId?: number;
+    ownerName?: string | undefined;
+    name?: string | undefined;
+    constructionDate?: Date;
+    address?: AddressDto | undefined;
+    picture?: string | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
+
+    constructor(data?: IMonumentPreviewDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -1579,9 +1655,9 @@ export class MonumentDto implements IMonumentDto {
         }
     }
 
-    static fromJS(data: any): MonumentDto {
+    static fromJS(data: any): MonumentPreviewDto {
         data = typeof data === 'object' ? data : {};
-        let result = new MonumentDto();
+        let result = new MonumentPreviewDto();
         result.init(data);
         return result;
     }
@@ -1601,7 +1677,7 @@ export class MonumentDto implements IMonumentDto {
     }
 }
 
-export interface IMonumentDto {
+export interface IMonumentPreviewDto {
     id?: number;
     ownerId?: number;
     ownerName?: string | undefined;

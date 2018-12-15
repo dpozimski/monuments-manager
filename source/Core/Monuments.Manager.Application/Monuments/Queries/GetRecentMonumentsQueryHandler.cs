@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Queries
 {
-    public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentDto>>
+    public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentPreviewDto>>
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IImageFactory _thumbnailImageFactory;
@@ -23,14 +23,14 @@ namespace Monuments.Manager.Application.Monuments.Queries
             _thumbnailImageFactory = thumbnailImageFactory;
         }
 
-        public async Task<List<MonumentDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<List<MonumentPreviewDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
         {
             var result = await _dbContext.Monuments
                 .Include(s => s.User)
                 .Include(s => s.Pictures)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => s.ToDto(_thumbnailImageFactory))
+                .Select(s => s.ToPreviewDto(_thumbnailImageFactory))
                 .ToListAsync(cancellationToken);
 
             return result;

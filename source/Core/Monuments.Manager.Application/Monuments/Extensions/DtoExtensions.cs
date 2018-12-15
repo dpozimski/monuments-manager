@@ -24,6 +24,20 @@ namespace Monuments.Manager.Application.Monuments.Extensions
             };
         }
 
+        public static MonumentPreviewDto ToPreviewDto(this MonumentEntity monumentEntity, IImageFactory imageFactory)
+        {
+            return new MonumentPreviewDto()
+            {
+                Id = monumentEntity.Id,
+                ConstructionDate = monumentEntity.ConstructionDate,
+                Name = monumentEntity.Name,
+                OwnerId = monumentEntity.UserId,
+                OwnerName = monumentEntity.User.Email,
+                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.CreateThumbnail(monumentEntity.Pictures.FirstOrDefault().Data) : null,
+                Address = monumentEntity.Address.ToDto()
+            };
+        }
+
         public static MonumentDto ToDto(this MonumentEntity monumentEntity, IImageFactory imageFactory)
         {
             return new MonumentDto()
@@ -33,7 +47,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Name = monumentEntity.Name,
                 OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
-                Picture = monumentEntity.Pictures.Count > 0 ? imageFactory.CreateThumbnail(monumentEntity.Pictures.FirstOrDefault().Data) : null,
+                Pictures = monumentEntity.Pictures.Select(s => imageFactory.CreateThumbnail(s.Data)).ToList(),
                 Address = monumentEntity.Address.ToDto()
             };
         }

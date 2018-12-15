@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MonumentDto, MonumentsClient } from '../../api/monuments-manager-api';
+import { MonumentDto, MonumentsClient, MonumentPreviewDto } from '../../api/monuments-manager-api';
 import { DataSource } from '@angular/cdk/table';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { CollectionViewer } from '@angular/cdk/collections';
@@ -9,13 +9,13 @@ import { catchError, finalize } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class MonumentsDataSource implements DataSource<MonumentDto> {
-  private monumentsSubject = new BehaviorSubject<MonumentDto[]>([]);
+export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto> {
+  private monumentsSubject = new BehaviorSubject<MonumentPreviewDto[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
   private monumentsCountSubject = new BehaviorSubject<number>(1);
 
   loading = this.loadingSubject.asObservable();
-  monumentsCount = this.monumentsCountSubject.asObservable();
+  monumentsPreviewCount = this.monumentsCountSubject.asObservable();
 
   constructor(private monumentsClient: MonumentsClient) {
     this.monumentsClient.getMonumentsStats()
