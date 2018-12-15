@@ -49,14 +49,5 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Address = monumentEntity.Address.ToDto()
             };
         }
-
-        public static PictureDto ToDto(this PictureEntity pictureEntity, IImageFactory imageFactory, bool thumbnail)
-        {
-            return new PictureDto()
-            {
-                Data = thumbnail ? imageFactory.CreateThumbnail(pictureEntity.Data) : imageFactory.Encode(pictureEntity.Data),
-                Description = pictureEntity.Description,
-            };
-        }
     }
 }

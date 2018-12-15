@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, INgxGalleryOptions } from 'ngx-gallery';
 import { MonumentsService } from '../services/monuments.service';
-import { MonumentDto } from '../../api/monuments-manager-api';
+import { PicturesClient, DeletePictureCommand } from '../../api/monuments-manager-api';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { UserConfirmationDialogComponent } from './../../../app/layout/user-confirmation-dialog/user-confirmation-dialog.component';
 
 @Component({
     selector: 'app-monuments-pictures-gallery',
@@ -10,12 +12,16 @@ import { MonumentDto } from '../../api/monuments-manager-api';
 })
 export class MonumentsPicturesGalleryComponent implements OnInit {
     private readonly defaultGalleryOptions: INgxGalleryOptions[] = [
-        { thumbnails: false, width: '600px', height: '400px', imageArrowsAutoHide: true }
+        { thumbnails: false, width: '600px', height: '400px', imageArrowsAutoHide: true, preview: false }
     ];
+    private selectedIndex: number = 0;
+
     galleryOptions: NgxGalleryOptions[] = this.defaultGalleryOptions;
     galleryImages: NgxGalleryImage[] = [];
 
-    constructor(private monumentsService: MonumentsService) {
+    constructor(private monumentsService: MonumentsService,
+                private dialogService: DialogService,
+                private picturesClient: PicturesClient) {
 
     }
 
@@ -57,11 +63,10 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                 previewDownload: true,
                 previewDescription: true,
                 thumbnailsArrows: true,
+                startIndex: this.selectedIndex = 0,
                 imageActions: [
                     {
                         icon: 'fa fa-times',
-                        disabled: false,
-                        titleText: 'Delete',
                         onClick: this.onDeleteAction
                     }
                 ]
@@ -78,7 +83,22 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
         });
     }
 
-    private onDeleteAction(event: Event) {
+    private onDeleteAction(event: MouseEvent) {
+        var pictureToDelete = this.monumentsService.selectedMonument.pictures[this.selectedIndex];
 
+        this.dialogService.addDialog(UserConfirmationDialogComponent,
+            { title: 'Delete picture', message: 'Do you want to delete picture?'})
+            .subscribe(result => {
+                if(result)
+                    return;
+                
+                var command = new DeletePictureCommand();
+                command.pictureId = pictureToDelete.;
+                this.picturesClient.deletePicture()
+            });
+    }
+
+    private onImageChange(event: any) {
+        this.selectedIndex = event.index;
     }
 }
