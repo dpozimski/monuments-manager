@@ -34,7 +34,15 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                             previewRotate: true,
                             previewDownload: true,
                             previewDescription: true,
-                            thumbnailsArrows: true
+                            thumbnailsArrows: true,
+                            imageActions: [
+                                { 
+                                    icon: 'fa fa-times',
+                                    disabled: false,
+                                    titleText: 'Delete',
+                                    onClick: this.onDeleteAction
+                                }
+                            ]
                         }
                     ] : 
                     [
@@ -63,5 +71,9 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                         big: './../../../assets/no-photo-big.png'
                     }];
             });
+    }
+
+    private onDeleteAction(event: Event) {
+
     }
 }
