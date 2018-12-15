@@ -17,10 +17,14 @@ export class MonumentsListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.monumentsService.selectedMonumentPreviewChanged
-        .subscribe(s => {
-          this.monumentsClient.get(this.selectedMonument.id)
-              .subscribe(result => this.selectedMonument = result,
-                         _ => this.toastr.error('Cannot retrieve detail of monument ' + s.name));
+        .subscribe(selected => {
+          if(selected == null) {
+            this.selectedMonument = null;
+          } else {
+            this.monumentsClient.get(selected.id)
+                .subscribe(result => this.selectedMonument = result,
+                       _ => this.toastr.error('Cannot retrieve detail of monument ' + s.name));
+          }
         })
   }
 }

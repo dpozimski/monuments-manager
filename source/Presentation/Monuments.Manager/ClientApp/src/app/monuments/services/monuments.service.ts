@@ -16,8 +16,8 @@ export class MonumentsService {
     this.listFilterParametersChanged.emit(this.listFilterParameters);
   }
 
-  monumentDetailChangedCommand(monumentDetail: MonumentPreviewDto) {
-    this.selectedMonumentPreview = this.selectedMonumentPreview === monumentDetail ? null : monumentDetail;
+  selectedMonumentPreviewChangedCommand(selectedMonumentPreview: MonumentPreviewDto) {
+    this.selectedMonumentPreview = this.selectedMonumentPreview === selectedMonumentPreview ? null : selectedMonumentPreview;
     this.selectedMonumentPreviewChanged.emit(this.selectedMonumentPreview);
   }
 }

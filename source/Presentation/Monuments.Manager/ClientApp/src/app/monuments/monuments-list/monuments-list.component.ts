@@ -32,8 +32,6 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
     'modifiedBy',
   ];
 
-  expandedElement: MonumentPreviewDto | null;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -64,6 +62,6 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
   }
 
   onRowClick(element: MonumentPreviewDto) {
-    this.monumentsService.monumentDetailChangedCommand(element);
+    this.monumentsService.selectedMonumentPreviewChangedCommand(element);
   }
 }
