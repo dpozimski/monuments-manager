@@ -64,4 +64,12 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
   onRowClick(element: MonumentPreviewDto) {
     this.monumentsService.selectedMonumentPreviewChangedCommand(element);
   }
+
+  getImageSource(element: MonumentPreviewDto): string {
+    if(element.picture) {
+      return 'data:image/png;base64,' + element.picture.data;
+    } else {
+      return './../../assets/no-photo-thumbnail.png';
+    }
+  }
 }
