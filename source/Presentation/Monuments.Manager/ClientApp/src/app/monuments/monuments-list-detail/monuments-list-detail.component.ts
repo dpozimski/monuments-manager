@@ -21,7 +21,7 @@ export class MonumentsListDetailComponent implements OnInit {
           } else {
             this.monumentsClient.get(selected.id)
                 .subscribe(result => this.monumentsService.selectedMonumentChangedCommand(result),
-                       _ => this.toastr.error('Cannot retrieve detail of monument ' + selected.name));
+                           _ => this.toastr.error('Cannot retrieve detail of monument ' + selected.name));
           }
         })
   }
