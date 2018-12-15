@@ -49,12 +49,12 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                     ];
 
                 this.galleryImages = this.monumentsService.selectedMonument != null ?
-                    this.monumentsService.selectedMonument.pictures.map(s => {
+                    this.monumentsService.selectedMonument.pictures.map(image => {
                         var ngxGalleryImage = new NgxGalleryImage({
-                            small: "data:image/png;base64," + s,
-                            medium: "data:image/png;base64," + s,
-                            big: "data:image/png;base64," + s,
-                            description: 'dupa',
+                            small: "data:image/png;base64," + image.data,
+                            medium: "data:image/png;base64," + image.data,
+                            big: "data:image/png;base64," + image.data,
+                            description: image.description
                         });
                         return ngxGalleryImage;
                     }) : [{
