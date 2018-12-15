@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { MonumentsListFilterParameters } from '../models/monuments-list-filter-parameters';
-import { MonumentPreviewDto } from './../../api/monuments-manager-api';
+import { MonumentPreviewDto, MonumentDto } from './../../api/monuments-manager-api';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,9 @@ export class MonumentsService {
   selectedMonumentPreview: MonumentPreviewDto = null;
   @Output() selectedMonumentPreviewChanged: EventEmitter<MonumentPreviewDto> = new EventEmitter();
 
+  selectedMonument: MonumentDto = null;
+  @Output() selectedMonumentChanged: EventEmitter<MonumentDto> = new EventEmitter();
+
   listFilterParametersChangedCommand() {
     this.listFilterParametersChanged.emit(this.listFilterParameters);
   }
@@ -19,5 +22,10 @@ export class MonumentsService {
   selectedMonumentPreviewChangedCommand(selectedMonumentPreview: MonumentPreviewDto) {
     this.selectedMonumentPreview = this.selectedMonumentPreview === selectedMonumentPreview ? null : selectedMonumentPreview;
     this.selectedMonumentPreviewChanged.emit(this.selectedMonumentPreview);
+  }
+
+  selectedMonumentChangedCommand(selectedMonument: MonumentDto) {
+    this.selectedMonument = selectedMonument;
+    this.selectedMonumentChanged.emit(this.selectedMonument);
   }
 }

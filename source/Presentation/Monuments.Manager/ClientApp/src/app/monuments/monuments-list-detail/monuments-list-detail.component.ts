@@ -9,8 +9,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./monuments-list-detail.component.css']
 })
 export class MonumentsListDetailComponent implements OnInit {
-  selectedMonument: MonumentDto;
-
   constructor(private monumentsService: MonumentsService,
               private monumentsClient: MonumentsClient,
               private toastr: ToastrService) { }
@@ -19,10 +17,10 @@ export class MonumentsListDetailComponent implements OnInit {
     this.monumentsService.selectedMonumentPreviewChanged
         .subscribe(selected => {
           if(selected == null) {
-            this.selectedMonument = null;
+            this.monumentsService.selectedMonumentChangedCommand(null);
           } else {
             this.monumentsClient.get(selected.id)
-                .subscribe(result => this.selectedMonument = result,
+                .subscribe(result => this.monumentsService.selectedMonumentChangedCommand(result),
                        _ => this.toastr.error('Cannot retrieve detail of monument ' + selected.name));
           }
         })

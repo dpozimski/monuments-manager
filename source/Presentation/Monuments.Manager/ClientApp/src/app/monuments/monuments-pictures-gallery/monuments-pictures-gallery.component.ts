@@ -10,7 +10,7 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  ngOnInit(): void {
+  ngOnInit() {
 
       this.galleryOptions = [
           {
