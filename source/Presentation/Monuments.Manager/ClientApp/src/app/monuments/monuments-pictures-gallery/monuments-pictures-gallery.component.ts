@@ -39,6 +39,10 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
             });
     }
 
+    onImageChange(event: any) {
+        this.selectedIndex = event.index;
+    }
+
     private setNoPhotoConfiguration() {
         this.galleryOptions = this.defaultGalleryOptions;
         this.galleryImages = [{
@@ -105,9 +109,5 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
                         }
                     }, _ => this.toastr.error('Cannot delete picture', 'Delete picture'))
             });
-    }
-
-    private onImageChange(event: any) {
-        this.selectedIndex = event.index;
     }
 }
