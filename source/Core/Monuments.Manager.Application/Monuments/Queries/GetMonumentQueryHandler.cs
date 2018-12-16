@@ -35,7 +35,8 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
-            var pictures = monumentEntity.Pictures
+            var pictures = monumentEntity.Pictures.ToList()
+                .AsParallel()
                 .Select(s => _pictureDtoFactory.Convert(s, true))
                 .ToList();
 

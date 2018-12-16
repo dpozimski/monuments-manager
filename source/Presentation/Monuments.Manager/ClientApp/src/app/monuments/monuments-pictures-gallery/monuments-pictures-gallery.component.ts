@@ -70,7 +70,7 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
                 startIndex: this.selectedIndex = 0,
                 imageActions: [
                     {
-                        icon: 'fa fa-times',
+                        icon: 'fa fa-trash',
                         onClick: (_: Event) => this.onDeleteAction(pictures)
                     }
                 ]
