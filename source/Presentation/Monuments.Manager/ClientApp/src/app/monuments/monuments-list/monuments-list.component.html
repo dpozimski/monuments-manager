@@ -42,7 +42,7 @@
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
       <div class="element-detail" [@detailExpand]="element == monumentsService.selectedMonumentPreview ? 'expanded' : 'collapsed'">
-        <app-monuments-list-detail [model]="element"></app-monuments-list-detail>
+        <app-monuments-list-detail [monumentPreview]="element"></app-monuments-list-detail>
       </div>
     </td>
   </ng-container>

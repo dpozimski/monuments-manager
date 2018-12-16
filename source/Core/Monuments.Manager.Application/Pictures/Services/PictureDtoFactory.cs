@@ -11,7 +11,7 @@ namespace Monuments.Manager.Application.Infrastructure
     public class PictureDtoFactory : IPictureDtoFactory
     {
         private const int SmallWidth = 200, SmallHeight = 150;
-        private const int MediumWidth = 400, MediumHeight = 300;
+        private const int MediumWidth = 500, MediumHeight = 400;
         private const int Quality = 50;
 
         public PictureDto Convert(PictureEntity pictureEntity, bool generateMultiSizeVersions)

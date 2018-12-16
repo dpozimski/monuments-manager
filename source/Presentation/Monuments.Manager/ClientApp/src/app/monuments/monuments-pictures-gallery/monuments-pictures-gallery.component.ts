@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, INgxGalleryOptions } from 'ngx-gallery';
 import { MonumentsService } from '../services/monuments.service';
-import { PicturesClient, DeletePictureCommand, PictureDto } from '../../api/monuments-manager-api';
+import { PicturesClient, DeletePictureCommand, PictureDto, MonumentDto } from '../../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { UserConfirmationDialogComponent } from './../../../app/layout/user-confirmation-dialog/user-confirmation-dialog.component';
 import { ToastrService } from 'ngx-toastr';
@@ -11,32 +11,31 @@ import { ToastrService } from 'ngx-toastr';
     templateUrl: './monuments-pictures-gallery.component.html',
     styleUrls: ['./monuments-pictures-gallery.component.css']
 })
-export class MonumentsPicturesGalleryComponent implements OnInit {
+export class MonumentsPicturesGalleryComponent implements OnChanges {
     private readonly defaultGalleryOptions: INgxGalleryOptions[] = [
         { thumbnails: false, imageArrowsAutoHide: true, preview: false }
     ];
     private selectedIndex: number = 0;
 
+    @Input()
+    monument: MonumentDto;
     galleryOptions: NgxGalleryOptions[] = this.defaultGalleryOptions;
     galleryImages: NgxGalleryImage[] = [];
 
-    constructor(private monumentsService: MonumentsService,
-                private dialogService: DialogService,
+    constructor(private dialogService: DialogService,
                 private picturesClient: PicturesClient,
                 private toastr: ToastrService) {
 
     }
 
-    ngOnInit() {
-        this.monumentsService.selectedMonumentChanged
-            .subscribe(_ => {
-                if (this.monumentsService.selectedMonument == null ||
-                    this.monumentsService.selectedMonument.pictures.length == 0) {
-                    this.setNoPhotoConfiguration();
-                } else {
-                    this.setGalleryWithPhotosConfiguration(this.monumentsService.selectedMonument.pictures);
-                }
-            });
+    ngOnChanges(changes: any) {
+        var monument = changes.monument.currentValue;
+
+        if (monument == null || monument.pictures.length == 0) {
+            this.setNoPhotoConfiguration();
+        } else {
+            this.setGalleryWithPhotosConfiguration(monument.pictures);
+        }
     }
 
     onImageChange(event: any) {

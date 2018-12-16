@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
-import { MonumentsClient, MonumentPreviewDto } from './../../../app/api/monuments-manager-api';
+import { MonumentsClient, MonumentPreviewDto, MonumentDto } from './../../../app/api/monuments-manager-api';
 import { ToastrService } from 'ngx-toastr';
 import { throttleTime, debounceTime } from 'rxjs/operators';
 
@@ -11,7 +11,9 @@ import { throttleTime, debounceTime } from 'rxjs/operators';
 })
 export class MonumentsListDetailComponent implements AfterViewInit {
   @Input()
-  model: MonumentPreviewDto;
+  monumentPreview: MonumentPreviewDto;
+  monument: MonumentDto;
+    
 
   constructor(private monumentsService: MonumentsService,
               private monumentsClient: MonumentsClient,
@@ -20,11 +22,9 @@ export class MonumentsListDetailComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.monumentsService.selectedMonumentPreviewChanged
         .subscribe(selected => {
-          if(selected == null) {
-            this.monumentsService.selectedMonumentChangedCommand(null);
-          } else if(this.model == selected) {
+          if(this.monumentPreview == selected) {
             this.monumentsClient.get(selected.id)
-                .subscribe(result => this.monumentsService.selectedMonumentChangedCommand(result),
+                .subscribe(result => this.monument = result,
                            _ => this.toastr.error('Cannot retrieve detail of monument ' + selected.name));
           }
         })

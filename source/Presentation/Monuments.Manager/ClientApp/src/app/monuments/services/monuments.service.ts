@@ -12,9 +12,6 @@ export class MonumentsService {
   selectedMonumentPreview: MonumentPreviewDto = null;
   @Output() selectedMonumentPreviewChanged: EventEmitter<MonumentPreviewDto> = new EventEmitter();
 
-  selectedMonument: MonumentDto = null;
-  @Output() selectedMonumentChanged: EventEmitter<MonumentDto> = new EventEmitter();
-
   listFilterParametersChangedCommand() {
     this.listFilterParametersChanged.emit(this.listFilterParameters);
   }
@@ -22,10 +19,5 @@ export class MonumentsService {
   selectedMonumentPreviewChangedCommand(selectedMonumentPreview: MonumentPreviewDto) {
     this.selectedMonumentPreview = this.selectedMonumentPreview === selectedMonumentPreview ? null : selectedMonumentPreview;
     this.selectedMonumentPreviewChanged.emit(this.selectedMonumentPreview);
-  }
-
-  selectedMonumentChangedCommand(selectedMonument: MonumentDto) {
-    this.selectedMonument = selectedMonument;
-    this.selectedMonumentChanged.emit(this.selectedMonument);
   }
 }
