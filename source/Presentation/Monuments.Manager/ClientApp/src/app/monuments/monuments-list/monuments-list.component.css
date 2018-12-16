@@ -18,7 +18,6 @@ tr.element-row:not(.expanded-row):active {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: red;
 }
 
 .monument-image-preview {
