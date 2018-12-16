@@ -2,7 +2,6 @@
 using Monuments.Manager.Application.Pictures.Models;
 using Monuments.Manager.Domain.Entities;
 using SkiaSharp;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace Monuments.Manager.Application.Infrastructure
     public class PictureDtoFactory : IPictureDtoFactory
     {
         private const int SmallWidth = 200, SmallHeight = 150;
-        private const int MediumWidth = 600, MediumHeight = 450;
+        private const int MediumWidth = 400, MediumHeight = 300;
         private const int Quality = 50;
 
         public PictureDto Convert(PictureEntity pictureEntity, bool generateMultiSizeVersions)
@@ -21,7 +20,6 @@ namespace Monuments.Manager.Application.Infrastructure
             {
                 return null;
             }
-
             var pictureDto = new PictureDto()
             {
                 Description = pictureEntity.Description,
