@@ -67,6 +67,7 @@ import { MonumentsListComponent } from './monuments/monuments-list/monuments-lis
 import { MonumentsHeaderComponent } from './monuments/monuments-header/monuments-header.component';
 import { MonumentsListDetailComponent } from './monuments/monuments-list-detail/monuments-list-detail.component';
 import { MonumentsPicturesGalleryComponent } from './monuments/monuments-pictures-gallery/monuments-pictures-gallery.component';
+import { MonumentsDetailFormComponent } from './monuments/monuments-detail-form/monuments-detail-form.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { MonumentsPicturesGalleryComponent } from './monuments/monuments-picture
     MonumentsListComponent,
     MonumentsHeaderComponent,
     MonumentsListDetailComponent,
-    MonumentsPicturesGalleryComponent
+    MonumentsPicturesGalleryComponent,
+    MonumentsDetailFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

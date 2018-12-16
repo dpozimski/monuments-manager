@@ -1,0 +1,8 @@
+<form #containerForm="ngForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input id="name" #name="ngModel" type="text" name="name" placeholder="Name" [(ngModel)]="monument.name"
+      matInput required autofocus>
+    <mat-error *ngIf="name.invalid || name.pristine">Name is required</mat-error>
+  </mat-form-field>
+</form>

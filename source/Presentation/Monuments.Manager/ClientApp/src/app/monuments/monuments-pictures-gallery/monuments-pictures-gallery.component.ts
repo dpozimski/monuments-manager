@@ -31,7 +31,7 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
     ngOnChanges(changes: any) {
         var monument = changes.monument.currentValue;
 
-        if (monument == null || monument.pictures.length == 0) {
+        if (monument == null || monument.pictures == null || monument.pictures.length == 0) {
             this.setNoPhotoConfiguration();
         } else {
             this.setGalleryWithPhotosConfiguration(monument.pictures);

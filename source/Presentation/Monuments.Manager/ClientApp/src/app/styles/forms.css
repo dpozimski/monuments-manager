@@ -68,22 +68,3 @@
 .close {
     color: white;
 }
-
-.mat-form-field {
-    width: 100%;
-}
-
-.mat-form-field input {
-    color:white;
-}
-
-.mat-form-field mat-icon {
-    color: white;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    box-shadow: 0 0 0px 1000px #FFFFFFFF inset;
-    -webkit-box-shadow: 0 0 0px 1000px #FFFFFFFF inset;
-}

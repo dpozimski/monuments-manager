@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
 import { MonumentsClient, MonumentPreviewDto, MonumentDto } from './../../../app/api/monuments-manager-api';
 import { ToastrService } from 'ngx-toastr';
-import { throttleTime, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-monuments-list-detail',
@@ -12,7 +11,7 @@ import { throttleTime, debounceTime } from 'rxjs/operators';
 export class MonumentsListDetailComponent implements AfterViewInit {
   @Input()
   monumentPreview: MonumentPreviewDto;
-  monument: MonumentDto;
+  monument: MonumentDto = new MonumentDto();
     
 
   constructor(private monumentsService: MonumentsService,
