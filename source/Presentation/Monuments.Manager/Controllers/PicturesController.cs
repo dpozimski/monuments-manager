@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monuments.Manager.Application.Pictures.Commands;
+using Monuments.Manager.Application.Pictures.Models;
+using Monuments.Manager.Application.Pictures.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,15 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpPut]
-        public async Task<int> CreateAsync(CreatePictureCommand command)
+        public async Task<PictureDto> CreateAsync(CreatePictureCommand command)
         {
             return await Mediator.Send(command);
+        }
+
+        [HttpGet]
+        public async Task<PictureDto> GetAsync(GetPictureByIdQuery query)
+        {
+            return await Mediator.Send(query);
         }
 
         [HttpDelete]

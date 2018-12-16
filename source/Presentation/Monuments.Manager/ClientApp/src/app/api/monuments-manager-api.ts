@@ -661,7 +661,8 @@ export class MonumentsClient implements IMonumentsClient {
 }
 
 export interface IPicturesClient {
-    create(command: CreatePictureCommand): Observable<number>;
+    create(command: CreatePictureCommand): Observable<PictureDto | null>;
+    get(query: GetPictureByIdQuery): Observable<PictureDto | null>;
     deletePicture(command: DeletePictureCommand): Observable<void>;
 }
 
@@ -676,7 +677,7 @@ export class PicturesClient implements IPicturesClient {
         this.baseUrl = baseUrl ? baseUrl : "";
     }
 
-    create(command: CreatePictureCommand): Observable<number> {
+    create(command: CreatePictureCommand): Observable<PictureDto | null> {
         let url_ = this.baseUrl + "/api/Pictures";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -699,14 +700,14 @@ export class PicturesClient implements IPicturesClient {
                 try {
                     return this.processCreate(<any>response_);
                 } catch (e) {
-                    return <Observable<number>><any>_observableThrow(e);
+                    return <Observable<PictureDto | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<number>><any>_observableThrow(response_);
+                return <Observable<PictureDto | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processCreate(response: HttpResponseBase): Observable<number> {
+    protected processCreate(response: HttpResponseBase): Observable<PictureDto | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -717,7 +718,7 @@ export class PicturesClient implements IPicturesClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            result200 = resultData200 ? PictureDto.fromJS(resultData200) : <any>null;
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -725,7 +726,59 @@ export class PicturesClient implements IPicturesClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<number>(<any>null);
+        return _observableOf<PictureDto | null>(<any>null);
+    }
+
+    get(query: GetPictureByIdQuery): Observable<PictureDto | null> {
+        let url_ = this.baseUrl + "/api/Pictures";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(query);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGet(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(<any>response_);
+                } catch (e) {
+                    return <Observable<PictureDto | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PictureDto | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<PictureDto | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PictureDto.fromJS(resultData200) : <any>null;
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PictureDto | null>(<any>null);
     }
 
     deletePicture(command: DeletePictureCommand): Observable<void> {
@@ -1787,6 +1840,42 @@ export interface ICreatePictureCommand {
     monumentId?: number;
     data?: string | undefined;
     description?: string | undefined;
+}
+
+export class GetPictureByIdQuery implements IGetPictureByIdQuery {
+    id?: number;
+
+    constructor(data?: IGetPictureByIdQuery) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): GetPictureByIdQuery {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetPictureByIdQuery();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        return data; 
+    }
+}
+
+export interface IGetPictureByIdQuery {
+    id?: number;
 }
 
 export class DeletePictureCommand implements IDeletePictureCommand {

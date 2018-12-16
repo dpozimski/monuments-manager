@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Pictures.Extensions;
+using Monuments.Manager.Application.Pictures.Models;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System.Threading;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Pictures.Commands
 {
-    public class CreatePictureCommandHandler : IRequestHandler<CreatePictureCommand, int>
+    public class CreatePictureCommandHandler : IRequestHandler<CreatePictureCommand, PictureDto>
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IPictureDtoFactory _pictureDtoFactory;
@@ -22,7 +23,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
             _pictureDtoFactory = pictureDtoFactory;
         }
 
-        public async Task<int> Handle(CreatePictureCommand request, CancellationToken cancellationToken)
+        public async Task<PictureDto> Handle(CreatePictureCommand request, CancellationToken cancellationToken)
         {
             var monumentEntity = await _dbContext.Monuments
                 .Include(s => s.Pictures)
@@ -43,7 +44,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
 
             await _dbContext.SaveChangesAsync();
 
-            return pictureEntity.Id;
+            return _pictureDtoFactory.Convert(pictureEntity, true);
         }
     }
 }

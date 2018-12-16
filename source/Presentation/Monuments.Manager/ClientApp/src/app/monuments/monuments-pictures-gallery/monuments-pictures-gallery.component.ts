@@ -5,6 +5,7 @@ import { PicturesClient, DeletePictureCommand, PictureDto, MonumentDto } from '.
 import { DialogService } from 'ng2-bootstrap-modal';
 import { UserConfirmationDialogComponent } from './../../../app/layout/user-confirmation-dialog/user-confirmation-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { CreatePictureDialogComponent } from '../create-picture-dialog/create-picture-dialog.component';
 
 @Component({
     selector: 'app-monuments-pictures-gallery',
@@ -72,6 +73,10 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
                     {
                         icon: 'fa fa-trash',
                         onClick: (_: Event) => this.onDeleteAction(pictures)
+                    },
+                    {
+                        icon: 'fa fa-plus',
+                        onClick: (_: Event) => this.onCreateAction(pictures)
                     }
                 ]
             }
@@ -85,6 +90,18 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
             });
             return ngxGalleryImage;
         });
+    }
+
+    private onCreateAction(pictures: PictureDto[]) {
+        this.dialogService.addDialog(
+                CreatePictureDialogComponent,
+                { monument: this.monument })
+            .subscribe(result => {
+                if(result) {
+                    pictures.push(result);
+                    this.setGalleryWithPhotosConfiguration(pictures);
+                }
+            });
     }
 
     private onDeleteAction(pictures: PictureDto[]) {
