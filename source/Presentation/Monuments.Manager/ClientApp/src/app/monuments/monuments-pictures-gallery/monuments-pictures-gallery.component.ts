@@ -81,9 +81,9 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
         ];
         this.galleryImages = pictures.map(image => {
             var ngxGalleryImage = new NgxGalleryImage({
-                small: "data:image/png;base64," + image.data,
-                medium: "data:image/png;base64," + image.data,
-                big: "data:image/png;base64," + image.data,
+                small: "data:image/png;base64," + image.small,
+                medium: "data:image/png;base64," + image.medium,
+                big: "data:image/png;base64," + image.original,
                 description: image.description
             });
             return ngxGalleryImage;

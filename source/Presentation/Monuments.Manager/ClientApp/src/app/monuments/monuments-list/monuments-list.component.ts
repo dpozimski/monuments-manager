@@ -67,7 +67,7 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
 
   getImageSource(element: MonumentPreviewDto): string {
     if(element.picture) {
-      return 'data:image/png;base64,' + element.picture.data;
+      return 'data:image/png;base64,' + element.picture.small;
     } else {
       return './../../assets/no-photo-thumbnail.png';
     }
