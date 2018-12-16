@@ -33,7 +33,11 @@ namespace Monuments.Manager.Application.Pictures.Commands
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
-            var pictureEntity = new PictureEntity() { Data = request.Data.Decode() };
+            var pictureEntity = new PictureEntity()
+            {
+                Data = request.Data.Decode(),
+                Description = request.Description
+            };
 
             monumentEntity.Pictures.Add(pictureEntity);
 
