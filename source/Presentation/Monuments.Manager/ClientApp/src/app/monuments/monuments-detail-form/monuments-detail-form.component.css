@@ -1,0 +1,7 @@
+.monuments-details-form-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}

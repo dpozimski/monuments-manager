@@ -1511,7 +1511,7 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
 
 .mat-calendar-body-selected {
     background-color: #337AB7;
-    color: #363636
+    color: white
 }
 
 .mat-calendar-body-disabled>.mat-calendar-body-selected {

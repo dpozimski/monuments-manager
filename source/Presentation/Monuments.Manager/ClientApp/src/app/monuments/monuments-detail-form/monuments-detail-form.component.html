@@ -1,8 +1,24 @@
-<form #containerForm="ngForm">
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input id="name" #name="ngModel" type="text" name="name" placeholder="Name" [(ngModel)]="monument.name"
-      matInput required autofocus>
-    <mat-error *ngIf="name.invalid || name.pristine">Name is required</mat-error>
-  </mat-form-field>
-</form>
+<div class="monuments-details-form-container">
+  <form #containerForm="ngForm" class="form-container">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input id="name" #name="ngModel" type="text" name="name" placeholder="Name" [(ngModel)]="monument.name"
+            matInput required autofocus>
+          <mat-error *ngIf="name.invalid || name.pristine">Name is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Construction date</mat-label>
+          <input id="constructionDate" #constructionDate="ngModel" type="text" name="constructionDate" placeholder="Construction date"
+            [(ngModel)]="monument.constructionDate" matInput required matInput [matDatepicker]="constructionDateDatePicker">
+          <mat-datepicker-toggle matSuffix [for]="constructionDateDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #constructionDateDatePicker></mat-datepicker>
+          <mat-error *ngIf="constructionDate.invalid || constructionDate.pristine">Construction date is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
