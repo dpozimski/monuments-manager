@@ -30,7 +30,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Include(s => s.Pictures)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => s.ToPreviewDto(s.Pictures.Count > 0 ? _pictureDtoFactory.Convert(s.Pictures.First(), false) : null))
+                .Select(s => s.ToPreviewDto(_pictureDtoFactory.Convert(s.Pictures.FirstOrDefault(), false)))
                 .ToListAsync(cancellationToken);
 
             return result;

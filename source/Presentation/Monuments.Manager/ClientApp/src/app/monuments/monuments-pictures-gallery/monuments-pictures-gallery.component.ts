@@ -56,8 +56,6 @@ export class MonumentsPicturesGalleryComponent implements OnInit {
     private setGalleryWithPhotosConfiguration(pictures: PictureDto[]) {
         this.galleryOptions = [
             {
-                width: "400px",
-                height: "300px",
                 thumbnailsColumns: 3,
                 imageAnimation: NgxGalleryAnimation.Slide,
                 previewCloseOnClick: true,

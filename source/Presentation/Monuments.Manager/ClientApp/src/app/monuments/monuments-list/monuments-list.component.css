@@ -1,23 +1,29 @@
+tr.detail-row {
+  height: 0;
+}
 
-  tr.detail-row {
-    height: 0;
-  }
-  
-  tr.element-row:not(.expanded-row):hover {
-    background: #4189C7;
-  }
-  
-  tr.element-row:not(.expanded-row):active {
-    background: #4189C7;
-  }
-  
-  .element-row td {
-    border-bottom-width: 0;
-  }
-  
-  .element-detail {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-  }
+tr.element-row:not(.expanded-row):hover {
+  background: #4189C7;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #4189C7;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+.monument-image-preview {
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  max-height: 100px;
+}

@@ -10,7 +10,7 @@
   <ng-container matColumnDef="picture">
     <th mat-header-cell *matHeaderCellDef> Picture </th>
     <td mat-cell *matCellDef="let element">
-      <img [src]="getImageSource(element)" />
+      <img class="monument-image-preview" [src]="getImageSource(element)" />
     </td>
   </ng-container>
 

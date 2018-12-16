@@ -13,10 +13,15 @@ namespace Monuments.Manager.Application.Infrastructure
     {
         private const int SmallWidth = 200, SmallHeight = 150;
         private const int MediumWidth = 600, MediumHeight = 450;
-        private const int Quality = 75;
+        private const int Quality = 50;
 
         public PictureDto Convert(PictureEntity pictureEntity, bool generateMultiSizeVersions)
         {
+            if(pictureEntity is null)
+            {
+                return null;
+            }
+
             var pictureDto = new PictureDto()
             {
                 Description = pictureEntity.Description,
@@ -32,6 +37,7 @@ namespace Monuments.Manager.Application.Infrastructure
                 tasks.Add(new Task(() => pictureDto.Medium = Encode(pictureEntity.Data, MediumWidth, MediumHeight)));
             }
 
+            tasks.ForEach(s => s.Start());
             Task.WaitAll(tasks.ToArray());
 
             return pictureDto;
