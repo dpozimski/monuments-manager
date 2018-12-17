@@ -47,6 +47,7 @@ export class CreatePictureDialogComponent extends DialogComponent<CreatePictureD
     });
     combineLatest(observables)
       .subscribe(s => {
+        this.toastr.success('Pictures has been added to ' + this.monument.name, 'Add pictutre');
         this.result = s;
         this.close();
       }, _ => {
