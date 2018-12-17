@@ -28,8 +28,8 @@
         (filePick)="onFilePick($event)">
         Add
       </button>
-      <div [hidden]="!severRejectedCommand" class="alert alert-danger">
-        The e-mail is not assigned with any account
+      <div [hidden]="!serverRejectedCommand" class="alert alert-danger">
+        {{serverErrorMessage}}
       </div>
     </div>
     <div class="modal-footer">

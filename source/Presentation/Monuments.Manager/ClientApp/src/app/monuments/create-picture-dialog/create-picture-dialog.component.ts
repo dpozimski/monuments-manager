@@ -15,7 +15,9 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class CreatePictureDialogComponent extends DialogComponent<CreatePictureDialogComponent, PictureDto[]> implements CreatePictureDialogParameters {
+  readonly serverErrorMessage: string = 'Critical error while adding pictures';
   monument: MonumentDto;
+  serverRejectedCommand: boolean = false;
   submitted: boolean = false;
   files: CreatePictureDialogItem[] = [];
 
@@ -37,6 +39,7 @@ export class CreatePictureDialogComponent extends DialogComponent<CreatePictureD
   }
 
   upload() {
+    this.serverRejectedCommand = false;
     this.submitted = true;
     var observables: Observable<PictureDto>[] = this.files.map(s => {
       var command = new CreatePictureCommand();
@@ -51,8 +54,9 @@ export class CreatePictureDialogComponent extends DialogComponent<CreatePictureD
         this.result = s;
         this.close();
       }, _ => {
-        this.toastr.error('Critical error while adding pictures', 'Add pictutre');
+        this.toastr.error(this.serverErrorMessage, 'Add pictutre');
         this.submitted = false;
+        this.serverRejectedCommand = true;
       });
   }
 }
