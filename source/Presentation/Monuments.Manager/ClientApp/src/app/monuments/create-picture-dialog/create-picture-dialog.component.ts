@@ -20,6 +20,10 @@ export class CreatePictureDialogComponent extends DialogComponent<CreatePictureD
     super(dialogService);
   }
 
+  onFilePick(file: any) {
+    console.log(file);
+  }
+
   upload() {
     console.log(this.filePath);
   }

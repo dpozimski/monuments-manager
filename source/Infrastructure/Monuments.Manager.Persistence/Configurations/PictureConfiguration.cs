@@ -18,7 +18,15 @@ namespace Monuments.Manager.Persistence.Configurations
                 .HasForeignKey(s => s.MonumentId)
                 .HasConstraintName("FK_Picture_Monument");
 
-            builder.Property(s => s.Data)
+            builder.Property(s => s.Small)
+                .IsRequired()
+                .HasMaxLength(int.MaxValue);
+
+            builder.Property(s => s.Medium)
+                .IsRequired()
+                .HasMaxLength(int.MaxValue);
+
+            builder.Property(s => s.Original)
                 .IsRequired()
                 .HasMaxLength(int.MaxValue);
 

@@ -1,11 +1,8 @@
 ﻿using MediatR;
 using Monuments.Manager.Application.Exceptions;
-using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Pictures.Extensions;
 using Monuments.Manager.Application.Pictures.Models;
 using Monuments.Manager.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,13 +11,10 @@ namespace Monuments.Manager.Application.Pictures.Query
     public class GetPictureByIdQueryHandler : IRequestHandler<GetPictureByIdQuery, PictureDto>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IPictureDtoFactory _pictureDtoFactory;
 
-        public GetPictureByIdQueryHandler(MonumentsDbContext dbContext,
-                                          IPictureDtoFactory pictureDtoFactory)
+        public GetPictureByIdQueryHandler(MonumentsDbContext dbContext)
         {
             _dbContext = dbContext;
-            _pictureDtoFactory = pictureDtoFactory;
         }
 
         public async Task<PictureDto> Handle(GetPictureByIdQuery request, CancellationToken cancellationToken)
@@ -32,7 +26,7 @@ namespace Monuments.Manager.Application.Pictures.Query
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Cannot find picture by id {request.Id}");
             }
 
-            return _pictureDtoFactory.Convert(entity, true);
+            return entity.ToDto();
         }
     }
 }

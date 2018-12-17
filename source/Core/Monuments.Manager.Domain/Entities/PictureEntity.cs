@@ -9,7 +9,10 @@ namespace Monuments.Manager.Domain.Entities
         public int MonumentId { get; set; }
         public virtual MonumentEntity Monument { get; set; }
 
-        public byte[] Data { get; set; }
+        public string Small { get; set; }
+        public string Medium { get; set; }
+        public string Original { get; set; }
+
         public string Description { get; set; }
     }
 }

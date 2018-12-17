@@ -4,7 +4,6 @@ using Monuments.Manager.Application.Exceptions;
 using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Pictures.Extensions;
 using Monuments.Manager.Application.Pictures.Models;
-using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,13 +13,13 @@ namespace Monuments.Manager.Application.Pictures.Commands
     public class CreatePictureCommandHandler : IRequestHandler<CreatePictureCommand, PictureDto>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IPictureDtoFactory _pictureDtoFactory;
+        private readonly IPictureFactory _pictureFactory;
 
         public CreatePictureCommandHandler(MonumentsDbContext dbContext,
-                                           IPictureDtoFactory pictureDtoFactory)
+                                           IPictureFactory pictureFactory)
         {
             _dbContext = dbContext;
-            _pictureDtoFactory = pictureDtoFactory;
+            _pictureFactory = pictureFactory;
         }
 
         public async Task<PictureDto> Handle(CreatePictureCommand request, CancellationToken cancellationToken)
@@ -34,17 +33,13 @@ namespace Monuments.Manager.Application.Pictures.Commands
                 throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type MonumentEntity with id {request.MonumentId} does not exists");
             }
 
-            var pictureEntity = new PictureEntity()
-            {
-                Data = request.Data.Decode(),
-                Description = request.Description
-            };
+            var pictureEntity = _pictureFactory.Create(request);
 
             monumentEntity.Pictures.Add(pictureEntity);
 
             await _dbContext.SaveChangesAsync();
 
-            return _pictureDtoFactory.Convert(pictureEntity, true);
+            return pictureEntity.ToDto();
         }
     }
 }

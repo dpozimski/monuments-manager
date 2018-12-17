@@ -14,13 +14,10 @@ namespace Monuments.Manager.Application.Monuments.Queries
     public class GetRecentMonumentsQueryHandler : IRequestHandler<GetRecentMonumentsQuery, List<MonumentPreviewDto>>
     {
         private readonly MonumentsDbContext _dbContext;
-        private readonly IPictureDtoFactory _pictureDtoFactory;
 
-        public GetRecentMonumentsQueryHandler(MonumentsDbContext dbContext,
-                                              IPictureDtoFactory thumbnailImageFactory)
+        public GetRecentMonumentsQueryHandler(MonumentsDbContext dbContext)
         {
             _dbContext = dbContext;
-            _pictureDtoFactory = thumbnailImageFactory;
         }
 
         public async Task<List<MonumentPreviewDto>> Handle(GetRecentMonumentsQuery request, CancellationToken cancellationToken)
@@ -30,7 +27,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Include(s => s.Pictures)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => s.ToPreviewDto(_pictureDtoFactory.Convert(s.Pictures.FirstOrDefault(), false)))
+                .Select(s => s.ToPreviewDto(s.Pictures.FirstOrDefault()))
                 .ToListAsync(cancellationToken);
 
             return result;

@@ -2,10 +2,10 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" (click)="close()">&times;</button>
-      <h4 class="modal-title">Promote user</h4>
+      <h4 class="modal-title">Add pictures</h4>
     </div>
     <div class="modal-body">
-      <p>Please select an user with will be promoted to administrator role</p>
+      <p>Please select images which will be assigned to monument {{monument.name}}</p>
 
       <form class="form-container" #containerForm="ngForm">
         <mat-form-field appearance="outline">
@@ -13,7 +13,7 @@
           <input #fileName="ngModel" id="fileName" type="text" name="fileName" placeholder="File name" [(ngModel)]="filePath"
             matInput readonly>
         </mat-form-field>
-        <button type="button" ngxFilePicker accept="image/*" multiple (filePick)="file = $event">
+        <button type="button" class="btn btn-primary" ngxFilePicker accept="image/*" multiple (filePick)="onFilePick($event)">
           Browse
         </button>
         <div [hidden]="!severRejectedCommand" class="alert alert-danger">
