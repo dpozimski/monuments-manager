@@ -17,8 +17,8 @@ namespace Monuments.Manager.Application.Pictures.Extensions
                 Small = pictureEntity.Small,
                 Description = pictureEntity.Description,
                 Id = pictureEntity.Id,
-                Medium = onlySmallImage ? pictureEntity.Medium : null,
-                Original = onlySmallImage ? pictureEntity.Original : null
+                Medium = !onlySmallImage ? pictureEntity.Medium : null,
+                Original = !onlySmallImage ? pictureEntity.Original : null
             };
         }
     }
