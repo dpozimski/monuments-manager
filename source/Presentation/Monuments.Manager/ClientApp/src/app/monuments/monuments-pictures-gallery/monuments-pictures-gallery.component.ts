@@ -14,7 +14,17 @@ import { CreatePictureDialogComponent } from '../create-picture-dialog/create-pi
 })
 export class MonumentsPicturesGalleryComponent implements OnChanges {
     private readonly defaultGalleryOptions: INgxGalleryOptions[] = [
-        { thumbnails: false, imageArrowsAutoHide: true, preview: false }
+        {
+            thumbnails: false,
+            imageArrowsAutoHide: true,
+            preview: false,
+            imageActions: [
+                {
+                    icon: 'fa fa-plus',
+                    onClick: (_: Event) => this.onCreateAction([])
+                }
+            ]
+        }
     ];
     private selectedIndex: number = 0;
 
@@ -24,8 +34,8 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
     galleryImages: NgxGalleryImage[] = [];
 
     constructor(private dialogService: DialogService,
-                private picturesClient: PicturesClient,
-                private toastr: ToastrService) {
+        private picturesClient: PicturesClient,
+        private toastr: ToastrService) {
 
     }
 
@@ -94,11 +104,11 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
 
     private onCreateAction(pictures: PictureDto[]) {
         this.dialogService.addDialog(
-                CreatePictureDialogComponent,
-                { monument: this.monument })
+            CreatePictureDialogComponent,
+            { monument: this.monument })
             .subscribe(result => {
-                if(result) {
-                    pictures.push(result);
+                if (result) {
+                    result.forEach(s => pictures.push(s));
                     this.setGalleryWithPhotosConfiguration(pictures);
                 }
             });
@@ -108,18 +118,18 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
         var pictureToDelete = pictures[this.selectedIndex];
 
         this.dialogService.addDialog(UserConfirmationDialogComponent,
-            { title: 'Delete picture', message: 'Do you want to delete picture?'})
+            { title: 'Delete picture', message: 'Do you want to delete picture?' })
             .subscribe(result => {
-                if(!result)
+                if (!result)
                     return;
-                
+
                 var command = new DeletePictureCommand();
                 command.pictureId = pictureToDelete.id;
                 this.picturesClient.deletePicture(command)
-                    .subscribe(_ => { 
+                    .subscribe(_ => {
                         this.toastr.success('Picture has been deleted', 'Delete picture');
                         var newPicturesList = pictures.filter(s => s.id != pictureToDelete.id);
-                        if(newPicturesList.length == 0) {
+                        if (newPicturesList.length == 0) {
                             this.setNoPhotoConfiguration();
                         } else {
                             this.setGalleryWithPhotosConfiguration(newPicturesList);

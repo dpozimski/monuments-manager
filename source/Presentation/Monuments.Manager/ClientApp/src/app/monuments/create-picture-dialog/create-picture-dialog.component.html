@@ -5,26 +5,30 @@
       <h4 class="modal-title">Add pictures</h4>
     </div>
     <div class="modal-body">
-      <p>Please select images which will be assigned to monument {{monument.name}}</p>
-
-      <form class="form-container" #containerForm="ngForm">
+      <p>Please select images which will be assigned to monument "{{monument.name}}"</p>
+      <div *ngFor="let file of files">
         <mat-form-field appearance="outline">
           <mat-label>File</mat-label>
-          <input #fileName="ngModel" id="fileName" type="text" name="fileName" placeholder="File name" [(ngModel)]="filePath"
+          <input id="fileName" name="fileName" type="text" #fileName="ngModel" placeholder="File name" [(ngModel)]="file.fileName"
             matInput readonly>
         </mat-form-field>
-        <button type="button" class="btn btn-primary" ngxFilePicker accept="image/*" multiple (filePick)="onFilePick($event)">
-          Browse
-        </button>
-        <div [hidden]="!severRejectedCommand" class="alert alert-danger">
-          The e-mail is not assigned with any account
-        </div>
-      </form>
-
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input id="description" name="description" type="text" #description="ngModel" placeholder="Description"
+            [(ngModel)]="file.description" matInput>
+        </mat-form-field>
+      </div>
+      <button [disabled]="submitted" type="button" class="btn btn-primary" ngxFilePicker accept="image/*" multiple
+        (filePick)="onFilePick($event)">
+        Add
+      </button>
+      <div [hidden]="!severRejectedCommand" class="alert alert-danger">
+        The e-mail is not assigned with any account
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" [disabled]="!containerForm.form.valid || submitted" (click)="upload()">Upload</button>
-      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+      <button type="button" class="btn btn-primary" [disabled]="submitted || files.length === 0" (click)="upload()">Upload</button>
+      <button type="button" class="btn btn-default" [disabled]="submitted" (click)="close()">Cancel</button>
     </div>
   </div>
 </div>
