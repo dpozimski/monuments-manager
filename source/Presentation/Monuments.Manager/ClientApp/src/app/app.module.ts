@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ApiModule } from './api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { FileHelpersModule } from 'ngx-file-helpers';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -102,6 +103,7 @@ import { CreatePictureDialogComponent } from './monuments/create-picture-dialog/
     ApiModule,
     NgxGalleryModule,
     BootstrapModalModule,
+    FileHelpersModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
