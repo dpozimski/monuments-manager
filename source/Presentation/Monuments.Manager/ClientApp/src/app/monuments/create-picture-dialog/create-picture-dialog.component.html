@@ -7,16 +7,22 @@
     <div class="modal-body">
       <p>Please select images which will be assigned to monument "{{monument.name}}"</p>
       <div *ngFor="let file of files">
-        <mat-form-field appearance="outline">
-          <mat-label>File</mat-label>
-          <input id="fileName" name="fileName" type="text" #fileName="ngModel" placeholder="File name" [(ngModel)]="file.fileName"
-            matInput readonly>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Description</mat-label>
-          <input id="description" name="description" type="text" #description="ngModel" placeholder="Description"
-            [(ngModel)]="file.description" matInput>
-        </mat-form-field>
+        <mat-grid-list cols="2" rowHeight="3:1" class="filename-grid-tile">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>File</mat-label>
+              <input id="fileName" name="fileName" type="text" #fileName="ngModel" placeholder="File name" [(ngModel)]="file.fileName"
+                matInput readonly>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="outline" class="description-grid-tile">
+              <mat-label>Description</mat-label>
+              <input id="description" name="description" type="text" #description="ngModel" placeholder="Description"
+                [(ngModel)]="file.description" matInput autofocus>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
       <button [disabled]="submitted" type="button" class="btn btn-primary" ngxFilePicker accept="image/*" multiple
         (filePick)="onFilePick($event)">
