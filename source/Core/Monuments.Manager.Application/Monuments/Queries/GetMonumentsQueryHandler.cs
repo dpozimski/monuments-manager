@@ -24,7 +24,6 @@ namespace Monuments.Manager.Application.Monuments.Queries
         {
             var monuments = _dbContext.Monuments
                 .Include(s => s.User)
-                .Include(s => s.Pictures)
                 .Include(s => s.Address)
                 .Where(s => request.Filter == null ||
                             EF.Functions.Like(s.Name, $"{request.Filter}%") ||
