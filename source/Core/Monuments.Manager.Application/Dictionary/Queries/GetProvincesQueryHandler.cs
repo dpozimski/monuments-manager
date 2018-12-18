@@ -23,7 +23,7 @@ namespace Monuments.Manager.Application.Dictionary.Queries
 
         protected override async Task<ICollection<DictionaryValueDto>> GetValuesFromDatabaseAsync(GetProvincesQuery request, MonumentsDbContext context)
         {
-            var provinces = await context.Districts
+            var provinces = await context.Provinces
                 .Select(s => new DictionaryValueDto() { Name = s.Name })
                 .ToListAsync();
 

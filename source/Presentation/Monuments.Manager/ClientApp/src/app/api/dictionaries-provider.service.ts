@@ -23,9 +23,11 @@ export class DictionariesProviderService {
     var key = this.createKey(province);
     if (this.cache.has(key))
       return of(this.cache.get(key));
-    else {
+    else if(province) {
       return this.dictionariesClient.getDistricts(province)
         .pipe(map(s => this.saveAndReturnEntry(key, s)));
+    } else {
+      return of([]);
     }
   }
 
@@ -33,9 +35,11 @@ export class DictionariesProviderService {
     var key = this.createKey(province, district);
     if (this.cache.has(key))
       return of(this.cache.get(key));
-    else {
+    else if(province && district) {
       return this.dictionariesClient.getCommunes(province, district)
         .pipe(map(s => this.saveAndReturnEntry(key, s)));
+    } else {
+      return of([]);
     }
   }
 
@@ -43,19 +47,23 @@ export class DictionariesProviderService {
     var key = this.createKey(province, district, commune);
     if (this.cache.has(key))
       return of(this.cache.get(key));
-    else {
+    else if(province && district && commune) {
       return this.dictionariesClient.getCities(province, district, commune)
         .pipe(map(s => this.saveAndReturnEntry(key, s)));
+    } else {
+      return of([]);
     }
   }
 
-  getStreets(province: string, district: string, commune: string, streets: string): Observable<DictionaryValueDto[]> {
-    var key = this.createKey(province, district, commune, streets);
+  getStreets(province: string, district: string, commune: string, street: string): Observable<DictionaryValueDto[]> {
+    var key = this.createKey(province, district, commune, street);
     if (this.cache.has(key))
       return of(this.cache.get(key));
-    else {
-      return this.dictionariesClient.getStreets(province, district, commune, streets)
+    else if(province && district && commune && street) {
+      return this.dictionariesClient.getStreets(province, district, commune, street)
         .pipe(map(s => this.saveAndReturnEntry(key, s)));
+    } else {
+      return of([]);
     }
   }
 

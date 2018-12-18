@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { MonumentDto, AddressDto, DictionaryValueDto } from './../../api/monuments-manager-api';
 import { DictionariesProviderService } from './../../api/dictionaries-provider.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-monuments-detail-form',
@@ -13,7 +13,7 @@ export class MonumentsDetailFormComponent implements OnInit, OnChanges {
   monument: MonumentDto;
 
   provinceSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  provinces: DictionaryValueDto[] = [];
+  provinces: Observable<DictionaryValueDto[]>;
 
   districtSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   districts: DictionaryValueDto[] = [];
@@ -43,6 +43,7 @@ export class MonumentsDetailFormComponent implements OnInit, OnChanges {
     {
       console.log('www');
 
+      this.provinces = this.dictionaries.getProvinces();
       this.provinceSubject.subscribe(x => this.dictionaries
         .getDistricts(x)
         .subscribe(x => this.districts = x));
@@ -58,10 +59,7 @@ export class MonumentsDetailFormComponent implements OnInit, OnChanges {
     }
   }
 
-  onDictionaryChange(dictionaryId: string, newValue: string) {
-    console.log(dictionaryId + ' ' + newValue);
-    console.log(this.monument);
-
+  onDictionaryChange(_: string, __: string) {
     this.provinceSubject.next(this.monument.address.province);
     this.districtSubject.next(this.monument.address.district);
     this.communeSubject.next(this.monument.address.commune);
