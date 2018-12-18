@@ -22,13 +22,6 @@ namespace Monuments.Manager.Persistence
         public DbSet<PictureEntity> Pictures { get; set; }
         public DbSet<AddressEntity> Addresses { get; set; }
 
-
-        public DbSet<ProvinceEntity> Provinces { get; set; }
-        public DbSet<DistrictEntity> Districts { get; set; }
-        public DbSet<CommuneEntity> Communes { get; set; }
-        public DbSet<CityEntity> Cities { get; set; }
-        public DbSet<StreetEntity> Streets { get; set; }
-
         public MonumentsDbContext(
             IConfigurationBuilder configurationBuilder,
             IEntityChangedDateHook entityChangedDateHook,

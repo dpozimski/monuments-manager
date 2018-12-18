@@ -1,7 +1,7 @@
 <div class="monuments-details-form-container">
   <form #containerForm="ngForm" class="form-container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 area-title">
         <mat-label>Basics</mat-label>
       </div>
       <div class="col-sm-6">
@@ -30,64 +30,46 @@
           <mat-error *ngIf="formOfProtection.invalid || formOfProtection.pristine">Form of protection is required</mat-error>
         </mat-form-field>
       </div>
-      <div class="col-sm-12">
+      <div class="col-sm-12 area-title">
         <mat-label>Address</mat-label>
       </div>
       <div class="col-sm-6">
         <mat-form-field appearance="fill">
           <mat-label>Province</mat-label>
-          <input (ngModelChange)="onDictionaryChange(province.name, $event)" [matAutocomplete]="auto" id="province"
-            #province="ngModel" type="text" name="province" placeholder="Province" [(ngModel)]="monument.address.province"
-            matInput required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let province of provinces | async" [value]="province.name">{{province.name}}</mat-option>
-          </mat-autocomplete>
+          <input id="province" #province="ngModel" type="text" name="province" placeholder="Province"
+            matInput required [(ngModel)]="monument.address.province">
           <mat-error *ngIf="province.invalid || province.pristine">Province is required</mat-error>
         </mat-form-field>
       </div>
       <div class="col-sm-6">
         <mat-form-field appearance="fill">
           <mat-label>District</mat-label>
-          <input (ngModelChange)="onDictionaryChange(district.name, $event)" [matAutocomplete]="auto" id="district"
-            #district="ngModel" type="text" name="district" placeholder="District" [(ngModel)]="monument.address.district"
-            matInput required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let district of districts" [value]="district.name"></mat-option>
-          </mat-autocomplete>
+          <input id="district" #district="ngModel" type="text" name="district" placeholder="District"
+            [(ngModel)]="monument.address.district" matInput required>
           <mat-error *ngIf="district.invalid || district.pristine">District is required</mat-error>
         </mat-form-field>
       </div>
       <div class="col-sm-6">
         <mat-form-field appearance="fill">
           <mat-label>Commune</mat-label>
-          <input (ngModelChange)="onDictionaryChange(commune.name, $event)" [matAutocomplete]="auto" id="commune"
-            #commune="ngModel" type="text" name="commune" placeholder="Commune" [(ngModel)]="monument.address.commune"
-            matInput required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let commune of communes" [value]="commune.name"></mat-option>
-          </mat-autocomplete>
+          <input id="commune" #commune="ngModel" type="text" name="commune" placeholder="Commune"
+            [(ngModel)]="monument.address.commune" matInput required>
           <mat-error *ngIf="commune.invalid || commune.pristine">Commune is required</mat-error>
         </mat-form-field>
       </div>
       <div class="col-sm-6">
         <mat-form-field appearance="fill">
           <mat-label>City</mat-label>
-          <input (ngModelChange)="onDictionaryChange(city.name, $event)" [matAutocomplete]="auto" id="city" #city="ngModel"
-            type="text" name="city" placeholder="City" [(ngModel)]="monument.address.city" matInput required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let city of cities" [value]="city.name"></mat-option>
-          </mat-autocomplete>
+          <input id="city" #city="ngModel" type="text" name="city" placeholder="City"
+            [(ngModel)]="monument.address.city" matInput required>
           <mat-error *ngIf="city.invalid || city.pristine">City is required</mat-error>
         </mat-form-field>
       </div>
       <div class="col-sm-8">
         <mat-form-field appearance="fill">
           <mat-label>Street</mat-label>
-          <input (ngModelChange)="onDictionaryChange(street.name, $event)" [matAutocomplete]="auto" id="street" #street="ngModel"
-            type="text" name="street" placeholder="Street" [(ngModel)]="monument.address.street" matInput required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let street of streets" [value]="street.name"></mat-option>
-          </mat-autocomplete>
+          <input id="street" #street="ngModel" type="text" name="street" placeholder="Street"
+            [(ngModel)]="monument.address.street" matInput required>
           <mat-error *ngIf="street.invalid || street.pristine">Street is required</mat-error>
         </mat-form-field>
       </div>

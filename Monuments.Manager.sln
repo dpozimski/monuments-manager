@@ -21,10 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Persistence.Tests", "source\Tests\Monuments.Manager.Persistence.Tests\Monuments.Manager.Persistence.Tests.csproj", "{2A4B122C-8C10-4770-8CBA-63C6510EA220}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Dictionary.Providers.Teryt", "source\Core\Monuments.Manager.Application.Dictionary.Providers.TERYT\Monuments.Manager.Application.Dictionary.Providers.Teryt.csproj", "{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Dictionary.Providers.Contract", "source\Core\Monuments.Manager.Application.Dictionary.Providers.Contract\Monuments.Manager.Application.Dictionary.Providers.Contract.csproj", "{3CF980B2-01AF-461E-9D51-F40F80345841}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Infrastructure", "source\Infrastructure\Monuments.Manager.Infrastructure\Monuments.Manager.Infrastructure.csproj", "{F341EEC4-8DA5-4A2E-AB1C-18BA0A2765B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{71336204-703D-498A-B5E2-9B0A3712C7CC}"
@@ -32,8 +28,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Common", "source\Common\Monuments.Manager.Common\Monuments.Manager.Common.csproj", "{E73FC852-CB8C-468B-9B7B-F8474B904F50}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Infrastructure.Tests", "source\Tests\Monuments.Manager.Infrastructure.Tests\Monuments.Manager.Infrastructure.Tests.csproj", "{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests", "source\Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests\Monuments.Manager.Application.Dictionary.Providers.Teryt.Tests.csproj", "{369DC3D3-76E1-41FA-85BE-2A92648911E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monuments.Manager.Application.Email", "source\Core\Monuments.Manager.Application.Email\Monuments.Manager.Application.Email.csproj", "{79F32B94-677F-4361-B9D4-14BE17AAF1E0}"
 EndProject
@@ -63,14 +57,6 @@ Global
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CF980B2-01AF-461E-9D51-F40F80345841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CF980B2-01AF-461E-9D51-F40F80345841}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CF980B2-01AF-461E-9D51-F40F80345841}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CF980B2-01AF-461E-9D51-F40F80345841}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F341EEC4-8DA5-4A2E-AB1C-18BA0A2765B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F341EEC4-8DA5-4A2E-AB1C-18BA0A2765B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F341EEC4-8DA5-4A2E-AB1C-18BA0A2765B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,10 +69,6 @@ Global
 		{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65F3B264-BB4E-4A32-9622-399FF0A3F4BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{369DC3D3-76E1-41FA-85BE-2A92648911E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79F32B94-677F-4361-B9D4-14BE17AAF1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,12 +83,9 @@ Global
 		{0E3DD3F8-E536-4F05-B5A0-BCD97AA9D492} = {39547B44-E23A-4042-9A3E-231B42FFB9C1}
 		{96BCA35F-4A86-48F8-B30C-4109E3F9C8AB} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 		{2A4B122C-8C10-4770-8CBA-63C6510EA220} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
-		{3F9AAA68-4DB4-4C0E-A7D5-D2A7E97CC21B} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
-		{3CF980B2-01AF-461E-9D51-F40F80345841} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 		{F341EEC4-8DA5-4A2E-AB1C-18BA0A2765B0} = {39547B44-E23A-4042-9A3E-231B42FFB9C1}
 		{E73FC852-CB8C-468B-9B7B-F8474B904F50} = {71336204-703D-498A-B5E2-9B0A3712C7CC}
 		{65F3B264-BB4E-4A32-9622-399FF0A3F4BF} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
-		{369DC3D3-76E1-41FA-85BE-2A92648911E7} = {876E9993-5EAE-450F-A3AD-2D2B49256BE2}
 		{79F32B94-677F-4361-B9D4-14BE17AAF1E0} = {49E63A8D-1B29-495F-BB3E-D1EF17391379}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

@@ -4,12 +4,10 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { UsersClient, API_BASE_URL, RecoveryClient } from './monuments-manager-api';
-import { DictionariesClient } from './monuments-manager-api';
 import { MonumentsClient } from './monuments-manager-api';
 import { PicturesClient } from './monuments-manager-api';
 import { JwtInterceptor } from './security/jwt.interceptor';
 import { ErrorInterceptor } from './security/error.interceptor';
-import { DictionariesProviderService } from './dictionaries-provider.service';
 
 @NgModule({
     imports: [],
@@ -17,11 +15,9 @@ import { DictionariesProviderService } from './dictionaries-provider.service';
     exports: [],
     providers: [
         UsersClient,
-        DictionariesClient,
         MonumentsClient,
         PicturesClient,
         RecoveryClient,
-        DictionariesProviderService,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: API_BASE_URL, useValue: "https://localhost:5001" }

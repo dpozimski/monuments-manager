@@ -13,13 +13,8 @@ namespace Monuments.Manager.Persistence
         public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<AddressConfiguration>();
-            services.AddScoped<CityConfiguration>();
-            services.AddScoped<CommuneConfiguration>();
-            services.AddScoped<DistrictConfiguration>();
             services.AddScoped<MonumentConfiguration>();
             services.AddScoped<PictureConfiguration>();
-            services.AddScoped<ProvinceConfiguration>();
-            services.AddScoped<StreetConfiguration>();
             services.AddScoped<UserConfiguration>();
 
             services.AddDbContext<MonumentsDbContext>(options =>
