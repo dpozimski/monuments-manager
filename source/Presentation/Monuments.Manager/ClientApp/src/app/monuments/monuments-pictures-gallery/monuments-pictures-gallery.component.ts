@@ -15,6 +15,7 @@ import { CreatePictureDialogComponent } from '../create-picture-dialog/create-pi
 export class MonumentsPicturesGalleryComponent implements OnChanges {
     private readonly defaultGalleryOptions: INgxGalleryOptions[] = [
         {
+            width: '100%',
             thumbnails: false,
             imageArrowsAutoHide: true,
             preview: false,
@@ -66,6 +67,7 @@ export class MonumentsPicturesGalleryComponent implements OnChanges {
     private setGalleryWithPhotosConfiguration(pictures: PictureDto[]) {
         this.galleryOptions = [
             {
+                width: '100%',
                 thumbnailsColumns: 3,
                 imageAnimation: NgxGalleryAnimation.Slide,
                 previewCloseOnClick: true,

@@ -64,7 +64,7 @@ export class DictionariesProviderService {
   }
 
   private saveAndReturnEntry(key: string, result: DictionaryValueDto[]): DictionaryValueDto[] {
-    this.cache.set(key, result);
+    //this.cache.set(key, result);
     return result;
   }
 }

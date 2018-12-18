@@ -60,7 +60,7 @@ namespace Monuments.Manager.Application.Dictionary.Queries
 
             if(communeEntity is null)
             {
-                throw new MonumentsManagerAppException(ExceptionType.DictionaryParentValueNotFound, $"Parent value for GetCitiesQuery not exists. Details: {request}");
+                return;
             }
 
             foreach(var providerValue in providerValues.Where(s => !communeEntity.Cities.Any(d => d.Name == s.Name)))

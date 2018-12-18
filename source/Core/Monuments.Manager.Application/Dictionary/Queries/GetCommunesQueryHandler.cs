@@ -55,7 +55,7 @@ namespace Monuments.Manager.Application.Dictionary.Queries
 
             if(districtEntity is null)
             {
-                throw new MonumentsManagerAppException(ExceptionType.DictionaryParentValueNotFound, $"Parent value for GetCommunesQuery not exists. Details: {request}");
+                return;
             }
 
             foreach(var providerValue in providerValues.Where(s => !districtEntity.Communes.Any(d => d.Name == s.Name)))
