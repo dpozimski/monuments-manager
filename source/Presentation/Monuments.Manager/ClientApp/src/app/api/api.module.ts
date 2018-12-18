@@ -9,6 +9,7 @@ import { MonumentsClient } from './monuments-manager-api';
 import { PicturesClient } from './monuments-manager-api';
 import { JwtInterceptor } from './security/jwt.interceptor';
 import { ErrorInterceptor } from './security/error.interceptor';
+import { DictionariesProviderService } from './dictionaries-provider.service';
 
 @NgModule({
     imports: [],
@@ -20,6 +21,7 @@ import { ErrorInterceptor } from './security/error.interceptor';
         MonumentsClient,
         PicturesClient,
         RecoveryClient,
+        DictionariesProviderService,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: API_BASE_URL, useValue: "https://localhost:5001" }

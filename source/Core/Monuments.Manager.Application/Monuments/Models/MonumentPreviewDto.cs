@@ -6,8 +6,7 @@ namespace Monuments.Manager.Application.Monuments.Models
     public class MonumentPreviewDto
     {
         public int Id { get; set; }
-
-        public int OwnerId { get; set; }
+        
         public string OwnerName { get; set; }
 
         public string Name { get; set; }

@@ -1,6 +1,9 @@
 <div class="monuments-details-form-container">
   <form #containerForm="ngForm" class="form-container">
     <div class="row">
+      <div class="col-sm-12">
+        <mat-label>Basics</mat-label>
+      </div>
       <div class="col-sm-6">
         <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
@@ -25,6 +28,65 @@
           <textarea id="formOfProtection" #formOfProtection="ngModel" type="text" name="formOfProtection" placeholder="Form of protetion"
             [(ngModel)]="monument.formOfProtection" matInput required></textarea>
           <mat-error *ngIf="formOfProtection.invalid || formOfProtection.pristine">Form of protection is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <mat-label>Address</mat-label>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Province</mat-label>
+          <input id="province" #province="ngModel" type="text" name="province" placeholder="Province" [(ngModel)]="monument.address.province"
+            matInput required>
+          <mat-error *ngIf="province.invalid || province.pristine">Province is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>District</mat-label>
+          <input id="district" #district="ngModel" type="text" name="district" placeholder="District" [(ngModel)]="monument.address.district"
+            matInput required>
+          <mat-error *ngIf="district.invalid || district.pristine">District is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Commune</mat-label>
+          <input id="commune" #commune="ngModel" type="text" name="commune" placeholder="Commune" [(ngModel)]="monument.address.commune"
+            matInput required>
+          <mat-error *ngIf="commune.invalid || commune.pristine">Commune is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input id="city" #city="ngModel" type="text" name="city" placeholder="City" [(ngModel)]="monument.address.city"
+            matInput required>
+          <mat-error *ngIf="city.invalid || city.pristine">City is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-8">
+        <mat-form-field appearance="fill">
+          <mat-label>Street</mat-label>
+          <input id="street" #street="ngModel" type="text" name="street" placeholder="Street" [(ngModel)]="monument.address.street"
+            matInput required>
+          <mat-error *ngIf="street.invalid || street.pristine">Street is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <mat-form-field appearance="fill">
+          <mat-label>Street number</mat-label>
+          <input id="streetNumber" #streetNumber="ngModel" type="text" name="streetNumber" placeholder="Street number"
+            [(ngModel)]="monument.address.streetNumber" matInput required>
+          <mat-error *ngIf="streetNumber.invalid || streetNumber.pristine">Street number is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <mat-form-field appearance="fill">
+          <mat-label>Area</mat-label>
+          <textarea id="area" #area="ngModel" type="text" name="area" placeholder="Area" [(ngModel)]="monument.address.area"
+            matInput required></textarea>
+          <mat-error *ngIf="area.invalid || area.pristine">Area number is required</mat-error>
         </mat-form-field>
       </div>
     </div>

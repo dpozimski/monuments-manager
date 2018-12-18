@@ -1552,7 +1552,6 @@ export interface IGetMonumentsStatsQueryResult {
 
 export class MonumentDto implements IMonumentDto {
     id?: number;
-    ownerId?: number;
     ownerName?: string | undefined;
     name?: string | undefined;
     constructionDate?: Date;
@@ -1573,7 +1572,6 @@ export class MonumentDto implements IMonumentDto {
     init(data?: any) {
         if (data) {
             this.id = data["id"];
-            this.ownerId = data["ownerId"];
             this.ownerName = data["ownerName"];
             this.name = data["name"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
@@ -1598,7 +1596,6 @@ export class MonumentDto implements IMonumentDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["ownerId"] = this.ownerId;
         data["ownerName"] = this.ownerName;
         data["name"] = this.name;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
@@ -1616,7 +1613,6 @@ export class MonumentDto implements IMonumentDto {
 
 export interface IMonumentDto {
     id?: number;
-    ownerId?: number;
     ownerName?: string | undefined;
     name?: string | undefined;
     constructionDate?: Date;
@@ -1680,7 +1676,6 @@ export interface IPictureDto {
 
 export class MonumentPreviewDto implements IMonumentPreviewDto {
     id?: number;
-    ownerId?: number;
     ownerName?: string | undefined;
     name?: string | undefined;
     constructionDate?: Date;
@@ -1701,7 +1696,6 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
     init(data?: any) {
         if (data) {
             this.id = data["id"];
-            this.ownerId = data["ownerId"];
             this.ownerName = data["ownerName"];
             this.name = data["name"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
@@ -1722,7 +1716,6 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["ownerId"] = this.ownerId;
         data["ownerName"] = this.ownerName;
         data["name"] = this.name;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
@@ -1736,7 +1729,6 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
 
 export interface IMonumentPreviewDto {
     id?: number;
-    ownerId?: number;
     ownerName?: string | undefined;
     name?: string | undefined;
     constructionDate?: Date;

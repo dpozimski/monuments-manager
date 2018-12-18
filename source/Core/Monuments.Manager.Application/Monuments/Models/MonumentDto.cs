@@ -7,8 +7,7 @@ namespace Monuments.Manager.Application.Monuments.Models
     public class MonumentDto
     {
         public int Id { get; set; }
-
-        public int OwnerId { get; set; }
+        
         public string OwnerName { get; set; }
 
         public string Name { get; set; }

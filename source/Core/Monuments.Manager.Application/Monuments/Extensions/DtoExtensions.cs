@@ -31,10 +31,11 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Id = monumentEntity.Id,
                 ConstructionDate = monumentEntity.ConstructionDate,
                 Name = monumentEntity.Name,
-                OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
                 Picture = pictureEntity.ToDto(true),
-                Address = monumentEntity.Address.ToDto()
+                Address = monumentEntity.Address.ToDto(),
+                ModifiedDate = monumentEntity.ModifiedDate,
+                ModifiedBy = monumentEntity.ModifiedBy
             };
         }
 
@@ -45,10 +46,11 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Id = monumentEntity.Id,
                 ConstructionDate = monumentEntity.ConstructionDate,
                 Name = monumentEntity.Name,
-                OwnerId = monumentEntity.UserId,
                 OwnerName = monumentEntity.User.Email,
                 Pictures = pictureEntities.Select(s => s.ToDto()).ToList(),
-                Address = monumentEntity.Address.ToDto()
+                Address = monumentEntity.Address.ToDto(),
+                ModifiedBy = monumentEntity.User.ModifiedBy,
+                ModifiedDate = monumentEntity.User.ModifiedDate
             };
         }
     }
