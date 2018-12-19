@@ -22,7 +22,7 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpPut]
-        public async Task<int> CreateAsync(CreateMonumentCommand command)
+        public async Task<MonumentPreviewDto> CreateAsync(CreateMonumentCommand command)
         {
             return await Mediator.Send(command);
         }

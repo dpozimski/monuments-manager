@@ -14,7 +14,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IMonumentsClient {
-    create(command: CreateMonumentCommand): Observable<number>;
+    create(command: CreateMonumentCommand): Observable<MonumentPreviewDto | null>;
     get(monumentId: number): Observable<MonumentDto | null>;
     update(command: UpdateMonumentCommand): Observable<void>;
     delete(monumentId: number): Observable<void>;
@@ -33,7 +33,7 @@ export class MonumentsClient implements IMonumentsClient {
         this.baseUrl = baseUrl ? baseUrl : "";
     }
 
-    create(command: CreateMonumentCommand): Observable<number> {
+    create(command: CreateMonumentCommand): Observable<MonumentPreviewDto | null> {
         let url_ = this.baseUrl + "/api/Monuments";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -56,14 +56,14 @@ export class MonumentsClient implements IMonumentsClient {
                 try {
                     return this.processCreate(<any>response_);
                 } catch (e) {
-                    return <Observable<number>><any>_observableThrow(e);
+                    return <Observable<MonumentPreviewDto | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<number>><any>_observableThrow(response_);
+                return <Observable<MonumentPreviewDto | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processCreate(response: HttpResponseBase): Observable<number> {
+    protected processCreate(response: HttpResponseBase): Observable<MonumentPreviewDto | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -74,7 +74,7 @@ export class MonumentsClient implements IMonumentsClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            result200 = resultData200 ? MonumentPreviewDto.fromJS(resultData200) : <any>null;
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -82,7 +82,7 @@ export class MonumentsClient implements IMonumentsClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<number>(<any>null);
+        return _observableOf<MonumentPreviewDto | null>(<any>null);
     }
 
     get(monumentId: number): Observable<MonumentDto | null> {
@@ -1060,13 +1060,17 @@ export class UsersClient implements IUsersClient {
     }
 }
 
-export class CreateMonumentCommand implements ICreateMonumentCommand {
+export class MonumentPreviewDto implements IMonumentPreviewDto {
+    id?: number;
+    ownerName?: string | undefined;
     name?: string | undefined;
-    formOfProtection?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
+    picture?: PictureDto | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
 
-    constructor(data?: ICreateMonumentCommand) {
+    constructor(data?: IMonumentPreviewDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -1077,35 +1081,47 @@ export class CreateMonumentCommand implements ICreateMonumentCommand {
 
     init(data?: any) {
         if (data) {
+            this.id = data["id"];
+            this.ownerName = data["ownerName"];
             this.name = data["name"];
-            this.formOfProtection = data["formOfProtection"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
+            this.picture = data["picture"] ? PictureDto.fromJS(data["picture"]) : <any>undefined;
+            this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
+            this.modifiedBy = data["modifiedBy"];
         }
     }
 
-    static fromJS(data: any): CreateMonumentCommand {
+    static fromJS(data: any): MonumentPreviewDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CreateMonumentCommand();
+        let result = new MonumentPreviewDto();
         result.init(data);
         return result;
     }
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["ownerName"] = this.ownerName;
         data["name"] = this.name;
-        data["formOfProtection"] = this.formOfProtection;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
+        data["picture"] = this.picture ? this.picture.toJSON() : <any>undefined;
+        data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
+        data["modifiedBy"] = this.modifiedBy;
         return data; 
     }
 }
 
-export interface ICreateMonumentCommand {
+export interface IMonumentPreviewDto {
+    id?: number;
+    ownerName?: string | undefined;
     name?: string | undefined;
-    formOfProtection?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
+    picture?: PictureDto | undefined;
+    modifiedDate?: Date | undefined;
+    modifiedBy?: string | undefined;
 }
 
 export class AddressDto implements IAddressDto {
@@ -1166,6 +1182,106 @@ export interface IAddressDto {
     street?: string | undefined;
     streetNumber?: string | undefined;
     area?: string | undefined;
+}
+
+export class PictureDto implements IPictureDto {
+    id?: number;
+    small?: string | undefined;
+    medium?: string | undefined;
+    original?: string | undefined;
+    description?: string | undefined;
+
+    constructor(data?: IPictureDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.id = data["id"];
+            this.small = data["small"];
+            this.medium = data["medium"];
+            this.original = data["original"];
+            this.description = data["description"];
+        }
+    }
+
+    static fromJS(data: any): PictureDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PictureDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["small"] = this.small;
+        data["medium"] = this.medium;
+        data["original"] = this.original;
+        data["description"] = this.description;
+        return data; 
+    }
+}
+
+export interface IPictureDto {
+    id?: number;
+    small?: string | undefined;
+    medium?: string | undefined;
+    original?: string | undefined;
+    description?: string | undefined;
+}
+
+export class CreateMonumentCommand implements ICreateMonumentCommand {
+    name?: string | undefined;
+    formOfProtection?: string | undefined;
+    constructionDate?: Date;
+    address?: AddressDto | undefined;
+
+    constructor(data?: ICreateMonumentCommand) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.formOfProtection = data["formOfProtection"];
+            this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
+            this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): CreateMonumentCommand {
+        data = typeof data === 'object' ? data : {};
+        let result = new CreateMonumentCommand();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["formOfProtection"] = this.formOfProtection;
+        data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
+        data["address"] = this.address ? this.address.toJSON() : <any>undefined;
+        return data; 
+    }
+}
+
+export interface ICreateMonumentCommand {
+    name?: string | undefined;
+    formOfProtection?: string | undefined;
+    constructionDate?: Date;
+    address?: AddressDto | undefined;
 }
 
 export class GetMonumentsStatsQueryResult implements IGetMonumentsStatsQueryResult {
@@ -1276,122 +1392,6 @@ export interface IMonumentDto {
     address?: AddressDto | undefined;
     formOfProtection?: string | undefined;
     pictures?: PictureDto[] | undefined;
-    modifiedDate?: Date | undefined;
-    modifiedBy?: string | undefined;
-}
-
-export class PictureDto implements IPictureDto {
-    id?: number;
-    small?: string | undefined;
-    medium?: string | undefined;
-    original?: string | undefined;
-    description?: string | undefined;
-
-    constructor(data?: IPictureDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.id = data["id"];
-            this.small = data["small"];
-            this.medium = data["medium"];
-            this.original = data["original"];
-            this.description = data["description"];
-        }
-    }
-
-    static fromJS(data: any): PictureDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new PictureDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["small"] = this.small;
-        data["medium"] = this.medium;
-        data["original"] = this.original;
-        data["description"] = this.description;
-        return data; 
-    }
-}
-
-export interface IPictureDto {
-    id?: number;
-    small?: string | undefined;
-    medium?: string | undefined;
-    original?: string | undefined;
-    description?: string | undefined;
-}
-
-export class MonumentPreviewDto implements IMonumentPreviewDto {
-    id?: number;
-    ownerName?: string | undefined;
-    name?: string | undefined;
-    constructionDate?: Date;
-    address?: AddressDto | undefined;
-    picture?: PictureDto | undefined;
-    modifiedDate?: Date | undefined;
-    modifiedBy?: string | undefined;
-
-    constructor(data?: IMonumentPreviewDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.id = data["id"];
-            this.ownerName = data["ownerName"];
-            this.name = data["name"];
-            this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
-            this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
-            this.picture = data["picture"] ? PictureDto.fromJS(data["picture"]) : <any>undefined;
-            this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
-            this.modifiedBy = data["modifiedBy"];
-        }
-    }
-
-    static fromJS(data: any): MonumentPreviewDto {
-        data = typeof data === 'object' ? data : {};
-        let result = new MonumentPreviewDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["ownerName"] = this.ownerName;
-        data["name"] = this.name;
-        data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
-        data["address"] = this.address ? this.address.toJSON() : <any>undefined;
-        data["picture"] = this.picture ? this.picture.toJSON() : <any>undefined;
-        data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
-        data["modifiedBy"] = this.modifiedBy;
-        return data; 
-    }
-}
-
-export interface IMonumentPreviewDto {
-    id?: number;
-    ownerName?: string | undefined;
-    name?: string | undefined;
-    constructionDate?: Date;
-    address?: AddressDto | undefined;
-    picture?: PictureDto | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
 }

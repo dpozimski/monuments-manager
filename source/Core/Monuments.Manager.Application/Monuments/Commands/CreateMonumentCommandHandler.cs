@@ -1,18 +1,15 @@
 ﻿using MediatR;
-using Monuments.Manager.Application.Infrastructure;
+using Monuments.Manager.Application.Monuments.Extensions;
+using Monuments.Manager.Application.Monuments.Models;
 using Monuments.Manager.Common;
 using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Monuments.Manager.Application.Monuments.Commands
 {
-    public class CreateMonumentCommandHandler : IRequestHandler<CreateMonumentCommand, int>
+    public class CreateMonumentCommandHandler : IRequestHandler<CreateMonumentCommand, MonumentPreviewDto>
     {
         private readonly MonumentsDbContext _dbContext;
         private readonly IApplicationContext _context;
@@ -24,7 +21,7 @@ namespace Monuments.Manager.Application.Monuments.Commands
             _context = context;
         }
 
-        public async Task<int> Handle(CreateMonumentCommand request, CancellationToken cancellationToken)
+        public async Task<MonumentPreviewDto> Handle(CreateMonumentCommand request, CancellationToken cancellationToken)
         {
             var monumentEntity = new MonumentEntity()
             {
@@ -48,7 +45,7 @@ namespace Monuments.Manager.Application.Monuments.Commands
 
             await _dbContext.SaveChangesAsync();
 
-            return result.Entity.Id;
+            return result.Entity.ToPreviewDto(new PictureEntity());
         }
     }
 }

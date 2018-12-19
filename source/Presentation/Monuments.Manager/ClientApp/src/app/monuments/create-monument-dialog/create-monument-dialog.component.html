@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" [disabled]="submitted || files.length === 0" (click)="upload()">Upload</button>
-      <button type="button" class="btn btn-default" [disabled]="submitted" (click)="close()">Cancel</button>
+      <button type="button" class="btn btn-primary" [disabled]="submitted" (click)="confirm()">Confirm</button>
+      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
     </div>
   </div>
 </div>
