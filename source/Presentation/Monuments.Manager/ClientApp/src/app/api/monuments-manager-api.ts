@@ -1210,6 +1210,7 @@ export class MonumentDto implements IMonumentDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
+    formOfProtection?: string | undefined;
     pictures?: PictureDto[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;
@@ -1230,6 +1231,7 @@ export class MonumentDto implements IMonumentDto {
             this.name = data["name"];
             this.constructionDate = data["constructionDate"] ? new Date(data["constructionDate"].toString()) : <any>undefined;
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
+            this.formOfProtection = data["formOfProtection"];
             if (data["pictures"] && data["pictures"].constructor === Array) {
                 this.pictures = [];
                 for (let item of data["pictures"])
@@ -1254,6 +1256,7 @@ export class MonumentDto implements IMonumentDto {
         data["name"] = this.name;
         data["constructionDate"] = this.constructionDate ? this.constructionDate.toISOString() : <any>undefined;
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
+        data["formOfProtection"] = this.formOfProtection;
         if (this.pictures && this.pictures.constructor === Array) {
             data["pictures"] = [];
             for (let item of this.pictures)
@@ -1271,6 +1274,7 @@ export interface IMonumentDto {
     name?: string | undefined;
     constructionDate?: Date;
     address?: AddressDto | undefined;
+    formOfProtection?: string | undefined;
     pictures?: PictureDto[] | undefined;
     modifiedDate?: Date | undefined;
     modifiedBy?: string | undefined;

@@ -50,7 +50,8 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Pictures = pictureEntities.Select(s => s.ToDto()).ToList(),
                 Address = monumentEntity.Address.ToDto(),
                 ModifiedBy = monumentEntity.User.ModifiedBy,
-                ModifiedDate = monumentEntity.User.ModifiedDate
+                ModifiedDate = monumentEntity.User.ModifiedDate,
+                FormOfProtection = monumentEntity.FormOfProtection
             };
         }
     }

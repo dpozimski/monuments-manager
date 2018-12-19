@@ -13,6 +13,7 @@ namespace Monuments.Manager.Application.Monuments.Models
         public string Name { get; set; }
         public DateTime ConstructionDate { get; set; }
         public AddressDto Address { get; set; }
+        public string FormOfProtection { get; set; }
 
         public ICollection<PictureDto> Pictures { get; set; }
 
