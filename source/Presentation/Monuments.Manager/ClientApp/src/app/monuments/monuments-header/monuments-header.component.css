@@ -15,7 +15,13 @@
 }
 
 .search-bar {
+    padding-left: 25px;
     padding-right: 25px;
     bottom: 15px;
     max-width: 400px;
+}
+
+.add-button {
+    bottom: 15px;
+    max-width: 100px;
 }

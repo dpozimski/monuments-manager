@@ -1,0 +1,19 @@
+`<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()">&times;</button>
+      <h4 class="modal-title">Create monument</h4>
+    </div>
+    <div class="modal-body">
+      <p>Monument fields</p>
+      <app-monument-detail-form [monument]="monument"></app-monument-detail-form>
+      <div [hidden]="!serverRejectedCommand" class="alert alert-danger">
+        {{serverErrorMessage}}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" [disabled]="submitted || files.length === 0" (click)="upload()">Upload</button>
+      <button type="button" class="btn btn-default" [disabled]="submitted" (click)="close()">Cancel</button>
+    </div>
+  </div>
+</div>

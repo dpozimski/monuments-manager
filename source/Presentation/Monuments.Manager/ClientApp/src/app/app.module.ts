@@ -70,6 +70,7 @@ import { MonumentsListDetailComponent } from './monuments/monuments-list-detail/
 import { MonumentsPicturesGalleryComponent } from './monuments/monuments-pictures-gallery/monuments-pictures-gallery.component';
 import { MonumentsDetailFormComponent } from './monuments/monuments-detail-form/monuments-detail-form.component';
 import { CreatePictureDialogComponent } from './monuments/create-picture-dialog/create-picture-dialog.component';
+import { CreateMonumentDialogComponent } from './monuments/create-monument-dialog/create-monument-dialog.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { CreatePictureDialogComponent } from './monuments/create-picture-dialog/
     MonumentsListDetailComponent,
     MonumentsPicturesGalleryComponent,
     MonumentsDetailFormComponent,
-    CreatePictureDialogComponent
+    CreatePictureDialogComponent,
+    CreateMonumentDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -161,7 +163,8 @@ import { CreatePictureDialogComponent } from './monuments/create-picture-dialog/
     PromoteUserDialogComponent,
     UserConfirmationDialogComponent,
     EditUserDialogComponent,
-    CreatePictureDialogComponent
+    CreatePictureDialogComponent,
+    CreateMonumentDialogComponent
   ],
   bootstrap: [AppComponent]
 })

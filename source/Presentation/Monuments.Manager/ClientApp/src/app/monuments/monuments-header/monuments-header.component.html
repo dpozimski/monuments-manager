@@ -3,6 +3,9 @@
     <span class='glyphicon glyphicon-user'></span> Monuments manager
   </span>
   <div class="fill"></div>
+  <button mat-button class="add-button">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
   <mat-form-field class='search-bar' appearance="fill">
     <mat-label>Search monuments</mat-label>
     <input matInput placeholder="Filter..." [(ngModel)]="filterPhrase" (input)="filterPhraseChanged()">
