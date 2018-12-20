@@ -48,5 +48,5 @@
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[10, 20, 30]" [length]="monumentsDataSource.monumentsPreviewCount" [pageSize]="10"
+<mat-paginator [pageSizeOptions]="[5, 10]" [length]="monumentsDataSource.monumentsPreviewCount"
   showFirstLastButtons></mat-paginator>

@@ -12,14 +12,14 @@ import { catchError, finalize } from 'rxjs/operators';
 export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto> {
   private monumentsSubject = new BehaviorSubject<MonumentPreviewDto[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
-  private monumentsCountSubject = new BehaviorSubject<number>(1);
+  private monumentsCountSubject = new BehaviorSubject<number>(42);
 
   loading = this.loadingSubject.asObservable();
-  monumentsPreviewCount = this.monumentsCountSubject.asObservable();
+  monumentsPreviewCount = 5;
 
   constructor(private monumentsClient: MonumentsClient) {
     this.monumentsClient.getMonumentsStats()
-        .subscribe(result => this.monumentsCountSubject.next(result.monumentsCount));
+        .subscribe(result => this.monumentsPreviewCount = result.monumentsCount);
   }
 
   addMonument(monumentPreview: MonumentPreviewDto) {
@@ -38,7 +38,9 @@ export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
-      .subscribe(monuments => this.monumentsSubject.next(monuments));
+      .subscribe(monuments => {
+        this.monumentsSubject.next(monuments);
+      });
   }
 
   connect(_: CollectionViewer): Observable<MonumentDto[]> {

@@ -34,7 +34,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
                             EF.Functions.Like(s.Address.Province, $"{request.Filter}%") ||
                             EF.Functions.Like(s.Address.Street, $"{request.Filter}%") ||
                             EF.Functions.Like(s.FormOfProtection, $"{request.Filter}%"))
-                .Skip(request.PageSize * (request.PageNumber - 1))
+                .Skip(request.PageSize * request.PageNumber)
                 .Take(request.PageSize);
 
             var orderedMonuments = request.DescSortOrder ?

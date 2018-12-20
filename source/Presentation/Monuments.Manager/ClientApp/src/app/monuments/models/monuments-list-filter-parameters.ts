@@ -1,6 +1,6 @@
 export class MonumentsListFilterParameters {
     descSortOrder: boolean = false;
-    pageNumber: number = 1;
-    pageSize: number = 10;
+    pageNumber: number = 0;
+    pageSize: number = 5;
     filter: string;
 }
