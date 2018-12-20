@@ -582,12 +582,13 @@ input.mat-input-element {
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%
+    width: 100%;
+    z-index: 10000;
 }
 
 .cdk-overlay-container {
     position: fixed;
-    z-index: 1000
+    z-index: 10000
 }
 
 .cdk-overlay-container:empty {

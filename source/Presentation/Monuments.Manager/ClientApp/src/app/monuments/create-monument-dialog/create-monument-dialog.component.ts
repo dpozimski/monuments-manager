@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class CreateMonumentDialogComponent extends DialogComponent<CreateMonumentDialogComponent, MonumentPreviewDto> implements OnInit {
-  readonly serverErrorMessage: 'Cannot add monument. Check your data';
+  readonly serverErrorMessage: string = 'Cannot add monument. Check your data';
   monument: MonumentDto;
   submitted: boolean;
   serverRejectedCommand: boolean;

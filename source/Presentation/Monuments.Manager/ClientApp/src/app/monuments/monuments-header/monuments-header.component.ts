@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { CreateMonumentDialogComponent } from '../create-monument-dialog/create-monument-dialog.component';
 
 @Component({
   selector: 'app-monuments-header',
@@ -15,10 +17,16 @@ export class MonumentsHeaderComponent {
 
   filterPhrase: string;
 
-  constructor(private monumentsService: MonumentsService) { }
+  constructor(private monumentsService: MonumentsService,
+              private dialogService: DialogService) { }
 
   createMonument() {
-    console.log(1);
+    this.dialogService.addDialog(CreateMonumentDialogComponent)
+        .subscribe(x => {
+          if(x) {
+            
+          }
+        })
   }
 
   filterPhraseChanged() {
