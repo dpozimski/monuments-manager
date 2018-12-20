@@ -16,7 +16,7 @@ export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 export interface IMonumentsClient {
     create(command: CreateMonumentCommand): Observable<MonumentPreviewDto | null>;
     get(monumentId: number): Observable<MonumentDto | null>;
-    update(command: UpdateMonumentCommand): Observable<void>;
+    update(command: UpdateMonumentCommand): Observable<MonumentPreviewDto | null>;
     delete(monumentId: number): Observable<void>;
     getMonumentsStats(): Observable<GetMonumentsStatsQueryResult | null>;
     getAll(descSortOrder: boolean, pageNumber: number, pageSize: number, filter: string | null): Observable<MonumentPreviewDto[] | null>;
@@ -137,7 +137,7 @@ export class MonumentsClient implements IMonumentsClient {
         return _observableOf<MonumentDto | null>(<any>null);
     }
 
-    update(command: UpdateMonumentCommand): Observable<void> {
+    update(command: UpdateMonumentCommand): Observable<MonumentPreviewDto | null> {
         let url_ = this.baseUrl + "/api/Monuments";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -149,6 +149,7 @@ export class MonumentsClient implements IMonumentsClient {
             responseType: "blob",
             headers: new HttpHeaders({
                 "Content-Type": "application/json", 
+                "Accept": "application/json"
             })
         };
 
@@ -159,14 +160,14 @@ export class MonumentsClient implements IMonumentsClient {
                 try {
                     return this.processUpdate(<any>response_);
                 } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
+                    return <Observable<MonumentPreviewDto | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<void>><any>_observableThrow(response_);
+                return <Observable<MonumentPreviewDto | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processUpdate(response: HttpResponseBase): Observable<void> {
+    protected processUpdate(response: HttpResponseBase): Observable<MonumentPreviewDto | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -175,14 +176,17 @@ export class MonumentsClient implements IMonumentsClient {
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? MonumentPreviewDto.fromJS(resultData200) : <any>null;
+            return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
+        return _observableOf<MonumentPreviewDto | null>(<any>null);
     }
 
     delete(monumentId: number): Observable<void> {

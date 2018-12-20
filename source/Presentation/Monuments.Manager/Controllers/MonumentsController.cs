@@ -46,9 +46,9 @@ namespace Monuments.Manager.Controllers
         }
 
         [HttpPost]
-        public async Task UpdateAsync(UpdateMonumentCommand command)
+        public async Task<MonumentPreviewDto> UpdateAsync(UpdateMonumentCommand command)
         {
-            await Mediator.Send(command);
+            return await Mediator.Send(command);
         }
 
         [HttpDelete]

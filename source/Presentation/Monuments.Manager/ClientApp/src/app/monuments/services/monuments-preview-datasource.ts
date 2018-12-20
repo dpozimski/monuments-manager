@@ -12,7 +12,6 @@ import { catchError, finalize } from 'rxjs/operators';
 export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto> {
   private monumentsSubject = new BehaviorSubject<MonumentPreviewDto[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
-  private monumentsCountSubject = new BehaviorSubject<number>(42);
 
   loading = this.loadingSubject.asObservable();
   monumentsPreviewCount = 5;
@@ -20,6 +19,17 @@ export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto
   constructor(private monumentsClient: MonumentsClient) {
     this.monumentsClient.getMonumentsStats()
         .subscribe(result => this.monumentsPreviewCount = result.monumentsCount);
+  }
+
+  updateMonument(result: MonumentPreviewDto) {
+    var updatedMonuments = this.monumentsSubject.value.filter(s => s.id != result.id);
+    updatedMonuments.push(result);
+    this.monumentsSubject.next(updatedMonuments);
+  }
+
+  deleteMonument(monumentId: number) {
+    var updatedMonuments = this.monumentsSubject.value.filter(s => s.id != monumentId);
+    this.monumentsSubject.next(updatedMonuments);
   }
 
   addMonument(monumentPreview: MonumentPreviewDto) {

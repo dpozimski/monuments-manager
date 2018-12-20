@@ -4,7 +4,14 @@
       <app-monuments-detail-form [monument]="monument"></app-monuments-detail-form>
     </div>
     <div class="col-sm-5">
-      <app-monuments-pictures-gallery [monument]="monument"></app-monuments-pictures-gallery>
+      <div class="row">
+        <div class="col-sm-12">
+          <app-monuments-detail-actions [monument]="monument"></app-monuments-detail-actions>
+        </div>
+        <div class="col-sm-12">
+            <app-monuments-pictures-gallery [monument]="monument"></app-monuments-pictures-gallery>
+        </div>
+      </div>
     </div>
   </div>
 </div>

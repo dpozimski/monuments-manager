@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Monuments.Manager.Application.Monuments.Commands
 {
-    public class UpdateMonumentCommand : IRequest
+    public class UpdateMonumentCommand : IRequest<MonumentPreviewDto>
     {
         public int MonumentId { get; set; }
         public string Name { get; set; }
