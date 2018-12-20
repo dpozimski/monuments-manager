@@ -17,6 +17,10 @@ export class MonumentsHeaderComponent {
 
   constructor(private monumentsService: MonumentsService) { }
 
+  createMonument() {
+    console.log(1);
+  }
+
   filterPhraseChanged() {
     clearInterval(this.interval);
     this.interval = setInterval(() => this.notifyFilterChanged(), 1000);

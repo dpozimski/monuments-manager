@@ -6,7 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-create-monument-dialog',
   templateUrl: './create-monument-dialog.component.html',
-  styleUrls: ['./create-monument-dialog.component.css']
+  styleUrls: [
+    './create-monument-dialog.component.css',
+    './../../styles/forms.css'
+  ]
 })
 export class CreateMonumentDialogComponent extends DialogComponent<CreateMonumentDialogComponent, MonumentPreviewDto> implements OnInit {
   readonly serverErrorMessage: 'Cannot add monument. Check your data';
