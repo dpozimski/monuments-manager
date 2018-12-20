@@ -6,13 +6,13 @@
     </div>
     <div class="modal-body">
       <p>Monument fields</p>
-      <app-monuments-detail-form [monument]="monument"></app-monuments-detail-form>
+      <app-monuments-detail-form #detailForm></app-monuments-detail-form>
       <div [hidden]="!serverRejectedCommand" class="alert alert-danger">
         {{serverErrorMessage}}
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" [disabled]="submitted" (click)="confirm()">Confirm</button>
+      <button type="button" class="btn btn-primary" [disabled]="submitted || !detailForm.containerForm.valid" (click)="confirm()">Confirm</button>
       <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
     </div>
   </div>

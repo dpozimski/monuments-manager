@@ -20,7 +20,7 @@ namespace Monuments.Manager.Application.Monuments.Queries
             _dbContext = dbContext;
         }
 
-        public Task<ICollection<MonumentPreviewDto>> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<MonumentPreviewDto>> Handle(GetMonumentsQuery request, CancellationToken cancellationToken)
         {
             var monuments = _dbContext.Monuments
                 .Include(s => s.User)
@@ -35,16 +35,16 @@ namespace Monuments.Manager.Application.Monuments.Queries
                             EF.Functions.Like(s.Address.Street, $"{request.Filter}%") ||
                             EF.Functions.Like(s.FormOfProtection, $"{request.Filter}%"))
                 .Skip(request.PageSize * (request.PageNumber - 1))
-                .Take(request.PageSize)
-                .OrderBy(s => s.Name)
-                .Select(s => s.ToPreviewDto(s.Pictures.FirstOrDefault()));
+                .Take(request.PageSize);
 
-            if (request.DescSortOrder)
-            {
-                monuments = monuments.OrderByDescending(s => s.Name);
-            }
+            var orderedMonuments = request.DescSortOrder ?
+                monuments.OrderByDescending(s => s.Name) : monuments.OrderBy(s => s.Name);
 
-            return Task.FromResult<ICollection<MonumentPreviewDto>>(monuments.ToList());
+            var result = await orderedMonuments
+                .Select(s => s.ToPreviewDto(s.Pictures.FirstOrDefault()))
+                .ToListAsync();
+
+            return result;
         }
     }
 }

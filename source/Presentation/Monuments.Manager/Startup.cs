@@ -57,8 +57,7 @@ namespace Monuments.Manager
             app.UseCors(s => s.AllowAnyHeader()
                      .AllowAnyMethod()
                      .AllowAnyOrigin()
-                     .AllowCredentials()
-                     .WithHeaders("Authorization"));
+                     .AllowCredentials());
             app.UseAuthentication();
             app.UseMvc(routes =>
             {

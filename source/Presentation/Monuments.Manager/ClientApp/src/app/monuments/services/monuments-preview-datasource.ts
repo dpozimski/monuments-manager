@@ -22,6 +22,12 @@ export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto
         .subscribe(result => this.monumentsCountSubject.next(result.monumentsCount));
   }
 
+  addMonument(monumentPreview: MonumentPreviewDto) {
+    var monuments = this.monumentsSubject.value;
+    monuments.push(monumentPreview);
+    this.monumentsSubject.next(monuments);
+  }
+
   loadMonuments(parameters: MonumentsListFilterParameters) {
     this.loadingSubject.next(true);
     this.monumentsClient.getAll(
@@ -36,7 +42,6 @@ export class MonumentsPreviewDataSource implements DataSource<MonumentPreviewDto
   }
 
   connect(_: CollectionViewer): Observable<MonumentDto[]> {
-    console.log("Connecting data source");
     return this.monumentsSubject.asObservable();
   }
 

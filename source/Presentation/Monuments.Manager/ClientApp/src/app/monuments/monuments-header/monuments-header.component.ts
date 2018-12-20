@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MonumentsService } from '../services/monuments.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { CreateMonumentDialogComponent } from '../create-monument-dialog/create-monument-dialog.component';
+import { MonumentsPreviewDataSource } from '../services/monuments-preview-datasource';
 
 @Component({
   selector: 'app-monuments-header',
@@ -18,13 +19,15 @@ export class MonumentsHeaderComponent {
   filterPhrase: string;
 
   constructor(private monumentsService: MonumentsService,
+              private monumentsPreviewDataSource: MonumentsPreviewDataSource,
               private dialogService: DialogService) { }
 
   createMonument() {
     this.dialogService.addDialog(CreateMonumentDialogComponent)
         .subscribe(x => {
           if(x) {
-            
+            x.picture = null;
+            this.monumentsPreviewDataSource.addMonument(x);
           }
         })
   }

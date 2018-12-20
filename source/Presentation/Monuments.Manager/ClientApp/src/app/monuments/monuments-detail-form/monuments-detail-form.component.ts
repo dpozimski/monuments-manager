@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, ViewChild } from '@angular/core';
 import { MonumentDto, AddressDto } from './../../api/monuments-manager-api';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-monuments-detail-form',
@@ -8,7 +9,10 @@ import { MonumentDto, AddressDto } from './../../api/monuments-manager-api';
 })
 export class MonumentsDetailFormComponent implements OnInit {
   @Input()
-  monument: MonumentDto;
+  public monument: MonumentDto;
+
+  @ViewChild('containerForm')
+  containerForm: Form;
 
   ngOnInit() {
     this.monument = new MonumentDto();
