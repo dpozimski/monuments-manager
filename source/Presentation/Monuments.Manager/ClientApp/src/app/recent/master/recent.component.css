@@ -1,0 +1,16 @@
+.component-container {
+    padding-right: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.header-container {
+    height: 10vh;
+    position: relative;
+}
+
+.cards-container {
+    margin-top: 3vh;
+    height: 82vh;
+    position: relative;
+}

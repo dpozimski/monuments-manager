@@ -49,7 +49,6 @@ import {
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
@@ -72,12 +71,14 @@ import { MonumentsDetailFormComponent } from './monuments/monuments-detail-form/
 import { CreatePictureDialogComponent } from './monuments/create-picture-dialog/create-picture-dialog.component';
 import { CreateMonumentDialogComponent } from './monuments/create-monument-dialog/create-monument-dialog.component';
 import { MonumentsDetailActionsComponent } from './monuments/monuments-detail-actions/monuments-detail-actions.component';
+import { RecentComponent } from './recent/master/recent.component';
+import { RecentHeaderComponent } from './recent/recent-header/recent-header.component';
+import { RecentCardsComponent } from './recent/recent-cards/recent-cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
@@ -98,7 +99,10 @@ import { MonumentsDetailActionsComponent } from './monuments/monuments-detail-ac
     MonumentsDetailFormComponent,
     CreatePictureDialogComponent,
     CreateMonumentDialogComponent,
-    MonumentsDetailActionsComponent
+    MonumentsDetailActionsComponent,
+    RecentComponent,
+    RecentHeaderComponent,
+    RecentCardsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -150,8 +154,8 @@ import { MonumentsDetailActionsComponent } from './monuments/monuments-detail-ac
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
-      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: '', redirectTo: '/recent', pathMatch: 'full', canActivate: [AuthGuard] },
+      { path: 'recent', component: RecentComponent, canActivate: [AuthGuard] },
       { path: 'monuments', component: MonumentsComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
