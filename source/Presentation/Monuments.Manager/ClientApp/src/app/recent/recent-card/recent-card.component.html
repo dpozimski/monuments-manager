@@ -4,7 +4,7 @@
     <mat-card-title>{{monument.name}}</mat-card-title>
     <mat-card-subtitle>{{monument.ownerName}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="getImageSource(element)" class="monument-image" alt="Monument primary photo">
+  <img mat-card-image [src]="getImageSource()" class="monument-image" alt="Monument primary photo">
   <mat-card-content>
     <p>
       The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -13,7 +13,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-button (click)="previewDialog()">DETAILS</button>
+    <button mat-button (click)="editDialog()">EDIT</button>
   </mat-card-actions>
 </mat-card>
