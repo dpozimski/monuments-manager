@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MonumentPreviewDto } from './../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-recent-cards',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recent-cards.component.css']
 })
 export class RecentCardsComponent implements OnInit {
+  @Input()
+  monuments: MonumentPreviewDto[];
 
   constructor() { }
 

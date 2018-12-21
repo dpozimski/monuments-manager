@@ -74,6 +74,7 @@ import { MonumentsDetailActionsComponent } from './monuments/monuments-detail-ac
 import { RecentComponent } from './recent/master/recent.component';
 import { RecentHeaderComponent } from './recent/recent-header/recent-header.component';
 import { RecentCardsComponent } from './recent/recent-cards/recent-cards.component';
+import { RecentCardComponent } from './recent/recent-card/recent-card.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { RecentCardsComponent } from './recent/recent-cards/recent-cards.compone
     MonumentsDetailActionsComponent,
     RecentComponent,
     RecentHeaderComponent,
-    RecentCardsComponent
+    RecentCardsComponent,
+    RecentCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

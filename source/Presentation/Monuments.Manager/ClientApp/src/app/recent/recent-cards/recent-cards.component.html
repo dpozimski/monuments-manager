@@ -1,3 +1,7 @@
-<p>
-  recent-cards works!
-</p>
+<div class="row">
+  <div *ngFor="let monument of monuments">
+    <div class="col-sm-4">
+        <app-recent-card [monument]="monument"></app-recent-card>
+    </div>
+  </div>
+</div>

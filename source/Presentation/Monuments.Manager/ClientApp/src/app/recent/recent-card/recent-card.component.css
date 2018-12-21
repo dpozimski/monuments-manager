@@ -1,0 +1,13 @@
+.recent-card-container {
+    max-width: 400px;
+}
+
+.header-image {
+    background-image: url('./../../../assets/watermark-loading-page.png');
+    background-size: cover;
+}
+
+.monument-image {
+    max-width: 150px;
+    max-height: 150px;
+}
