@@ -11,6 +11,6 @@
 
 .cards-container {
     margin-top: 3vh;
-    height: 82vh;
     position: relative;
+    padding-bottom: 20px;
 }

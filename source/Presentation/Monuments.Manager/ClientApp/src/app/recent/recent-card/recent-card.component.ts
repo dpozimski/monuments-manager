@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MonumentPreviewDto } from './../../api/monuments-manager-api';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { ToastrService } from 'ngx-toastr';
+import { RecentCardDetailsDialogComponent } from '../recent-card-details-dialog/recent-card-details-dialog.component';
 
 @Component({
   selector: 'app-recent-card',
@@ -12,8 +12,7 @@ export class RecentCardComponent implements OnInit {
   @Input()
   monument: MonumentPreviewDto;
 
-  constructor(private dialogService: DialogService,
-              private toastrService: ToastrService) { }
+  constructor(private dialogService: DialogService) { }
 
   ngOnInit() {
   }
@@ -27,10 +26,9 @@ export class RecentCardComponent implements OnInit {
   }
 
   previewDialog() {
-
-  }
-
-  editDialog() {
-
+    this.dialogService.addDialog(
+      RecentCardDetailsDialogComponent,
+      { monumentPreview: this.monument })
+      .subscribe();
   }
 }

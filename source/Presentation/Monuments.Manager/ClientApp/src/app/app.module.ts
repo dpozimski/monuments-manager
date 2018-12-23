@@ -75,6 +75,7 @@ import { RecentComponent } from './recent/master/recent.component';
 import { RecentHeaderComponent } from './recent/recent-header/recent-header.component';
 import { RecentCardsComponent } from './recent/recent-cards/recent-cards.component';
 import { RecentCardComponent } from './recent/recent-card/recent-card.component';
+import { RecentCardDetailsDialogComponent } from './recent/recent-card-details-dialog/recent-card-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { RecentCardComponent } from './recent/recent-card/recent-card.component'
     RecentComponent,
     RecentHeaderComponent,
     RecentCardsComponent,
-    RecentCardComponent
+    RecentCardComponent,
+    RecentCardDetailsDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -172,7 +174,8 @@ import { RecentCardComponent } from './recent/recent-card/recent-card.component'
     UserConfirmationDialogComponent,
     EditUserDialogComponent,
     CreatePictureDialogComponent,
-    CreateMonumentDialogComponent
+    CreateMonumentDialogComponent,
+    RecentCardDetailsDialogComponent
   ],
   bootstrap: [AppComponent]
 })
