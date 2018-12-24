@@ -6,11 +6,17 @@
   </mat-card-header>
   <img mat-card-image [src]="getImageSource()" class="monument-image" alt="Monument primary photo">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
+    <div class="row">
+      <div class="col-sm-6">
+        Name: {{monument.name}}
+      </div>
+      <div class="col-sm-6">
+        Construction date: {{monument.constructionDate | date:'yyyy-MM-dd'}}
+      </div>
+      <div class="col-sm-12">
+        {{monument.address.city}}, {{monument.address.street}} {{monument.address.streetNumber}}
+      </div>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="previewDialog()">DETAILS</button>

@@ -5,8 +5,7 @@
       <h4 class="modal-title">{{monumentPreview.name}}</h4>
     </div>
     <div class="modal-body">
-      <mat-spinner [hidden]="monument.id !== 0"></mat-spinner>
-      <app-monuments-detail-form [hidden]="monument.id === 0" [monument]="monument"></app-monuments-detail-form>
+      <app-monuments-detail-form [monument]="monument"></app-monuments-detail-form>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" (click)="close()">Close</button>

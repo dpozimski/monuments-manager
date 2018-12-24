@@ -45,7 +45,7 @@ namespace Monuments.Manager.Persistence
             _entityChangedUserContextHook.FillCreatedByUserContext(addedEntities);
 
             var changedEntities = ChangeTracker.Entries()
-                .Where(s => s.State == EntityState.Added)
+                .Where(s => s.State == EntityState.Modified)
                 .Select(s => s.Entity)
                 .OfType<BaseEntity>()
                 .ToList();

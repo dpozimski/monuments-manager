@@ -6,11 +6,15 @@ import { MonumentPreviewDto, MonumentsClient, MonumentDto, AddressDto } from './
 @Component({
   selector: 'app-recent-card-details-dialog',
   templateUrl: './recent-card-details-dialog.component.html',
-  styleUrls: ['./recent-card-details-dialog.component.css']
+  styleUrls: [
+    './recent-card-details-dialog.component.css',
+    './../../styles/forms.css'
+  ]
 })
 export class RecentCardDetailsDialogComponent extends DialogComponent<RecentCardDetailsDialogParameters, boolean> implements RecentCardDetailsDialogParameters {
   monumentPreview: MonumentPreviewDto;
   monument: MonumentDto;
+  dataReceived: boolean;
 
   constructor(dialogService: DialogService,
               private monumentsClient: MonumentsClient) { 
@@ -22,6 +26,9 @@ export class RecentCardDetailsDialogComponent extends DialogComponent<RecentCard
     this.monument.address = new AddressDto();
 
     this.monumentsClient.get(this.monumentPreview.id)
-        .subscribe(x => this.monument = x);
+        .subscribe(x => {
+          this.monument = x;
+          this.dataReceived = true;
+        });
   }
 }
