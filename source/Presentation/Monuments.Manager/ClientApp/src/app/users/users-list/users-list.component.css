@@ -1,0 +1,27 @@
+.mat-column-firstName {
+    width: 20%;
+}
+
+.mat-column-lastName {
+    width: 20%;
+}
+
+.mat-column-email {
+    width: 35%;
+}
+
+.mat-column-jobTitle {
+    width: 25%;
+}
+
+.mat-column-stats {
+    width: 10%;
+}
+
+.mat-column-edit {
+    width: 10%;
+}
+
+.mat-column-delete {
+    width: 10%;
+}
