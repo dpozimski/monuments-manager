@@ -2,12 +2,12 @@
   <mat-label>Actions</mat-label>
   <mat-grid-list cols="2" rowHeight="65px">
     <mat-grid-tile>
-      <button color="primary" (click)="updateMonument()" mat-raised-button class="action-button">
+      <button color="primary" [disabled]="!monument.id" (click)="updateMonument()" mat-raised-button class="action-button">
         <mat-icon matSuffix>update</mat-icon> Update
       </button>
     </mat-grid-tile>
     <mat-grid-tile>
-      <button color="primary" (click)="deleteMonument()" mat-raised-button class="action-button delete-button">
+      <button color="primary" [disabled]="!monument.id" (click)="deleteMonument()" mat-raised-button class="action-button delete-button">
         <mat-icon matSuffix>delete</mat-icon> Delete
       </button>
     </mat-grid-tile>
