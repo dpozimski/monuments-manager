@@ -10,8 +10,8 @@ namespace Monuments.Manager.Domain.Entities
         public virtual MonumentEntity Monument { get; set; }
 
         public string Small { get; set; }
-        public string Medium { get; set; }
-        public string Original { get; set; }
+        public virtual string Medium { get; set; }
+        public virtual string Original { get; set; }
 
         public string Description { get; set; }
     }

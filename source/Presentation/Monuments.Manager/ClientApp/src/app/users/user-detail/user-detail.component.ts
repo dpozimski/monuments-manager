@@ -13,22 +13,23 @@ export class UserDetailComponent implements OnInit {
   userStatistics: UserStatisticsResult = new UserStatisticsResult();
 
   constructor(private usersService: UsersService,
-              private usersClient: UsersClient,
-              private toastr: ToastrService) {
+    private usersClient: UsersClient,
+    private toastr: ToastrService) {
   }
 
   ngOnInit() {
     this.usersService.userStatsContextChanged
-        .subscribe({
-          next: (user: UserDto) => {
-              this.userContext = new UserDto();
-              this.userStatistics = new UserStatisticsResult();
-              this.usersClient.getUserStatistics(user.id)
-                  .subscribe(s => {
-                    this.userContext = user;
-                    this.userStatistics = s;
-                  },_ => this.toastr.error('Cannot get user statistics')); 
-          }
-      })
-  }
+      .subscribe(user => {
+        if(this.userContext.id === 0 || this.userContext.id === user.id) {
+          return;
+        }
+        this.userContext = new UserDto();
+        this.userStatistics = new UserStatisticsResult();
+        this.usersClient.getUserStatistics(user.id)
+          .subscribe(s => {
+            this.userContext = user;
+            this.userStatistics = s;
+          }, _ => this.toastr.error('Cannot get user statistics'));
+      });
+}
 }

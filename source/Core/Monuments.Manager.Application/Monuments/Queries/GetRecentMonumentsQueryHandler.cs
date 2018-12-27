@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Monuments.Manager.Application.Infrastructure;
 using Monuments.Manager.Application.Monuments.Extensions;
 using Monuments.Manager.Application.Monuments.Models;
+using Monuments.Manager.Domain.Entities;
 using Monuments.Manager.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,13 @@ namespace Monuments.Manager.Application.Monuments.Queries
                 .Include(s => s.Address)
                 .OrderByDescending(s => s.ModifiedDate)
                 .Take(request.RecentMonumentsCount)
-                .Select(s => s.ToPreviewDto(s.Pictures.FirstOrDefault()))
-                .ToListAsync(cancellationToken);
+                                .Select(s => s.ToPreviewDto(s.Pictures.Select(d => new PictureEntity()
+                                {
+                                    Id = d.Id,
+                                    Small = d.Small,
+                                    Description = d.Description
+                                }).FirstOrDefault()))
+                .ToListAsync();
 
             return result;
         }
