@@ -36,11 +36,6 @@
                         <span class='glyphicon glyphicon-log-out'></span> Logout
                     </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/settings"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-cog'></span> Settings
-                    </a>
-                </li>
             </ul>
             <ul class='nav navbar-nav' *ngIf='!isUserLoggedIn()'>
                 <li [routerLinkActive]='["link-active"]'>

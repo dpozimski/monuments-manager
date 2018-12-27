@@ -52,7 +52,6 @@ import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './api/security/auth.guard';
-import { SettingsComponent } from './settings/settings.component';
 import { RecoveryPasswordDialogComponent } from './recovery-password/recovery-password-dialog/recovery-password-dialog.component';
 import { RecoveryPasswordComponent } from './recovery-password/master/recovery-password.component';
 import { MonumentsComponent } from './monuments/master/monuments.component';
@@ -83,7 +82,6 @@ import { RecentCardDetailsDialogComponent } from './recent/recent-card-details-d
     NavMenuComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent,
     RecoveryPasswordDialogComponent,
     RecoveryPasswordComponent,
     MonumentsComponent,
@@ -162,7 +160,6 @@ import { RecentCardDetailsDialogComponent } from './recent/recent-card-details-d
       { path: 'recent', component: RecentComponent, canActivate: [AuthGuard] },
       { path: 'monuments', component: MonumentsComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
-      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'recovery-password', component: RecoveryPasswordComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
