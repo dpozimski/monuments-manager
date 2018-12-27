@@ -28,8 +28,8 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
     'name', 
     'constructionDate',
     'ownerName',
+    'createdDate',
     'modifiedDate',
-    'modifiedBy',
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

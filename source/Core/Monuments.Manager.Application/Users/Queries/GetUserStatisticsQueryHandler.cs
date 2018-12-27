@@ -30,12 +30,12 @@ namespace Monuments.Manager.Application.Users.Queries
             }
 
             var createdMonuments = await _dbContext.Monuments
-                .Where(s => s.CreatedBy == userEntity.Email)
+                .Where(s => s.UserId == userEntity.Id)
                 .CountAsync();
 
             var lastModifiedMonument = await _dbContext.Monuments
                 .OrderByDescending(s => s.ModifiedDate)
-                .FirstOrDefaultAsync(s => s.ModifiedBy == userEntity.Email);
+                .FirstOrDefaultAsync(s => s.ModifiedBy == userEntity.Id.ToString());
 
             return new UserStatisticsResult()
             {

@@ -1129,7 +1129,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
     address?: AddressDto | undefined;
     picture?: PictureDto | undefined;
     modifiedDate?: Date | undefined;
-    modifiedBy?: string | undefined;
+    createdDate?: Date | undefined;
 
     constructor(data?: IMonumentPreviewDto) {
         if (data) {
@@ -1149,7 +1149,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
             this.address = data["address"] ? AddressDto.fromJS(data["address"]) : <any>undefined;
             this.picture = data["picture"] ? PictureDto.fromJS(data["picture"]) : <any>undefined;
             this.modifiedDate = data["modifiedDate"] ? new Date(data["modifiedDate"].toString()) : <any>undefined;
-            this.modifiedBy = data["modifiedBy"];
+            this.createdDate = data["createdDate"] ? new Date(data["createdDate"].toString()) : <any>undefined;
         }
     }
 
@@ -1169,7 +1169,7 @@ export class MonumentPreviewDto implements IMonumentPreviewDto {
         data["address"] = this.address ? this.address.toJSON() : <any>undefined;
         data["picture"] = this.picture ? this.picture.toJSON() : <any>undefined;
         data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
-        data["modifiedBy"] = this.modifiedBy;
+        data["createdDate"] = this.createdDate ? this.createdDate.toISOString() : <any>undefined;
         return data; 
     }
 }
@@ -1182,7 +1182,7 @@ export interface IMonumentPreviewDto {
     address?: AddressDto | undefined;
     picture?: PictureDto | undefined;
     modifiedDate?: Date | undefined;
-    modifiedBy?: string | undefined;
+    createdDate?: Date | undefined;
 }
 
 export class AddressDto implements IAddressDto {

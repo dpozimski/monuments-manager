@@ -35,7 +35,7 @@ namespace Monuments.Manager.Application.Monuments.Extensions
                 Picture = pictureEntity.ToDto(true),
                 Address = monumentEntity.Address.ToDto(),
                 ModifiedDate = monumentEntity.ModifiedDate,
-                ModifiedBy = monumentEntity.ModifiedBy
+                CreatedDate = monumentEntity.CreatedDate
             };
         }
 
