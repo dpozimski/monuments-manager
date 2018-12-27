@@ -36,7 +36,7 @@ export class RecoveryPasswordComponent implements OnInit {
         this.model.recoveryKey = params["recoveryKey"];
 
         if(!this.model.recoveryKey) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/recent']);
         }
       });
   }
