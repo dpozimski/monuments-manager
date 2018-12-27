@@ -25,8 +25,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
         public async Task<PictureDto> Handle(CreatePictureCommand request, CancellationToken cancellationToken)
         {
             var monumentEntity = await _dbContext.Monuments
-                .Include(s => s.Pictures)
-                .FirstOrDefaultAsync(s => s.Id == request.MonumentId);
+                .FindAsync(request.MonumentId);
 
             if(monumentEntity is null)
             {
