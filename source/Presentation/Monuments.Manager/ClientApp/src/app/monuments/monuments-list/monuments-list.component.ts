@@ -42,7 +42,8 @@ export class MonumentsListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     var filter = this.monumentsService.listFilterParameters;
-    this.monumentsDataSource.loadMonuments(filter)
+    this.monumentsDataSource.loadMonuments(filter);
+    this.monumentsService.selectedMonumentPreviewChangedCommand(null);
   }
 
   ngAfterViewInit() {
