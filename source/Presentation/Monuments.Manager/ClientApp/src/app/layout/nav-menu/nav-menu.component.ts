@@ -19,7 +19,6 @@ export class NavMenuComponent {
   }
 
   isCurrentUserAdministrator(): boolean {
-    console.log(this.authenticationService.getAuthenticationData().user.role === UserRoleDto.Administrator);
     return this.authenticationService.getAuthenticationData().user.role === UserRoleDto.Administrator;
   }
 
