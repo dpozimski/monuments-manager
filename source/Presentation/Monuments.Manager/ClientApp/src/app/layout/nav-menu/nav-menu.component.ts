@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../api/authentication.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { Router } from '@angular/router';
 import { UserConfirmationDialogComponent } from '../user-confirmation-dialog/user-confirmation-dialog.component';
+import { UserRoleDto } from './../../api/monuments-manager-api';
 
 @Component({
   selector: 'app-nav-menu',
@@ -17,7 +18,12 @@ export class NavMenuComponent {
               private router: Router) {
   }
 
-  isUserLoggedIn(): Boolean {
+  isCurrentUserAdministrator(): boolean {
+    console.log(this.authenticationService.getAuthenticationData().user.role === UserRoleDto.Administrator);
+    return this.authenticationService.getAuthenticationData().user.role === UserRoleDto.Administrator;
+  }
+
+  isUserLoggedIn(): boolean {
     return this.authenticationService.getAuthenticationData() != null;
   }
 

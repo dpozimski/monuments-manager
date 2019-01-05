@@ -26,11 +26,15 @@
                         <span class='glyphicon glyphicon-folder-open'></span> Monuments
                     </a>
                 </li>
+            </ul>
+            <ul class='nav navbar-nav' *ngIf='isUserLoggedIn() && isCurrentUserAdministrator()'>
                 <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/users"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-user'></span> Users
                     </a>
                 </li>
+            </ul>
+            <ul class='nav navbar-nav' *ngIf='isUserLoggedIn()'>
                 <li>
                     <a class="link.active" (click)='logout();collapse()'>
                         <span class='glyphicon glyphicon-log-out'></span> Logout
