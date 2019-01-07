@@ -40,7 +40,7 @@ namespace Monuments.Manager.Application.Users.Commands
             entity.FirstName = request.FirstName;
             entity.LastName = request.LastName;
 
-            if (string.IsNullOrEmpty(request.Password))
+            if (!string.IsNullOrEmpty(request.Password))
             {
                 entity.Password = _passwordEncryptor.Encrypt(request.Password);
                 var userContext = await _dbContext.Users.FindAsync(_applicationContext.UserId);
