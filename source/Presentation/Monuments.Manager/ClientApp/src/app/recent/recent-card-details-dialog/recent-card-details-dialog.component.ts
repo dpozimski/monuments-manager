@@ -25,7 +25,7 @@ export class RecentCardDetailsDialogComponent extends DialogComponent<RecentCard
     this.monument = new MonumentDto();
     this.monument.address = new AddressDto();
 
-    this.monumentsClient.get(this.monumentPreview.id)
+    this.monumentsClient.getRecentDetails(this.monumentPreview.id)
         .subscribe(x => {
           this.monument = x;
           this.dataReceived = true;

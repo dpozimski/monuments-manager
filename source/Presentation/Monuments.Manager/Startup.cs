@@ -25,8 +25,10 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddInfrastructureServices(Configuration);
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.Converters.Add(new StringEnumConverter());
@@ -40,8 +42,6 @@ namespace Monuments.Manager
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
-            services.AddInfrastructureServices(Configuration);
             services.AddApplication(Configuration);
             services.AddDatabase(Configuration);
         }
@@ -49,11 +49,11 @@ namespace Monuments.Manager
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseResponseCompression();
             app.UseExceptionHandler(new ExceptionHandlerOptions
             {
                 ExceptionHandler = app.ApplicationServices.GetService<ExceptionHandlingMiddleware>().Invoke
             });
-
             app.UseCors(s => s.AllowAnyHeader()
                      .AllowAnyMethod()
                      .AllowAnyOrigin()
@@ -75,10 +75,6 @@ namespace Monuments.Manager
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
-            });
-            app.UseSwaggerUi3(settings =>
-            {
-                settings.SwaggerRoutes.Add(new SwaggerUi3Route("UI", "/api"));
             });
         }
     }

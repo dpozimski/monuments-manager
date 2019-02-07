@@ -39,6 +39,12 @@ namespace Monuments.Manager.Controllers
             return await Mediator.Send(query);
         }
 
+        [HttpGet("monuments/recent/details")]
+        public async Task<MonumentDto> GetRecentDetailsAsync([FromQuery]GetRecentMonumentDetailsQuery query)
+        {
+            return await Mediator.Send(query);
+        }
+
         [HttpGet("monuments/recent")]
         public async Task<ICollection<MonumentPreviewDto>> GetRecentAsync([FromQuery]GetRecentMonumentsQuery query)
         {

@@ -1,15 +1,12 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Monuments.Manager.Persistence;
+using Monuments.Manager.Infrastructure;
 
 namespace Monuments.Manager
 {
@@ -43,17 +40,12 @@ namespace Monuments.Manager
                         .UseContentRoot(Directory.GetCurrentDirectory())
                         .ConfigureAppConfiguration((hostingContext, config) =>
                         {
-                            var env = hostingContext.HostingEnvironment;
-                            config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                                  .AddJsonFile($"appsettings.Local.json", optional: true, reloadOnChange: true)
-                                  .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                            config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
                             config.AddEnvironmentVariables();
                         })
                         .ConfigureLogging((hostingContext, logging) =>
                         {
-                            logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                            logging.AddConsole();
-                            logging.AddDebug();
+                            logging.AddInfrastructureLogging(hostingContext);
                         })
                         .UseStartup<Startup>();
         }

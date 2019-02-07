@@ -21,12 +21,7 @@ namespace Monuments.Manager.Application.Pictures.Commands
 
         public async Task<Unit> Handle(DeletePictureCommand request, CancellationToken cancellationToken)
         {
-            var pictureEntity = await _dbContext.Pictures.FindAsync(request.PictureId);
-
-            if (pictureEntity is null)
-            {
-                throw new MonumentsManagerAppException(ExceptionType.EntityNotFound, $"Entity of type PictureEntity with id {request.PictureId} does not exists");
-            }
+            var pictureEntity = new PictureEntity() { Id = request.PictureId };
 
             _dbContext.Pictures.Remove(pictureEntity);
 
