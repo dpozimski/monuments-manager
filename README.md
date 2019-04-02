@@ -1,52 +1,33 @@
 # Description
 
-To do...
+The application is used to manage monuments in the specified area.
 
 # Features
 
-* Login form
+* Manage monuments
+* Limited access to the content 
+* View last edited monuments
+* View user statistics
+* Email notifications
 
-```text
+# Technology stack
 
-* login and password form
+* frontend
 
-```
+1. Angular 7 - SPA application
+2. ngx-gallery - Gallery component
+3. ngx-toast - Toast notifications
+4. ng-swagger-gen - Generate contract between backend
 
-* Workspace
+* backend
 
-```text
+1. ASPNET Core - application host
+2. MediatR - CQRS pattern connected with domain model
+3. Entity Framework - Data access layer
+4. Application Insights - telemetry
 
-Sidenav Top:
+# Try in action!
 
-* Current user (image username) (click to go to settings)
-
-Sidenav Middle:
-
-* Monuments
-
-    * Recent by default
-    * Filters
-    * Each monument can be modifeid, deleted, openned
-    * Button to create new entry
-
-* Dictionaries
-
-    * Combo box to select dictionary type (city, street etc...)
-    * Preview with pagination
-    * Import button
-    * Each dictionary can be modified, deleted
-
-* Users
-
-    * Preview
-    * Add user button
-    * Each user can be modified, deleted
-
-Sidenav Bottom:
-
-* Settings
-
-    * Auto login
-    * Edit current user
-
-```
+* Go to [Linsey.pl](https://linsey.pl)
+* Register new account
+* Feel free to do whatever you want!
