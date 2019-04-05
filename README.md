@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="200" height="200" src="https://github.com/dpozimski/monuments-manager/blob/master/Docs/logo.png?raw=true">
+</p>
+
 # Description
 
 The application is used to manage monuments in the specified area.
@@ -31,3 +35,29 @@ The application is used to manage monuments in the specified area.
 * Go to [Linsey.pl](https://linsey.pl)
 * Register new account
 * Feel free to do whatever you want!
+
+# Screenshots
+
+* Gallery component
+
+![Gallery](/Docs/gallery.png?raw=true)
+
+* Login component
+
+![Login](/Docs/login.png?raw=true)
+
+* Welcome mail message
+
+![Mail](/Docs/mail.png?raw=true)
+
+* Password recovery
+
+![Password recovery](/Docs/passwordrecovery.png?raw=true)
+
+* Monuments
+
+![Monuments](/Docs/monuments.png?raw=true)
+
+* Recent monuments
+
+![Monuments Preview](/Docs/recentmonuments.png?raw=true)
